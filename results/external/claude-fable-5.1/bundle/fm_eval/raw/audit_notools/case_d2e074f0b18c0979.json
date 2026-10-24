@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract source_id (src_fd1a6ee4670ed6dc) and version (1) match the retained source, but the cited SHA-256 digest (a4895c42...) cannot be verified against the retained UTF-8 bytes without computation; no mismatch is observed, so lineage is neither established nor contradicted.",
+      "evidence": ["citations.contract[0]", "src_fd1a6ee4670ed6dc"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single cited contract states penalty-free termination is available once 18 months have elapsed, which matches the asserted value of 18; the 48-month framework duration is a different quantity and does not conflict with the minimum commitment. No conflicting authoritative document is present.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers exactly the 2026-01-01/2026-01-31 window and reports 1200 eligible and 25 disputed transactions, giving the fraction 25/1200, identical to the asserted fraction.",
+      "evidence": ["src_97938c8628002d54", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (nonnegative integers, eligible 1200 > 0, disputed 25 <= 1200) and the recorded policy matches toy-v1 (1/50, 6 months). Dispute predicate: 50*25 = 1250 >= 1200 is true; commitment predicate: 18 < 6 is false. Both match the recorded trace, and OR of the predicates yields manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override (from manual_review to manual_review with a reviewer confirmation reason). Under the definition, an explicit override, even one preserving the outcome, contradicts attribution of the final action to the policy without intervention, regardless of the complete action history and matching output.",
+      "evidence": ["record.override", "record.override.from", "record.override.to", "record.override.reason", "record.final_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [18], which is non-empty and a valid nonnegative integer. With disputed 25 and eligible 1200 fixed, the dispute predicate is true (1250 >= 1200), so the recommendation is manual_review for the candidate (18 < 6 is false either way); every declared candidate yields the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs, 50*25 = 1250 >= 1200, so the dispute predicate is true; because toy-v1 recommends manual_review when either predicate holds (OR), the dispute predicate alone suffices for manual_review independent of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no SHA-256 computation was attempted, so contract lineage is left unresolved. Only the task file was read and only the output file was written."
+  }
+}

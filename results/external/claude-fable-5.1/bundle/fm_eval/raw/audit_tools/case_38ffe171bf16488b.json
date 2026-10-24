@@ -1,0 +1,61 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Both cited contracts are retained with version 1 and their UTF-8 SHA-256 digests, computed from the exact retained text, equal the cited digests (src_38f5895537b77de7 -> 6a9da92c...ec41; src_a92c0915f81a567d -> 3d1d0781...2f46). No missing or ambiguous artifacts.",
+      "evidence": ["citations.contract", "src_38f5895537b77de7", "src_a92c0915f81a567d"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Two valid cited contracts conflict: src_38f5895537b77de7 states minimum penalty-free cancellation time of 3 months, while src_a92c0915f81a567d states the merchant may terminate without penalty only after 9 months. No precedence rule is supplied, so the asserted value 3 is neither unambiguously supported nor uniquely contradicted.",
+      "evidence": ["src_38f5895537b77de7", "src_a92c0915f81a567d", "citations.contract", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source src_944f6a96d87a63a8 has matching digest 8c11d472...5ff8 and version 1, covers observation window 2026-01-01/2026-01-31, and reports 1500 eligible and 25 disputed transactions, giving fraction 25/1500 exactly as asserted.",
+      "evidence": ["src_944f6a96d87a63a8", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 6 months and 1/50. Inputs are valid (3, 25, 1500). Replay: commitment 3 < 6 is true; 50*25 = 1250 >= 1500 is false. Recorded trace (commitment_trigger true, dispute_trigger false), rule_output manual_review and asserted manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace and rule_output faithfully match toy-v1 replay (manual_review), and final_output manual_review equals both the rule output and the asserted value, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Declared candidates are [3, 9]. Holding disputed=25 and eligible=1500 fixed, the dispute predicate is false (1250 < 1500), so the recommendation depends on the commitment predicate: 3 < 6 gives manual_review but 9 < 6 is false, giving standard_processing. The candidates do not yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is false: 50*25 = 1250 is not >= 1500, and the recorded trace also shows dispute_trigger false. The dispute predicate alone therefore does not suffice for manual_review under toy-v1; the recommendation rests on the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum; printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.' | sha256sum",
+      "echo \"50*25=$((50*25)); 1250>=1500: $(( 50*25 >= 1500 )); 3<6: $(( 3 < 6 )); cand3<6: $(( 3 < 6 )); cand9<6: $(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited source digests and versions were verified by computing SHA-256 over the exact retained text (literal newlines). Policy predicates and candidate comparisons were checked with exact integer arithmetic in Bash."
+  }
+}

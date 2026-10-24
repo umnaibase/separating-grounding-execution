@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_081b01da7815d753 version 1 has a retained source with version 1, and the computed UTF-8 SHA-256 of the retained text (4eb69472fc356c6374acf48b1bbaffca42cf06e36fb4f890cb13f7d67236cba5) exactly matches the citation digest.",
+      "evidence": ["citations.contract[0]", "src_081b01da7815d753"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "contradicted",
+      "check": "The valid cited contract states the merchant may terminate without penalty after 12 months; the 36-month figure is the framework duration, not the minimum commitment. The unique supported value is 12, which differs from the asserted 36.",
+      "evidence": ["src_081b01da7815d753", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source is valid (version 1 matches; computed SHA-256 72301afb6547fcc269565495dddbbcbfdd0ae124863e700391f4aa37b0cdd6ac matches) and covers window 2026-01-01/2026-01-31 with eligible 1000 and disputed 20, giving fraction 20/1000 equal to the asserted value.",
+      "evidence": ["src_f46093ed26e74e6c", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months. On recorded inputs: 50*20 = 1000 >= 1000 so dispute_trigger is true; 36 < 6 is false so commitment_trigger is false; OR yields manual_review. Recorded trace (true/false), rule_output and asserted value all match.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1, and final_output manual_review equals both rule_output and the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [36] is nonempty and valid. With disputed=20 and eligible=1000 fixed the dispute predicate is true regardless, and for commitment 36 the commitment predicate is false, so the recommendation is manual_review for every candidate, matching the recorded recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "toy-v1 recommends manual_review when either predicate holds; the recorded dispute predicate is true (50*20 >= 1000), so it alone suffices for manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.policy.dispute_threshold", "record.input.disputed", "record.input.eligible"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum; echo \"50*20=$((50*20)) eligible=1000 cmp_ge=$(( 50*20 >= 1000 )) commit_lt6=$(( 36 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests were recomputed from the retained source texts and matched exactly; integer policy comparisons were checked in Bash. Only c2 is contradicted because the contract gives 12 months as the penalty-free termination point while the record uses the 36-month framework duration."
+  }
+}

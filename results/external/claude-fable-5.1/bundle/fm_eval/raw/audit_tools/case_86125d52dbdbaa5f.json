@@ -1,0 +1,64 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both retained contract texts: src_69613aefa1cce115 -> 84a68c3d...de57 and src_412d00ff8aeb952a -> 4ad7916b...41ec, both matching the cited digests; cited version 1 matches retained version 1 for both.",
+      "evidence": ["src_69613aefa1cce115", "src_412d00ff8aeb952a", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid (hash/version match) but conflict: src_69613aefa1cce115 states penalty-free termination after 3 months, while src_412d00ff8aeb952a states a minimum penalty-free cancellation time of 9 months. No precedence rule is supplied, so the asserted value 3 is neither uniquely supported nor uniquely contradicted.",
+      "evidence": ["src_69613aefa1cce115", "src_412d00ff8aeb952a", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_78742f119cc0cfb5 hash (72301afb...6ac) and version 1 match; its text covers observation window 2026-01-01/2026-01-31 with eligible 1000 and disputed 20, giving fraction 20/1000, equal to the asserted 20/1000.",
+      "evidence": ["src_78742f119cc0cfb5", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months. On recorded inputs: 50*20 = 1000 >= 1000 so dispute_trigger = true; 3 < 6 so commitment_trigger = true; policy yields manual_review. Recorded trace (true, true), rule_output manual_review and asserted manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Fixture stipulates action_history_complete = true, override is explicitly null, trace is consistent with faithful execution, and final_output manual_review equals the policy replay result and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates [3, 9] are valid nonnegative integers. With disputed=20, eligible=1000 fixed, dispute_trigger is true for both (1000 >= 1000). Candidate 3 also triggers commitment (3 < 6); candidate 9 does not (9 >= 6); either way the recommendation is manual_review, so all candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*disputed = 50*20 = 1000 >= eligible = 1000, so the dispute predicate is true and under toy-v1's OR rule it alone suffices for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+      "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum",
+      "echo \"50*20=$((50*20)) eligible=1000 cmp_ge=$(( 50*20 >= 1000 ))\"",
+      "echo \"months3_lt6=$(( 3 < 6 )) months9_lt6=$(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited source digests and versions were recomputed and matched. The only unresolved claim is commitment grounding, because the two valid contracts give conflicting values (3 vs 9 months) with no precedence rule; dispute fraction sits exactly at the 1/50 threshold, so the >= comparison triggers."
+  }
+}

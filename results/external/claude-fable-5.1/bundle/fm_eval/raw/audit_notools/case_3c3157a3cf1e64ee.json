@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_69613aefa1cce115 is retained and its version (1) matches the citation, but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here; lineage is therefore undetermined rather than confirmed or refuted.",
+      "evidence": ["citations.contract[0].sha256", "citations.contract[0].version", "citations.contract[0].source_id", "src_69613aefa1cce115"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single cited contract states penalty-free termination is available once 18 months have elapsed, which is the minimum commitment; the 48-month framework duration is distinct and does not conflict. The asserted value 18 matches the recorded commitment_months and the source text unambiguously. (Digest not independently verified; content grounding is assessed on the retained source.)",
+      "evidence": ["src_69613aefa1cce115", "record.input.commitment_months", "citations.contract[0].source_id"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers exactly the observation window 2026-01-01/2026-01-31 and reports 1000 eligible and 20 disputed transactions, giving the fraction 20/1000, which equals the asserted fraction and the recorded inputs.",
+      "evidence": ["src_78742f119cc0cfb5", "record.input.disputed", "record.input.eligible", "citations.transactions[0].source_id"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "contradicted",
+      "check": "Replaying toy-v1 on recorded inputs: 50*20 = 1000 >= 1000 so dispute_trigger should be true (matches); commitment 18 < 6 is false so commitment_trigger should be false, but the recorded trace shows commitment_trigger = true. The output manual_review matches, but the trace predicates do not all agree with policy execution.",
+      "evidence": ["record.input.commitment_months", "record.input.disputed", "record.input.eligible", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "History is stipulated complete, override is explicitly null, and final_output manual_review matches the policy replay, so the claim is not contradicted; however the recorded trace is inconsistent with faithful execution (commitment_trigger recorded as true although 18 < 6 is false), which leaves attribution to the rule unresolved.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is non-empty and valid ([18]). With disputed=20 and eligible=1000 fixed, the dispute predicate (1000 >= 1000) is true regardless of commitment, so candidate 18 yields manual_review, the same recommendation as the recorded rule output.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded inputs, 50*disputed = 50*20 = 1000 >= eligible = 1000, so the dispute predicate holds and under toy-v1 it alone is sufficient to yield manual_review, independent of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.id"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computation tools were used and the SHA-256 digest was not computed, so contract lineage is left unresolved. The key finding is a trace inconsistency: commitment_trigger is recorded as true although 18 < 6 is false."
+  }
+}

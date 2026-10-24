@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both retained source texts: src_fd1a6ee4670ed6dc -> d97310fe...5293 and src_97938c8628002d54 -> 191f5212...936f, both exactly matching the cited digests; cited version '1' matches retained version '1' for each.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "src_97938c8628002d54", "citations.contract[0]", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the minimum penalty-free cancellation time is eighteen (18) months, matching asserted_value 18; the 48-month figure is framework duration, not minimum commitment, so there is no conflicting value.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transactions source covers observation window 2026-01-01/2026-01-31 and reports eligible 1200 and disputed 25, giving fraction 25/1200, identical to the asserted numerator/denominator.",
+      "evidence": ["src_97938c8628002d54", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25=1250 >= 1200 so dispute_trigger=true; 18 < 6 is false so commitment_trigger=false; policy yields manual_review. Both trace predicates, rule_output and asserted_value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is consistent with faithful execution, and final_output manual_review equals both rule_output and the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidate set [18] is non-empty and valid; with disputed=25 and eligible=1200 fixed, the dispute predicate is true (1250 >= 1200), so candidate 18 yields manual_review, the same recommendation as the recorded run.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values the dispute predicate alone is true (50*25=1250 >= 1200), and toy-v1 recommends manual_review whenever that predicate holds, so it suffices independently of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print('src_fd1a6ee4670ed6dc', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('src_97938c8628002d54', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*disputed>=eligible:', 50*25 >= 1200, 50*25); print('commitment<6:', 18 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed via Bash and matched the retained source bytes exactly. Policy replay on recorded inputs (1250 >= 1200, 18 not < 6) reproduces the recorded trace, rule_output and final_output with no override."
+  }
+}

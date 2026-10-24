@@ -1,0 +1,61 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of src_f5d522e9bafea47f text = a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0 and of src_420443f31395c781 text = df7cb14b6feed7a31180b3eb2d25e373da2a2166850c9160866eedc8f506cf2f; both equal the cited digests and both cited versions ('1') match the retained versions ('1').",
+      "evidence": ["src_f5d522e9bafea47f", "src_420443f31395c781", "citations.contract[0]", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, uniquely cited contract states 'Minimum penalty-free cancellation time: 9 months', matching the asserted value 9 and record.input.commitment_months = 9; the 24-month framework duration is not the minimum commitment and does not conflict.",
+      "evidence": ["src_f5d522e9bafea47f", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transactions source covers exactly the window 2026-01-01/2026-01-31 and reports eligible 800 and disputed 15, giving fraction 15/800 equal to the asserted 15/800 and the recorded inputs.",
+      "evidence": ["src_420443f31395c781", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs: 50*15 = 750 >= 800 is false (dispute_trigger false) and 9 < 6 is false (commitment_trigger false), so toy-v1 yields standard_processing; recorded trace (false, false), rule_output and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output standard_processing equals the policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [9] is non-empty and valid; with disputed 15 / eligible 800 fixed, commitment 9 gives neither trigger, so every candidate yields standard_processing (same recommendation).",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (50*15 = 750 < 800), so the dispute predicate alone does not trigger manual_review under toy-v1; the assertion that it suffices is contradicted.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest())\"",
+      "python3 -c \"disputed=15; eligible=800; cm=9; print(50*disputed, eligible, 50*disputed>=eligible); print(cm<6); print(['manual_review' if (50*disputed>=eligible or c<6) else 'standard_processing' for c in [9]])\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests and versions matched the retained sources exactly. Policy replay on recorded inputs gives standard_processing with both triggers false, so all claims are supported except c7, whose dispute-only sufficiency assertion is contradicted by the false dispute predicate."
+  }
+}

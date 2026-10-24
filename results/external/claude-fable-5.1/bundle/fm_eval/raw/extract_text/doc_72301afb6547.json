@@ -1,0 +1,10 @@
+{
+  "kind": "transactions",
+  "fields": {
+    "observation_window": "2026-01-01/2026-01-31",
+    "eligible": 1000,
+    "disputed": 20
+  },
+  "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1000\nDisputed transactions: 20",
+  "notes": "All three fields were explicitly stated in the transactions document; no inference was required."
+}

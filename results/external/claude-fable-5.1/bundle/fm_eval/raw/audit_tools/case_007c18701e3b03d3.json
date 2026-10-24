@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "SHA-256 of the retained contract text (UTF-8) is a4895c42bda9c8c197d04475e7c23f7165d5e14ce91ef23f706e1d398467ad50, matching the citation digest, and the cited version '1' matches the retained version '1'. No other contracts are cited.",
+      "evidence": ["src_69613aefa1cce115", "citations.contract[0].sha256", "citations.contract[0].version", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid (digest- and version-matched) cited contract states penalty-free termination is available once 18 months have elapsed, which equals the asserted value 18; the 48-month framework duration is not the minimum commitment and there is no conflicting document.",
+      "evidence": ["src_69613aefa1cce115", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The cited transaction source is valid (SHA-256 72301afb6547fcc269565495dddbbcbfdd0ae124863e700391f4aa37b0cdd6ac and version '1' match) and covers the 2026-01-01/2026-01-31 window, but it states 20 disputed of 1000 eligible (20/1000), which is a different fraction from the asserted 21/1000.",
+      "evidence": ["src_78742f119cc0cfb5", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (disputed=21, eligible=1000, commitment_months=18; all valid), 50*21=1050 >= 1000 so dispute_trigger=true, and 18 < 6 is false so commitment_trigger=false; toy-v1 yields manual_review, matching the recorded rule_output, both trace predicates and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful toy-v1 execution on recorded inputs, and final_output manual_review equals both rule_output and the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [18] is nonempty and valid; with disputed=21 and eligible=1000 fixed, the dispute predicate (1050 >= 1000) is true, so commitment 18 (and the recorded run) yields manual_review; all candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "The recorded dispute predicate is true (50*21=1050 >= 1000), and under toy-v1 a true dispute predicate alone (OR rule) is sufficient for manual_review irrespective of the commitment predicate; this is conditional on recorded values only.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+      "echo \"50*21=$((50*21)) ; 50*20=$((50*20)) ; eligible=1000\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests and versions matched the retained sources, so lineage is sound; the only defect is that the transaction source reports 20 disputed, not the recorded 21, so c3 is contradicted while the execution-based claims hold on the recorded inputs."
+  }
+}

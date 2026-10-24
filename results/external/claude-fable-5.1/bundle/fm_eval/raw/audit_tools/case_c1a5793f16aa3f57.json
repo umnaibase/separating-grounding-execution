@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_69613aefa1cce115 is retained; recomputed UTF-8 SHA-256 of its text equals the cited digest a4895c42...ad50 and version 1 matches the retained version 1. Lineage only, not authenticity.",
+      "evidence": ["citations.contract[0]", "src_69613aefa1cce115"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, hash-verified contract states penalty-free termination is available once 18 months have elapsed, a unique value matching the asserted 18 and record.input.commitment_months. The 48-month framework duration is not the minimum commitment and introduces no conflict.",
+      "evidence": ["src_69613aefa1cce115", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid, hash-verified transactions source covers exactly the window 2026-01-01/2026-01-31 and reports eligible 1000 and disputed 20, giving the fraction 20/1000 which equals the asserted numerator/denominator and the recorded inputs.",
+      "evidence": ["src_78742f119cc0cfb5", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy toy-v1 with thresholds 1/50 and 6 months is the supported configuration. On inputs disputed=20, eligible=1000, commitment_months=18: 50*20=1000 >= 1000 so dispute_trigger=true; 18 < 6 is false so commitment_trigger=false; OR gives manual_review. Recorded trace, rule_output and the asserted value all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete=true, override is explicitly null, the trace is internally consistent with faithful execution, and final_output manual_review equals the policy replay and rule_output, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [18] is non-empty and valid. With disputed=20 and eligible=1000 fixed, the dispute predicate is true (50*20 >= 1000), so commitment_months=18 (and indeed any valid candidate) yields manual_review; all declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "The recorded dispute predicate is true (50*20 = 1000 >= 1000) and toy-v1 recommends manual_review when either predicate holds, so the dispute predicate alone suffices for manual_review on the recorded values, independent of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.id"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest()); print(50*20>=1000); print(18<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly with matching versions. Policy replay on recorded inputs gives dispute_trigger=true (boundary case 50*20 == 1000), commitment_trigger=false, manual_review, consistent with the record, null override and stipulated complete history."
+  }
+}

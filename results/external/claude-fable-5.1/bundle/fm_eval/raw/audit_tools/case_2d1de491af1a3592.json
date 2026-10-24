@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both retained source texts: contract src_081b01da7815d753 -> 4eb69472fc356c6374acf48b1bbaffca42cf06e36fb4f890cb13f7d67236cba5 and transactions src_f46093ed26e74e6c -> 72301afb6547fcc269565495dddbbcbfdd0ae124863e700391f4aa37b0cdd6ac; both digests and versions ('1') match the citations exactly. No missing or ambiguous artifacts.",
+      "evidence": ["citations.contract[0]", "citations.transactions[0]", "src_081b01da7815d753", "src_f46093ed26e74e6c"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate after 12 months without penalty, giving a unique minimum penalty-free commitment of 12 months, equal to the asserted value and record.input.commitment_months. The 36-month framework duration is not the minimum commitment. No conflicting authoritative document.",
+      "evidence": ["src_081b01da7815d753", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transaction source covers observation window 2026-01-01/2026-01-31 with eligible 1000 and disputed 20, giving fraction 20/1000, identical to the asserted 20/1000 and to record.input.",
+      "evidence": ["src_f46093ed26e74e6c", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid nonnegative integers (eligible 1000 > 0, disputed 20 <= 1000). Replay: 50*20 = 1000 >= 1000 so dispute_trigger = true; 12 < 6 is false so commitment_trigger = false; policy output manual_review. Both recorded trace predicates, rule_output and the asserted value agree with the replay.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals rule_output and the policy replay result, matching the asserted final action.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [12] is non-empty and valid. With disputed 20 and eligible 1000 fixed, the dispute predicate (50*20 >= 1000) is true for every candidate, so commitment 12 (12 < 6 false) yields manual_review; all declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*disputed = 1000 >= eligible = 1000, so the dispute predicate is true and under toy-v1 (OR rule) that alone yields manual_review regardless of the commitment predicate. Conditional on recorded inputs only.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "Bash: printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+      "Bash: printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+      "Bash: echo \"50*20=$((50*20)) eligible=1000 ge=$(( 50*20 >= 1000 )); commit12lt6=$(( 12 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited artifacts' recomputed SHA-256 digests and versions matched the citations exactly. The dispute fraction sits exactly on the 1/50 threshold (50*20 = 1000 = eligible), which the >= rule treats as triggered, so every claim is consistent with the sources and the record."
+  }
+}

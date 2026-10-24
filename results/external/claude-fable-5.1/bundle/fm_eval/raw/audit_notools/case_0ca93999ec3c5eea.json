@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract version '1' matches the retained source version '1', but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no mismatch is observed, so lineage is neither established nor contradicted.",
+      "evidence": ["citations.contract[0]", "src_be75313edd2b3164"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single cited contract states the merchant may terminate without penalty after 5 months, giving a minimum penalty-free commitment of 5 months, matching the asserted value and record.input.commitment_months; the 36-month framework duration is not the minimum commitment. No conflicting document exists. (Digest not independently verified; see c1.)",
+      "evidence": ["src_be75313edd2b3164", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers observation window 2026-01-01/2026-01-31 and reports 1500 eligible and 25 disputed transactions, yielding the fraction 25/1500, which matches the asserted numerator/denominator and the recorded inputs.",
+      "evidence": ["src_53e77460b588b4ab", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months. Dispute predicate: 50*25 = 1250 >= 1500 is false, matching trace.dispute_trigger=false. Commitment predicate: 5 < 6 is true, matching trace.commitment_trigger=true. OR of predicates gives manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals both rule_output and the policy replay result; the asserted final action is therefore attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [5], a non-empty valid nonnegative integer set. With disputed=25 and eligible=1500 fixed (dispute predicate false), commitment 5 < 6 triggers manual_review, so every declared candidate yields the same recommendation (manual_review).",
+      "evidence": ["alternatives", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is false (50*25 = 1250 < 1500) and trace.dispute_trigger is false; manual_review arises only from the commitment predicate (5 < 6). The dispute predicate alone therefore does not suffice for manual review under toy-v1.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computational tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved while version strings were compared directly."
+  }
+}

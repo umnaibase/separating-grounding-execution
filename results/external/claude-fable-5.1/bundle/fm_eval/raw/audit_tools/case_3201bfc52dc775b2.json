@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_f12bd8dfe47e73f5 (version 1) has a retained source whose UTF-8 SHA-256 of the exact text computes to a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0, matching the citation digest, and the retained version '1' matches the cited version. No missing or ambiguous artifacts.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The validly cited contract (digest and version verified) states 'Minimum penalty-free cancellation time: 9 months.', a unique unambiguous value equal to the asserted 9. The 24-month service framework duration is a distinct field and not the minimum commitment, so there is no conflicting authoritative value.",
+      "evidence": ["src_f12bd8dfe47e73f5", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source src_aa990a77b2e1e9ca (version 1) hashes to 3ed19b40bf5ffdc467616db7343ee7a5272f1ab4caf70ae1bcc90f4fe0e04e13, matching the citation, and covers the observation window 2026-01-01/2026-01-31 with Eligible 2000 and Disputed 45. The fraction 45/2000 equals the asserted 45/2000 exactly.",
+      "evidence": ["src_aa990a77b2e1e9ca", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with the supported configuration (1/50, 6 months). Inputs are valid nonnegative integers with eligible=2000>0 and disputed=45<=2000. 50*45=2250 >= 2000 so dispute_trigger=true (matches trace); 9 < 6 is false so commitment_trigger=false (matches trace). OR of predicates gives manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals both rule_output and the policy replay result. No intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [9] is non-empty and valid. With disputed=45 and eligible=2000 fixed, the dispute predicate is true (2250 >= 2000), so candidate 9 (9 < 6 false) yields manual_review, the same recommendation as the recorded run. All declared candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values 50*45=2250 >= 2000, so the dispute predicate is true, and under toy-v1's OR rule a true dispute predicate alone yields manual_review regardless of the commitment predicate. The recorded trace also shows dispute_trigger=true.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; c='Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; t='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45'; print(hashlib.sha256(c.encode('utf-8')).hexdigest()); print(hashlib.sha256(t.encode('utf-8')).hexdigest()); print(50*45, 50*45>=2000); print(9<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed from the exact retained UTF-8 text and matched the citations with matching versions. Policy replay (2250 >= 2000 true; 9 < 6 false) agrees with the recorded trace, rule_output, final_output and the single candidate, so all seven claims are supported."
+  }
+}

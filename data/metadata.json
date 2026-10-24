@@ -1,0 +1,771 @@
+{
+  "assumptions": [
+    "Retained valid cited fixture sources are authoritative within the fictional episode; source authenticity and external truth are not evaluated.",
+    "When action_history_complete is true it is a stipulated fixture property, not a proved completeness property of real logs.",
+    "Contract commitment means minimum time until penalty-free exit, not the service-framework duration.",
+    "Multiple valid conflicting contracts have equal authority; no document precedence is inferred.",
+    "Reference source grounding may be supported on explicit spelled-out number text that the bounded numeric checker cannot parse.",
+    "Candidate stability is conditional only on explicitly listed commitments; list completeness and causal action feasibility are not asserted."
+  ],
+  "cases": [
+    {
+      "case_id": "case_9b8c1ad3f33defcb",
+      "scenario_id": "scenario_46d1aa480e359cfa",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_fbe4b2019879de65",
+      "scenario_id": "scenario_46d1aa480e359cfa",
+      "split": "dev",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_e992960e3d859eb8",
+      "scenario_id": "scenario_46d1aa480e359cfa",
+      "split": "dev",
+      "subtype": "missing_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_88d7559f1aa7f22b",
+      "scenario_id": "scenario_46d1aa480e359cfa",
+      "split": "dev",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_8d79e0f81ebfbea4",
+      "scenario_id": "scenario_46d1aa480e359cfa",
+      "split": "dev",
+      "subtype": "changed_output",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_692aa7f9ac49086a",
+      "scenario_id": "scenario_daa6b5b3ef6041b1",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_0ac9572df0baa588",
+      "scenario_id": "scenario_daa6b5b3ef6041b1",
+      "split": "dev",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_be6debdb11c396a9",
+      "scenario_id": "scenario_daa6b5b3ef6041b1",
+      "split": "dev",
+      "subtype": "missing_transactions",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_7ee3e6af105af287",
+      "scenario_id": "scenario_daa6b5b3ef6041b1",
+      "split": "dev",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_8b8e5a904245fa10",
+      "scenario_id": "scenario_daa6b5b3ef6041b1",
+      "split": "dev",
+      "subtype": "same_valued_intervention",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_032fb1742181fd77",
+      "scenario_id": "scenario_ce20872e719325d8",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_23c989a47341945e",
+      "scenario_id": "scenario_ce20872e719325d8",
+      "split": "dev",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_e1d6ad09d1cee240",
+      "scenario_id": "scenario_ce20872e719325d8",
+      "split": "dev",
+      "subtype": "conflicting_contracts",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_b8655c453cc0859c",
+      "scenario_id": "scenario_ce20872e719325d8",
+      "split": "dev",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_b1c52d7425b86605",
+      "scenario_id": "scenario_ce20872e719325d8",
+      "split": "dev",
+      "subtype": "incomplete_history",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_b72cf434c06b033f",
+      "scenario_id": "scenario_44f08d9c4e3af0ed",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_c9d83c223ae81c88",
+      "scenario_id": "scenario_44f08d9c4e3af0ed",
+      "split": "dev",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_99663d646277f9b3",
+      "scenario_id": "scenario_44f08d9c4e3af0ed",
+      "split": "dev",
+      "subtype": "invalid_contract_hash",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_0839ccd8223c9422",
+      "scenario_id": "scenario_44f08d9c4e3af0ed",
+      "split": "dev",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_ec5f4aeaa122ca88",
+      "scenario_id": "scenario_44f08d9c4e3af0ed",
+      "split": "dev",
+      "subtype": "trace_fault",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_287e071b5e775d73",
+      "scenario_id": "scenario_093931faa421e84a",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_b0810204cf714a2e",
+      "scenario_id": "scenario_093931faa421e84a",
+      "split": "dev",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_4965fb5079e3e86e",
+      "scenario_id": "scenario_093931faa421e84a",
+      "split": "dev",
+      "subtype": "wrong_contract_version",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_145f1a3e83b79922",
+      "scenario_id": "scenario_093931faa421e84a",
+      "split": "dev",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_01aa121a73ae5a19",
+      "scenario_id": "scenario_093931faa421e84a",
+      "split": "dev",
+      "subtype": "changed_output",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_039f454aceec29a9",
+      "scenario_id": "scenario_4f1a4adfcb2b8f26",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_121af5fd02d3810f",
+      "scenario_id": "scenario_4f1a4adfcb2b8f26",
+      "split": "dev",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_b950a882580a3890",
+      "scenario_id": "scenario_4f1a4adfcb2b8f26",
+      "split": "dev",
+      "subtype": "unsupported_worded_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_1c30afd0ba90ed12",
+      "scenario_id": "scenario_4f1a4adfcb2b8f26",
+      "split": "dev",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_4e2b38531fa6058f",
+      "scenario_id": "scenario_4f1a4adfcb2b8f26",
+      "split": "dev",
+      "subtype": "same_valued_intervention",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_fbde4e4d70f5cc4e",
+      "scenario_id": "scenario_735474c042eda558",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_e4d5d7e4900f710c",
+      "scenario_id": "scenario_735474c042eda558",
+      "split": "dev",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_bb7f364f9cc18cef",
+      "scenario_id": "scenario_735474c042eda558",
+      "split": "dev",
+      "subtype": "missing_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_0a4fafef17e21bbc",
+      "scenario_id": "scenario_735474c042eda558",
+      "split": "dev",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_cc7dce306c10e3fe",
+      "scenario_id": "scenario_735474c042eda558",
+      "split": "dev",
+      "subtype": "incomplete_history",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_0b531a61ed71b83a",
+      "scenario_id": "scenario_34fc95b1cf7054e9",
+      "split": "dev",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_62a6906f9b7186fb",
+      "scenario_id": "scenario_34fc95b1cf7054e9",
+      "split": "dev",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_97d6eac7cbb828bb",
+      "scenario_id": "scenario_34fc95b1cf7054e9",
+      "split": "dev",
+      "subtype": "missing_transactions",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_a4ac2fa310c9292e",
+      "scenario_id": "scenario_34fc95b1cf7054e9",
+      "split": "dev",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_b9e89dfcee5ea4f8",
+      "scenario_id": "scenario_34fc95b1cf7054e9",
+      "split": "dev",
+      "subtype": "trace_fault",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_6a8807322b98cc46",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_54092d8e100d8057",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_e4c41b4410943970",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "split": "test",
+      "subtype": "conflicting_contracts",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_7ca91a566f45a47a",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "split": "test",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_9b1039882f7070a8",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "split": "test",
+      "subtype": "changed_output",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_3201bfc52dc775b2",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_f1352befaf90773c",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_96101184a60febe1",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "split": "test",
+      "subtype": "invalid_contract_hash",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_91c8c5a0614d675c",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_ac1cc51279b6ef89",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "split": "test",
+      "subtype": "same_valued_intervention",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_ad71d5fba20e3553",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_30d87a45a717ce71",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_1639cc5e15d3a206",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "split": "test",
+      "subtype": "wrong_contract_version",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_c1c64894ed3f6285",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "split": "test",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_5083fc80c9ccd370",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "split": "test",
+      "subtype": "incomplete_history",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_c1a5793f16aa3f57",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_007c18701e3b03d3",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_75c52dd0d7f2eb82",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "split": "test",
+      "subtype": "unsupported_worded_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_86125d52dbdbaa5f",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_3c3157a3cf1e64ee",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "split": "test",
+      "subtype": "trace_fault",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_07246c044c824758",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_2b8fea677d9cedef",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_45cefda2b29cd619",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "split": "test",
+      "subtype": "missing_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_cd53f57418936c1d",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_ef90de411754b293",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "split": "test",
+      "subtype": "changed_output",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_0ca93999ec3c5eea",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_78e8c1ddeb15f927",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_cb5218205e35f365",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "split": "test",
+      "subtype": "missing_transactions",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_2cfbfd9ce81f0703",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "split": "test",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_ea0523db77f22c20",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "split": "test",
+      "subtype": "same_valued_intervention",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_6355617c7ac49116",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_e6c09a1ade657662",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_b3ed55f32da3359a",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "split": "test",
+      "subtype": "conflicting_contracts",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_f0d2096e397c823a",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_4fef64096c64a2cd",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "split": "test",
+      "subtype": "incomplete_history",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_6843a98ae359db46",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_39f50c0324bc27d3",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_91bf94e28c04fb8c",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "split": "test",
+      "subtype": "invalid_contract_hash",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_a4bb10865e1a60b5",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "split": "test",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_40ac0f6bc84b9145",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "split": "test",
+      "subtype": "trace_fault",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_2d1de491af1a3592",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_7c2e05d1a9bbe57a",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_2bdfb513ecd7ba99",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "split": "test",
+      "subtype": "wrong_contract_version",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_d0db49fb716ee077",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_a5416b48c692f4a6",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "split": "test",
+      "subtype": "changed_output",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_a40b69cd0c8790e3",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_121a45b7df8a4442",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_b5d5d07bc025f241",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "split": "test",
+      "subtype": "unsupported_worded_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_3af9864800ed8861",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_d2e074f0b18c0979",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "split": "test",
+      "subtype": "same_valued_intervention",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_a6542ee2baa2f4c6",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_bb6e2d4b128fabd7",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "split": "test",
+      "subtype": "framework_duration_as_commitment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_092a59bd6be43719",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "split": "test",
+      "subtype": "missing_contract",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_38ffe171bf16488b",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "split": "test",
+      "subtype": "conflicting_commitments_sensitive",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_89d21a7a98be486c",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "split": "test",
+      "subtype": "incomplete_history",
+      "variant": "intervention"
+    },
+    {
+      "case_id": "case_eae2b0b8bd4ba88c",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "split": "test",
+      "subtype": "faithful_record",
+      "variant": "clean"
+    },
+    {
+      "case_id": "case_10cc6c5fb30bd58b",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "split": "test",
+      "subtype": "disputed_count_increment",
+      "variant": "extraction_error"
+    },
+    {
+      "case_id": "case_6af73cdd529f4d0f",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "split": "test",
+      "subtype": "missing_transactions",
+      "variant": "source_gap"
+    },
+    {
+      "case_id": "case_64984dbb642caf5e",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "split": "test",
+      "subtype": "conflicting_commitments_stable",
+      "variant": "ambiguity"
+    },
+    {
+      "case_id": "case_e9cdc3b272acb33a",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "split": "test",
+      "subtype": "trace_fault",
+      "variant": "intervention"
+    }
+  ],
+  "cases_count": 100,
+  "claims_count": 700,
+  "dataset_name": "Explainability Boundaries: Fictional Merchant Audit Fixtures",
+  "label_counts": {
+    "contradicted": 88,
+    "supported": 557,
+    "unresolved": 55
+  },
+  "label_counts_by_kind": {
+    "candidate_stability": {
+      "contradicted": 9,
+      "supported": 87,
+      "unresolved": 4
+    },
+    "commitment_grounding": {
+      "contradicted": 10,
+      "supported": 57,
+      "unresolved": 33
+    },
+    "conditional_execution": {
+      "contradicted": 5,
+      "supported": 95
+    },
+    "contract_lineage": {
+      "contradicted": 6,
+      "supported": 90,
+      "unresolved": 4
+    },
+    "dispute_grounding": {
+      "contradicted": 10,
+      "supported": 86,
+      "unresolved": 4
+    },
+    "final_action_by_rule": {
+      "contradicted": 10,
+      "supported": 80,
+      "unresolved": 10
+    },
+    "sufficient_dispute_reason": {
+      "contradicted": 38,
+      "supported": 62
+    }
+  },
+  "observation_window": "2026-01-01/2026-01-31",
+  "provenance": "Entirely programmatically authored fictional sources, consumed features, and injected faults; no real entities, private data, or foundation-model outputs.",
+  "public_benchmark_limit": "Split labels and generation templates are public. No secret test set, independent sample of banking cases, or absence of test inspection is claimed.",
+  "reference_method": "Construction semantics plus independent policy arithmetic; no human-annotation study or checker-generated labels.",
+  "scenario_families": 20,
+  "seed": "explainability-boundaries-fixtures-v1",
+  "split_case_counts": {
+    "dev": 40,
+    "test": 60
+  },
+  "split_scenario_counts": {
+    "dev": 8,
+    "test": 12
+  },
+  "statistical_unit": "scenario family",
+  "version": "1.0.0"
+}

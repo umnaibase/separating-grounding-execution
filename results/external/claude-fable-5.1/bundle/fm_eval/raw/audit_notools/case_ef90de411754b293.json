@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_20f3da78f823e788 is retained with a matching version '1', but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is unavailable here; no mismatch is observed, so the digest check is unresolved rather than contradicted.",
+      "evidence": ["citations.contract[0].sha256", "citations.contract[0].version", "citations.contract[0].source_id", "src_20f3da78f823e788"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract states 'Minimum penalty-free cancellation time: 3 months', which matches the asserted value 3 and the recorded commitment_months; the 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value.",
+      "evidence": ["src_20f3da78f823e788", "record.input.commitment_months", "citations.contract[0].source_id"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transaction source covers observation window 2026-01-01/2026-01-31 and reports eligible 1200 and disputed 25, giving fraction 25/1200, identical to the asserted and recorded disputed/eligible values.",
+      "evidence": ["src_b39661dc69a15054", "record.input.disputed", "record.input.eligible", "citations.transactions[0].source_id"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 6 months and 1/50 (the supported configuration). Inputs are valid integers (eligible 1200 > 0, 0 <= disputed 25 <= 1200). Dispute predicate: 50*25 = 1250 >= 1200 is true; commitment predicate: 3 < 6 is true; OR gives manual_review. Recorded rule_output manual_review, trace dispute_trigger true and commitment_trigger true, and asserted output manual_review all agree.",
+      "evidence": ["record.policy", "record.input.commitment_months", "record.input.disputed", "record.input.eligible", "record.rule_output", "record.trace.commitment_trigger", "record.trace.dispute_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override from manual_review to standard_processing by a reviewer, and the final_output standard_processing differs from the toy-v1 replay result manual_review; either condition contradicts attribution of the final action to the policy without intervention.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [3], non-empty and a valid nonnegative integer. With disputed 25 and eligible 1200 fixed, the dispute predicate (1250 >= 1200) is already true, so every candidate yields manual_review; candidate 3 (3 < 6) yields manual_review. All declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs, 50*25 = 1250 >= 1200, so the dispute predicate is true; under toy-v1 the predicates are combined with OR, so a true dispute predicate alone yields manual_review regardless of commitment_months. The recorded trace also shows dispute_trigger true.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.id", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "All reasoning was done mentally from the SYSTEM and USER messages; no computational tools were used and no SHA-256 digest was computed, so contract lineage is left unresolved. Integer policy arithmetic (50*25 = 1250 vs 1200, 3 vs 6) was done by hand."
+  }
+}

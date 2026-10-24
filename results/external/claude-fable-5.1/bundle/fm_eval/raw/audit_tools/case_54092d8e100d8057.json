@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "SHA-256 of the retained contract text (UTF-8) is da99ca27...7248, matching the citation, and the retained version '1' matches the cited version '1'. The cited transactions source also matches (8c11d472...5ff8, version 1).",
+      "evidence": ["src_c8ff67442fbc103d", "citations.contract[0].sha256", "citations.contract[0].version", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "contradicted",
+      "check": "The valid, uniquely cited contract states penalty-free termination is available once 6 months have elapsed; 48 months is only the framework duration, which is not the minimum commitment. The unique value 6 differs from the asserted 48.",
+      "evidence": ["src_c8ff67442fbc103d", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source (digest and version verified) covers window 2026-01-01/2026-01-31 and reports 1500 eligible and 25 disputed, giving fraction 25/1500 exactly as asserted.",
+      "evidence": ["src_771462962372190e", "citations.transactions[0].sha256", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (48, 25, 1500): 50*25 = 1250 < 1500 so dispute_trigger is false; 48 < 6 is false so commitment_trigger is false; neither fires, so toy-v1 yields standard_processing. Recorded trace (false, false), rule_output and asserted output all agree. Inputs valid (nonnegative integers, eligible > 0, disputed <= eligible).",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, replay of toy-v1 on recorded inputs gives standard_processing with a consistent trace, and final_output equals both rule_output and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is nonempty and valid: [48]. With disputed=25, eligible=1500 fixed, 48 < 6 is false and the dispute predicate is false, so the sole candidate yields standard_processing, identical to the recorded recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate does not fire: 50*25 = 1250 < 1500, and record.trace.dispute_trigger is false. The dispute predicate alone therefore does not suffice for manual_review under toy-v1.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "echo $((50*25)) $((50*25 >= 1500)) $((48 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were verified against the retained texts via sha256sum. The contract supports a 6-month minimum, not the recorded 48, and the dispute predicate (1250 < 1500) does not fire, so c2 and c7 are contradicted while execution, attribution and stability claims hold."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "cases.jsonl": {
+      "bytes": 24462,
+      "sha256": "9b9316762fac7e092c719cecfbccc35d4b3bffbf6cff64bf3027d74d14656285"
+    },
+    "metadata.json": {
+      "bytes": 3287,
+      "sha256": "f0fe9c3bcd339217ad81818e85977704bc18fd9c56f4910e1ba38a3fba6da663"
+    },
+    "reference.jsonl": {
+      "bytes": 8802,
+      "sha256": "5db60ae189c5cec9cb54e1e7eeecc33c4ad926b9dfb2fd57dc03043028e2fead"
+    }
+  },
+  "version": "1.1.0"
+}

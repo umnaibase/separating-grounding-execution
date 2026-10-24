@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_d3840dc477fc2c9a has a retained source whose UTF-8 SHA-256 (computed: 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc) matches the citation digest and whose version '1' matches the cited version; no missing or ambiguous artifacts.",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0].sha256", "citations.contract[0].version", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, lineage-verified contract states the merchant may terminate after 5 months without penalty, giving a unique minimum penalty-free commitment of 5 months equal to the asserted value; the 36-month framework duration is not the minimum commitment and there is no conflicting contract document.",
+      "evidence": ["src_d3840dc477fc2c9a", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The cited transaction source is valid (digest and version match, window 2026-01-01/2026-01-31 matches) and unambiguously states Eligible 2000 / Disputed 45, i.e. 45/2000, which is a different fraction from the asserted 46/2000 (45*2000=90000 != 46*2000=92000); the single valid source establishes a conflicting result.",
+      "evidence": ["src_ba430e75185acb7d", "citations.transactions[0].sha256", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with 1/50 and 6-month thresholds; recorded inputs are valid nonnegative integers (eligible 2000 > 0, disputed 46 <= 2000). Replay: 50*46=2300 >= 2000 so dispute_trigger true (recorded true); 5 < 6 so commitment_trigger true (recorded true); OR yields manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals both rule_output and the policy replay result and the asserted value, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid; with disputed 46 / eligible 2000 fixed (dispute_trigger true regardless), candidate 5 gives 5 < 6 true and manual_review, so every candidate yields the same recommendation as asserted.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs the dispute predicate holds (50*46=2300 >= 2000) and toy-v1 is a disjunction, so the recorded dispute predicate alone suffices for manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*46=$((50*46)) ge2000=$(( 50*46 >= 2000 )); 50*45=$((50*45)) ge2000=$(( 50*45 >= 2000 )); 46*2000_vs_45*2000: $((46*2000)) $((45*2000)); 5lt6=$(( 5 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were verified by computation and match. The transaction source reports 45 disputed, not the recorded 46, so dispute grounding is contradicted while policy execution, attribution, stability and sufficiency hold on the recorded values."
+  }
+}

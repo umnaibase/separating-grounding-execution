@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_b2a137376b6ff631 (version 1) has a retained source of version 1 whose UTF-8 SHA-256 computes to da99ca27c293fa22834d08211b8ccd70775b6aabaed00e0d45f53c1dd47d7248, exactly matching the citation digest; no missing or ambiguous artifacts.",
+      "evidence": ["citations.contract[0]", "src_b2a137376b6ff631"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The validly cited contract states penalty-free termination is available once 6 months have elapsed, which is the minimum penalty-free commitment; the 48-month framework duration is not the minimum commitment and does not conflict. Asserted value 6 matches the unique stated value and record.input.commitment_months.",
+      "evidence": ["src_b2a137376b6ff631", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source (hash 3ed19b40bf5ffdc467616db7343ee7a5272f1ab4caf70ae1bcc90f4fe0e04e13 and version 1 both match the citation) covers observation window 2026-01-01/2026-01-31 and reports 2000 eligible and 45 disputed transactions, giving fraction 45/2000 exactly as asserted and as recorded.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months (supported configuration). Inputs are valid nonnegative integers with eligible 2000 > 0 and disputed 45 <= 2000. Dispute predicate: 50*45 = 2250 >= 2000 is true; commitment predicate: 6 < 6 is false. Both match the recorded trace; OR yields manual_review, matching both record.rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "Override is explicitly null, execution is faithful, and final_output manual_review matches policy replay, so nothing contradicts attribution; however record.action_history_complete is false, so the stipulated complete action history required for support is missing and attribution cannot be established.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [6] is non-empty and valid. With disputed 45 and eligible 2000 fixed, the dispute predicate (2250 >= 2000) is true for every candidate, and candidate 6 gives commitment predicate 6 < 6 false; the recommendation is manual_review for every declared candidate, so all candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs the dispute predicate holds (50*45 = 2250 >= 2000, recorded trace.dispute_trigger true); under toy-v1's OR rule a true dispute predicate alone yields manual_review irrespective of the commitment predicate, so it is sufficient conditional on the recorded values.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.trace.dispute_trigger", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*45=$((50*45)) ; 2250>=2000 -> $(( 50*45 >= 2000 )) ; 6<6 -> $(( 6 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were recomputed via sha256sum and match the citations exactly. Policy replay on recorded inputs gives dispute_trigger true, commitment_trigger false, manual_review; only c5 is unresolved because action_history_complete is false."
+  }
+}

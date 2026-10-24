@@ -1,0 +1,551 @@
+[
+ {
+  "case_id": "case_6a8807322b98cc46",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 dispute_trigger=$(( 50*25 >= 1500 )) commitment_trigger=$(( 6 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests were recomputed via sha256sum and matched exactly, and the policy predicates were evaluated with exact integer arithmetic. The only contradicted claim is c7, since the dispute fraction 25/1500 falls below the 1/50 threshold."
+ },
+ {
+  "case_id": "case_54092d8e100d8057",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo $((50*25)) $((50*25 >= 1500)) $((48 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were verified against the retained texts via sha256sum. The contract supports a 6-month minimum, not the recorded 48, and the dispute predicate (1250 < 1500) does not fire, so c2 and c7 are contradicted while execution, attribution and stability claims hold."
+ },
+ {
+  "case_id": "case_e4c41b4410943970",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; texts = {'src_c8ff67442fbc103d': 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.', 'src_771462962372190e': 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25', 'src_04a0eb41ce66089c': 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 48 months.'}; [print(k, hashlib.sha256(v.encode('utf-8')).hexdigest()) for k,v in texts.items()]; print('50*25 >= 1500:', 50*25 >= 1500, 50*25); print('6 < 6:', 6 < 6); print('3 < 6:', 3 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three retained source texts hash to their cited SHA-256 digests with matching versions. The two contracts conflict on minimum commitment (6 vs 3 months), the dispute predicate does not fire on recorded inputs, and candidate commitment 3 flips the recommendation to manual_review."
+ },
+ {
+  "case_id": "case_7ca91a566f45a47a",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum; echo \"50*25=$((50*25)) ; 1250>=1500 -> $(( 50*25 >= 1500 )) ; 3<6 -> $(( 3 < 6 )) ; 9<6 -> $(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited source digests and versions matched on recomputation. The two valid contracts conflict (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; policy replay confirms manual_review via the commitment predicate only, so candidate stability and dispute sufficiency are contradicted."
+ },
+ {
+  "case_id": "case_9b1039882f7070a8",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 ge=$(( 50*25 >= 1500 )) commit_lt=$(( 6 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed via sha256sum and matched the citations exactly with matching versions. Policy replay on recorded inputs gives standard_processing with both predicates false; the explicit reviewer override to manual_review breaks rule attribution and the dispute predicate is insufficient."
+ },
+ {
+  "case_id": "case_3201bfc52dc775b2",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; c='Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; t='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45'; print(hashlib.sha256(c.encode('utf-8')).hexdigest()); print(hashlib.sha256(t.encode('utf-8')).hexdigest()); print(50*45, 50*45>=2000); print(9<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed from the exact retained UTF-8 text and matched the citations with matching versions. Policy replay (2250 >= 2000 true; 9 < 6 false) agrees with the recorded trace, rule_output, final_output and the single candidate, so all seven claims are supported."
+ },
+ {
+  "case_id": "case_f1352befaf90773c",
+  "tools_used_for_reasoning": [
+   "python3 heredoc via Bash: hashlib.sha256 of the two retained source texts (UTF-8, exact bytes, no trailing newline) and integer checks 50*46>=2000, 50*45>=2000, 9<6"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests and versions match the retained sources. The only discrepancy is the transaction source recording 45 disputed versus the recorded/asserted 46, so c3 is contradicted while the execution-based claims (c4-c7) hold on the recorded inputs."
+ },
+ {
+  "case_id": "case_96101184a60febe1",
+  "tools_used_for_reasoning": [
+   "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum; echo $((50*45)); echo $((50*45 >= 2000)); echo $((9 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Contract digest mismatch (cited all-zero vs computed a390af9b...) drives c1 contradicted and c2 unresolved because the cited contract evidence is not lineage-valid even though its text reads 9 months; transactions digest matched and all policy-execution claims replay consistently to manual_review."
+ },
+ {
+  "case_id": "case_91c8c5a0614d675c",
+  "tools_used_for_reasoning": [
+   "Bash: python3 -c \"import hashlib; <compute sha256 of the three retained source texts (UTF-8), evaluate 50*45 >= 2000, and evaluate toy-v1 for candidates 3 and 9>\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The only non-supported claim is c2, where the two valid contracts give conflicting minimum commitment values (3 vs 9 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_ac1cc51279b6ef89",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo $((50*45)) $((50*45 >= 2000)) $((9 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly with matching versions. The only non-supported claim is c5, contradicted by the explicit outcome-preserving override in the record."
+ },
+ {
+  "case_id": "case_ad71d5fba20e3553",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15' | sha256sum",
+   "echo \"50*15 >= 800: $(( 50*15 >= 800 )) (50*15 = $((50*15)))\"; echo \"12 < 6: $(( 12 < 6 ))\"; echo \"candidate 12: commitment_trigger=$(( 12 < 6 )) dispute_trigger=$(( 50*15 >= 800 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests were recomputed via sha256sum over the exact retained UTF-8 text and matched; policy predicates were replayed with exact integer arithmetic. The only contradicted claim is c7, since 750 < 800 means the dispute predicate alone cannot produce manual_review."
+ },
+ {
+  "case_id": "case_30d87a45a717ce71",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*15 =', 50*15, '; 50*15 >= 800 ->', 50*15 >= 800, '; 36 < 6 ->', 36 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly, and versions matched. Policy arithmetic was done with exact integers; the only grounding failure is the commitment value (contract supports 12, not 36) and the dispute predicate is false on the recorded inputs."
+ },
+ {
+  "case_id": "case_1639cc5e15d3a206",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15' | sha256sum",
+   "echo $((50*15)); echo $((50*15 >= 800)); echo $((12 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests match the retained UTF-8 bytes; the contract citation's version (2) does not match the retained version (1), which contradicts lineage and leaves commitment grounding unresolved despite the retained text stating 12 months. Policy replay gives standard_processing with both predicates false."
+ },
+ {
+  "case_id": "case_c1c64894ed3f6285",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 3 months without penalty.' | sha256sum; printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15' | sha256sum; echo \"50*15=$((50*15)) eligible=800 ge=$(( 50*15 >= 800 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained source texts via computed SHA-256. The two valid contracts conflict on minimum commitment (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; dispute predicate evaluates false (750 < 800) on recorded inputs."
+ },
+ {
+  "case_id": "case_5083fc80c9ccd370",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; c='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; t='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*15>=800:', 50*15>=800, 50*15); print('12<6:', 12<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed and matched the citations exactly. Policy replay on recorded inputs gives standard_processing with both predicates false; final-action attribution is unresolved only because action_history_complete is false."
+ },
+ {
+  "case_id": "case_c1a5793f16aa3f57",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest()); print(50*20>=1000); print(18<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly with matching versions. Policy replay on recorded inputs gives dispute_trigger=true (boundary case 50*20 == 1000), commitment_trigger=false, manual_review, consistent with the record, null override and stipulated complete history."
+ },
+ {
+  "case_id": "case_007c18701e3b03d3",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+   "echo \"50*21=$((50*21)) ; 50*20=$((50*20)) ; eligible=1000\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests and versions matched the retained sources, so lineage is sound; the only defect is that the transaction source reports 20 disputed, not the recorded 21, so c3 is contradicted while the execution-based claims hold on the recorded inputs."
+ },
+ {
+  "case_id": "case_75c52dd0d7f2eb82",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; a='The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.'; b='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print(hashlib.sha256(a.encode('utf-8')).hexdigest()); print(hashlib.sha256(b.encode('utf-8')).hexdigest()); print(50*20 >= 1000, 18 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both retained source texts hash to the cited SHA-256 digests with matching versions. Integer arithmetic confirms 50*20 >= 1000 (dispute trigger true) and 18 < 6 false, so all seven claims are consistent with the sources and record."
+ },
+ {
+  "case_id": "case_86125d52dbdbaa5f",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+   "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum",
+   "echo \"50*20=$((50*20)) eligible=1000 cmp_ge=$(( 50*20 >= 1000 ))\"",
+   "echo \"months3_lt6=$(( 3 < 6 )) months9_lt6=$(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited source digests and versions were recomputed and matched. The only unresolved claim is commitment grounding, because the two valid contracts give conflicting values (3 vs 9 months) with no precedence rule; dispute fraction sits exactly at the 1/50 threshold, so the >= comparison triggers."
+ },
+ {
+  "case_id": "case_3c3157a3cf1e64ee",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; print(hashlib.sha256('Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'.encode('utf-8')).hexdigest())\"",
+   "python3 -c \"import hashlib; print(hashlib.sha256('Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'.encode('utf-8')).hexdigest())\"",
+   "python3 -c \"d,e,c=20,1000,18; print('dispute:',50*d>=e,'commitment:',c<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests and versions match the retained source texts exactly. The only defect is the recorded trace: commitment_trigger is true although 18 < 6 is false, which contradicts conditional_execution and leaves final-action attribution unresolved despite a null override and matching output."
+ },
+ {
+  "case_id": "case_07246c044c824758",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1200 ge=$(( 50*25 >= 1200 ))\"",
+   "echo \"cm=3 lt6=$(( 3 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed via sha256sum over the exact UTF-8 source text (no trailing newline) and matched the citations with matching versions. Policy arithmetic (1250 >= 1200, 3 < 6) was checked with exact integer bash arithmetic; all seven claims are consistent with the supplied sources and record."
+ },
+ {
+  "case_id": "case_2b8fea677d9cedef",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1200 ge=$(( 50*25 >= 1200 ))\"",
+   "echo \"commitment 24<6: $(( 24 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were recomputed and match. The contract explicitly gives 3 months as the minimum penalty-free cancellation time, so the recorded 24-month commitment is contradicted, though it does not change the policy outcome since the dispute predicate alone triggers manual_review."
+ },
+ {
+  "case_id": "case_45cefda2b29cd619",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)); 1250>=1200 -> $(( 50*25 >= 1200 )); 3<6 -> $(( 3 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "SHA-256 of the retained transactions source text (no trailing newline) matched the cited digest exactly. The cited contract source is absent from the retained sources, so lineage and commitment grounding are unresolved; the empty alternatives list leaves candidate stability unresolved."
+ },
+ {
+  "case_id": "case_cd53f57418936c1d",
+  "tools_used_for_reasoning": [
+   "python3 heredoc via Bash: hashlib.sha256 of each source text (UTF-8) compared to cited digests; integer checks 50*25 >= 1200, 3 < 6, and replay for candidates 3 and 9"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The two valid contracts give conflicting penalty-free termination values (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; all policy-execution claims replay consistently."
+ },
+ {
+  "case_id": "case_ef90de411754b293",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*disputed>=eligible', 50*25 >= 1200, 50*25); print('commitment<6', 3 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests and versions were recomputed and match the retained sources exactly. Policy replay on recorded inputs gives manual_review; the explicit reviewer override to standard_processing contradicts rule attribution of the final action."
+ },
+ {
+  "case_id": "case_0ca93999ec3c5eea",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum  (with literal newlines in the argument)",
+   "echo \"50*25=$((50*25)) ; eligible=1500 ; 50*disputed>=eligible: $(( 50*25 >= 1500 )) ; commitment 5<6: $(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were verified against the retained texts via sha256sum and matched exactly. Policy replay gives commitment_trigger true, dispute_trigger false, output manual_review; only c7 fails because the dispute predicate alone is false on the recorded values."
+ },
+ {
+  "case_id": "case_78e8c1ddeb15f927",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*26=$((50*26)) 50*25=$((50*25)) eligible=1500\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were verified against the retained texts and match. The transaction source records 25 disputed, not the recorded 26, so dispute grounding is contradicted; the recorded dispute predicate is false, so it alone does not justify manual review."
+ },
+ {
+  "case_id": "case_cb5218205e35f365",
+  "tools_used_for_reasoning": [
+   "Bash: printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum; echo \"50*25=$((50*25)); eligible=1500; dispute_trigger(50*disputed>=eligible)=$(( 50*25 >= 1500 )); commitment_trigger(5<6)=$(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "The contract SHA-256 was computed from the exact retained text (no trailing newline) and matched the cited digest; the transaction source was not supplied so c3 is unresolved. Integer arithmetic confirmed dispute_trigger false and commitment_trigger true."
+ },
+ {
+  "case_id": "case_2cfbfd9ce81f0703",
+  "tools_used_for_reasoning": [
+   "python3 heredoc via Bash: hashlib.sha256(text.encode('utf-8')).hexdigest() for the three source texts; integer checks 50*25 >= 1500, 3 < 6, and per-candidate replay for candidates [3, 9]"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited hashes and versions matched the retained sources. Contract evidence conflicts on commitment (3 vs 9 months); dispute predicate is false on recorded inputs, so only the commitment predicate drives manual_review and candidate 9 flips the recommendation."
+ },
+ {
+  "case_id": "case_ea0523db77f22c20",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*25=', 50*25, ' >= 1500?', 50*25 >= 1500, ' 5<6?', 5<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed in Bash and matched exactly; policy replay was done with exact integer arithmetic. The only tool use was the single Bash computation above, and only the task file plus the output path were touched."
+ },
+ {
+  "case_id": "case_6355617c7ac49116",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*45 >= 2000 ? $(( 50*45 >= 2000 )) ; 50*45=$((50*45)) ; 6<6 ? $(( 6 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed via sha256sum on the exact UTF-8 bytes and matched the citations. Policy replay used exact integer arithmetic (2250 >= 2000 true; 6 < 6 false) and agreed with the recorded trace, rule output, final output, and the single candidate alternative."
+ },
+ {
+  "case_id": "case_e6c09a1ade657662",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*45=$((50*45)) ; cmp_ge_2000=$(( 50*45 >= 2000 )) ; commit_lt_6=$(( 48 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests matched the retained source texts exactly, so lineage holds; the only failing claim is c2, since the contract gives 6 months as the penalty-free threshold while 48 is only the framework duration."
+ },
+ {
+  "case_id": "case_b3ed55f32da3359a",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 48 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*45=$((50*45)); 2250>=2000 -> $((50*45 >= 2000)); 6<6 -> $((6<6)); 3<6 -> $((3<6))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited source digests and versions were verified by computing SHA-256 over the exact UTF-8 text (literal newlines, no trailing newline) and matched. The only non-supported claim is c2, where two valid contracts give conflicting minimum commitments (6 vs 3 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_f0d2096e397c823a",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum",
+   "echo \"50*45=$((50*45)); eligible=2000; cmp=$(( 50*45 >= 2000 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained source texts. The only non-supported claim is c2, where the two valid contracts give conflicting minimum commitment values (3 vs 9 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_4fef64096c64a2cd",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*45=$((50*45)) ; 2250>=2000 -> $(( 50*45 >= 2000 )) ; 6<6 -> $(( 6 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were recomputed via sha256sum and match the citations exactly. Policy replay on recorded inputs gives dispute_trigger true, commitment_trigger false, manual_review; only c5 is unresolved because action_history_complete is false."
+ },
+ {
+  "case_id": "case_6843a98ae359db46",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest())\"",
+   "python3 -c \"disputed=15; eligible=800; cm=9; print(50*disputed, eligible, 50*disputed>=eligible); print(cm<6); print(['manual_review' if (50*disputed>=eligible or c<6) else 'standard_processing' for c in [9]])\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests and versions matched the retained sources exactly. Policy replay on recorded inputs gives standard_processing with both triggers false, so all claims are supported except c7, whose dispute-only sufficiency assertion is contradicted by the false dispute predicate."
+ },
+ {
+  "case_id": "case_39f50c0324bc27d3",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; c = 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; t = 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*16>=800', 50*16 >= 800, 50*16); print('50*15>=800', 50*15 >= 800, 50*15); print('9<6', 9 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests were recomputed and matched the retained source bytes and versions. The only discrepancy is the transaction source recording 15 disputed versus the recorded/asserted 16, which contradicts c3 but does not affect the conditional claims c4-c7, which are evaluated on recorded inputs."
+ },
+ {
+  "case_id": "case_91bf94e28c04fb8c",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; print(hashlib.sha256('Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'.encode('utf-8')).hexdigest())\"",
+   "python3 -c \"import hashlib; print(hashlib.sha256('Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'.encode('utf-8')).hexdigest())\"",
+   "python3 -c \"print(50*15, 50*15 >= 800, 9 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Contract citation digest (all zeros) does not match the computed SHA-256 of the retained contract text (a390af9b...4ac0), while the transaction citation digest matches exactly. Policy replay on recorded inputs yields standard_processing with both predicates false."
+ },
+ {
+  "case_id": "case_a4bb10865e1a60b5",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; srcs = {'src_f5d522e9bafea47f': 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.', 'src_420443f31395c781': 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15', 'src_5db88d90dee4468b': 'The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.'}; [print(k, hashlib.sha256(v.encode('utf-8')).hexdigest()) for k,v in srcs.items()]; print('50*15 =', 50*15, '>= 800 ?', 50*15 >= 800); print('3 < 6 ?', 3 < 6, '; 9 < 6 ?', 9 < 6)\" (run via Bash)"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The two valid contracts conflict on minimum commitment (3 vs 9 months) with no precedence rule, so c2 is unresolved; the dispute predicate is false on recorded inputs (750 < 800), which contradicts c7, and candidate 9 flips the recommendation to standard_processing, contradicting c6."
+ },
+ {
+  "case_id": "case_40ac0f6bc84b9145",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\nEligible transactions: 800\nDisputed transactions: 15' | sha256sum",
+   "echo \"50*15=$((50*15)) eligible=800 cmp_ge=$(( 50*15 >= 800 )) commit_lt6=$(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions match the retained texts. Policy replay yields standard_processing with both predicates false, but the recorded trace wrongly sets commitment_trigger true, which contradicts c4 and leaves c5 unresolved; the dispute predicate is false so c7 is contradicted."
+ },
+ {
+  "case_id": "case_2d1de491af1a3592",
+  "tools_used_for_reasoning": [
+   "Bash: printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+   "Bash: printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+   "Bash: echo \"50*20=$((50*20)) eligible=1000 ge=$(( 50*20 >= 1000 )); commit12lt6=$(( 12 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited artifacts' recomputed SHA-256 digests and versions matched the citations exactly. The dispute fraction sits exactly on the 1/50 threshold (50*20 = 1000 = eligible), which the >= rule treats as triggered, so every claim is consistent with the sources and the record."
+ },
+ {
+  "case_id": "case_7c2e05d1a9bbe57a",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum; echo \"50*20=$((50*20)) eligible=1000 cmp_ge=$(( 50*20 >= 1000 )) commit_lt6=$(( 36 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests were recomputed from the retained source texts and matched exactly; integer policy comparisons were checked in Bash. Only c2 is contradicted because the contract gives 12 months as the penalty-free termination point while the record uses the 36-month framework duration."
+ },
+ {
+  "case_id": "case_2bdfb513ecd7ba99",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+   "echo $((50*20)) $((50*20 >= 1000)) $((12 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both retained source digests match the cited SHA-256 values; the only lineage defect is the contract citation version (2) differing from the retained version (1), which contradicts c1 and leaves c2 unresolved. Policy replay on recorded inputs gives manual_review via the dispute predicate (1000 >= 1000) with no override."
+ },
+ {
+  "case_id": "case_d0db49fb716ee077",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 3 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+   "printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.' | sha256sum",
+   "echo \"50*20=$((50*20)) eligible=1000 ge=$(( 50*20 >= 1000 )) commit_lt=$(( 3 < 6 )) alt9_lt=$(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited source digests and versions were verified by recomputation and matched. The two valid contracts conflict (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; all policy-execution claims hold because the dispute predicate is exactly at the 1/50 boundary and evaluates true."
+ },
+ {
+  "case_id": "case_a5416b48c692f4a6",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; t1='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; t2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print('contract', hashlib.sha256(t1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t2.encode('utf-8')).hexdigest()); print('50*20>=1000 ->', 50*20>=1000, '12<6 ->', 12<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly. Policy replay on recorded inputs yields manual_review (dispute predicate true at the exact 1/50 boundary), but an explicit override changed the final action to standard_processing, so only c5 is contradicted."
+ },
+ {
+  "case_id": "case_a40b69cd0c8790e3",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest()); print(50*25, 50*25>=1200, 18<6, 50*25>=1200 or 18<6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests were recomputed via SHA-256 over the exact retained UTF-8 text and matched the citations, and versions matched. Policy arithmetic (50*25=1250 >= 1200; 18 < 6 false) was verified by exact integer computation; all seven claims are supported."
+ },
+ {
+  "case_id": "case_121a45b7df8a4442",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum; echo $((50*26)) $((50*25)) $((26*50 >= 1200)) $((18 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests and versions match the retained source texts. The transaction source reports 25 disputed (25/1200) while the record and claim c3 assert 26/1200, so c3 is contradicted; all policy-execution claims hold on the recorded inputs."
+ },
+ {
+  "case_id": "case_b5d5d07bc025f241",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; s1='The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print('src_fd1a6ee4670ed6dc', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('src_97938c8628002d54', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*disputed>=eligible:', 50*25 >= 1200, 50*25); print('commitment<6:', 18 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed via Bash and matched the retained source bytes exactly. Policy replay on recorded inputs (1250 >= 1200, 18 not < 6) reproduces the recorded trace, rule_output and final_output with no override."
+ },
+ {
+  "case_id": "case_3af9864800ed8861",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; srcs = {'src_fd1a6ee4670ed6dc': 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.', 'src_97938c8628002d54': 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25', 'src_2865380dfd93f4c9': 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.'}; [print(k, hashlib.sha256(v.encode('utf-8')).hexdigest()) for k,v in srcs.items()]; print('50*25 >= 1200:', 50*25 >= 1200, 50*25); print('3 < 6:', 3 < 6, '9 < 6:', 9 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained source texts via recomputed UTF-8 SHA-256. The only unresolved claim is commitment grounding, because the two valid contracts give conflicting minimum commitments (3 vs 9 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_d2e074f0b18c0979",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1200 cmp_ge=$(( 50*25 >= 1200 )) commit_lt6=$(( 18 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly; policy arithmetic was verified with exact integer comparison. The only contradicted claim is c5, because the record contains an explicit outcome-preserving override."
+ },
+ {
+  "case_id": "case_a6542ee2baa2f4c6",
+  "tools_used_for_reasoning": [
+   "python3 -c \"import hashlib; c = 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.'; t = 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*disputed', 50*25, 'eligible', 1500, '50*disputed>=eligible', 50*25 >= 1500); print('commitment<6', 3 < 6)\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests were recomputed from the retained source texts (UTF-8, no trailing newline) and matched exactly; integer arithmetic confirmed the dispute predicate is false and the commitment predicate is true on the recorded inputs."
+ },
+ {
+  "case_id": "case_bb6e2d4b128fabd7",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 cmp_ge=$(( 50*25 >= 1500 )) commit_lt6=$(( 24 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions matched the retained texts. The contract gives 3 months as the minimum penalty-free cancellation time while 24 is the framework duration, so c2 is contradicted; the dispute predicate is false on recorded inputs, so c7 is contradicted; execution, attribution and candidate stability all check out."
+ },
+ {
+  "case_id": "case_092a59bd6be43719",
+  "tools_used_for_reasoning": [
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; echo \"50*25=$((50*25)); eligible=1500; cmp=$(( 50*25 >= 1500 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Computed SHA-256 of the retained transactions source text and it matched the citation digest (8c11d472...5bca5ff8); the cited contract source is absent from the supplied sources, so contract lineage and commitment grounding are unresolved. Integer arithmetic confirmed the dispute predicate is false (1250 < 1500) and the commitment predicate is true (3 < 6)."
+ },
+ {
+  "case_id": "case_38ffe171bf16488b",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum; printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.' | sha256sum",
+   "echo \"50*25=$((50*25)); 1250>=1500: $(( 50*25 >= 1500 )); 3<6: $(( 3 < 6 )); cand3<6: $(( 3 < 6 )); cand9<6: $(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited source digests and versions were verified by computing SHA-256 over the exact retained text (literal newlines). Policy predicates and candidate comparisons were checked with exact integer arithmetic in Bash."
+ },
+ {
+  "case_id": "case_89d21a7a98be486c",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) ; 1250>=1500? $(( 1250 >= 1500 )) ; 3<6? $(( 3 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited digests and versions were verified against the retained source texts via sha256sum and matched. Policy replay used exact integer arithmetic; the only non-supported labels are c5 (action history stipulated incomplete) and c7 (recorded dispute predicate is false)."
+ },
+ {
+  "case_id": "case_eae2b0b8bd4ba88c",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo $((50*45)) $((50*45 >= 2000)) $((5 < 6))"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were verified against the retained texts and matched exactly. Policy replay on the recorded inputs yields manual_review with both predicates true, consistent with the record, null override and stipulated complete history."
+ },
+ {
+  "case_id": "case_10cc6c5fb30bd58b",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*46=$((50*46)) ge2000=$(( 50*46 >= 2000 )); 50*45=$((50*45)) ge2000=$(( 50*45 >= 2000 )); 46*2000_vs_45*2000: $((46*2000)) $((45*2000)); 5lt6=$(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions were verified by computation and match. The transaction source reports 45 disputed, not the recorded 46, so dispute grounding is contradicted while policy execution, attribution, stability and sufficiency hold on the recorded values."
+ },
+ {
+  "case_id": "case_6af73cdd529f4d0f",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "echo \"50*45=$((50*45)) ; dispute_ge: $(( 50*45 >= 2000 )) ; commit_lt6: $(( 5 < 6 )) ; cand5_lt6: $(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Contract digest recomputed and matched the citation; the cited transactions source is absent from the retained sources, so dispute grounding is unresolved while all record-internal policy claims check out."
+ },
+ {
+  "case_id": "case_64984dbb642caf5e",
+  "tools_used_for_reasoning": [
+   "Bash: python3 heredoc computing hashlib.sha256(text.encode('utf-8')).hexdigest() for the three retained source texts, plus integer checks 50*45 >= 2000, 3 < 6, 9 < 6"
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The only unresolved claim is c2, because the two lineage-valid contracts give conflicting minimum commitments (3 vs 9 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_e9cdc3b272acb33a",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+   "echo \"50*45=$((50*45)) ; 2250>=2000: $(( 50*45 >= 2000 )) ; 5<6: $(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "Both cited source digests and versions matched the retained texts. The recorded trace's commitment_trigger=false conflicts with the policy replay (5 < 6), which contradicts conditional_execution and leaves final_action_by_rule unresolved despite null override and matching final output."
+ }
+]

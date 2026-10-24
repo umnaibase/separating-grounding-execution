@@ -1,0 +1,19 @@
+{
+  "author_model_relationship": "same assistant system as artifact author; not independent evaluation",
+  "batch_context": "Record whether each batch used a fresh context",
+  "exact_model_snapshot": null,
+  "limitations": [
+    "Exact model snapshot and sampling parameters are not exposed by this interface."
+  ],
+  "model_display_name": "Codex assistant (GPT-6 family as described by session)",
+  "permitted_tool_access": [
+    "read named input batch",
+    "view named PNG for image condition",
+    "write literal model response"
+  ],
+  "protocol": "assistant-pilot-1",
+  "run_id": "assistant-pilot-1",
+  "sampling_parameters": null,
+  "status": "not_run",
+  "tool_trace_files": []
+}

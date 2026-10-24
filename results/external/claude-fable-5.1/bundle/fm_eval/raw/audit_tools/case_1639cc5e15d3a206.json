@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "Computed SHA-256 of retained contract text equals cited digest 4eb69472...cba5, but the citation records version 2 while the retained source src_51d1d2de924d3cc0 is version 1; an observed version mismatch is contradicted by definition.",
+      "evidence": ["citations.contract[0].sha256", "citations.contract[0].version", "src_51d1d2de924d3cc0"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The retained version-1 text says the merchant may terminate without penalty after 12 months (the 36-month framework duration is not the minimum commitment), which would match 12, but the citation points to version 2 which is not retained; the cited contract evidence is therefore not valid/unambiguous and the absent cited version cannot be assumed to agree.",
+      "evidence": ["citations.contract[0].version", "src_51d1d2de924d3cc0", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Computed SHA-256 of retained transactions text equals cited digest df7cb14b...cf2f and versions match (1/1); the source states window 2026-01-01/2026-01-31, eligible 800, disputed 15, giving fraction 15/800 as asserted.",
+      "evidence": ["citations.transactions[0].sha256", "citations.transactions[0].version", "src_2997ae3262314dbf", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 (1/50, 6 months). Inputs valid (800>0, 15<=800). 50*15=750 >= 800 is false (dispute_trigger false); 12 < 6 is false (commitment_trigger false); replay yields standard_processing, matching rule_output, both trace predicates and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is consistent with faithful toy-v1 execution, and final_output standard_processing equals rule_output and the policy replay.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [12] is non-empty and valid; with disputed=15, eligible=800 fixed (dispute predicate false), commitment 12 < 6 is false, so the single candidate yields standard_processing, the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values 50*15=750 < 800, so the dispute predicate is false (trace dispute_trigger false); it does not by itself trigger manual review under toy-v1.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15' | sha256sum",
+      "echo $((50*15)); echo $((50*15 >= 800)); echo $((12 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests match the retained UTF-8 bytes; the contract citation's version (2) does not match the retained version (1), which contradicts lineage and leaves commitment grounding unresolved despite the retained text stating 12 months. Policy replay gives standard_processing with both predicates false."
+  }
+}

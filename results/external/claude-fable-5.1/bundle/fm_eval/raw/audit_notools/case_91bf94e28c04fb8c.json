@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The contract citation (src_f5d522e9bafea47f, version 1) carries an all-zero SHA-256 digest, which is a placeholder rather than a verifiable digest; the version matches the retained source but the digest cannot be checked without computation and is effectively missing/invalid, so lineage cannot be established or shown mismatched.",
+      "evidence": ["citations.contract[0].sha256", "citations.contract[0].version", "src_f5d522e9bafea47f"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract (matching source_id and version) states 'Minimum penalty-free cancellation time: 9 months', which equals the asserted value 9; the 24-month service framework duration is a distinct figure and not the minimum commitment, so there is no conflicting value.",
+      "evidence": ["src_f5d522e9bafea47f", "citations.contract[0].source_id", "citations.contract[0].version", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transaction source covers exactly the window 2026-01-01/2026-01-31 and reports 800 eligible and 15 disputed transactions, giving fraction 15/800, which matches the asserted numerator 15 and denominator 800.",
+      "evidence": ["src_420443f31395c781", "citations.transactions[0].source_id", "citations.transactions[0].version", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (nonnegative integers, eligible 800 > 0, disputed 15 <= 800) and the policy config matches toy-v1. Dispute predicate: 50*15 = 750 >= 800 is false. Commitment predicate: 9 < 6 is false. Hence standard_processing, matching the recorded rule_output, both recorded trace predicates (false/false) and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete = true and override = null; policy replay on the recorded inputs yields standard_processing, the trace is consistent, and rule_output and final_output both equal the asserted standard_processing, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [9], a non-empty valid set. With disputed 15 / eligible 800 fixed (dispute predicate false), commitment 9 gives 9 < 6 false, so the recommendation is standard_processing for every declared candidate; stability holds trivially (completeness of the set is not asserted).",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is 50*15 = 750 >= 800, which is false (recorded dispute_trigger = false), so the dispute predicate alone does not trigger manual_review under toy-v1; the assertion that it suffices is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages using mental integer arithmetic; no hashes were computed and no other files, tools or web resources were consulted. The all-zero contract digest was treated as an unverifiable placeholder (unresolved) rather than an observed mismatch."
+  }
+}

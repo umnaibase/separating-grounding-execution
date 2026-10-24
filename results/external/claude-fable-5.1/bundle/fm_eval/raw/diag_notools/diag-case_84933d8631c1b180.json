@@ -1,0 +1,98 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts are retained with matching version '1', but the SHA-256 digests of the retained UTF-8 bytes cannot be computed or verified here without a computational tool; no digest/version mismatch is observed, so the lineage assertion is neither established nor contradicted.",
+      "evidence": [
+        "citations.contract[0]",
+        "citations.contract[1]",
+        "diag-src_9f9b388eafdc9b55",
+        "diag-src_31e01f933e77670b"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: diag-src_9f9b388eafdc9b55 states a 6-month minimum penalty-free cancellation time while diag-src_31e01f933e77670b states 9 months, both with a 24-month framework duration and no precedence rule; conflicting authoritative documents leave the asserted value 6 unresolved (and contract digests are also unverified).",
+      "evidence": [
+        "diag-src_9f9b388eafdc9b55",
+        "diag-src_31e01f933e77670b",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The retained transaction source text for window 2026-01-01/2026-01-31 reports eligible 1500 and disputed 25, matching the asserted fraction 25/1500 exactly and version '1' matches the citation; however the cited SHA-256 digest cannot be verified without computation, so the validity of the cited evidence cannot be confirmed and uncertainty is retained.",
+      "evidence": [
+        "diag-src_8e37ac4838cc1997",
+        "citations.transactions[0]",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (nonnegative integers, eligible 1500 > 0, disputed 25 <= 1500) and policy config matches toy-v1 (1/50, 6 months). Replay: 50*25 = 1250 >= 1500 is false (dispute_trigger false); 6 < 6 is false (commitment_trigger false); neither predicate fires so output is standard_processing, matching the recorded rule_output, both trace predicates and the asserted value.",
+      "evidence": [
+        "record.input.commitment_months",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy",
+        "record.rule_output",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution (both predicates false), policy replay yields standard_processing, and final_output equals rule_output equals the asserted standard_processing; no intervention is recorded.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger",
+        "record.input"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Candidate set [6, 9] is nonempty and valid. Holding disputed 25 / eligible 1500 fixed, the dispute predicate is false (1250 < 1500); commitment 6 gives 6 < 6 false and commitment 9 gives 9 < 6 false, so both candidates yield standard_processing. All candidates produce the same recommendation (stability true), which contradicts the asserted value false.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values, the dispute predicate is 50*25 = 1250 >= 1500, which is false (25/1500 = 1/60 < 1/50); the recorded trace also shows dispute_trigger false. The dispute predicate alone therefore does not suffice for manual_review under toy-v1, contradicting the asserted value true.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.dispute_trigger"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages with mental integer arithmetic; no files other than the task prompt were read and no hashes were computed, so digest-dependent validity was left unresolved."
+  }
+}

@@ -1,0 +1,362 @@
+[
+ {
+  "case_id": "case_6a8807322b98cc46",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages using mental integer arithmetic; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_54092d8e100d8057",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; no hash computation was attempted, so contract lineage is left unresolved while the retained source texts and versions were used for the grounding claims. Integer policy replay was done mentally (50*25=1250 < 1500; 48 >= 6)."
+ },
+ {
+  "case_id": "case_e4c41b4410943970",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages; no SHA-256 digests were computed, so contract lineage is left unresolved. Only mental integer arithmetic (50*25 = 1250 vs 1500, and 6/3 vs 6) was used for the policy replay."
+ },
+ {
+  "case_id": "case_7ca91a566f45a47a",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no files, web, or computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved; integer comparisons for policy replay were done mentally."
+ },
+ {
+  "case_id": "case_9b1039882f7070a8",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the reproduced SYSTEM and USER messages using mental integer arithmetic; no SHA-256 computation was attempted, so contract lineage is left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_3201bfc52dc775b2",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages with mental integer arithmetic; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_f1352befaf90773c",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage is left unresolved; the transaction source's 45 disputed versus the recorded 46 drives the contradicted dispute_grounding label."
+ },
+ {
+  "case_id": "case_96101184a60febe1",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All reasoning was done mentally from the SYSTEM and USER messages; only the task file was read and only the output file was written. No SHA-256 digests were computed; the contract lineage label rests on the cited digest being the all-zero placeholder value, which cannot be the SHA-256 of the retained non-empty text, and the transaction digest was left unverified."
+ },
+ {
+  "case_id": "case_91c8c5a0614d675c",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files beyond the task file were read and no computational tools were used. SHA-256 digests were not computed, so lineage and lineage-dependent grounding validity were left unresolved; mental integer arithmetic was used for the policy replay claims."
+ },
+ {
+  "case_id": "case_ac1cc51279b6ef89",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All reasoning was done mentally from the supplied SYSTEM and USER messages; no hash was computed, so contract lineage (c1) is left unresolved rather than asserted. Only the task file was read and only the Write tool was used for output."
+ },
+ {
+  "case_id": "case_ad71d5fba20e3553",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage is left unresolved while content-based grounding claims rely on the retained source text."
+ },
+ {
+  "case_id": "case_30d87a45a717ce71",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; no SHA-256 computation was attempted, so contract lineage is left unresolved. Transaction lineage is likewise unverified at the byte level, but the retained text content directly matches the asserted fraction."
+ },
+ {
+  "case_id": "case_1639cc5e15d3a206",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "No SHA-256 digests were computed; only mental integer arithmetic on the recorded inputs was used. Lineage for c1 is contradicted on the observable version mismatch alone, and grounding claims c2/c3 are left unresolved because citation validity (absent cited version; unverified digest) could not be established."
+ },
+ {
+  "case_id": "case_c1c64894ed3f6285",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages with mental integer arithmetic; no files other than the task file were read and no SHA-256 digests were computed, so contract lineage is left unresolved and the transaction digest is noted as unverified."
+ },
+ {
+  "case_id": "case_5083fc80c9ccd370",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no SHA-256 computation was attempted, so contract lineage is left unresolved."
+ },
+ {
+  "case_id": "case_c1a5793f16aa3f57",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage is left unresolved."
+ },
+ {
+  "case_id": "case_007c18701e3b03d3",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "No files other than the prompt were read and no computational tools were used; SHA-256 digests were not computed, so contract lineage is left unresolved. Only mental integer arithmetic (50*21=1050 vs 1000, 18 vs 6) was used."
+ },
+ {
+  "case_id": "case_75c52dd0d7f2eb82",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no SHA-256 computation was attempted, so the contract lineage claim is left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_86125d52dbdbaa5f",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no hashes were computed and no other files, tools or web were consulted. Lineage (c1) is left unresolved because digest verification is not possible without computation; the contract conflict (3 vs 9 months) leaves c2 unresolved."
+ },
+ {
+  "case_id": "case_3c3157a3cf1e64ee",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computation tools were used and the SHA-256 digest was not computed, so contract lineage is left unresolved. The key finding is a trace inconsistency: commitment_trigger is recorded as true although 18 < 6 is false."
+ },
+ {
+  "case_id": "case_07246c044c824758",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages in the task file; only mental integer arithmetic was used. SHA-256 digests were not computed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_2b8fea677d9cedef",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the reproduced SYSTEM and USER messages; no SHA-256 computation was attempted, so contract lineage is left unresolved while the contract text itself clearly gives 3 months as the minimum penalty-free commitment versus the recorded 24."
+ },
+ {
+  "case_id": "case_45cefda2b29cd619",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no files other than the task file were read and no SHA-256 digests were computed. The contract source is absent from retained sources and the alternatives list is empty, which drives the unresolved labels on c1, c2 and c6."
+ },
+ {
+  "case_id": "case_cd53f57418936c1d",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files beyond the task file were opened and no computation tools were used. SHA-256 digests were not computed, so lineage-dependent claims (c1, c2, c3) were left unresolved while policy-replay claims (c4-c7) were decided by mental integer arithmetic."
+ },
+ {
+  "case_id": "case_ef90de411754b293",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All reasoning was done mentally from the SYSTEM and USER messages; no computational tools were used and no SHA-256 digest was computed, so contract lineage is left unresolved. Integer policy arithmetic (50*25 = 1250 vs 1200, 3 vs 6) was done by hand."
+ },
+ {
+  "case_id": "case_0ca93999ec3c5eea",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computational tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved while version strings were compared directly."
+ },
+ {
+  "case_id": "case_78e8c1ddeb15f927",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages with mental integer arithmetic; no files other than the task file were read and no SHA-256 computation was attempted, so the lineage claim was left unresolved."
+ },
+ {
+  "case_id": "case_cb5218205e35f365",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computation tools were used and SHA-256 digests were not computed, so the contract lineage claim was left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_2cfbfd9ce81f0703",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages in the task file; no computation tools, file browsing or web search were used. SHA-256 digests were not computed, so contract lineage is left unresolved while content-based and arithmetic checks were done mentally."
+ },
+ {
+  "case_id": "case_ea0523db77f22c20",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; no files beyond the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_6355617c7ac49116",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages; only mental integer arithmetic was used. SHA-256 digests were not computed, so contract lineage is left unresolved despite matching source_id and version."
+ },
+ {
+  "case_id": "case_e6c09a1ade657662",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages using mental integer arithmetic; no hash computation was attempted, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_b3ed55f32da3359a",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files beyond the task file were read and no computation tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_f0d2096e397c823a",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages; integer comparisons (50*45=2250 vs 2000, 3<6, 9>=6) were done mentally. SHA-256 digests were not computed, so contract lineage is left unresolved; the two cited contracts conflict on minimum commitment (3 vs 9 months) with no precedence rule."
+ },
+ {
+  "case_id": "case_4fef64096c64a2cd",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All reasoning was done mentally from the SYSTEM and USER messages; no SHA-256 digests were computed, so the lineage claim is left unresolved while grounding claims rely on retained source text and matching versions."
+ },
+ {
+  "case_id": "case_6843a98ae359db46",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All reasoning was done mentally from the SYSTEM and USER messages; only the Write tool was used to emit this file. SHA-256 digests were not computed, so contract lineage is left unresolved, while grounding claims were judged on retained text and version match."
+ },
+ {
+  "case_id": "case_39f50c0324bc27d3",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages; no bash, python, web or file browsing used. SHA-256 digests were not computed, so contract lineage was left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_91bf94e28c04fb8c",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages using mental integer arithmetic; no hashes were computed and no other files, tools or web resources were consulted. The all-zero contract digest was treated as an unverifiable placeholder (unresolved) rather than an observed mismatch."
+ },
+ {
+  "case_id": "case_a4bb10865e1a60b5",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files beyond the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved and the transaction digest is noted as unverified while its content, version and window match the record."
+ },
+ {
+  "case_id": "case_40ac0f6bc84b9145",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages using mental integer arithmetic; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_2d1de491af1a3592",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; no computational tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved while version match is noted."
+ },
+ {
+  "case_id": "case_7c2e05d1a9bbe57a",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages using mental integer arithmetic; no SHA-256 digests were computed, so the contract lineage claim is left unresolved."
+ },
+ {
+  "case_id": "case_2bdfb513ecd7ba99",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "No computational tools were used and SHA-256 digests were not computed, so digest matches remain unverified. Labels rely on version comparison, retained source text and mental integer arithmetic only."
+ },
+ {
+  "case_id": "case_d0db49fb716ee077",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the reproduced SYSTEM and USER messages with mental integer arithmetic; SHA-256 digests were not computed, so contract lineage was left unresolved and the transaction digest was not independently verified."
+ },
+ {
+  "case_id": "case_a5416b48c692f4a6",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no hash computation was attempted, so contract lineage is left unresolved."
+ },
+ {
+  "case_id": "case_a40b69cd0c8790e3",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages using mental integer arithmetic. The SHA-256 digest for the contract citation was not computed, so contract lineage was left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_121a45b7df8a4442",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; no computation tools were used and no SHA-256 digests were computed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_b5d5d07bc025f241",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no Bash, Python, web, or file browsing was used. SHA-256 digests were not computed, so contract lineage is left unresolved."
+ },
+ {
+  "case_id": "case_3af9864800ed8861",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so lineage-dependent claims (c1, c2, c3) are left unresolved; c4-c7 were decided by mental integer arithmetic on the recorded inputs."
+ },
+ {
+  "case_id": "case_d2e074f0b18c0979",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no SHA-256 computation was attempted, so contract lineage is left unresolved. Only the task file was read and only the output file was written."
+ },
+ {
+  "case_id": "case_a6542ee2baa2f4c6",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages using mental integer arithmetic; SHA-256 digests were not computed, so contract lineage is left unresolved while version and source presence were checked."
+ },
+ {
+  "case_id": "case_bb6e2d4b128fabd7",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files beyond the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage is left unresolved while content-based claims were judged from the retained source text and record fields."
+ },
+ {
+  "case_id": "case_092a59bd6be43719",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the task file; the Read tool was used solely to load the task file and the Write tool solely to emit this answer. No digest computation, filesystem browsing or web search was performed."
+ },
+ {
+  "case_id": "case_38ffe171bf16488b",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "All labels were derived by reading the supplied SYSTEM and USER messages and doing mental integer arithmetic only; no SHA-256 digests were computed or guessed, so contract lineage was left unresolved."
+ },
+ {
+  "case_id": "case_89d21a7a98be486c",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the SYSTEM and USER messages; integer comparisons done mentally. SHA-256 digests were not computed, so contract lineage is left unresolved."
+ },
+ {
+  "case_id": "case_eae2b0b8bd4ba88c",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so the lineage claim is left unresolved while content-based claims were evaluated on the retained source text."
+ },
+ {
+  "case_id": "case_10cc6c5fb30bd58b",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; integer comparisons done mentally. SHA-256 digests were not computed, so contract lineage was left unresolved rather than guessed."
+ },
+ {
+  "case_id": "case_6af73cdd529f4d0f",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages; no Bash, Python, web, or filesystem browsing was used. SHA-256 digests were not computed, so contract lineage is left unresolved rather than guessed, and the missing transaction source leaves dispute grounding unresolved."
+ },
+ {
+  "case_id": "case_64984dbb642caf5e",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned solely from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage (c1) is left unresolved and the transaction source's digest is noted as unverified."
+ },
+ {
+  "case_id": "case_e9cdc3b272acb33a",
+  "tools_used_for_reasoning": [],
+  "hash_verification_attempted": false,
+  "notes": "Reasoned only from the SYSTEM and USER messages in the single task file; no hashes computed, only mental integer arithmetic (50*45=2250 vs 2000, 5<6)."
+ }
+]

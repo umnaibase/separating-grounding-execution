@@ -1,0 +1,14 @@
+{
+  "kind": "transactions",
+  "fields": {
+    "observation_window": "2026-01-01/2026-01-31",
+    "eligible": 1000,
+    "disputed": 20
+  },
+  "verbatim_support": [
+    "Observation window: 2026-01-01/2026-01-31",
+    "Eligible transactions: 1000",
+    "Disputed transactions: 20"
+  ],
+  "notes": "All three fields were clearly legible in the image; the document is a fictional dispute summary extract with no ambiguity in the values."
+}

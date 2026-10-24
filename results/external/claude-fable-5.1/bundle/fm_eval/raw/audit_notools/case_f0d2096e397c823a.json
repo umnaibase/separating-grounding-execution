@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts (src_b2a137376b6ff631 v1, src_20280b2e46e31226 v1) are retained with matching versions, but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no mismatch was observed, so lineage is unresolved rather than contradicted.",
+      "evidence": ["citations.contract[0]", "citations.contract[1]", "src_b2a137376b6ff631", "src_20280b2e46e31226"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: src_b2a137376b6ff631 states penalty-free termination after 3 months, while src_20280b2e46e31226 states a minimum penalty-free cancellation time of 9 months. No precedence rule is supplied, so the asserted value of 3 is neither uniquely supported nor uniquely contradicted. The 48-month framework duration is not the minimum commitment.",
+      "evidence": ["src_b2a137376b6ff631", "src_20280b2e46e31226", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transaction source (src_e3af73edf1cec607 v1, version matching the citation) states observation window 2026-01-01/2026-01-31, eligible 2000, disputed 45, which equals the asserted fraction 45/2000. The digest was not independently verified (see c1), but the content and version match with no conflicting transaction evidence.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy matches toy-v1 (threshold 1/50, 6 months). On recorded inputs: 50*45 = 2250 >= 2000 so dispute_trigger is true; 3 < 6 so commitment_trigger is true; both predicates match the recorded trace. Either trigger yields manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with policy replay (both predicates true), rule_output is manual_review, and final_output manual_review matches the policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.rule_output", "record.final_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [3, 9] are valid nonnegative integers. With disputed=45 and eligible=2000 fixed, 50*45 = 2250 >= 2000 makes the dispute predicate true for every candidate, so both 3 (commitment trigger true) and 9 (commitment trigger false) yield manual_review.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*45 = 2250 >= 2000, so the dispute predicate is true and under toy-v1 the OR rule makes it alone sufficient for manual_review, independent of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages; integer comparisons (50*45=2250 vs 2000, 3<6, 9>=6) were done mentally. SHA-256 digests were not computed, so contract lineage is left unresolved; the two cited contracts conflict on minimum commitment (3 vs 9 months) with no precedence rule."
+  }
+}

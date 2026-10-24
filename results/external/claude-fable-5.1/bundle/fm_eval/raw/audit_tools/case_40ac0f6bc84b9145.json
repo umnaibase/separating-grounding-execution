@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_f5d522e9bafea47f (version 1) has retained text whose UTF-8 SHA-256 computes to a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0, exactly matching the citation digest, and the retained version '1' matches the cited version.",
+      "evidence": ["citations.contract[0]", "src_f5d522e9bafea47f"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The validated contract states 'Minimum penalty-free cancellation time: 9 months', a unique unambiguous value equal to the asserted 9; the 24-month service framework duration is framework duration, not the minimum commitment, so there is no conflict.",
+      "evidence": ["src_f5d522e9bafea47f", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source hash computes to df7cb14b6feed7a31180b3eb2d25e373da2a2166850c9160866eedc8f506cf2f matching the citation (version 1), covers the window 2026-01-01/2026-01-31, and states eligible 800 and disputed 15, giving the fraction 15/800 as asserted.",
+      "evidence": ["src_420443f31395c781", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "contradicted",
+      "check": "Replaying toy-v1 on recorded inputs: 50*15=750 >= 800 is false (dispute_trigger false, matches trace) and 9 < 6 is false, so commitment_trigger should be false, but the recorded trace says commitment_trigger true; the rule_output standard_processing matches replay, but a trace predicate conflicts, so the claim that both predicates match is contradicted.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "Override is explicitly null, action history is stipulated complete, and final_output standard_processing equals the policy replay result, so there is no contradiction; however the recorded trace (commitment_trigger true) is inconsistent with faithful execution on the recorded inputs, which leaves attribution unresolved under the definition.",
+      "evidence": ["record.override", "record.action_history_complete", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [9] is nonempty and valid; with disputed 15 and eligible 800 fixed (750 >= 800 false), commitment 9 gives 9 < 6 false, so the sole candidate yields standard_processing, identical to the recorded recommendation; all candidates agree.",
+      "evidence": ["alternatives", "record.input", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate is 50*15=750 >= 800, which is false, and the recorded trace also records dispute_trigger false; a false predicate cannot alone suffice for manual_review under toy-v1, so the assertion of sufficiency is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\nEligible transactions: 800\nDisputed transactions: 15' | sha256sum",
+      "echo \"50*15=$((50*15)) eligible=800 cmp_ge=$(( 50*15 >= 800 )) commit_lt6=$(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions match the retained texts. Policy replay yields standard_processing with both predicates false, but the recorded trace wrongly sets commitment_trigger true, which contradicts c4 and leaves c5 unresolved; the dispute predicate is false so c7 is contradicted."
+  }
+}

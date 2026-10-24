@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_f12bd8dfe47e73f5 version 1 has a retained source with version 1, and the SHA-256 of the retained UTF-8 text computes to a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0, exactly matching the citation digest.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, hash-verified contract states 'Minimum penalty-free cancellation time: 9 months', which uniquely matches the asserted value 9; the 24-month service framework duration is a framework duration, not the minimum commitment, so there is no ambiguity.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The cited transaction source is valid (hash and version match) and covers the window 2026-01-01/2026-01-31, but it reports 45 disputed of 2000 eligible, i.e. 45/2000, whereas the asserted fraction is 46/2000; the fractions differ, so the valid evidence establishes a conflicting result.",
+      "evidence": ["src_aa990a77b2e1e9ca", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (commitment_months=9, disputed=46, eligible=2000; all valid nonnegative integers, eligible>0, disputed<=eligible) toy-v1 gives 50*46=2300 >= 2000 so dispute_trigger=true, and 9 < 6 is false so commitment_trigger=false; the OR yields manual_review, matching the recorded rule_output, the recorded trace, and the asserted output.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete=true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs (replay gives manual_review), and final_output=manual_review equals both the rule_output and the asserted final action.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [9] is non-empty and valid; holding disputed=46 and eligible=2000 fixed the dispute predicate (2300 >= 2000) is true, so the candidate 9 (and indeed any candidate) yields manual_review, i.e. all declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "Using the recorded values, 50*disputed = 50*46 = 2300 >= eligible = 2000, so the dispute predicate is true and under toy-v1's OR rule it alone is sufficient to yield manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.trace.dispute_trigger", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 heredoc via Bash: hashlib.sha256 of the two retained source texts (UTF-8, exact bytes, no trailing newline) and integer checks 50*46>=2000, 50*45>=2000, 9<6"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests and versions match the retained sources. The only discrepancy is the transaction source recording 45 disputed versus the recorded/asserted 46, so c3 is contradicted while the execution-based claims (c4-c7) hold on the recorded inputs."
+  }
+}

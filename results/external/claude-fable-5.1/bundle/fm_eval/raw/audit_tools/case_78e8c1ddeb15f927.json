@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of the retained contract text src_be75313edd2b3164 is 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, matching the citation digest; version 1 matches version 1. The only cited contract is retained and unambiguous.",
+      "evidence": ["citations.contract[0]", "src_be75313edd2b3164"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate after 5 months without penalty, which is the minimum penalty-free commitment and equals the asserted value 5; the 36-month framework duration is not the minimum commitment. No conflicting authoritative document.",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The valid cited transaction source (digest and version match) for window 2026-01-01/2026-01-31 reports 25 disputed of 1500 eligible, i.e. 25/1500 = 1/60, which differs from the asserted 26/1500 = 13/750. The unique valid evidence establishes a different fraction.",
+      "evidence": ["src_53e77460b588b4ab", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (5, 26, 1500). Dispute predicate: 50*26 = 1300 >= 1500 is false, matching trace.dispute_trigger=false. Commitment predicate: 5 < 6 is true, matching trace.commitment_trigger=true. Policy output is manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals the policy replay result and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is [5], non-empty and valid. With disputed=26 and eligible=1500 fixed (dispute predicate false), candidate 5 < 6 triggers manual_review; every declared candidate yields the same recommendation (manual_review).",
+      "evidence": ["alternatives", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (50*26 = 1300 < 1500; trace.dispute_trigger=false), so on the recorded values the dispute predicate alone does not suffice for manual review; manual_review arises only from the commitment predicate. Asserted true is contradicted.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*26=$((50*26)) 50*25=$((50*25)) eligible=1500\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were verified against the retained texts and match. The transaction source records 25 disputed, not the recorded 26, so dispute grounding is contradicted; the recorded dispute predicate is false, so it alone does not justify manual review."
+  }
+}

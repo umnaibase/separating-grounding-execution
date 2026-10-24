@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of retained contract src_f5d522e9bafea47f text equals cited digest a390af9b...dbc4ac0 and version '1' matches the retained version; the only cited contract is unambiguous.",
+      "evidence": ["citations.contract[0]", "sources[0]", "src_f5d522e9bafea47f"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states 'Minimum penalty-free cancellation time: 9 months', matching the asserted value 9 and record.input.commitment_months; the 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflict.",
+      "evidence": ["src_f5d522e9bafea47f", "sources[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "Cited transaction source hash and version verify as valid, and it covers window 2026-01-01/2026-01-31 with eligible 800 and disputed 15, i.e. fraction 15/800; the asserted fraction 16/800 differs (16/800 != 15/800), so the valid evidence establishes a conflicting result.",
+      "evidence": ["src_420443f31395c781", "sources[1]", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (disputed 16, eligible 800, commitment 9; all nonnegative integers, eligible > 0, disputed <= eligible): 50*16 = 800 >= 800 so dispute_trigger true, 9 < 6 false so commitment_trigger false; both match the trace, and OR yields manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is consistent with faithful execution of toy-v1, and final_output manual_review equals rule_output and the policy replay, matching the asserted final action.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [9] is non-empty and valid; with disputed 16 and eligible 800 fixed the dispute predicate is true (800 >= 800) for every candidate, and 9 < 6 is false, so the only candidate yields manual_review, the same recommendation as the record.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "Recorded dispute predicate is true (50*16 = 800 >= 800) and toy-v1 recommends manual_review whenever the dispute predicate holds, irrespective of the commitment predicate, so the recorded dispute trigger alone suffices conditional on recorded values.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; c = 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'; t = 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*16>=800', 50*16 >= 800, 50*16); print('50*15>=800', 50*15 >= 800, 50*15); print('9<6', 9 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests were recomputed and matched the retained source bytes and versions. The only discrepancy is the transaction source recording 15 disputed versus the recorded/asserted 16, which contradicts c3 but does not affect the conditional claims c4-c7, which are evaluated on recorded inputs."
+  }
+}

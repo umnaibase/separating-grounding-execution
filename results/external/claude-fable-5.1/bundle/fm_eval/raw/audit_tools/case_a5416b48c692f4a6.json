@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of both retained source texts: contract src_081b01da7815d753 = 4eb69472...36cba5 and transactions src_f46093ed26e74e6c = 72301afb...dd6ac, each exactly matching the cited digest; cited version '1' matches retained version '1' for both.",
+      "evidence": ["src_081b01da7815d753", "src_f46093ed26e74e6c", "citations.contract[0]", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate without penalty after 12 months, giving a unique minimum penalty-free commitment of 12 that equals the asserted value; the 36-month framework duration is not the minimum commitment and no conflicting document exists.",
+      "evidence": ["src_081b01da7815d753", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transaction source covers exactly the 2026-01-01/2026-01-31 window and reports 1000 eligible and 20 disputed transactions, so the fraction 20/1000 equals the asserted 20/1000.",
+      "evidence": ["src_f46093ed26e74e6c", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with 1/50 and 6-month thresholds. Inputs valid (nonnegative integers, eligible 1000 > 0, disputed 20 <= 1000). 50*20 = 1000 >= 1000 so dispute_trigger true; 12 < 6 false so commitment_trigger false; OR yields manual_review, matching rule_output, both trace predicates and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override from manual_review to standard_processing by a reviewer, and the final output standard_processing differs from the policy replay result manual_review; either fact contradicts attribution of the final action to toy-v1 without intervention.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is non-empty and valid: [12]. With disputed 20 and eligible 1000 fixed, dispute_trigger is true (50*20 >= 1000), so candidate 12 yields manual_review; all declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values the dispute predicate holds exactly at the boundary (50*20 = 1000 >= 1000), and under toy-v1 a true dispute predicate alone is sufficient for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; t1='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; t2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print('contract', hashlib.sha256(t1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t2.encode('utf-8')).hexdigest()); print('50*20>=1000 ->', 50*20>=1000, '12<6 ->', 12<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly. Policy replay on recorded inputs yields manual_review (dispute predicate true at the exact 1/50 boundary), but an explicit override changed the final action to standard_processing, so only c5 is contradicted."
+  }
+}

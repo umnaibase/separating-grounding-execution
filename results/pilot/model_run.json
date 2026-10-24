@@ -1,0 +1,39 @@
+{
+  "protocol": "assistant-pilot-1",
+  "status": "completed",
+  "run_id": "codex-assistant-pilot-2026-10-04-1",
+  "model_display_name": "GPT-6.1 Sol Ultra",
+  "model_family_as_declared_by_session": "GPT-6",
+  "exact_model_snapshot": null,
+  "sampling_parameters": null,
+  "provider_endpoint": null,
+  "model_configuration": "Inherited parent assistant configuration; no model or reasoning overrides were specified. Immutable snapshot and sampling settings were not exposed.",
+  "author_model_relationship": "Same assistant system as artifact author; fresh contexts do not make this an independent evaluation.",
+  "frozen_at_utc": "2026-10-04T17:00:10.433796+00:00",
+  "responses_frozen_at_utc": "2026-10-04T17:09:21.740889+00:00",
+  "batch_context": "Four fresh primary-text contexts with seventeen episodes each; two fresh matched-text and two fresh image contexts with six episodes each. Episodes within a batch share context.",
+  "attempts_per_batch": 1,
+  "response_retries": 0,
+  "answer_feedback": false,
+  "permitted_tool_access": [
+    "Read named input batch, optionally in segments",
+    "View named PNGs for image condition, including repeat views after display issues",
+    "Write one literal model response via apply_patch"
+  ],
+  "tool_activity_record": "worker_reports.json",
+  "tool_activity_evidence": "Worker self-reports; complete tool/transport traces were not independently audited.",
+  "worker_instruction_file": "worker_instructions.json",
+  "pre_inference_record": "pre_inference.json",
+  "response_manifest": "response_manifest.json",
+  "prompt_manifest_sha256": "392b2120fa6806d66a7e125064929fd18e0cff499be4300b93e1c728cf072c29",
+  "public_data_only": true,
+  "scored_outputs": "Structured claim labels only; free-text reasons/evidence paths retained but not independently adjudicated.",
+  "live_inference_reproducibility": "Exact rerun cannot be guaranteed without an exposed immutable model snapshot and sampling configuration. Archived inputs, outputs and scoring are reproducible offline.",
+  "model_name_as_supplied_by_user": "GPT-6.1 Sol Ultra",
+  "model_identity_provenance": {
+    "source": "User-supplied exact model name on 2026-10-04",
+    "previous_display_label": "Codex session assistant",
+    "immutable_runtime_snapshot_available": false,
+    "note": "Identity correction only; no new model inference or response revision."
+  }
+}

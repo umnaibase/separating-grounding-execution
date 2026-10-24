@@ -1,0 +1,61 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The only cited contract src_d3840dc477fc2c9a version 1 is retained; SHA-256 of its exact UTF-8 text computes to 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, matching the citation digest, and the version strings match (1 = 1).",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The hash-verified contract states the merchant may terminate after 5 months without penalty, giving a unique minimum penalty-free commitment of 5 months; the 36-month framework duration is not the minimum commitment. This matches asserted_value 5 and record.input.commitment_months.",
+      "evidence": ["src_d3840dc477fc2c9a", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The cited transactions source src_ba430e75185acb7d is not among the retained sources, so no transaction evidence exists to verify the asserted 45/2000 fraction for the 2026-01 window or its digest; missing evidence is unresolved.",
+      "evidence": ["citations.transactions[0]", "sources", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs: 50*45 = 2250 >= 2000 so dispute predicate is true; 5 < 6 so commitment predicate is true; policy yields manual_review. Recorded trace (both true), rule_output manual_review and asserted manual_review all agree. Inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible; policy config matches toy-v1.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Action history is stipulated complete, override is explicitly null, execution is faithful (trace and rule_output match policy replay), and final_output manual_review equals both rule_output and the policy replay result, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid. With disputed=45, eligible=2000 fixed (dispute predicate true: 2250 >= 2000), candidate 5 gives 5 < 6 true; recommendation is manual_review for every candidate, identical to the recorded recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values the dispute predicate holds (50*45 = 2250 >= 2000), and under toy-v1 a true dispute predicate alone yields manual_review irrespective of the commitment predicate (OR rule), so it is sufficient conditional on the recorded inputs.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "echo \"50*45=$((50*45)) ; dispute_ge: $(( 50*45 >= 2000 )) ; commit_lt6: $(( 5 < 6 )) ; cand5_lt6: $(( 5 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Contract digest recomputed and matched the citation; the cited transactions source is absent from the retained sources, so dispute grounding is unresolved while all record-internal policy claims check out."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "contract",
+  "fields": {
+    "commitment_months": 18,
+    "framework_months": 48
+  },
+  "verbatim_support": "Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.",
+  "notes": "The document states both values explicitly: 18 months is the penalty-free commitment and 48 months is the overall framework duration."
+}

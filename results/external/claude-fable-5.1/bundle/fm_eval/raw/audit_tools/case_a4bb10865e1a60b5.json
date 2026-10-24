@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both cited contract texts: src_f5d522e9bafea47f -> 6a9da92c...aec41 and src_5db88d90dee4468b -> 3d1d0781...b732f46, both equal to the cited digests; cited version 1 matches retained version 1 for both. No missing or ambiguous artifacts.",
+      "evidence": ["src_f5d522e9bafea47f", "src_5db88d90dee4468b", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid (hash and version match) but conflict: src_f5d522e9bafea47f states minimum penalty-free cancellation of 3 months, while src_5db88d90dee4468b states penalty-free termination only after 9 months. No precedence rule is supplied, so the asserted value 3 is neither uniquely supported nor uniquely contradicted.",
+      "evidence": ["src_f5d522e9bafea47f", "src_5db88d90dee4468b", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_420443f31395c781 is valid (recomputed SHA-256 df7cb14b...06cf2f matches, version 1 matches) and covers the window 2026-01-01/2026-01-31 with eligible 800 and disputed 15, giving fraction 15/800 exactly as asserted.",
+      "evidence": ["src_420443f31395c781", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay of toy-v1 on recorded inputs (commitment_months=3, disputed=15, eligible=800): 50*15=750 >= 800 is false (dispute_trigger=false); 3 < 6 is true (commitment_trigger=true); OR gives manual_review. Recorded trace, rule_output and asserted output all match; inputs are valid nonnegative integers with eligible>0 and disputed<=eligible.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is faithful to policy replay (manual_review), and final_output manual_review equals rule_output and the asserted value, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Candidates [3, 9] with disputed=15, eligible=800 fixed (dispute predicate false since 750 < 800): commitment 3 < 6 gives manual_review, but commitment 9 < 6 is false so toy-v1 gives standard_processing. Recommendations differ, so the candidate set is not stable.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate is false: 50*15=750 < 800, and the recorded trace also shows dispute_trigger=false. Manual review is driven solely by the commitment predicate, so the dispute predicate alone does not suffice.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; srcs = {'src_f5d522e9bafea47f': 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.', 'src_420443f31395c781': 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15', 'src_5db88d90dee4468b': 'The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.'}; [print(k, hashlib.sha256(v.encode('utf-8')).hexdigest()) for k,v in srcs.items()]; print('50*15 =', 50*15, '>= 800 ?', 50*15 >= 800); print('3 < 6 ?', 3 < 6, '; 9 < 6 ?', 9 < 6)\" (run via Bash)"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited digests and versions matched the retained sources. The two valid contracts conflict on minimum commitment (3 vs 9 months) with no precedence rule, so c2 is unresolved; the dispute predicate is false on recorded inputs (750 < 800), which contradicts c7, and candidate 9 flips the recommendation to standard_processing, contradicting c6."
+  }
+}

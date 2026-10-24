@@ -1,0 +1,9 @@
+{
+  "kind": "contract",
+  "fields": {
+    "commitment_months": 9,
+    "framework_months": 36
+  },
+  "verbatim_support": "Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.",
+  "notes": "Clause 7 of the Merchant Services Agreement extract states the penalty-free termination threshold (9 months) separately from the overall framework duration (36 months); both values were clearly legible in the image."
+}

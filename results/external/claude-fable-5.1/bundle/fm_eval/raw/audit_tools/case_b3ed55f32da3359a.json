@@ -1,0 +1,63 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Both cited contracts are retained with version 1 and their UTF-8 SHA-256 digests (da99ca27... for src_b2a137376b6ff631, 7d658c0f... for src_c58433d4c00ff85a) match the citations exactly; no missing or ambiguous artifacts.",
+      "evidence": ["src_b2a137376b6ff631", "src_c58433d4c00ff85a", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Two valid cited contracts conflict on the minimum penalty-free commitment: src_b2a137376b6ff631 states 6 months, src_c58433d4c00ff85a states 3 months; no precedence rule is supplied, so the asserted value 6 cannot be unambiguously grounded (48-month framework duration is not the minimum commitment).",
+      "evidence": ["src_b2a137376b6ff631", "src_c58433d4c00ff85a", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source is valid (digest and version match) and states observation window 2026-01-01/2026-01-31 with eligible 2000 and disputed 45, which equals the asserted fraction 45/2000.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: 50*45=2250 >= 2000 gives dispute_trigger true; 6 < 6 is false giving commitment_trigger false; OR yields manual_review, matching the recorded trace, rule_output and asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Action history is stipulated complete, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals both rule_output and the policy replay.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [6, 3] are valid nonnegative integers; with disputed 45 / eligible 2000 fixed the dispute predicate (2250 >= 2000) is true in both cases, so commitment 6 (6<6 false) and commitment 3 (3<6 true) both yield manual_review.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*45=2250 >= 2000, so the dispute predicate is true and under toy-v1's OR rule it alone suffices for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 48 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*45=$((50*45)); 2250>=2000 -> $((50*45 >= 2000)); 6<6 -> $((6<6)); 3<6 -> $((3<6))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited source digests and versions were verified by computing SHA-256 over the exact UTF-8 text (literal newlines, no trailing newline) and matched. The only non-supported claim is c2, where two valid contracts give conflicting minimum commitments (6 vs 3 months) with no precedence rule."
+  }
+}

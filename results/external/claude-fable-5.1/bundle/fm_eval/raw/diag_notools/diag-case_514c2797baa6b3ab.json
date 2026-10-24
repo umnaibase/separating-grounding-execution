@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "All three cited contracts are present with matching version '1', but the cited SHA-256 digests cannot be verified against the retained source bytes without computation, which is not permitted here; no observed mismatch, but byte-level lineage remains unverified.",
+      "evidence": [
+        "citations.contract",
+        "diag-src_4414f469b794f6b6",
+        "diag-src_a339b95074c62e5d",
+        "diag-src_08e2e0e79f71e0bd"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The three cited contracts state different penalty-free termination points (3, 6 and 9 months) with no precedence rule, so the cited evidence is conflicting and does not uniquely support the asserted 3 months; lineage is also unverified.",
+      "evidence": [
+        "diag-src_4414f469b794f6b6",
+        "diag-src_a339b95074c62e5d",
+        "diag-src_08e2e0e79f71e0bd",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The retained transactions source text gives eligible 1500 and disputed 25 for window 2026-01-01/2026-01-31, matching the asserted 25/1500 fraction and version '1', but the cited SHA-256 digest cannot be verified without computation, so validity of the cited evidence is not established.",
+      "evidence": [
+        "diag-src_392bc0e530a203b1",
+        "citations.transactions",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (nonnegative integers, eligible 1500 > 0, disputed 25 <= 1500) and policy matches toy-v1; dispute predicate 50*25=1250 >= 1500 is false, commitment predicate 3 < 6 is true, giving manual_review; recorded trace (commitment_trigger true, dispute_trigger false), rule_output and asserted output all agree.",
+      "evidence": [
+        "record.policy",
+        "record.input",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Action history completeness is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review matches the policy replay on recorded inputs.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "With disputed 25 / eligible 1500 fixed the dispute predicate is false; candidate 3 gives 3 < 6 true -> manual_review, while candidates 6 and 9 give false -> standard_processing, so the candidates do not all yield the same recommendation, matching the asserted value false.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is 50*25=1250 >= 1500, which is false (recorded dispute_trigger false), so the dispute predicate alone does not trigger manual_review under toy-v1; manual_review arises only from the commitment predicate.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.trace.dispute_trigger",
+        "record.policy.dispute_threshold"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages with mental integer arithmetic; no SHA-256 digests were computed, so hash-dependent lineage and validity were left unresolved."
+  }
+}

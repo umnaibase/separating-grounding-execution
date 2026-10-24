@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The single cited contract src_d3840dc477fc2c9a is retained with matching version '1', but the cited SHA-256 (70c17378...) cannot be verified against the retained UTF-8 text without computation; no mismatch is observed, so the digest check is unresolved rather than contradicted.",
+      "evidence": ["citations.contract[0]", "src_d3840dc477fc2c9a", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained contract (source_id and version match the citation) states the merchant may terminate after 5 months without penalty, which is the minimum penalty-free commitment; the 36-month framework duration is not the commitment. Unique value 5 matches the asserted value and record.input.commitment_months.",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The cited transaction source src_ba430e75185acb7d is not among the retained sources, so there is no transaction evidence to support or contradict the asserted 45/2000 fraction for 2026-01-01/2026-01-31; an absent source cannot be assumed to agree with the recorded extraction.",
+      "evidence": ["citations.transactions[0]", "sources", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (45 and 2000 nonnegative integers, eligible > 0, disputed <= eligible); policy config matches toy-v1 (1/50, 6 months). Replay: 50*45 = 2250 >= 2000 so dispute_trigger = true; 5 < 6 so commitment_trigger = true; OR gives manual_review. Recorded trace (true, true), rule_output manual_review and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace and rule_output are consistent with faithful toy-v1 execution (see c4), and final_output manual_review equals the policy replay result; no intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid. With disputed=45 and eligible=2000 fixed, the dispute predicate is true (2250 >= 2000), and candidate 5 also triggers 5 < 6; the only candidate yields manual_review, so all declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs, 50*45 = 2250 >= 2000, so the dispute predicate is true; under toy-v1's OR rule a true dispute predicate alone yields manual_review regardless of commitment_months. This is conditional on recorded values only.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages; no Bash, Python, web, or filesystem browsing was used. SHA-256 digests were not computed, so contract lineage is left unresolved rather than guessed, and the missing transaction source leaves dispute grounding unresolved."
+  }
+}

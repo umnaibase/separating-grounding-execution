@@ -1,0 +1,35 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "cases.jsonl": {
+      "bytes": 261096,
+      "sha256": "24385a6efe0374c74a8e79fb80fd8c916c3a4cb22677adb8bd13732b668b237a"
+    },
+    "diagnostics/cases.jsonl": {
+      "bytes": 24462,
+      "sha256": "9b9316762fac7e092c719cecfbccc35d4b3bffbf6cff64bf3027d74d14656285"
+    },
+    "diagnostics/manifest.json": {
+      "bytes": 470,
+      "sha256": "396f009db8563206526d97d6a824e7d9cf7f859daaa8f2e88f381836ac3ff0db"
+    },
+    "diagnostics/metadata.json": {
+      "bytes": 3287,
+      "sha256": "f0fe9c3bcd339217ad81818e85977704bc18fd9c56f4910e1ba38a3fba6da663"
+    },
+    "diagnostics/reference.jsonl": {
+      "bytes": 8802,
+      "sha256": "5db60ae189c5cec9cb54e1e7eeecc33c4ad926b9dfb2fd57dc03043028e2fead"
+    },
+    "metadata.json": {
+      "bytes": 22713,
+      "sha256": "8127c5c326b782c3682291888d36bd2d024a7cbafe371a48839ac78bad996345"
+    },
+    "reference.jsonl": {
+      "bytes": 111165,
+      "sha256": "fd13946efec40caa483b64d4593fb767baad598ad91c5c36043ea640388b9e41"
+    }
+  },
+  "main_corpus_version": "1.0.0",
+  "version": "1.1.0"
+}

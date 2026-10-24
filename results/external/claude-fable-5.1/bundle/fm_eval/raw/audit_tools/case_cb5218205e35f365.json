@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_be75313edd2b3164 version 1 is retained with version 1, and the UTF-8 SHA-256 of its retained text computes to 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, exactly matching the cited digest. Transaction citations are not contracts and do not bear on this claim.",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, lineage-verified contract states the merchant may terminate after 5 months without penalty, which is the minimum penalty-free commitment; the 36-month framework duration is not the minimum commitment. The unique value 5 matches the asserted value and record.input.commitment_months. No conflicting document exists.",
+      "evidence": ["src_be75313edd2b3164", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The cited transaction source src_53e77460b588b4ab (sha256 8c11d472...) is not present in the supplied sources, so there is no retained transaction evidence to verify the asserted 25/1500 fraction for 2026-01-01/2026-01-31 or to verify the digest. Missing evidence is unresolved; the recorded extraction cannot be assumed correct.",
+      "evidence": ["citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (nonnegative integers, eligible=1500>0, disputed=25<=eligible) and the policy config is the supported toy-v1 (1/50, 6 months). Replay: 50*25=1250 >= 1500 is false (dispute_trigger false); 5 < 6 is true (commitment_trigger true); OR yields manual_review. Recorded trace, rule_output and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review matches the policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid. With disputed=25 and eligible=1500 fixed (dispute predicate false), candidate 5 gives 5 < 6 true, so manual_review; every declared candidate yields the same recommendation (manual_review), matching the asserted value true.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is false: 50*25=1250 < 1500, and the recorded trace shows dispute_trigger false. Manual review arises only from the commitment predicate, so the dispute predicate alone does not suffice; the asserted value true is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "Bash: printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum; echo \"50*25=$((50*25)); eligible=1500; dispute_trigger(50*disputed>=eligible)=$(( 50*25 >= 1500 )); commitment_trigger(5<6)=$(( 5 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "The contract SHA-256 was computed from the exact retained text (no trailing newline) and matched the cited digest; the transaction source was not supplied so c3 is unresolved. Integer arithmetic confirmed dispute_trigger false and commitment_trigger true."
+  }
+}

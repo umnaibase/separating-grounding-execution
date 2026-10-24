@@ -1,0 +1,222 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{12}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter does
+%%% not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+\makeatletter
+\@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
+\@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
+\makeatother
+
+\bibitem[Cobbe et~al\mbox{.}(2021)]%
+        {cobbe2021reviewable}
+\bibfield{author}{\bibinfo{person}{Jennifer Cobbe}, \bibinfo{person}{Michelle
+  Seng~Ah Lee}, {and} \bibinfo{person}{Jatinder Singh}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Reviewable Automated Decision-Making: A Framework
+  for Accountable Algorithmic Systems}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 2021 ACM Conference on Fairness,
+  Accountability, and Transparency}}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{numpages}{12}~pages.
+\newblock
+\href{https://doi.org/10.1145/3442188.3445921}{doi:\nolinkurl{10.1145/3442188.3445921}}
+
+
+\bibitem[Gebru et~al\mbox{.}(2021)]%
+        {gebru2021}
+\bibfield{author}{\bibinfo{person}{Timnit Gebru}, \bibinfo{person}{Jamie
+  Morgenstern}, \bibinfo{person}{Briana Vecchione},
+  \bibinfo{person}{Jennifer~Wortman Vaughan}, \bibinfo{person}{Hanna Wallach},
+  \bibinfo{person}{Hal {Daum\'{e} III}}, {and} \bibinfo{person}{Kate
+  Crawford}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Datasheets for Datasets}.
+\newblock \bibinfo{journal}{\emph{Commun. ACM}} \bibinfo{volume}{64},
+  \bibinfo{number}{12} (\bibinfo{year}{2021}), \bibinfo{pages}{86--92}.
+\newblock
+\href{https://doi.org/10.1145/3458723}{doi:\nolinkurl{10.1145/3458723}}
+
+
+\bibitem[Geifman and El-Yaniv(2019)]%
+        {geifman2019}
+\bibfield{author}{\bibinfo{person}{Yonatan Geifman} {and} \bibinfo{person}{Ran
+  El-Yaniv}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{SelectiveNet}: A Deep Neural Network with an
+  Integrated Reject Option}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  36th International Conference on Machine Learning}}
+  \emph{(\bibinfo{series}{Proceedings of Machine Learning Research},
+  Vol.~\bibinfo{volume}{97})}. \bibinfo{publisher}{PMLR},
+  \bibinfo{pages}{2151--2159}.
+\newblock
+\urldef\tempurl%
+\url{https://proceedings.mlr.press/v97/geifman19a.html}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Jacovi and Goldberg(2020)]%
+        {jacovi2020}
+\bibfield{author}{\bibinfo{person}{Alon Jacovi} {and} \bibinfo{person}{Yoav
+  Goldberg}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Towards Faithfully Interpretable {NLP} Systems: How
+  Should We Define and Evaluate Faithfulness?}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 58th Annual Meeting of the
+  Association for Computational Linguistics}}. \bibinfo{publisher}{Association
+  for Computational Linguistics}, \bibinfo{pages}{4198--4205}.
+\newblock
+\href{https://doi.org/10.18653/v1/2020.acl-main.386}{doi:\nolinkurl{10.18653/v1/2020.acl-main.386}}
+
+
+\bibitem[Karimi et~al\mbox{.}(2021)]%
+        {karimi2021}
+\bibfield{author}{\bibinfo{person}{Amir-Hossein Karimi},
+  \bibinfo{person}{Bernhard Sch\"olkopf}, {and} \bibinfo{person}{Isabel
+  Valera}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Algorithmic Recourse: From Counterfactual
+  Explanations to Interventions}. In \bibinfo{booktitle}{\emph{Proceedings of
+  the 2021 ACM Conference on Fairness, Accountability, and Transparency}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{353--362}.
+\newblock
+\href{https://doi.org/10.1145/3442188.3445899}{doi:\nolinkurl{10.1145/3442188.3445899}}
+
+
+\bibitem[Lyu et~al\mbox{.}(2023)]%
+        {lyu2023}
+\bibfield{author}{\bibinfo{person}{Qing Lyu}, \bibinfo{person}{Shreya
+  Havaldar}, \bibinfo{person}{Adam Stein}, \bibinfo{person}{Li Zhang},
+  \bibinfo{person}{Delip Rao}, \bibinfo{person}{Eric Wong},
+  \bibinfo{person}{Marianna Apidianaki}, {and} \bibinfo{person}{Chris
+  Callison-Burch}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Faithful Chain-of-Thought Reasoning}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 13th International Joint
+  Conference on Natural Language Processing and the 3rd Conference of the
+  Asia-Pacific Chapter of the Association for Computational Linguistics (Volume
+  1: Long Papers)}}. \bibinfo{publisher}{Association for Computational
+  Linguistics}, \bibinfo{pages}{305--329}.
+\newblock
+\href{https://doi.org/10.18653/v1/2023.ijcnlp-main.20}{doi:\nolinkurl{10.18653/v1/2023.ijcnlp-main.20}}
+
+
+\bibitem[Moreau and Missier(2013)]%
+        {prov2013}
+\bibfield{editor}{\bibinfo{person}{Luc Moreau} {and} \bibinfo{person}{Paolo
+  Missier}} (Eds.). \bibinfo{year}{2013}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{PROV-DM}: The {PROV} Data Model}}.
+\newblock \bibinfo{publisher}{World Wide Web Consortium}.
+\newblock
+\urldef\tempurl%
+\url{https://www.w3.org/TR/2013/REC-prov-dm-20130430/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{W3C Recommendation, 30 April 2013}.
+
+
+\bibitem[{Object Management Group}(2023)]%
+        {sacm2023}
+\bibfield{author}{\bibinfo{person}{{Object Management Group}}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Structured Assurance Case Metamodel
+  ({SACM}), Version 2.3}}.
+\newblock Object Management Group.
+\newblock
+\urldef\tempurl%
+\url{https://www.omg.org/spec/SACM/2.3/PDF}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Formal specification, document formal/23-05-08}.
+
+
+\bibitem[Rashkin et~al\mbox{.}(2023)]%
+        {rashkin2023measuring}
+\bibfield{author}{\bibinfo{person}{Hannah Rashkin}, \bibinfo{person}{Vitaly
+  Nikolaev}, \bibinfo{person}{Matthew Lamm}, \bibinfo{person}{Lora Aroyo},
+  \bibinfo{person}{Michael Collins}, \bibinfo{person}{Dipanjan Das},
+  \bibinfo{person}{Slav Petrov}, \bibinfo{person}{Gaurav~Singh Tomar},
+  \bibinfo{person}{Iulia Turc}, {and} \bibinfo{person}{David Reitter}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Measuring Attribution in Natural Language
+  Generation Models}.
+\newblock \bibinfo{journal}{\emph{Computational Linguistics}}
+  \bibinfo{volume}{49}, \bibinfo{number}{4} (\bibinfo{year}{2023}),
+  \bibinfo{pages}{777--840}.
+\newblock
+\href{https://doi.org/10.1162/coli_a_00486}{doi:\nolinkurl{10.1162/coli_a_00486}}
+
+
+\bibitem[Singh et~al\mbox{.}(2019)]%
+        {singh2019}
+\bibfield{author}{\bibinfo{person}{Jatinder Singh}, \bibinfo{person}{Jennifer
+  Cobbe}, {and} \bibinfo{person}{Chris Norval}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Decision Provenance: Harnessing Data Flow for
+  Accountable Systems}.
+\newblock \bibinfo{journal}{\emph{IEEE Access}}  \bibinfo{volume}{7}
+  (\bibinfo{year}{2019}), \bibinfo{pages}{6562--6574}.
+\newblock
+\href{https://doi.org/10.1109/ACCESS.2018.2887201}{doi:\nolinkurl{10.1109/ACCESS.2018.2887201}}
+
+
+\bibitem[Thorne et~al\mbox{.}(2018)]%
+        {thorne2018fever}
+\bibfield{author}{\bibinfo{person}{James Thorne}, \bibinfo{person}{Andreas
+  Vlachos}, \bibinfo{person}{Christos Christodoulopoulos}, {and}
+  \bibinfo{person}{Arpit Mittal}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{FEVER}: a Large-scale Dataset for Fact Extraction
+  and {VER}ification}. In \bibinfo{booktitle}{\emph{Proceedings of the 2018
+  Conference of the North American Chapter of the Association for Computational
+  Linguistics: Human Language Technologies, Volume 1 (Long Papers)}}.
+  \bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{pages}{809--819}.
+\newblock
+\href{https://doi.org/10.18653/v1/N18-1074}{doi:\nolinkurl{10.18653/v1/N18-1074}}
+
+
+\bibitem[Turpin et~al\mbox{.}(2023)]%
+        {turpin2023}
+\bibfield{author}{\bibinfo{person}{Miles Turpin}, \bibinfo{person}{Julian
+  Michael}, \bibinfo{person}{Ethan Perez}, {and} \bibinfo{person}{Samuel
+  Bowman}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Language Models Don't Always Say What They Think:
+  Unfaithful Explanations in Chain-of-Thought Prompting}. In
+  \bibinfo{booktitle}{\emph{Advances in Neural Information Processing
+  Systems}}, Vol.~\bibinfo{volume}{36}. \bibinfo{publisher}{Curran Associates,
+  Inc.}, \bibinfo{pages}{74952--74965}.
+\newblock
+\href{https://doi.org/10.52202/075280-3275}{doi:\nolinkurl{10.52202/075280-3275}}
+
+
+\end{thebibliography}

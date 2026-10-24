@@ -1,0 +1,96 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts have retained sources with matching version '1', but the cited SHA-256 digests (58335be3... and 7fb702d2...) cannot be verified against the retained UTF-8 bytes without computation, which is not available here; digest match is neither confirmed nor refuted.",
+      "evidence": [
+        "citations.contract[0]",
+        "citations.contract[1]",
+        "diag-src_a94729dc92a197b7",
+        "diag-src_280e17276dc850e5"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: diag-src_a94729dc92a197b7 states penalty-free termination after 3 months, diag-src_280e17276dc850e5 states 5 months, with no precedence rule supplied; the 24-month framework duration is not the minimum commitment. Conflicting authoritative documents leave the asserted value 3 unresolved (lineage is also unverified).",
+      "evidence": [
+        "diag-src_a94729dc92a197b7",
+        "diag-src_280e17276dc850e5",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The retained transaction source states window 2026-01-01/2026-01-31, eligible 1500, disputed 25, which matches the asserted fraction 25/1500 at the content level and the version matches; however the cited SHA-256 (8c11d472...) cannot be verified without computation, so the validity of the cited evidence cannot be established and the claim is left unresolved rather than assumed valid.",
+      "evidence": [
+        "diag-src_e62004e6e6669b7b",
+        "citations.transactions[0]",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with threshold 6 months and 1/50. Inputs are valid (nonnegative integers, eligible 1500 > 0, disputed 25 <= 1500). Replay: commitment 3 < 6 -> commitment_trigger true; 50*25 = 1250 >= 1500 is false -> dispute_trigger false; OR -> manual_review. Both trace predicates, rule_output and asserted value all match.",
+      "evidence": [
+        "record.policy",
+        "record.input",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, execution is faithful (replay gives manual_review with trace true/false matching the record), and final_output manual_review equals the policy replay and rule_output. No intervention is recorded.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace",
+        "record.input",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates [3, 5] are a nonempty set of valid nonnegative integers. With disputed 25 / eligible 1500 fixed (dispute predicate false), commitment 3 < 6 and 5 < 6 both trigger the commitment predicate, so both candidates yield manual_review, the same recommendation.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is false: 50*25 = 1250 < 1500, consistent with the recorded trace dispute_trigger false. A false dispute predicate cannot alone suffice for manual_review under toy-v1; the recorded manual_review is driven by the commitment predicate.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.dispute_trigger"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages; no SHA-256 digests were computed or guessed, so lineage-dependent claims (c1, c3) were left unresolved while content-level and policy-replay checks were done with mental integer arithmetic."
+  }
+}

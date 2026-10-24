@@ -1,0 +1,1187 @@
+{
+  "document_validation": {
+    "contracts": 20,
+    "documents": 25,
+    "field_denominator": 55,
+    "retained_source_occurrences": 158,
+    "transactions": 5,
+    "truth_validation": "Derived anew from complete literal source templates and checked against both supplied truths and retained corpus sources."
+  },
+  "extract_image": {
+    "contracts": 20,
+    "documents": 25,
+    "documents_all_fields_correct": 25,
+    "fields_correct": 55,
+    "fields_total": 55,
+    "framework_as_commitment_confusions": 0,
+    "quote_definition": "For a string, require a nonempty substring; for a list, every piece must be nonempty and must match. Strict uses exact source bytes decoded as text. Normalized replaces each whitespace run with one space in source and quote, rejects fragments empty after normalization, and is not verbatim matching.",
+    "quotes_exact_substrings": 21,
+    "quotes_whitespace_normalized_substrings": 24,
+    "response_failures": 0,
+    "rows": [
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_da99ca27c293",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7d658c0f8327",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_84a68c3d1bb5",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_4ad7916b804f",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a390af9b53d7",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_6a9da92ca684",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_3d1d07818a29",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_4eb69472fc35",
+        "expected_fields": {
+          "commitment_months": 12,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 12,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7d8c93122b13",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_c722b26b0204",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a4895c42bda9",
+        "expected_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_d97310fe2478",
+        "expected_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": true,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_70c173780d9b",
+        "expected_fields": {
+          "commitment_months": 5,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 5,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a34e60973977",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_58335be38041",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7fb702d2d0ea",
+        "expected_fields": {
+          "commitment_months": 5,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 5,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_6ea412a37f0c",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_9e8cef125810",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_09d21e72671d",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_870d8bac9e72",
+        "expected_fields": {
+          "commitment_months": 12,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 12,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_8c11d472773e",
+        "expected_fields": {
+          "disputed": 25,
+          "eligible": 1500,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 25,
+          "eligible": 1500,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_3ed19b40bf5f",
+        "expected_fields": {
+          "disputed": 45,
+          "eligible": 2000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 45,
+          "eligible": 2000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_df7cb14b6fee",
+        "expected_fields": {
+          "disputed": 15,
+          "eligible": 800,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 15,
+          "eligible": 800,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": false
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_72301afb6547",
+        "expected_fields": {
+          "disputed": 20,
+          "eligible": 1000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 20,
+          "eligible": 1000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_191f5212d31c",
+        "expected_fields": {
+          "disputed": 25,
+          "eligible": 1200,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 25,
+          "eligible": 1200,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      }
+    ],
+    "spelled_eighteen_commitment_correct": 1,
+    "spelled_eighteen_documents": 1
+  },
+  "extract_text": {
+    "contracts": 20,
+    "documents": 25,
+    "documents_all_fields_correct": 25,
+    "fields_correct": 55,
+    "fields_total": 55,
+    "framework_as_commitment_confusions": 0,
+    "quote_definition": "For a string, require a nonempty substring; for a list, every piece must be nonempty and must match. Strict uses exact source bytes decoded as text. Normalized replaces each whitespace run with one space in source and quote, rejects fragments empty after normalization, and is not verbatim matching.",
+    "quotes_exact_substrings": 20,
+    "quotes_whitespace_normalized_substrings": 25,
+    "response_failures": 0,
+    "rows": [
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_da99ca27c293",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7d658c0f8327",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_84a68c3d1bb5",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_4ad7916b804f",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a390af9b53d7",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_6a9da92ca684",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_3d1d07818a29",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_4eb69472fc35",
+        "expected_fields": {
+          "commitment_months": 12,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 12,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7d8c93122b13",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_c722b26b0204",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a4895c42bda9",
+        "expected_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_d97310fe2478",
+        "expected_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 18,
+          "framework_months": 48
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": true,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_70c173780d9b",
+        "expected_fields": {
+          "commitment_months": 5,
+          "framework_months": 36
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 5,
+          "framework_months": 36
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_a34e60973977",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": false,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_58335be38041",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_7fb702d2d0ea",
+        "expected_fields": {
+          "commitment_months": 5,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 5,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_6ea412a37f0c",
+        "expected_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 3,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_9e8cef125810",
+        "expected_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 6,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_09d21e72671d",
+        "expected_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 9,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_870d8bac9e72",
+        "expected_fields": {
+          "commitment_months": 12,
+          "framework_months": 24
+        },
+        "field_correct": {
+          "commitment_months": true,
+          "framework_months": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "contract",
+        "observed_fields": {
+          "commitment_months": 12,
+          "framework_months": 24
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_8c11d472773e",
+        "expected_fields": {
+          "disputed": 25,
+          "eligible": 1500,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 25,
+          "eligible": 1500,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_3ed19b40bf5f",
+        "expected_fields": {
+          "disputed": 45,
+          "eligible": 2000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 45,
+          "eligible": 2000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_df7cb14b6fee",
+        "expected_fields": {
+          "disputed": 15,
+          "eligible": 800,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 15,
+          "eligible": 800,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_72301afb6547",
+        "expected_fields": {
+          "disputed": 20,
+          "eligible": 1000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 20,
+          "eligible": 1000,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      },
+      {
+        "all_fields_correct": true,
+        "doc_id": "doc_191f5212d31c",
+        "expected_fields": {
+          "disputed": 25,
+          "eligible": 1200,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "field_correct": {
+          "disputed": true,
+          "eligible": true,
+          "observation_window": true
+        },
+        "framework_as_commitment_confusion": false,
+        "kind": "transactions",
+        "observed_fields": {
+          "disputed": 25,
+          "eligible": 1200,
+          "observation_window": "2026-01-01/2026-01-31"
+        },
+        "response_failure": null,
+        "spelled_eighteen_source": false,
+        "support_quote_exact_substrings": true,
+        "support_quote_whitespace_normalized_substrings": true
+      }
+    ],
+    "spelled_eighteen_commitment_correct": 1,
+    "spelled_eighteen_documents": 1
+  },
+  "reported_quote_metric_reconciliation": {
+    "interpretation": "The reported quote counts agree only after whitespace normalization. Preserve both metrics and do not describe the normalized result as verbatim or exact matching.",
+    "local_strict_exact": {
+      "extract_image": 21,
+      "extract_text": 20
+    },
+    "local_whitespace_normalized": {
+      "extract_image": 24,
+      "extract_text": 25
+    },
+    "provider_report_claims": {
+      "image": "24/25 exact substring",
+      "text": "25/25 exact substring"
+    }
+  }
+}

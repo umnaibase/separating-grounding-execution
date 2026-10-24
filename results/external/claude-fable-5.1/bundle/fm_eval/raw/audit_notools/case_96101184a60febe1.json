@@ -1,0 +1,97 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "The only cited contract (src_f12bd8dfe47e73f5, version 1) is retained with a matching version, but the citation's sha256 is the all-zero digest 0000...0000. An all-zero value is a null/placeholder digest, not a possible SHA-256 of the retained non-empty UTF-8 text, so the cited digest does not match the retained bytes. No hash was computed; the mismatch is observed from the sentinel value itself.",
+      "evidence": [
+        "citations.contract[0].sha256",
+        "citations.contract[0].version",
+        "citations.contract[0].source_id",
+        "src_f12bd8dfe47e73f5"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract (source_id and version match the citation) states 'Minimum penalty-free cancellation time: 9 months', which is exactly the asserted value 9 and the recorded commitment_months. The 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value and no ambiguity in the document. The digest problem in c1 is a lineage defect assessed separately; the content of the retained cited source unambiguously supports 9.",
+      "evidence": [
+        "src_f12bd8dfe47e73f5",
+        "record.input.commitment_months",
+        "citations.contract[0].source_id",
+        "citations.contract[0].version"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source (src_aa990a77b2e1e9ca, version 1, retained with matching id and version) reports observation window 2026-01-01/2026-01-31, eligible 2000 and disputed 45. The asserted fraction 45/2000 equals the source fraction exactly (same numerator and denominator), the window matches the fixture window, and the values are valid (nonnegative integers, eligible > 0, disputed <= eligible). The transaction digest could not be independently verified without computation, but no mismatch is observed and the claim concerns content grounding.",
+      "evidence": [
+        "src_aa990a77b2e1e9ca",
+        "record.input.disputed",
+        "record.input.eligible",
+        "citations.transactions[0].source_id",
+        "citations.transactions[0].version"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with threshold 6 months and 1/50, the supported configuration. Inputs are valid (commitment_months 9, disputed 45, eligible 2000). Dispute predicate: 50*45 = 2250 >= 2000, true; commitment predicate: 9 < 6, false. OR of the predicates yields manual_review. Recorded trace (dispute_trigger true, commitment_trigger false), recorded rule_output manual_review and asserted value manual_review all agree with this replay.",
+      "evidence": [
+        "record.policy",
+        "record.input",
+        "record.trace.dispute_trigger",
+        "record.trace.commitment_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution (see c4), policy replay on the recorded inputs gives manual_review, and final_output is manual_review, matching the asserted final action. No intervention is recorded, so the final action is attributable to toy-v1.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace",
+        "record.input"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [9], a non-empty valid set of nonnegative integers. Holding disputed 45 and eligible 2000 fixed, the dispute predicate (2250 >= 2000) is true for every candidate, so the recommendation is manual_review regardless of commitment; for the single candidate 9 the commitment predicate is false and the output is manual_review. All candidates yield the same recommendation.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded inputs the dispute predicate holds (50*45 = 2250 >= 2000, recorded dispute_trigger true). Under toy-v1 the recommendation is manual_review when the dispute predicate OR the commitment predicate holds, so the dispute predicate alone is sufficient for manual_review irrespective of the commitment predicate. This is conditional on recorded values only.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.dispute_trigger"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "All reasoning was done mentally from the SYSTEM and USER messages; only the task file was read and only the output file was written. No SHA-256 digests were computed; the contract lineage label rests on the cited digest being the all-zero placeholder value, which cannot be the SHA-256 of the retained non-empty text, and the transaction digest was left unverified."
+  }
+}

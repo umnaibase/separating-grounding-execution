@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_38f5895537b77de7 (version 1, sha256 6a9d...ec41) is not present among the retained sources, so no bytes exist to compare against the cited digest and version. Missing artifact; no digest computation was attempted.",
+      "evidence": ["citations.contract[0]", "sources"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "No contract source text is retained (only the transactions source is present), so there is no valid cited contract evidence to establish or refute the asserted 3-month minimum penalty-free commitment. The recorded input of 3 is not evidence of source truth.",
+      "evidence": ["citations.contract[0]", "sources", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Retained transactions source src_944f6a96d87a63a8 (version 1, matching the citation version) states observation window 2026-01-01/2026-01-31, eligible 1500, disputed 25, which yields the asserted fraction 25/1500 exactly. The digest was not independently verified, but the retained text and version match the citation and the window matches the fixture period.",
+      "evidence": ["sources[0]", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25 = 1250 >= 1500 is false, so dispute_trigger = false; commitment_months 3 < 6 is true, so commitment_trigger = true; OR yields manual_review. Recorded trace (commitment_trigger true, dispute_trigger false), recorded rule_output manual_review and asserted value manual_review all agree. Inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible; policy is toy-v1 with standard thresholds.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution (see c4), and final_output manual_review equals both the recorded rule_output and the policy replay result. No intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "unresolved",
+      "check": "The alternatives list is empty, so no candidate commitments are declared. An empty candidate set is unresolved by definition.",
+      "evidence": ["alternatives"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is false: 50*25 = 1250 < 1500, and the recorded trace also shows dispute_trigger false. Manual review is reached only via the commitment predicate, so the dispute predicate alone does not suffice; the assertion of true is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages in the task file; the Read tool was used solely to load the task file and the Write tool solely to emit this answer. No digest computation, filesystem browsing or web search was performed."
+  }
+}

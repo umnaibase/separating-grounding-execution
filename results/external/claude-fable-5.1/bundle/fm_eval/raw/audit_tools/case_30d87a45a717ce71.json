@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of the retained contract text src_51d1d2de924d3cc0 equals the cited digest 4eb69472...36cba5 and the cited version '1' matches the retained version '1'. Only one contract is cited and it is unambiguous.",
+      "evidence": ["citations.contract[0]", "src_51d1d2de924d3cc0"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "contradicted",
+      "check": "The valid cited contract states the merchant may terminate after 12 months without penalty; 36 months is the framework duration, not the minimum commitment before penalty-free cancellation. The single authoritative document gives a unique different value (12), contradicting the asserted 36.",
+      "evidence": ["src_51d1d2de924d3cc0", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source hash and version match (df7cb14b...06cf2f, version 1), the observation window is exactly 2026-01-01/2026-01-31, and it reports 800 eligible and 15 disputed, giving fraction 15/800 equal to the asserted fraction.",
+      "evidence": ["src_2997ae3262314dbf", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (36, 15, 800; eligible > 0, disputed <= eligible). 50*15 = 750 < 800 so dispute_trigger is false; 36 < 6 is false so commitment_trigger is false; policy yields standard_processing. Recorded trace (false, false), recorded rule_output and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace and rule_output are consistent with faithful execution of toy-v1 on the recorded inputs (standard_processing), and final_output equals both the policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [36] is non-empty and valid. With disputed=15 and eligible=800 fixed, candidate 36 gives 36 < 6 false and 750 >= 800 false, so standard_processing; all declared candidates (one) yield the same recommendation.",
+      "evidence": ["alternatives", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values 50*15 = 750 < 800, so the dispute predicate is false (matching the recorded dispute_trigger false) and does not by itself trigger manual_review under toy-v1; the asserted sufficiency is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*15 =', 50*15, '; 50*15 >= 800 ->', 50*15 >= 800, '; 36 < 6 ->', 36 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly, and versions matched. Policy arithmetic was done with exact integers; the only grounding failure is the commitment value (contract supports 12, not 36) and the dispute predicate is false on the recorded inputs."
+  }
+}

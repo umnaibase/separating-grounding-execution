@@ -1,0 +1,125 @@
+{
+  "reports": [
+    {
+      "task_name": "pilot_text_01",
+      "condition": "text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/text_batch_01.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/text/text_batch_01.json",
+      "reported_output_writes": 1,
+      "reported_issues": [
+        "Initial full-file displays were truncated; subsequent segmented reads were reported to cover the entire input."
+      ],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_text_02",
+      "condition": "text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/text_batch_02.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/text/text_batch_02.json",
+      "reported_output_writes": 1,
+      "reported_issues": [
+        "Initial full-file displays were truncated; subsequent segmented reads were reported to cover the entire input."
+      ],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_text_03",
+      "condition": "text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/text_batch_03.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/text/text_batch_03.json",
+      "reported_output_writes": 1,
+      "reported_issues": [
+        "Initial full-file displays were truncated; subsequent segmented reads were reported to cover the entire input."
+      ],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_text_04",
+      "condition": "text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/text_batch_04.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/text/text_batch_04.json",
+      "reported_output_writes": 1,
+      "reported_issues": [
+        "Initial full-file displays were truncated; subsequent segmented reads were reported to cover the entire input."
+      ],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_paired_text_01",
+      "condition": "paired_text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/paired_text_batch_01.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_01.json",
+      "reported_output_writes": 1,
+      "reported_issues": [],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_paired_text_02",
+      "condition": "paired_text",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/paired_text_batch_02.json"
+      ],
+      "reported_image_views": [],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_02.json",
+      "reported_output_writes": 1,
+      "reported_issues": [],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_image_01",
+      "condition": "image",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/image_batch_01.json"
+      ],
+      "reported_image_views": [
+        "explainability-boundaries/data/pilot/images/ep_0b39d2eb47627c32.png",
+        "explainability-boundaries/data/pilot/images/ep_0c517c369d2d5d19.png",
+        "explainability-boundaries/data/pilot/images/ep_8288e056936df56c.png",
+        "explainability-boundaries/data/pilot/images/ep_6a2691285a7e810f.png",
+        "explainability-boundaries/data/pilot/images/ep_05e9207300018ccc.png",
+        "explainability-boundaries/data/pilot/images/ep_12b0f6a3fc632a5c.png"
+      ],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/image/image_batch_01.json",
+      "reported_output_writes": 1,
+      "reported_issues": [],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    },
+    {
+      "task_name": "pilot_image_02",
+      "condition": "image",
+      "reported_input_files": [
+        "explainability-boundaries/data/pilot/batches/image_batch_02.json"
+      ],
+      "reported_image_views": [
+        "explainability-boundaries/data/pilot/images/ep_00b85d45a3673eb6.png",
+        "explainability-boundaries/data/pilot/images/ep_0f64684d0900dd0c.png",
+        "explainability-boundaries/data/pilot/images/ep_29ae11abc53c2b5d.png",
+        "explainability-boundaries/data/pilot/images/ep_33e17619f514c91e.png",
+        "explainability-boundaries/data/pilot/images/ep_3a75857a2ccad717.png",
+        "explainability-boundaries/data/pilot/images/ep_204354b6289f58ef.png"
+      ],
+      "reported_output_file": "explainability-boundaries/results/pilot/raw/image/image_batch_02.json",
+      "reported_output_writes": 1,
+      "reported_issues": [
+        "One PNG initially appeared blank; a repeat view with original detail displayed the passage. No response was rewritten."
+      ],
+      "evidence_type": "Worker self-report; complete platform tool traces were not independently audited."
+    }
+  ],
+  "interpretation": "These lists reproduce worker-reported activities. They are not complete platform transport traces or proof of security-enforced answer-key isolation."
+}

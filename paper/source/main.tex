@@ -1,0 +1,225 @@
+\documentclass[sigconf,nonacm]{acmart}
+\setcopyright{none}
+\settopmatter{printacmref=false,printfolios=true}
+\usepackage{tabularx}
+\raggedbottom
+\hypersetup{keeppdfinfo,pdfauthor={Angelo Dalli},pdftitle={Separating Grounding, Execution and Attribution in Foundation-Model-Assisted Banking Audits}}
+\begin{document}
+\title[Separating Grounding, Execution and Attribution]{Separating Grounding, Execution and Attribution in Foundation-Model-Assisted Banking Audits}
+\author{Angelo Dalli}
+\email{angelo.dalli@umnai.com}
+\affiliation{\institution{UMNAI}\city{}\country{}}
+\renewcommand{\shortauthors}{Angelo Dalli}
+\begin{abstract}
+Auditing a foundation-model-assisted banking decision means keeping three questions apart: whether the cited source supports the value that was used, whether the policy ran correctly on that value, and whether the final action came from the policy alone or involved a later human intervention. This paper defines an executable audit contract with seven assertions. Each has its own evidence obligation and is judged supported, contradicted or unresolved. A reproducible synthetic merchant-onboarding suite shows that these judgments can differ: a rule can replay correctly on a misread commitment, and a recommendation can be stable while the source reading remains unsettled.
+
+In archived outputs from a model run without computational tools, the same grounding-prerequisite failure appears in two fixtures. The model supports the recorded commitment, but local hash recomputation shows that the citation digest does not match the retained contract. Commitment grounding should therefore be unresolved. In one response, the model marks lineage as contradicted and commitment grounding as supported. Keeping these labels separate makes the bypass of citation validation visible. The frozen suite tests conformance to the authored contract, and the archived outputs can be checked offline. The contribution is this separation of evidence obligations and the concrete failure it exposes. Tests on independent documents, and any benefit to human reviewers, remain future work.
+\end{abstract}
+\ccsdesc[500]{Computing methodologies~Artificial intelligence}
+\ccsdesc[300]{Applied computing~Banking}
+\ccsdesc[300]{Information systems~Data provenance}
+\keywords{claim verification, foundation models, decision provenance, evidence grounding, auditability}
+\maketitle
+\hypersetup{pdfauthor={Angelo Dalli}}
+\section{Introduction}
+
+A banking decision may combine document interpretation, transaction aggregates, policy logic and human review. Each stage creates a different audit question. A reproducible rule trace shows how recorded inputs produce a recommendation, yet it does not establish that those inputs faithfully represent a cited contract. A recommendation and a final action may coincide even when a human intervened. Treating these questions as a single judgment obscures the evidence required for each.
+
+In a hypothetical merchant-onboarding workflow, a foundation model extracts cancellation terms, a service supplies dispute counts, a policy recommends a route and a reviewer may intervene. Reviewability requires records across this process~\cite{cobbe2021reviewable}.
+
+A foundation model can extract the inputs being audited or act as the auditor; these are distinct roles. This paper examines both on synthetic fixtures. It contributes an executable contract separating seven assertions, a suite demonstrating divergent outcomes, and archived outputs supporting failure analysis. The contract preserves supported execution when grounding is unresolved and distinguishes a stable recommendation from a settled interpretation. Two tool-free responses endorse an input despite an invalid citation; separate lineage and grounding labels expose the prerequisite failure.
+
+\paragraph{Relation to prior work.}
+Faithfulness concerns whether explanations reflect computation~\cite{jacovi2020}; model rationales may omit influencing factors~\cite{turpin2023}. Lyu et al.~separate language-model translation from symbolic execution~\cite{lyu2023}. Decision provenance~\cite{singh2019} and PROV~\cite{prov2013} record derivations. The present contract checks specific assertions within a retained decision record.
+
+FEVER distinguishes support, refutation and insufficient evidence~\cite{thorne2018fever}; AIS evaluates attribution to identified sources~\cite{rashkin2023measuring}. Assurance cases connect claims, evidence and assumptions; SACM represents unsupported and defeated claims~\cite{sacm2023}. Here these principles distinguish grounding, replay, intervention history and sensitivity over declared interpretations. Reporting resolution alongside errors follows selective prediction~\cite{geifman2019}; abstention reflects unavailable evidence or checking capability.
+
+\section{Executable claim contract}
+
+\subsection{Records, assertions and outcomes}
+
+Let \(z\) denote consumed features and \(s\) the policy and remaining consumed state. The policy recommends \(y=d(z,s)\); the final action \(a\) may additionally depend on an intervention. Each claim kind \(k\) specifies evidence obligations \(D_k\), assumptions \(A_k\) and a check \(K_k\). A supplied claim has an identifier, kind and asserted value \(v\). For the retained record \(E\),
+
+\begin{equation}
+K_k(E,v;A_k)=(\ell,r,B),\qquad
+\ell\in\{\mathrm{S},\mathrm{C},\mathrm{U}\},
+\end{equation}
+
+where \(r\) is a reason and \(B\) lists evidence references. \emph{Supported} (S) means the assertion meets its obligations; \emph{contradicted} (C) requires decisive counter-evidence; \emph{unresolved} (U) covers missing or conflicting prerequisites, unsupported language or disabled checks. Records retain sources, citations, consumed inputs, policy, trace, actions, intervention history, completeness declarations, candidates and claims. Table~\ref{tab:claims} specifies the seven implemented scopes; they are selected obligations for this workflow, not an exhaustive banking-audit taxonomy.
+
+\begin{table}[t]
+\caption{Seven audit assertions and their evidence obligations. Execution, final-action attribution and dispute sufficiency concern consumed inputs; they do not inherit source grounding.}
+\label{tab:claims}
+\small
+\begin{tabularx}{\columnwidth}{@{}lX@{}}
+\toprule
+Assertion & Evidence required by the contract \\
+\midrule
+Contract lineage & Cited identity, version and byte digest match the retained contract. \\
+Commitment grounding & Valid cited contract supports the asserted penalty-free exit time. \\
+Dispute grounding & Valid transaction source supports an equal asserted fraction in the specified window. \\
+Conditional execution & Both recorded predicates and the recommendation match exact replay. \\
+Final-action attribution & Valid execution, matching action, no intervention and stipulated complete history. \\
+Candidate stability & Recommendations are invariant over the declared candidate set. \\
+Sufficient dispute reason & Recorded disputed and eligible counts satisfy $50u\geq n$. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For a true lineage assertion, matching retained bytes and versions yield S; an observed mismatch yields C; an absent or ambiguous artifact yields U. \emph{Grounding} means support from the cited, integrity-validated source, rather than agreement with an uncited passage. A digest mismatch therefore contradicts lineage but leaves grounding unresolved: the cited source is unusable for that assertion. With valid citations, a unique interpreted value supports an equal assertion and contradicts a different one. Missing, unsupported or equally authoritative conflicting interpretations yield U. Dispute grounding compares fractions by exact cross multiplication.
+
+Conditional execution checks both predicates and the recommendation against replay on consumed inputs. An explicit intervention, including a same-valued one, contradicts policy-only final-action attribution. A final-action mismatch with valid replay also contradicts that assertion. Without decisive counter-evidence, an invalid trace or incomplete history yields U. Supported attribution requires valid execution, a matching action, no intervention and stipulated complete, trustworthy history. Unresolved source grounding therefore leaves replay independently checkable, while failed replay prevents supported attribution.
+
+Lineage, stability and dispute-sufficiency claims have Boolean asserted values: a false-valued assertion is supported when its predicate is false. Claim text must express the structured proposition consistently. Hashes establish consistency with retained bytes, not source authenticity; grounding checks fidelity to retained text, not real-world truth. Historical attribution additionally depends on trustworthy records.
+
+\subsection{Grounding and decision sensitivity}
+
+The same consumed commitment and trace can accompany different source interpretations. Replay cannot distinguish their grounding conditions; conflicting interpretations can still yield the same recommendation.
+
+For a declared nonempty candidate set \(Z\), hold remaining inputs and policy fixed and enumerate \(\mathcal{Y}(Z;s)=\{d(z,s):z\in Z\}\). A singleton outcome set supports a true stability assertion; multiple outcomes contradict it. Empty or unavailable candidates yield U. Stability establishes invariance only over \(Z\); it does not resolve the interpretation or establish candidate completeness. This implementation varies commitment alone. Candidate generation, joint uncertainty and real-world causal effects~\cite{karimi2021} are outside that calculation.
+
+\section{Synthetic regression study}
+
+\subsection{Fixtures and authored references}
+
+The frozen test suite release for this paper consists of 100 episodes and 700 claims, plus 8 diagnostic episodes and 56 claims. A total of 20 deterministic parameter combinations (families) each have 5 variants: clean evidence, extraction error, source gap, ambiguity and intervention/history issue. Additionally, 5 transaction-count pairs, 6 commitment durations, 3 framework durations and 3 numeric contract templates cycle together. One transaction template fixes the window; count errors add 5 consumed pairs. All merchants and documents are fictional.
+
+The illustrative onboarding screen uses disputed count \(u\), eligible count \(n\) and penalty-free commitment \(c\) in months:
+
+\begin{equation}
+d(u,n,c)=
+\begin{cases}
+\text{manual review}, & 50u\geq n\ \lor\ c<6,\\
+\text{standard processing}, & \text{otherwise}.
+\end{cases}
+\end{equation}
+
+Here \(0\leq u\leq n\), \(n>0\) and \(c\geq0\) are integers. A dispute rate of at least \(2\%\) triggers review. The commitment threshold is an invented screen, not an empirically validated risk indicator. Framework duration and penalty-free exit time are distinct fields.
+
+Fourteen non-clean subtypes inject framework-as-commitment substitutions, disputed-count errors, missing artifacts, conflicting contracts, digest/version faults, spelled-out numbers, overrides, incomplete histories and incorrect traces. Four of twenty extraction errors change the recommendation. The original suite excludes combined faults and richer document language. Its 73 singleton candidate sets, four empty sets and 23 pairs cover declared-candidate stability. All pairs straddle the six-month boundary; the additional diagnostics include same-side and three-candidate sets.
+
+Reference labels and rationales derive from the authored constructions. The generator does not import the checker, but both encode the same semantics. Eight families form the development subset (40 episodes); twelve form the reporting subset (60 episodes, 420 claims). Parameter values and templates recur across subsets, and reporting cases were inspected during development. Consequently, agreement measures conformance to the authored rules, not blind generalisation, with the dataset card recording the construction~\cite{gebru2021}.
+
+\subsection{Checker configurations and reporting}
+
+All checker configurations receive identical sources, citations and records. \emph{Execution} checks replay, final-action attribution, candidate stability and dispute sufficiency. \emph{+Identity} adds contract identity, version and SHA-256 verification. \emph{+Grounding} compares asserted values with sources interpreted by full-match parsers for three numeric contract templates and one transaction template. Disabled checks and unsupported wording yield U. Exact integer arithmetic avoids threshold drift.
+
+Reported measures are three-class reference agreement, resolution (S or C), and \emph{false support}: predicted S where the authored reference is C or U. False support is reported per supported prediction (endorsement). It concerns unjustified endorsement under the contract; it does not establish that the underlying text or merchant decision is false. Reference U denotes insufficient evidence, while checker U can also reflect a capability limit.
+
+The artifact reports confusion matrices and scope, variant and family breakdowns. Identifiers are used only to join outputs; identifiers, split, variant and reference labels are excluded from decision features. Counts are descriptive because fixtures share structure. Scripts regenerate fixtures and rescore outputs offline. Contract, reporting labels and archives are hashed while diagnostics are held separate.
+
+\subsection{Archived model procedures}
+
+Three foundation models were used in the evaluation: GPT-6.1 Sol Ultra, Grok 4.7 and Claude Fable 5.1. Sol Ultra was evaluated using the artifact-authoring assistant system. Four declared fresh 17-episode contexts cover 60 reporting episodes and eight diagnostics, without reference labels, rationales or scenario tags. The worker archive declares no inherited conversation history and prohibits memory or project lookup. Parent configuration was inherited; isolation from persistent memory, project context or instruction state was not independently verified. Three batches mix reporting and diagnostics; 37/60 reporting episodes share a context with a same-family variant. A frontend supplies citation presence, kind, version and digest comparisons. Integrity is precomputed; prerequisite application, source interpretation and policy reasoning remain model tasks. Paired rendered-evidence audits of twelve episodes use fresh six-episode batches: PNG cards replace passages while populated records and integrity observations remain visible. A rendering script in the supplement reproduces all 25 PNGs byte for byte with Pillow 12.3.0.
+
+Sol Ultra uses one attempt per batch without repair. Invalid/\allowbreak{}missing batches receive U placeholders counted incorrect even against reference U; denominators remain fixed. Instructions, literal responses and self-reported activities are archived.
+
+Grok predictions cover 100 original episodes and eight diagnostics; reporting and diagnostic outputs are rescored separately against authored references. The supplied account describes per-episode judgment with hashing and exact-replay tools. Native prompts and execution traces are absent, so the inference procedure cannot be examined.
+
+Fable reports fresh instances per episode under two conditions: no computational tools, or Bash restricted to SHA-256 and integer arithmetic. Each audits 60 reporting episodes and eight diagnostics. Prompts, 136 literal responses and conversion files support rescoring; no response failures are recorded. Fable additionally extracts 55 fields from 25 unique documents (20 contracts, five transaction summaries). Text and rendered-image conditions each use 25 declared fresh calls without populated audit records. Images have mild synthetic rotation, blur and speckle. Prompts, condition wrappers, images, outputs and reference fields are archived.
+
+\section{Results and failure analysis}
+
+\subsection{Grounding endorsements with invalid citations}
+
+The same grounding-prerequisite failure occurs in two Fable responses without computational tools (Table~\ref{tab:failures}). Both support commitment grounding despite invalid all-zero citation digests; local SHA-256 recomputation confirms both mismatches. In response A, the model contradicts lineage yet supports grounding, treating the digest defect as a separate issue. In response B, it abstains on lineage yet supports grounding. Both bypass the grounding prerequisite: a readable value in the retained text does not validate its citation.
+
+\begin{table}[t]
+\caption{One grounding-prerequisite failure observed twice in the tool-free Fable run. Both citation digests mismatch; required grounding is U. S/C/U denote supported/contradicted/unresolved. Episode identifiers and responses are retained in the artifact.}
+\label{tab:failures}
+\small
+\begin{tabularx}{\columnwidth}{@{}Xccc@{}}
+\toprule
+Response & Lineage & Grounding & Required\\
+ & predicted & predicted & grounding\\
+\midrule
+A & C & S & U\\
+B & U & S & U\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The hash/arithmetic run's zero false support does not establish that tools prevented this error. Hashing and arithmetic changed together, and separate calls had unrecorded sampling. The tool-free run agrees with 359/420 references, resolves 331 claims and has 2/277 false support. Its other 59 disagreements are abstentions: 55 lineage and four dispute grounding. Abstaining without hashing avoids an unsupported integrity claim. For dispute grounding, four responses cite unavailable hashing when abstaining, 54 give S/C judgments and two lack the source. Diagnostic agreement is 43/56, with 0/23 false support. Each fixture has one attempt per condition; no plausible wrong digest or combined fault was tested. Only Fable had a tool-free condition; equivalent runs for the other systems are absent. These observations establish one failure mode, without comparing model susceptibility or estimating its frequency on realistic citations.
+
+\subsection{Distinct outcomes across audit scopes}
+
+\paragraph{Extraction and execution.}
+All twelve reporting extraction errors contradict grounding while preserving execution; two change the recommendation. For example, a contract specifies a three-month penalty-free exit and a 24-month framework. Consuming \(c=24\) at \(u=25,n=1500\) yields standard processing. Lineage is supported, commitment grounding contradicted and replay supported. A matching intervention-free final action with complete history supports attribution to that replay. Correcting \(c\) to three triggers review. Supported computation therefore leaves the extraction error intact.
+
+\paragraph{Grounding and stability.}
+Twelve ambiguity episodes leave commitment grounding unresolved: seven are stable over \(\{3,9\}\) and five are sensitive. At \(25/1500\), those alternatives produce different routes; at \(25/1200\), disputes trigger review under either reading. Two further source-gap conflicts complete fourteen conflicting-contract cases. Stability can thus coexist with unresolved grounding.
+
+\paragraph{Stability and dispute sufficiency.}
+Table~\ref{tab:diagnostics} extends the original straddling pairs. Each set has positive and negative stability assertions, giving eight diagnostic episodes. At \(u=25,n=1500\), commitment grounding is U and true dispute-sufficiency assertions are C. The checker agrees with all 56 diagnostic labels. For this screen, with \(P=(50u\geq n)\), stability holds when \(P\), all candidates are below six, or all are at least six. It reduces to \(P\) only for straddling sets. This policy-specific identity illustrates why candidate stability and dispute sufficiency have distinct evidence obligations.
+
+\begin{table}[t]
+\caption{Candidate diagnostics at \(u=25,n=1500\). K(T)/K(F) evaluate true/false stability assertions. Candidate sets are declared, not claimed exhaustive.}
+\label{tab:diagnostics}
+\small
+\begin{tabularx}{\columnwidth}{@{}Xccc@{}}
+\toprule
+Candidate commitments & Outputs & K(T) & K(F)\\
+\midrule
+$\{6,9\}$ & standard & S & C\\
+$\{3,5\}$ & review & S & C\\
+$\{3,6,9\}$ & both & C & S\\
+$\{6,9,12\}$ & standard & S & C\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Action and attribution.}
+Three same-valued interventions contradict policy-only final-action attribution despite matching recommendation and action. Three faulty-trace episodes instead yield contradicted execution and unresolved attribution. Equal action values establish neither intervention-free history nor valid execution.
+
+\subsection{Conformance counts and paired modalities}
+
+The full checker agrees with 418/420 labels, resolving 386 (331 S, 55 C; Table~\ref{tab:results}). Its 34 U include two supported-reference commitments worded as \emph{eighteen}, outside the digit-only grammar. The misses reflect the declared parser boundary. Zero false support applies to these fixtures.
+
+\begin{table}[t]
+\caption{Checker configurations on 420 authored claims. Disabled checks abstain. Generator and checker share semantics; these are conformance counts. FS/S is false support per endorsement.}
+\label{tab:results}
+\small
+\begin{tabularx}{\columnwidth}{@{}Xrrr@{}}
+\toprule
+Enabled checks & Agreement & Resolved & FS/S\\
+\midrule
+Execution & 264/420 & 232/420 & 0/193\\
++ Identity & 322/420 & 290/420 & 0/247\\
++ Grounding & 418/420 & 386/420 & 0/331\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Archived Sol Ultra, Grok predictions and Fable with hashing and arithmetic each agree with 420/420 authored labels: 333 S, 55 C and 32 U, with 388 resolved and 0/333 false support. All reach the authored resolution ceiling of 388/420, so this subset cannot distinguish them by agreement. Unmatched procedures and unverified provenance further prevent comparative performance claims. The 32 U are required abstentions: 20 commitment grounding, six attribution and two each lineage, dispute grounding and stability; none denotes a failed response. Each also matches 56/56 diagnostics (36 S, 12 C, eight U), with 0/36 false support. A supplemental inventory records prompts, responses and procedures; Grok predictions permit rescoring only.
+
+Sol Ultra's paired rendered-evidence audits each match 84/84 labels (24/24 grounding; 68 S, seven C, nine U; 0/68 false support), without batch failures. In the separate extractor role, Fable's source-only extraction matches 55/55 fields and 25/25 documents per modality, without framework-as-commitment errors. Literal quotations match source substrings in 20/25 text and 21/25 image responses; whitespace normalisation yields 25/25 and 24/25. One image quotation replaces line breaks with a separator. Field correctness does not ensure verbatim attribution. These are paired views of 25 templated documents, not 50 independent documents or realistic scans.
+
+\section{Discussion and limitations}
+
+Supported replay can coexist with contradicted grounding, and stability with unresolved interpretations. Contradiction could prompt claim correction; unresolved status could prompt evidence collection or qualification. These are intended uses, without measured reviewer benefit, and prescribe no merchant action. References and checker share assumptions; reporting fixtures were inspected during development. Agreement establishes internal consistency. Minimal templates, correlated parameters, selected faults and stipulated histories limit generalisation. Parsing is bounded, hashes do not authenticate documents, and candidates may omit valid interpretations.
+
+The model results are archived observations rather than a controlled comparison. Shared provenance across Sol Ultra's artifact construction and auditing adds dependence beyond generator/\allowbreak{}checker conformance; sibling variants also co-occur within batches. The Fable operator had seen references. Fresh-context isolation and tool restrictions are reported by the foundation models themselves rather than independently verified. Fairness, compliance and causal actionability were not evaluated.
+
+\paragraph{Future evaluation.}
+Independent challenge testing remains future work: new documents, plausible wrong digests and combined faults; blinded annotation and adjudication independent of checker authors; labels frozen before inference under matched prompts and tools. Annotator disagreement should accompany model results. A subsequent reviewer study would test fault-identification benefit.
+
+\section{Conclusion}
+
+Grounding, policy replay and final-action attribution require separate evidence. On authored synthetic fixtures, the contract exposes one grounding-prerequisite failure in two responses, including an inconsistent lineage/grounding judgment. Released records, labels, outputs and the scorer permit offline examination. The results establish scope separation and fixture conformance; independent audit evaluation remains future work.
+
+\paragraph{Data and code availability.}
+The synthetic dataset, checker, authored references and archived outputs accompany this manuscript as ancillary files. Appendices~\ref{sec:supp-contract}--\ref{sec:supp-reproducibility} give the supplementary methods, run records and reproduction details.
+
+\clearpage
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\clearpage
+\nobalance
+\appendix
+\input{supplement}
+
+\par\smallskip
+{\small\noindent\textit{Acknowledgements.} This research has been supported by the FINAI Project Malta Enterprise R\&D Grant.\par}
+
+\end{document}

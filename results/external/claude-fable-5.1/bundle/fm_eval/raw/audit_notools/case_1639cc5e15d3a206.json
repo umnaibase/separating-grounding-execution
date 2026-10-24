@@ -1,0 +1,109 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "The contract citation for src_51d1d2de924d3cc0 declares version \"2\" but the retained source of that ID is version \"1\"; an observed version mismatch is contradicted under the lineage definition regardless of the digest. The SHA-256 digests (contract and transactions) were not computed and remain unverified.",
+      "evidence": [
+        "citations.contract[0].source_id",
+        "citations.contract[0].version",
+        "citations.contract[0].sha256",
+        "sources[0].version",
+        "src_51d1d2de924d3cc0"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The only cited contract (version 2) is not retained; the retained text is version 1 and the citation fails lineage, so there is no valid cited contract evidence. The retained v1 text would read as 12 months before penalty-free termination (36 months is framework duration, not minimum commitment), but an absent cited version cannot be assumed to agree with it.",
+      "evidence": [
+        "citations.contract[0].version",
+        "sources[0].version",
+        "sources[0].text",
+        "src_51d1d2de924d3cc0",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The retained transactions source src_2997ae3262314dbf (version 1, matching the cited version) states window 2026-01-01/2026-01-31, eligible 800, disputed 15, which equals the asserted 15/800 fraction. However, the citation's SHA-256 digest could not be verified without computation, so the validity of the cited evidence cannot be confirmed; per the no-guessing rule on hash computations this is left unresolved rather than asserted as supported.",
+      "evidence": [
+        "citations.transactions[0].sha256",
+        "citations.transactions[0].version",
+        "sources[1].version",
+        "sources[1].text",
+        "src_2997ae3262314dbf",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with thresholds 1/50 and 6 months (supported configuration). Inputs are valid (15, 800, 12 nonnegative integers; eligible > 0; disputed <= eligible). Dispute predicate: 50*15 = 750 >= 800 is false. Commitment predicate: 12 < 6 is false. Result is standard_processing, matching recorded rule_output, both recorded trace predicates (false, false), and the asserted value.",
+      "evidence": [
+        "record.policy.id",
+        "record.policy.dispute_threshold",
+        "record.policy.commitment_threshold_months",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.input.commitment_months",
+        "record.trace.dispute_trigger",
+        "record.trace.commitment_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with the inputs, policy replay yields standard_processing, and rule_output equals final_output equals the asserted standard_processing. No intervention is recorded and the final action matches the replayed policy.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace",
+        "record.input",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [12], nonempty and valid. With disputed 15 and eligible 800 fixed (dispute predicate false), commitment 12 gives 12 < 6 false, so the recommendation is standard_processing for every declared candidate, identical to the recorded recommendation. Completeness of the candidate set is not asserted.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.commitment_threshold_months",
+        "record.policy.dispute_threshold",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate 50*15 = 750 >= 800 is false (recorded dispute_trigger is also false), so the dispute predicate alone does not suffice for manual_review under toy-v1; the asserted value true conflicts with this.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.dispute_trigger",
+        "record.rule_output"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "No SHA-256 digests were computed; only mental integer arithmetic on the recorded inputs was used. Lineage for c1 is contradicted on the observable version mismatch alone, and grounding claims c2/c3 are left unresolved because citation validity (absent cited version; unverified digest) could not be established."
+  }
+}

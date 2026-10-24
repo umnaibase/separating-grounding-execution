@@ -1,0 +1,10 @@
+{
+  "kind": "transactions",
+  "fields": {
+    "observation_window": "2026-01-01/2026-01-31",
+    "eligible": 800,
+    "disputed": 15
+  },
+  "verbatim_support": "Observation window: 2026-01-01/2026-01-31 | Eligible transactions: 800 | Disputed transactions: 15",
+  "notes": "All three fields were clearly legible in the image titled 'DISPUTE SUMMARY' (Transaction service export extract); no fields were missing or ambiguous."
+}

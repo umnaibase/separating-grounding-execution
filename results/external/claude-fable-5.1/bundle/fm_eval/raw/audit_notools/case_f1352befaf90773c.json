@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_f12bd8dfe47e73f5 is retained and its version (1) matches the citation, but the SHA-256 digest a390af9b... cannot be verified without computation, which is prohibited here; the digest match is therefore undetermined rather than observed.",
+      "evidence": ["citations.contract[0]", "src_f12bd8dfe47e73f5"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single cited contract states 'Minimum penalty-free cancellation time: 9 months', matching the asserted value 9 and record.input.commitment_months; the 24-month service framework duration is a different quantity and does not conflict. No competing authoritative document exists. Digest unverified, but content and version are unambiguous.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The cited transaction source for window 2026-01-01/2026-01-31 reports 2000 eligible and 45 disputed, i.e. 45/2000, whereas the claim asserts 46/2000; the fractions differ, so the unique retained evidence establishes a conflicting value.",
+      "evidence": ["src_aa990a77b2e1e9ca", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs disputed=46, eligible=2000, commitment_months=9: 50*46=2300 >= 2000 so dispute_trigger=true; 9 < 6 is false so commitment_trigger=false; OR yields manual_review. Recorded trace (false/true), rule_output and asserted value all match.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is internally consistent with toy-v1 replay, and final_output manual_review equals the policy replay result and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [9] is non-empty and valid. With disputed=46 and eligible=2000 fixed, the dispute predicate is true (2300 >= 2000), so commitment 9 yields manual_review, identical to the recorded recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "Under toy-v1 the recorded dispute predicate is true (50*46=2300 >= 2000) and the policy is a disjunction, so this predicate alone is sufficient for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage is left unresolved; the transaction source's 45 disputed versus the recorded 46 drives the contradicted dispute_grounding label."
+  }
+}

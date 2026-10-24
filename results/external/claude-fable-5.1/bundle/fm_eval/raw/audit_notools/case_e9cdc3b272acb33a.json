@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Cited contract source_id src_d3840dc477fc2c9a and version 1 match the retained source, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so the digest match is neither confirmed nor observed to mismatch.",
+      "evidence": ["citations.contract[0]", "src_d3840dc477fc2c9a", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The cited contract states the merchant may terminate without penalty after 5 months, a single unambiguous value matching the asserted 5; the 36-month framework duration is not the minimum commitment.",
+      "evidence": ["src_d3840dc477fc2c9a", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers window 2026-01-01/2026-01-31 with eligible 2000 and disputed 45, matching the asserted fraction 45/2000 exactly.",
+      "evidence": ["src_ba430e75185acb7d", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "contradicted",
+      "check": "On recorded inputs 50*45=2250 >= 2000 so dispute_trigger true (matches), but commitment_months 5 < 6 so commitment_trigger should be true while the trace records false; the output manual_review matches but one trace predicate disagrees with policy execution.",
+      "evidence": ["record.input.commitment_months", "record.input.disputed", "record.input.eligible", "record.policy.commitment_threshold_months", "record.policy.dispute_threshold", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "Override is null, action history is stipulated complete, and final_output manual_review matches policy replay, so there is no contradiction; however the recorded trace is inconsistent (commitment_trigger false where replay gives true), so faithful execution is not established and attribution remains unresolved.",
+      "evidence": ["record.override", "record.action_history_complete", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.input.commitment_months", "record.policy.commitment_threshold_months"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid; with disputed 45 and eligible 2000 fixed the dispute predicate (2250 >= 2000) already forces manual_review, and candidate 5 (< 6) also yields manual_review, so all candidates give the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.commitment_threshold_months"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values 50*45=2250 >= 2000, so the dispute predicate is true and under toy-v1 a true dispute predicate alone yields manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.policy.id"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages in the single task file; no hashes computed, only mental integer arithmetic (50*45=2250 vs 2000, 5<6)."
+  }
+}

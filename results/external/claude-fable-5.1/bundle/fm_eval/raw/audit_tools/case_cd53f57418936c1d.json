@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both cited contract source texts: src_20f3da78f823e788 -> 6a9da92c...ec41 and src_9c56223441e7adaf -> 3d1d0781...2f46, both equal to the cited digests; cited version '1' matches retained version '1' for both.",
+      "evidence": ["src_20f3da78f823e788", "src_9c56223441e7adaf", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid (digests/versions match) but conflict: src_20f3da78f823e788 states minimum penalty-free cancellation time of 3 months, while src_9c56223441e7adaf states the merchant may terminate without penalty only after 9 months. No precedence rule is supplied, so the asserted value 3 is not unambiguously supported.",
+      "evidence": ["src_20f3da78f823e788", "src_9c56223441e7adaf", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_b39661dc69a15054 is valid (recomputed SHA-256 191f5212...936f matches, version 1) and states observation window 2026-01-01/2026-01-31, eligible 1200, disputed 25, giving fraction 25/1200 equal to the asserted fraction.",
+      "evidence": ["src_b39661dc69a15054", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs valid (nonnegative integers, eligible 1200 > 0, disputed 25 <= 1200). Dispute predicate: 50*25 = 1250 >= 1200 -> true; commitment predicate: 3 < 6 -> true; policy output manual_review. Recorded trace (true, true), rule_output manual_review and asserted value manual_review all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, execution is faithful (replay yields manual_review with consistent trace), and final_output manual_review equals rule_output and the policy replay; no intervention recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [3, 9] with disputed 25 / eligible 1200 fixed: candidate 3 -> commitment true, dispute true -> manual_review; candidate 9 -> commitment false (9 < 6 is false), dispute true (1250 >= 1200) -> manual_review. Both yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded inputs, the dispute predicate 50*25 = 1250 >= 1200 is true, and under toy-v1 a true dispute predicate alone yields manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 heredoc via Bash: hashlib.sha256 of each source text (UTF-8) compared to cited digests; integer checks 50*25 >= 1200, 3 < 6, and replay for candidates 3 and 9"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited digests and versions matched the retained sources. The two valid contracts give conflicting penalty-free termination values (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; all policy-execution claims replay consistently."
+  }
+}

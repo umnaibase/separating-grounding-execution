@@ -1,0 +1,33 @@
+{
+  "files": {
+    "grok_predictions_diagnostics.jsonl": {
+      "bytes": 13948,
+      "sha256": "bfb6aaedfcbda3598935b61c8d07e0d0a9e785140e3b320ba3703c7aa5d4d746"
+    },
+    "grok_predictions_main.jsonl": {
+      "bytes": 160374,
+      "sha256": "9648eaa96a5b91f9fb5abe4330d00f4213e239a22490feaee235738d0bdbb264"
+    },
+    "protocol.json": {
+      "bytes": 1417,
+      "sha256": "6873ec36a333034e4caff97a717dced119820e23aa1c79edcaaa30aa379a8658"
+    },
+    "report.md": {
+      "bytes": 9981,
+      "sha256": "67c7356fa2bffa57e5dd2be787f18429f15129eca9f3fafaa01bb2910996f6ac"
+    },
+    "summary.json": {
+      "bytes": 48767,
+      "sha256": "39101024e44d5f4060b30a064bfd85471a86609bd76486e5224ae1aa6765ec52"
+    },
+    "summary.md": {
+      "bytes": 2021,
+      "sha256": "dc48f9b6f0aa1cbd569698f10cf9c0b4339d6e01b1c8ab76eba27fbcba8db5fb"
+    },
+    "systems.json": {
+      "bytes": 2594,
+      "sha256": "1509ba50effba81e53c15dc4191093cbfb5a6fe1ca3316ae53487552faba3eb7"
+    }
+  },
+  "provenance": "User-supplied report, predictions and run/protocol metadata archived byte-for-byte. Hashes establish file identity, not model-inference provenance."
+}

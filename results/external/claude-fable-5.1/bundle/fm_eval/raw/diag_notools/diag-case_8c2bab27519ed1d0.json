@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "All three cited contracts have a retained source with matching source_id and version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, so byte-level lineage is undetermined.",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The three cited contracts state conflicting minimum penalty-free cancellation times (6, 9 and 12 months) with no precedence rule, so the asserted value 6 is not unambiguously supported; contract digests are also unverified.",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained transaction source for the 2026-01-01/2026-01-31 window reports 1500 eligible and 25 disputed transactions, matching the asserted fraction 25/1500 exactly; the citation's digest was not independently verified.",
+      "evidence": ["diag-src_55eedb1859b0b517", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25=1250 < 1500 so dispute_trigger=false; 6 < 6 is false so commitment_trigger=false; neither fires, giving standard_processing, which matches rule_output, both trace predicates and the asserted output.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output standard_processing equals the policy replay result and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "With disputed=25 and eligible=1500 fixed (dispute predicate false), candidates 6, 9 and 12 are all >= 6 so commitment predicate is false for each; every candidate yields standard_processing.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values 50*25=1250 < 1500, so the dispute predicate is false and recorded as false; it does not by itself trigger manual_review under toy-v1.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages with mental integer arithmetic; SHA-256 digests were not computed, so lineage (c1) is left unresolved and c3 relies on retained text content only."
+  }
+}

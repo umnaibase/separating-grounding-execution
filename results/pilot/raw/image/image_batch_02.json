@@ -1,0 +1,76 @@
+{
+  "episodes": [
+    {
+      "episode_id": "ep_00b85d45a3673eb6",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract permits termination after 12 months without penalty.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 20 disputed of 1000 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"50 times 20 equals 1000 and 12 is not below 6; both predicates and manual_review match.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"contradicted","check":"An explicit reviewer override changes manual_review to standard_processing.","evidence":["record.override","record.final_output","record.rule_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 12 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio meets 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    },
+    {
+      "episode_id": "ep_0f64684d0900dd0c",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 18 months have elapsed.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 25 disputed of 1200 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"50 times 25 is 1250, exceeding 1200, and 18 is not below 6; the predicates and manual_review match.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"contradicted","check":"The explicit reviewer confirmation is an intervention even though it preserves manual_review.","evidence":["record.override","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 18 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio exceeds 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    },
+    {
+      "episode_id": "ep_29ae11abc53c2b5d",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 6 months have elapsed.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 45 disputed of 2000 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"50 times 45 is 2250, exceeding 2000, and 6 is not below 6; the predicates and manual_review match.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"unresolved","check":"The action history is stipulated incomplete, so the null override and matching output cannot establish absence of intervention.","evidence":["record.action_history_complete","record.override","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 6 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio exceeds 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    },
+    {
+      "episode_id": "ep_33e17619f514c91e",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 18 months have elapsed.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 20 disputed of 1000 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"50 times 20 equals 1000 and 18 is not below 6; both predicates and manual_review match.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"The complete history, explicit null override, faithful trace and matching manual_review establish policy attribution.","evidence":["record.action_history_complete","record.override","record.input","record.policy","record.trace","record.rule_output","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 18 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio meets 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    },
+    {
+      "episode_id": "ep_3a75857a2ccad717",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 18 months have elapsed.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 20 disputed of 1000 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"contradicted","check":"18 is not below 6, so commitment_trigger must be false; its recorded true value conflicts with execution.","evidence":["record.input.commitment_months","record.policy","record.trace.commitment_trigger"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"unresolved","check":"The inconsistent commitment trace prevents faithful-execution attribution despite complete history, null override and a matching final action.","evidence":["record.input.commitment_months","record.policy","record.trace","record.action_history_complete","record.override","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 18 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio meets 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    },
+    {
+      "episode_id": "ep_204354b6289f58ef",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching kind, version and SHA-256.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 6 months have elapsed.","evidence":["s01","integrity_observations[0]"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction passage reports 45 disputed of 2000 eligible for the specified January window.","evidence":["s02","integrity_observations[1]"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"50 times 45 is 2250, exceeding 2000, and 6 is not below 6; the predicates and manual_review match.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"The complete history, explicit null override, faithful trace and matching manual_review establish policy attribution.","evidence":["record.action_history_complete","record.override","record.input","record.policy","record.trace","record.rule_output","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole valid candidate, 6 months, yields manual_review with the fixed dispute inputs.","evidence":["alternatives","record.input","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"The recorded dispute ratio exceeds 1/50, which alone requires manual_review under toy-v1.","evidence":["record.input.disputed","record.input.eligible","record.policy","record.trace.dispute_trigger"]}
+      ]
+    }
+  ]
+}

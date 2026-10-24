@@ -1,0 +1,16 @@
+{
+  "protocol_id": "mfmb2026-audit-supplied-claims-v1",
+  "paper": "Claim-Scoped Auditing for Foundation-Model-Assisted Banking Pipelines: A Synthetic Conformance Study",
+  "release": "explainability-boundaries 1.1.0",
+  "task": "Label each supplied claim supported, contradicted, or unresolved. Do not extract a new recommendation.",
+  "primary_split": "test (60 episodes, 12 families, 420 claims). Public, constructed, inspected during the authors' development. Not a blind benchmark.",
+  "secondary_split": "diagnostics v1.1.0 (8 episodes, 56 claims). Report separately. Do not pool with the 420.",
+  "exclude_from_model_input": ["case_id", "subject", "split", "variant", "subtype", "reference labels", "construction rationales"],
+  "tools": {
+    "sha256": "required for contract_lineage if a resolved label is claimed; otherwise unresolved",
+    "exact_integer_replay": "required for conditional_execution, final_action_by_rule, candidate_stability, sufficient_dispute_reason"
+  },
+  "metrics": ["agreement with authored reference", "resolved (supported or contradicted)", "false support among endorsements"],
+  "do_not_claim": ["deployment accuracy", "blind generalization", "reviewer benefit", "fairness", "regulatory compliance", "causal actionability", "multimodal performance"],
+  "add_a_system": "Append one object to systems[] with the same metric fields. Keep raw predictions JSONL beside the report."
+}

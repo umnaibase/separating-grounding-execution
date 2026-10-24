@@ -1,0 +1,63 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of src_20f3da78f823e788 text equals cited digest 6a9da92c...ec41 and version '1' matches; the only cited contract is unambiguously retained.",
+      "evidence": ["citations.contract[0]", "src_20f3da78f823e788", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "contradicted",
+      "check": "The valid cited contract states 'Minimum penalty-free cancellation time: 3 months'; the 24 months figure is the service framework duration, not the minimum commitment. A unique different value (3) contradicts the asserted 24.",
+      "evidence": ["src_20f3da78f823e788", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source (hash and version verified) gives observation window 2026-01-01/2026-01-31, eligible 1200, disputed 25, matching the asserted fraction 25/1200.",
+      "evidence": ["src_b39661dc69a15054", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (24, 25, 1200): 50*25=1250 >= 1200 so dispute_trigger true; 24 < 6 false so commitment_trigger false; toy-v1 yields manual_review, matching recorded rule_output, trace and asserted value. Inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is consistent with faithful execution, and final_output manual_review equals policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [24] is non-empty and valid; with disputed=25, eligible=1200 fixed the dispute predicate holds (1250 >= 1200), so the single candidate yields manual_review, the same recommendation as recorded.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "Recorded dispute_trigger is true and 50*25=1250 >= 1200 on recorded values; under toy-v1 a true dispute predicate alone selects manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)) eligible=1200 ge=$(( 50*25 >= 1200 ))\"",
+      "echo \"commitment 24<6: $(( 24 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were recomputed and match. The contract explicitly gives 3 months as the minimum penalty-free cancellation time, so the recorded 24-month commitment is contradicted, though it does not change the policy outcome since the dispute predicate alone triggers manual_review."
+  }
+}

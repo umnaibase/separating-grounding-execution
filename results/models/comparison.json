@@ -1,0 +1,1200 @@
+{
+  "claude_error_analysis": {
+    "audit_notools_disagreements": 61,
+    "by_kind_and_transition": {
+      "commitment_grounding:unresolved->supported": 2,
+      "contract_lineage:contradicted->unresolved": 1,
+      "contract_lineage:supported->unresolved": 54,
+      "dispute_grounding:supported->unresolved": 4
+    },
+    "false_supports": [
+      {
+        "case_id": "case_96101184a60febe1",
+        "claim_id": "c2",
+        "contract_hash_verification": [
+          {
+            "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+            "matches": false,
+            "source_id": "src_f12bd8dfe47e73f5",
+            "version": "1"
+          }
+        ],
+        "false_support": true,
+        "kind": "commitment_grounding",
+        "lineage_prediction": "contradicted",
+        "prediction": "supported",
+        "reference": "unresolved",
+        "retained_reason": "The retained cited contract (source_id and version match the citation) states 'Minimum penalty-free cancellation time: 9 months', which is exactly the asserted value 9 and the recorded commitment_months. The 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value and no ambiguity in the document. The digest problem in c1 is a lineage defect assessed separately; the content of the retained cited source unambiguously supports 9."
+      },
+      {
+        "case_id": "case_91bf94e28c04fb8c",
+        "claim_id": "c2",
+        "contract_hash_verification": [
+          {
+            "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+            "matches": false,
+            "source_id": "src_f5d522e9bafea47f",
+            "version": "1"
+          }
+        ],
+        "false_support": true,
+        "kind": "commitment_grounding",
+        "lineage_prediction": "unresolved",
+        "prediction": "supported",
+        "reference": "unresolved",
+        "retained_reason": "The retained cited contract (matching source_id and version) states 'Minimum penalty-free cancellation time: 9 months', which equals the asserted value 9; the 24-month service framework duration is a distinct figure and not the minimum commitment, so there is no conflicting value."
+      }
+    ],
+    "interpretation": "The two false supports endorse commitment grounding without valid contract citation evidence. A separate scope label does not remove the grounding prerequisite. No-tools lineage abstention can reflect unavailable computation; reference agreement is not a pure measure of semantic capability. These condition differences do not establish a causal claim that semantic reasoning is not the bottleneck."
+  },
+  "claude_source_extraction": {
+    "conditions": {
+      "extract_image": {
+        "contracts": 20,
+        "documents": 25,
+        "documents_all_fields_correct": 25,
+        "fields_correct": 55,
+        "fields_total": 55,
+        "framework_as_commitment_confusions": 0,
+        "quote_definition": "For a string, require a nonempty substring; for a list, every piece must be nonempty and must match. Strict uses exact source bytes decoded as text. Normalized replaces each whitespace run with one space in source and quote, rejects fragments empty after normalization, and is not verbatim matching.",
+        "quotes_exact_substrings": 21,
+        "quotes_whitespace_normalized_substrings": 24,
+        "response_failures": 0,
+        "spelled_eighteen_commitment_correct": 1,
+        "spelled_eighteen_documents": 1
+      },
+      "extract_text": {
+        "contracts": 20,
+        "documents": 25,
+        "documents_all_fields_correct": 25,
+        "fields_correct": 55,
+        "fields_total": 55,
+        "framework_as_commitment_confusions": 0,
+        "quote_definition": "For a string, require a nonempty substring; for a list, every piece must be nonempty and must match. Strict uses exact source bytes decoded as text. Normalized replaces each whitespace run with one space in source and quote, rejects fragments empty after normalization, and is not verbatim matching.",
+        "quotes_exact_substrings": 20,
+        "quotes_whitespace_normalized_substrings": 25,
+        "response_failures": 0,
+        "spelled_eighteen_commitment_correct": 1,
+        "spelled_eighteen_documents": 1
+      }
+    },
+    "document_validation": {
+      "contracts": 20,
+      "documents": 25,
+      "field_denominator": 55,
+      "retained_source_occurrences": 158,
+      "transactions": 5,
+      "truth_validation": "Derived anew from complete literal source templates and checked against both supplied truths and retained corpus sources."
+    },
+    "evidence_status": "supplied_raw_responses_locally_rescored",
+    "model_name": "Claude Fable 5.1",
+    "quote_metric_reconciliation": {
+      "interpretation": "The reported quote counts agree only after whitespace normalization. Preserve both metrics and do not describe the normalized result as verbatim or exact matching.",
+      "local_strict_exact": {
+        "extract_image": 21,
+        "extract_text": 20
+      },
+      "local_whitespace_normalized": {
+        "extract_image": 24,
+        "extract_text": 25
+      },
+      "provider_report_claims": {
+        "image": "24/25 exact substring",
+        "text": "25/25 exact substring"
+      }
+    },
+    "record_artifact": "results/external/claude-fable-5.1/rescored/extraction.json",
+    "unit": "unique source document, distinct from episode-level claim auditing"
+  },
+  "comparison_type": "evidence-qualified inventory; protocols differ, not a matched ranking",
+  "constraints": [
+    "Main reporting, diagnostics and paired source-rendering conditions are reported separately and never pooled.",
+    "Grok prediction artifacts, when supplied, are rescored locally; this numerical verification does not independently establish actual foundation-model execution. The structured evidence status identifies whether a row is rescored or report-only.",
+    "Claude Fable 5.1 has separate no-computational-tool and SHA-256-plus-arithmetic audit conditions; any null condition means unavailable rather than zero. Historical pending metadata remains preserved.",
+    "Grok declares exact-replay tools and one episode per call; the archived assistant pilot supplies citation-integrity observations only and batches episodes. These are different protocols.",
+    "Model display names are supplied by the user. Exact immutable model snapshots and external sampling settings are not available.",
+    "The Grok description 'not a sampled decode' is preserved as a reported statement, not confirmation of deterministic model behavior.",
+    "The image pilot audits already-populated records using rendered versions of the same short sources; it does not establish document-to-feature extraction accuracy.",
+    "All systems are judged against author-written conformance references on public, designed fixtures; no real-world banking generalisation, fairness, compliance, causal actionability or reviewer benefit is established."
+  ],
+  "corpus_denominators": {
+    "diagnostics": {
+      "claims": 56,
+      "episodes": 8
+    },
+    "main_reporting": {
+      "claims": 420,
+      "episodes": 60
+    },
+    "paired_image": {
+      "claims": 84,
+      "episodes": 12
+    },
+    "paired_text": {
+      "claims": 84,
+      "episodes": 12
+    }
+  },
+  "schema_version": "1",
+  "systems": [
+    {
+      "evidence_status": "reproducible_deterministic_checker",
+      "metrics": {
+        "diagnostics": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 56,
+          "claims": 56,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 56,
+          "predicted_label_counts": {
+            "contradicted": 12,
+            "supported": 36,
+            "unresolved": 8
+          },
+          "resolved_count": 48
+        },
+        "main_reporting": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 418,
+          "claims": 420,
+          "conversion_failure_claims": null,
+          "endorsements": 331,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 418,
+          "predicted_label_counts": {
+            "contradicted": 55,
+            "supported": 331,
+            "unresolved": 34
+          },
+          "resolved_count": 386
+        },
+        "paired_image": null,
+        "paired_text": null
+      },
+      "model_name": "Bundled boundary checker",
+      "protocol": {
+        "episodes_per_call": null,
+        "input_modalities": [
+          "source_text"
+        ],
+        "model_inference": false,
+        "type": "bounded deterministic source parser, hash checks and exact policy replay"
+      },
+      "source_artifacts": [
+        {
+          "path": "results/summary.json",
+          "sha256": "7f1013738be85e26254d1e297dcabe7073fcec71e0cf55567e3550746af23072"
+        },
+        {
+          "path": "results/diagnostics/summary.json",
+          "sha256": "fccaa377d14217315fe1e37505ae3cd96faf78a05900ff77fe63ab0013f89b3f"
+        }
+      ]
+    },
+    {
+      "evidence_status": "locally_rescored_archived_outputs",
+      "metrics": {
+        "diagnostics": {
+          "agreement_basis": "failure-adjusted agreement",
+          "agreement_correct": 56,
+          "claims": 56,
+          "conversion_failure_claims": 0,
+          "endorsements": 36,
+          "episodes": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 56,
+          "predicted_label_counts": {
+            "contradicted": 12,
+            "supported": 36,
+            "unresolved": 8
+          },
+          "resolved_count": 48
+        },
+        "main_reporting": {
+          "agreement_basis": "failure-adjusted agreement",
+          "agreement_correct": 420,
+          "claims": 420,
+          "conversion_failure_claims": 0,
+          "endorsements": 333,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 420,
+          "predicted_label_counts": {
+            "contradicted": 55,
+            "supported": 333,
+            "unresolved": 32
+          },
+          "resolved_count": 388
+        },
+        "paired_image": {
+          "agreement_basis": "failure-adjusted agreement",
+          "agreement_correct": 84,
+          "claims": 84,
+          "conversion_failure_claims": 0,
+          "endorsements": 68,
+          "episodes": 12,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 84,
+          "predicted_label_counts": {
+            "contradicted": 7,
+            "supported": 68,
+            "unresolved": 9
+          },
+          "resolved_count": 75
+        },
+        "paired_text": {
+          "agreement_basis": "failure-adjusted agreement",
+          "agreement_correct": 84,
+          "claims": 84,
+          "conversion_failure_claims": 0,
+          "endorsements": 68,
+          "episodes": 12,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 84,
+          "predicted_label_counts": {
+            "contradicted": 7,
+            "supported": 68,
+            "unresolved": 9
+          },
+          "resolved_count": 75
+        }
+      },
+      "model_name": "GPT-6.1 Sol Ultra",
+      "model_name_source": "User-supplied display name; not an exposed immutable provider snapshot.",
+      "protocol": {
+        "exact_model_snapshot": null,
+        "failure_policy": {
+          "attempts": "One response per scheduled batch; no feedback, retries, label repair or adaptive case selection.",
+          "denominators": "Every scheduled episode and claim remains in its prespecified condition.",
+          "invalid_conditions": [
+            "missing file",
+            "invalid JSON",
+            "wrong top-level schema",
+            "missing, unknown or duplicate episode",
+            "missing, unknown or duplicate claim",
+            "invalid label, kind, reason or evidence schema"
+          ],
+          "invalid_or_missing_output": "Retain literal output; do not repair or retry. Convert all scheduled claims in that batch to unresolved with conversion_failure=true.",
+          "primary_agreement": "Failure-adjusted agreement: every converted claim is incorrect even when its construction reference is unresolved.",
+          "secondary_agreement": "Ordinary three-label agreement after unresolved conversion is reported separately.",
+          "unit": "entire scheduled batch"
+        },
+        "id": "assistant-pilot-1",
+        "input_modalities": [
+          "source_text",
+          "rendered_source_images_with_unchanged_populated_records"
+        ],
+        "main_text_episodes_per_context": 17,
+        "paired_episodes_per_context": 6,
+        "policy_replay_by_tool": false,
+        "sampling_parameters": null,
+        "tool_execution_evidence": "Worker self-reports; complete tool/transport traces were not independently audited.",
+        "tools": [
+          "citation presence, kind, version and SHA-256 observations",
+          "rendered source PNG viewing in image condition"
+        ]
+      },
+      "scope_groups": {
+        "diagnostics": {
+          "lineage_c1": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 8,
+            "claims": 8,
+            "conversion_failure_claims": 0,
+            "endorsements": 8,
+            "episodes": 8,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 8,
+            "predicted_label_counts": {
+              "contradicted": 0,
+              "supported": 8,
+              "unresolved": 0
+            },
+            "resolved_count": 8
+          },
+          "six_reasoning_scopes": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 48,
+            "claims": 48,
+            "conversion_failure_claims": 0,
+            "endorsements": 28,
+            "episodes": 8,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 48,
+            "predicted_label_counts": {
+              "contradicted": 12,
+              "supported": 28,
+              "unresolved": 8
+            },
+            "resolved_count": 40
+          },
+          "source_grounding_c2_c3": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 16,
+            "claims": 16,
+            "conversion_failure_claims": 0,
+            "endorsements": 8,
+            "episodes": 8,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 16,
+            "predicted_label_counts": {
+              "contradicted": 0,
+              "supported": 8,
+              "unresolved": 8
+            },
+            "resolved_count": 8
+          }
+        },
+        "main_reporting": {
+          "lineage_c1": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 60,
+            "claims": 60,
+            "conversion_failure_claims": 0,
+            "endorsements": 54,
+            "episodes": 60,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 60,
+            "predicted_label_counts": {
+              "contradicted": 4,
+              "supported": 54,
+              "unresolved": 2
+            },
+            "resolved_count": 58
+          },
+          "six_reasoning_scopes": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 360,
+            "claims": 360,
+            "conversion_failure_claims": 0,
+            "endorsements": 279,
+            "episodes": 60,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 360,
+            "predicted_label_counts": {
+              "contradicted": 51,
+              "supported": 279,
+              "unresolved": 30
+            },
+            "resolved_count": 330
+          },
+          "source_grounding_c2_c3": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 120,
+            "claims": 120,
+            "conversion_failure_claims": 0,
+            "endorsements": 86,
+            "episodes": 60,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 120,
+            "predicted_label_counts": {
+              "contradicted": 12,
+              "supported": 86,
+              "unresolved": 22
+            },
+            "resolved_count": 98
+          }
+        },
+        "paired_image": {
+          "lineage_c1": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 12,
+            "claims": 12,
+            "conversion_failure_claims": 0,
+            "endorsements": 9,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 12,
+            "predicted_label_counts": {
+              "contradicted": 2,
+              "supported": 9,
+              "unresolved": 1
+            },
+            "resolved_count": 11
+          },
+          "six_reasoning_scopes": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 72,
+            "claims": 72,
+            "conversion_failure_claims": 0,
+            "endorsements": 59,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 72,
+            "predicted_label_counts": {
+              "contradicted": 5,
+              "supported": 59,
+              "unresolved": 8
+            },
+            "resolved_count": 64
+          },
+          "source_grounding_c2_c3": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 24,
+            "claims": 24,
+            "conversion_failure_claims": 0,
+            "endorsements": 19,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 24,
+            "predicted_label_counts": {
+              "contradicted": 0,
+              "supported": 19,
+              "unresolved": 5
+            },
+            "resolved_count": 19
+          }
+        },
+        "paired_text": {
+          "lineage_c1": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 12,
+            "claims": 12,
+            "conversion_failure_claims": 0,
+            "endorsements": 9,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 12,
+            "predicted_label_counts": {
+              "contradicted": 2,
+              "supported": 9,
+              "unresolved": 1
+            },
+            "resolved_count": 11
+          },
+          "six_reasoning_scopes": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 72,
+            "claims": 72,
+            "conversion_failure_claims": 0,
+            "endorsements": 59,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 72,
+            "predicted_label_counts": {
+              "contradicted": 5,
+              "supported": 59,
+              "unresolved": 8
+            },
+            "resolved_count": 64
+          },
+          "source_grounding_c2_c3": {
+            "agreement_basis": "failure-adjusted agreement",
+            "agreement_correct": 24,
+            "claims": 24,
+            "conversion_failure_claims": 0,
+            "endorsements": 19,
+            "episodes": 12,
+            "false_support_count": 0,
+            "ordinary_agreement_correct": 24,
+            "predicted_label_counts": {
+              "contradicted": 0,
+              "supported": 19,
+              "unresolved": 5
+            },
+            "resolved_count": 19
+          }
+        }
+      },
+      "source_artifacts": [
+        {
+          "path": "results/pilot/summary.json",
+          "sha256": "f275abb88cef7f10932ff9118d61061e2dc5403f8611f2251a2f65d0c08453de"
+        }
+      ]
+    },
+    {
+      "actual_model_inference_independently_verified": false,
+      "artifacts": {
+        "archive_directory": "results/external/grok-4.7",
+        "machine_readable_run_results_provided": true,
+        "manifest": "results/external/grok-4.7/supplied_artifacts_manifest.json",
+        "protocol_card_provided": true,
+        "raw_predictions_provided": true,
+        "report_provided": true,
+        "score_dump_provided": true
+      },
+      "evidence_status": "supplied_predictions_locally_rescored",
+      "exact_model_snapshot": null,
+      "inference_provenance": "Provider-declared only. Supplied prediction files and exact local score reproduction do not prove an actual foundation-model invocation or its share of the computation.",
+      "interface_as_reported": "session judgment under the frozen audit_supplied_claims_v1 instructions; uniform tool-assisted procedure, not a sampled API decode",
+      "limitations": [
+        "Numerical agreement has been independently reproduced from supplied predictions; the actual model execution has not been independently verified.",
+        "The provider describes a uniform tool-assisted procedure, not a sampled API decode, with temperature not applicable. No immutable snapshot or provider invocation trace is supplied.",
+        "Exact policy replay is declared by the provider, unlike the assistant pilot's integrity-only preprocessing. Scores are not a matched model ranking.",
+        "The original Markdown report and all six later attachments remain byte-for-byte preserved. Historical report-only transcription is retained separately."
+      ],
+      "local_rescore": {
+        "diagnostics": {
+          "input_prediction_episodes": 8,
+          "path": "results/external/grok-4.7/rescored/diagnostics/summary.json",
+          "selected_episodes": 8,
+          "selected_split": "all",
+          "sha256": "743d5046feb319aeb1f72af61f3dd75779d60932aa60bbaaee821e4f4d099586"
+        },
+        "main_reporting": {
+          "input_prediction_episodes": 100,
+          "path": "results/external/grok-4.7/rescored/main_reporting/summary.json",
+          "selected_episodes": 60,
+          "selected_split": "test",
+          "sha256": "39101024e44d5f4060b30a064bfd85471a86609bd76486e5224ae1aa6765ec52"
+        },
+        "procedure": "Official evaluation.score; main predictions contain 100 episodes and are filtered to the 60-episode test/reporting partition; eight diagnostics scored separately.",
+        "supplied_main_summary_byte_identical_to_local_rescore": true
+      },
+      "metrics": {
+        "diagnostics": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 56,
+          "by_kind": {
+            "candidate_stability": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 4,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 4,
+                "supported": 4,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            },
+            "commitment_grounding": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 0,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 0,
+                "supported": 0,
+                "unresolved": 8
+              },
+              "resolved_count": 0
+            },
+            "conditional_execution": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 8,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 0,
+                "supported": 8,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            },
+            "contract_lineage": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 8,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 0,
+                "supported": 8,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            },
+            "dispute_grounding": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 8,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 0,
+                "supported": 8,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            },
+            "final_action_by_rule": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 8,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 0,
+                "supported": 8,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            },
+            "sufficient_dispute_reason": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 8,
+              "claims": 8,
+              "conversion_failure_claims": null,
+              "endorsements": 0,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 8,
+              "predicted_label_counts": {
+                "contradicted": 8,
+                "supported": 0,
+                "unresolved": 0
+              },
+              "resolved_count": 8
+            }
+          },
+          "claims": 56,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 56,
+          "predicted_label_counts": {
+            "contradicted": 12,
+            "supported": 36,
+            "unresolved": 8
+          },
+          "resolved_count": 48
+        },
+        "main_reporting": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 420,
+          "by_kind": {
+            "candidate_stability": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 52,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 6,
+                "supported": 52,
+                "unresolved": 2
+              },
+              "resolved_count": 58
+            },
+            "commitment_grounding": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 34,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 6,
+                "supported": 34,
+                "unresolved": 20
+              },
+              "resolved_count": 40
+            },
+            "conditional_execution": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 57,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 3,
+                "supported": 57,
+                "unresolved": 0
+              },
+              "resolved_count": 60
+            },
+            "contract_lineage": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 54,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 4,
+                "supported": 54,
+                "unresolved": 2
+              },
+              "resolved_count": 58
+            },
+            "dispute_grounding": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 52,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 6,
+                "supported": 52,
+                "unresolved": 2
+              },
+              "resolved_count": 58
+            },
+            "final_action_by_rule": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 48,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 6,
+                "supported": 48,
+                "unresolved": 6
+              },
+              "resolved_count": 54
+            },
+            "sufficient_dispute_reason": {
+              "agreement_basis": "three-label agreement",
+              "agreement_correct": 60,
+              "claims": 60,
+              "conversion_failure_claims": null,
+              "endorsements": 36,
+              "false_support_count": 0,
+              "ordinary_agreement_correct": 60,
+              "predicted_label_counts": {
+                "contradicted": 24,
+                "supported": 36,
+                "unresolved": 0
+              },
+              "resolved_count": 60
+            }
+          },
+          "claims": 420,
+          "conversion_failure_claims": null,
+          "endorsements": 333,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 420,
+          "predicted_label_counts": {
+            "contradicted": 55,
+            "supported": 333,
+            "unresolved": 32
+          },
+          "resolved_count": 388
+        },
+        "paired_image": null,
+        "paired_text": null
+      },
+      "model_name": "Grok 4.7",
+      "model_name_source": "User-supplied display name and provider-declared system metadata; immutable model snapshot not supplied.",
+      "protocol": {
+        "actual_tool_execution_independently_verified": false,
+        "episodes_per_call_as_reported": 1,
+        "exact_integer_replay_required_by_supplied_protocol": true,
+        "id_as_reported": "mfmb2026-audit-supplied-claims-v1",
+        "input_modality": "source_text",
+        "reference_visible_during_judgment_as_reported": false,
+        "tools_as_reported": [
+          "sha256 of retained UTF-8 source text",
+          "exact integer replay of toy-v1"
+        ]
+      },
+      "record_artifact": {
+        "path": "results/external/grok-4.7/supplied_results.json",
+        "sha256": "b96dd2352655d94a922d1f4f8c5dc081fed961ca749bcbbdf391bbbd4106d7a9"
+      },
+      "run_id_as_reported": "grok-4.7-audit-supplied-claims-v1",
+      "sampling_description_as_reported": "not a sampled decode. The instructions were applied uniformly, with SHA-256 of the retained UTF-8 text and exact integer replay available on every case",
+      "sampling_parameters": null,
+      "schema_version": "1",
+      "source": {
+        "path": "results/external/grok-4.7/supplied_artifacts_manifest.json",
+        "reported_release": "1.1.0",
+        "sha256": "f745d254ae3232d7d7485b7867539e97a96afa729b31ef67f0a9ebf04a733f41",
+        "type": "provided_prediction_bundle_manifest"
+      },
+      "temperature_as_reported": "not applicable; procedure applied uniformly"
+    },
+    {
+      "actual_model_inference_independently_verified": false,
+      "condition": "notools",
+      "display_name": "Claude Fable 5.1 (no computational tools)",
+      "evidence_status": "supplied_predictions_locally_rescored",
+      "exact_model_snapshot": null,
+      "limitations": [
+        "Supplied artifacts permit offline numerical rescoring, not independent attestation of the serving model, fresh-context execution, chronology or tool enforcement.",
+        "The configured model identifier and harness defaults are provider declarations; fallback and undisclosed sampling remain possible.",
+        "The two audit tool conditions are not a matched cross-system benchmark with the GPT or Grok runs.",
+        "The extraction experiment uses 25 unique short synthetic source documents, not real or scanned-original financial documents.",
+        "Original image-rendering code/seeds, prompt-building code and runtime image-delivery traces were not supplied. Stored image assets are hash-verifiable, but their original generation and delivery cannot be independently reconstructed.",
+        "Extraction and claim auditing have different units and denominators and are not pooled. The GPT rendered-source pilot retained populated decision records.",
+        "Quoted support has strict and whitespace-normalized checks; reported exact-substring claims were not literally reproduced."
+      ],
+      "main_reporting_by_kind": {
+        "candidate_stability": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 52,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "commitment_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 58,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_count": 2,
+          "ordinary_agreement_correct": 58,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 36,
+            "unresolved": 18
+          },
+          "resolved_count": 42
+        },
+        "conditional_execution": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 57,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 3,
+            "supported": 57,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        },
+        "contract_lineage": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 5,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 0,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 5,
+          "predicted_label_counts": {
+            "contradicted": 3,
+            "supported": 0,
+            "unresolved": 57
+          },
+          "resolved_count": 3
+        },
+        "dispute_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 56,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 56,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 48,
+            "unresolved": 6
+          },
+          "resolved_count": 54
+        },
+        "final_action_by_rule": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 48,
+            "unresolved": 6
+          },
+          "resolved_count": 54
+        },
+        "sufficient_dispute_reason": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 24,
+            "supported": 36,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        }
+      },
+      "metrics": {
+        "diagnostics": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 43,
+          "claims": 56,
+          "conversion_failure_claims": null,
+          "endorsements": 23,
+          "episodes": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 43,
+          "predicted_label_counts": {
+            "contradicted": 12,
+            "supported": 23,
+            "unresolved": 21
+          },
+          "resolved_count": 35
+        },
+        "main_reporting": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 359,
+          "claims": 420,
+          "conversion_failure_claims": null,
+          "endorsements": 277,
+          "episodes": 60,
+          "false_support_count": 2,
+          "ordinary_agreement_correct": 359,
+          "predicted_label_counts": {
+            "contradicted": 54,
+            "supported": 277,
+            "unresolved": 89
+          },
+          "resolved_count": 331
+        },
+        "paired_image": null,
+        "paired_text": null
+      },
+      "model_id_configured": "claude-fable-5-1",
+      "model_name": "Claude Fable 5.1",
+      "protocol": {
+        "access_route_as_reported": "Claude Code agent harness (fresh subagent per call), not the public Messages API",
+        "attempts_per_call_as_reported": 1,
+        "computational_tool_condition": "no computational tools",
+        "fresh_context_and_tool_enforcement_independently_verified": false,
+        "operator_contamination_as_reported": "The operator session had seen the reference labels and checker; every model-under-test call was a fresh instance that received only the exported prompt. Cross-check scripts were run by the operator after all calls completed.",
+        "retry_policy_as_reported": "none",
+        "sampling_as_reported": "harness default; temperature not controllable or recorded",
+        "sampling_parameters": null,
+        "scoring_chronology": "Provider-declared; original archive timestamps do not independently establish execution/scoring order.",
+        "tool_enforcement_as_reported": "instruction-based; self-reported in each response; harness tool-use counts consistent with the instructions (2 per no-tools call, 3-5 per tools call)"
+      },
+      "record_artifact": {
+        "path": "results/external/claude-fable-5.1/supplied_results.json",
+        "sha256": "63b4635da8a00e4eb7de66f98fd9c33f4c1278f4b1de60df40d85b1ebef40104"
+      }
+    },
+    {
+      "actual_model_inference_independently_verified": false,
+      "condition": "tools",
+      "display_name": "Claude Fable 5.1 (SHA-256 + arithmetic)",
+      "evidence_status": "supplied_predictions_locally_rescored",
+      "exact_model_snapshot": null,
+      "limitations": [
+        "Supplied artifacts permit offline numerical rescoring, not independent attestation of the serving model, fresh-context execution, chronology or tool enforcement.",
+        "The configured model identifier and harness defaults are provider declarations; fallback and undisclosed sampling remain possible.",
+        "The two audit tool conditions are not a matched cross-system benchmark with the GPT or Grok runs.",
+        "The extraction experiment uses 25 unique short synthetic source documents, not real or scanned-original financial documents.",
+        "Original image-rendering code/seeds, prompt-building code and runtime image-delivery traces were not supplied. Stored image assets are hash-verifiable, but their original generation and delivery cannot be independently reconstructed.",
+        "Extraction and claim auditing have different units and denominators and are not pooled. The GPT rendered-source pilot retained populated decision records.",
+        "Quoted support has strict and whitespace-normalized checks; reported exact-substring claims were not literally reproduced."
+      ],
+      "main_reporting_by_kind": {
+        "candidate_stability": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 52,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "commitment_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 34,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 34,
+            "unresolved": 20
+          },
+          "resolved_count": 40
+        },
+        "conditional_execution": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 57,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 3,
+            "supported": 57,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        },
+        "contract_lineage": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 54,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 4,
+            "supported": 54,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "dispute_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 52,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "final_action_by_rule": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 48,
+            "unresolved": 6
+          },
+          "resolved_count": 54
+        },
+        "sufficient_dispute_reason": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 24,
+            "supported": 36,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        }
+      },
+      "metrics": {
+        "diagnostics": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 56,
+          "claims": 56,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "episodes": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 56,
+          "predicted_label_counts": {
+            "contradicted": 12,
+            "supported": 36,
+            "unresolved": 8
+          },
+          "resolved_count": 48
+        },
+        "main_reporting": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 420,
+          "claims": 420,
+          "conversion_failure_claims": null,
+          "endorsements": 333,
+          "episodes": 60,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 420,
+          "predicted_label_counts": {
+            "contradicted": 55,
+            "supported": 333,
+            "unresolved": 32
+          },
+          "resolved_count": 388
+        },
+        "paired_image": null,
+        "paired_text": null
+      },
+      "model_id_configured": "claude-fable-5-1",
+      "model_name": "Claude Fable 5.1",
+      "protocol": {
+        "access_route_as_reported": "Claude Code agent harness (fresh subagent per call), not the public Messages API",
+        "attempts_per_call_as_reported": 1,
+        "computational_tool_condition": "SHA-256 + arithmetic",
+        "fresh_context_and_tool_enforcement_independently_verified": false,
+        "operator_contamination_as_reported": "The operator session had seen the reference labels and checker; every model-under-test call was a fresh instance that received only the exported prompt. Cross-check scripts were run by the operator after all calls completed.",
+        "retry_policy_as_reported": "none",
+        "sampling_as_reported": "harness default; temperature not controllable or recorded",
+        "sampling_parameters": null,
+        "scoring_chronology": "Provider-declared; original archive timestamps do not independently establish execution/scoring order.",
+        "tool_enforcement_as_reported": "instruction-based; self-reported in each response; harness tool-use counts consistent with the instructions (2 per no-tools call, 3-5 per tools call)"
+      },
+      "record_artifact": {
+        "path": "results/external/claude-fable-5.1/supplied_results.json",
+        "sha256": "63b4635da8a00e4eb7de66f98fd9c33f4c1278f4b1de60df40d85b1ebef40104"
+      }
+    }
+  ]
+}

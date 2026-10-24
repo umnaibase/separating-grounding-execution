@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_38f5895537b77de7 version 1 is retained; recomputed UTF-8 SHA-256 of its text is 6a9da92ca684733119a999f63279e8a2caec3a8b5b4c592feed388c3bd4aec41, matching the citation digest, and the version strings match.",
+      "evidence": ["citations.contract[0]", "src_38f5895537b77de7"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The hash-verified contract states 'Minimum penalty-free cancellation time: 3 months', a unique unambiguous value equal to the asserted 3; the 24-month service framework duration is a different quantity and does not conflict.",
+      "evidence": ["src_38f5895537b77de7", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The hash-verified transactions source covers observation window 2026-01-01/2026-01-31 and reports eligible 1500 and disputed 25, giving fraction 25/1500 which equals the asserted 25/1500 exactly.",
+      "evidence": ["src_944f6a96d87a63a8", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: dispute predicate 50*25=1250 >= 1500 is false; commitment predicate 3 < 6 is true; OR gives manual_review. Trace (commitment_trigger true, dispute_trigger false), rule_output manual_review and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals both rule_output and the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is non-empty and valid: [3]. With disputed 25 / eligible 1500 fixed (dispute predicate false), commitment 3 < 6 triggers manual_review, so every declared candidate yields the same recommendation, manual_review.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is false (50*25=1250 < 1500, recorded dispute_trigger false), so the dispute predicate alone does not suffice for manual review; manual_review arises only from the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; c = 'Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.'; t = 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*disputed', 50*25, 'eligible', 1500, '50*disputed>=eligible', 50*25 >= 1500); print('commitment<6', 3 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests were recomputed from the retained source texts (UTF-8, no trailing newline) and matched exactly; integer arithmetic confirmed the dispute predicate is false and the commitment predicate is true on the recorded inputs."
+  }
+}

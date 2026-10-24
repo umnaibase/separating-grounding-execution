@@ -1,0 +1,208 @@
+{
+  "episodes": [
+    {
+      "episode_id": "ep_d3c2608055b28c6c",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"Both cited contracts have one retained artifact with matching digest and version.","evidence":["s01","s03"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"unresolved","check":"The valid contracts specify conflicting minimums of 3 and 9 months, with no precedence rule.","evidence":["s01","s03"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 20 disputed of 1000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 and 50*20 = 1000 satisfy both triggers; manual_review and both trace values agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"Both declared candidates, 3 and 9 months, yield manual_review because the dispute threshold is met.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*20 = 1000 meets the inclusive dispute threshold and alone suffices for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_aa8bc2ce451dfccf",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"contradicted","check":"The valid contract specifies a 3-month cancellation minimum; 24 months is the framework duration.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1200 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"24 < 6 is false and 50*25 = 1250 >= 1200 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 24 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*25 = 1250 >= 1200 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_922df446b46fef94",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"Both cited contracts have one retained artifact with matching digest and version.","evidence":["s01","s03"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"unresolved","check":"The valid contracts specify conflicting minimums of 3 and 9 months, with no precedence rule.","evidence":["s01","s03"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1500 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 is true and 50*25 = 1250 < 1500 makes the dispute trigger false; manual_review agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"contradicted","check":"With disputes below threshold, candidate 3 yields manual_review while candidate 9 yields standard_processing.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*25 = 1250 < 1500 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_e20b6b146dffcf30",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract expressly specifies a 9-month penalty-free cancellation minimum.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 45 disputed of 2000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"9 < 6 is false and 50*45 = 2250 >= 2000 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 9 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*45 = 2250 >= 2000 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_05e9207300018ccc",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract states that the cancellation minimum is eighteen months, supporting 18.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 20 disputed of 1000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"18 < 6 is false and 50*20 = 1000 meets the dispute threshold; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 18 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*20 = 1000 meets the inclusive dispute threshold and alone suffices for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_1f5d89aef602104d",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract states that the cancellation minimum is eighteen months, supporting 18.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1200 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"18 < 6 is false and 50*25 = 1250 >= 1200 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 18 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*25 = 1250 >= 1200 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_39143dc06855486b",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract permits penalty-free termination after 12 months.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 15 disputed of 800 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"12 < 6 is false and 50*15 = 750 < 800 makes the dispute trigger false; standard_processing agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final standard_processing establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 12 months, yields standard_processing.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*15 = 750 < 800 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_23c23ef6d831c4e4",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract expressly specifies a 9-month penalty-free cancellation minimum.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 45 disputed of 2000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"9 < 6 is false and 50*45 = 2250 >= 2000 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"contradicted","check":"An explicit reviewer override preserves manual_review but still establishes an intervention.","evidence":["record.override","record.final_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 9 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*45 = 2250 >= 2000 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_32ac9d4e734137f2",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"Both cited contracts have one retained artifact with matching digest and version.","evidence":["s01","s03"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"unresolved","check":"The valid contracts specify conflicting minimums of 3 and 9 months, with no precedence rule.","evidence":["s01","s03"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1200 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 and 50*25 = 1250 >= 1200 satisfy both triggers; manual_review and both trace values agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"Both declared candidates, 3 and 9 months, yield manual_review because the dispute threshold is met.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*25 = 1250 >= 1200 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_31bf13e27e561013",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"Both cited contracts have one retained artifact with matching digest and version.","evidence":["s01","s03"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"unresolved","check":"The valid contracts specify conflicting minimums of 3 and 9 months, with no precedence rule.","evidence":["s01","s03"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 20 disputed of 1000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 and 50*20 = 1000 satisfy both triggers; manual_review and both trace values agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"Both declared candidates, 3 and 9 months, yield manual_review because the dispute threshold is met.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*20 = 1000 meets the inclusive dispute threshold and alone suffices for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_c5aef0faebda0423",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract expressly specifies a 3-month penalty-free cancellation minimum.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1500 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 is true and 50*25 = 1250 < 1500 makes the dispute trigger false; manual_review agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"unresolved","check":"The action history is stipulated incomplete, so null override and matching outputs do not establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 3 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*25 = 1250 < 1500 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_5d9214c9b23b9198",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract expressly specifies a 3-month penalty-free cancellation minimum.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1500 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 is true and 50*25 = 1250 < 1500 makes the dispute trigger false; manual_review agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 3 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*25 = 1250 < 1500 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_b77c2d97d46c9e2f",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"contradicted","check":"The valid contract allows penalty-free termination after 6 months; 48 months is the framework duration.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 45 disputed of 2000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"48 < 6 is false and 50*45 = 2250 >= 2000 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 48 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*45 = 2250 >= 2000 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_e97738471262862c",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract permits penalty-free termination after 12 months.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 20 disputed of 1000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"12 < 6 is false and 50*20 = 1000 meets the dispute threshold; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 12 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*20 = 1000 meets the inclusive dispute threshold and alone suffices for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_29ae11abc53c2b5d",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract allows penalty-free termination once 6 months have elapsed.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 45 disputed of 2000 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"6 < 6 is false and 50*45 = 2250 >= 2000 is true; the trace and manual_review agree.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"unresolved","check":"The action history is stipulated incomplete, so null override and matching outputs do not establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 6 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"supported","check":"50*45 = 2250 >= 2000 makes the dispute predicate alone sufficient for manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_56a6a18be0a42c65",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"The cited contract has one retained artifact with matching digest and version.","evidence":["s01"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"supported","check":"The valid contract permits penalty-free termination after 5 months.","evidence":["s01"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 25 disputed of 1500 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"5 < 6 is true and 50*25 = 1250 < 1500 makes the dispute trigger false; manual_review agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"supported","check":"The sole declared candidate, 5 months, yields manual_review.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*25 = 1250 < 1500 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    },
+    {
+      "episode_id": "ep_90178f9c21154128",
+      "claims": [
+        {"claim_id":"c1","kind":"contract_lineage","label":"supported","check":"Both cited contracts have one retained artifact with matching digest and version.","evidence":["s01","s03"]},
+        {"claim_id":"c2","kind":"commitment_grounding","label":"unresolved","check":"The valid contracts specify conflicting minimums of 3 and 9 months, with no precedence rule.","evidence":["s01","s03"]},
+        {"claim_id":"c3","kind":"dispute_grounding","label":"supported","check":"The valid transaction source gives 15 disputed of 800 eligible in the required window.","evidence":["s02"]},
+        {"claim_id":"c4","kind":"conditional_execution","label":"supported","check":"3 < 6 is true and 50*15 = 750 < 800 makes the dispute trigger false; manual_review agrees.","evidence":["record.input","record.policy","record.rule_output","record.trace"]},
+        {"claim_id":"c5","kind":"final_action_by_rule","label":"supported","check":"Complete history, null override, faithful execution and matching final manual_review establish attribution.","evidence":["record.action_history_complete","record.override","record.final_output","record.rule_output","record.trace","record.input","record.policy"]},
+        {"claim_id":"c6","kind":"candidate_stability","label":"contradicted","check":"With disputes below threshold, candidate 3 yields manual_review while candidate 9 yields standard_processing.","evidence":["record.input.disputed","record.input.eligible","record.policy"]},
+        {"claim_id":"c7","kind":"sufficient_dispute_reason","label":"contradicted","check":"50*15 = 750 < 800 leaves the dispute predicate false, so it cannot alone suffice.","evidence":["record.input.disputed","record.input.eligible","record.policy"]}
+      ]
+    }
+  ]
+}

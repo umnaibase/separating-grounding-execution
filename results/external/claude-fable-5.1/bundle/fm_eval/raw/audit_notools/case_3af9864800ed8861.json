@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts (src_fd1a6ee4670ed6dc, src_2865380dfd93f4c9) are retained with version '1' matching the citations, but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is unavailable here; digest match is neither established nor refuted.",
+      "evidence": ["citations.contract", "src_fd1a6ee4670ed6dc", "src_2865380dfd93f4c9"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: src_fd1a6ee4670ed6dc states penalty-free termination after 3 months, while src_2865380dfd93f4c9 states a minimum penalty-free cancellation time of 9 months. No precedence rule is supplied, so the asserted value 3 is not unambiguously supported; the 48-month framework duration is not the minimum commitment. Contract digest validity is also unverified.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "src_2865380dfd93f4c9", "citations.contract", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The retained transaction source src_97938c8628002d54 (version 1) covers the window 2026-01-01/2026-01-31 and reports 1200 eligible and 25 disputed, which equals the asserted fraction 25/1200. However, the validity of the cited artifact depends on its SHA-256 digest matching the retained bytes, which cannot be verified here, so the evidence cannot be confirmed as valid.",
+      "evidence": ["src_97938c8628002d54", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (nonnegative integers, eligible 1200 > 0, disputed 25 <= 1200) and the recorded policy matches toy-v1 (1/50, 6 months). Replay: dispute predicate 50*25 = 1250 >= 1200 is true; commitment predicate 3 < 6 is true; OR gives manual_review. Recorded rule_output manual_review, trace {commitment_trigger: true, dispute_trigger: true} and the asserted output all agree.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution (both predicates true), the replayed policy output is manual_review, and final_output manual_review matches rule_output and the asserted final action; no intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates are [3, 9], a non-empty valid set. With disputed 25 and eligible 1200 fixed, the dispute predicate 1250 >= 1200 is true for every candidate, so toy-v1 returns manual_review for commitment 3 (3 < 6 true) and for commitment 9 (9 < 6 false, but dispute predicate true). Both candidates yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*25 = 1250 >= 1200, so the dispute predicate is true, and toy-v1 recommends manual_review whenever the dispute predicate holds (OR rule), independent of the commitment predicate. The recorded dispute predicate alone therefore suffices for manual_review; this says nothing about source truth or final-action attribution.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so lineage-dependent claims (c1, c2, c3) are left unresolved; c4-c7 were decided by mental integer arithmetic on the recorded inputs."
+  }
+}

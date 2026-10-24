@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contract sources are present with version '1' matching the citations, but the SHA-256 digests of the retained UTF-8 bytes cannot be computed or verified here, so digest lineage cannot be established or refuted.",
+      "evidence": ["citations.contract", "sources[diag-src_a94729dc92a197b7]", "sources[diag-src_280e17276dc850e5]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: diag-src_a94729dc92a197b7 states penalty-free termination after 3 months, diag-src_280e17276dc850e5 states 5 months, and no precedence rule is supplied; the 24-month framework duration is not the minimum commitment. Conflicting authoritative documents leave the asserted value 3 unresolved rather than uniquely supported or contradicted.",
+      "evidence": ["sources[diag-src_a94729dc92a197b7]", "sources[diag-src_280e17276dc850e5]", "record.input.commitment_months", "citations.contract"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers exactly the window 2026-01-01/2026-01-31 and reports eligible 1500 and disputed 25, matching the asserted fraction 25/1500; the inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible. The transaction digest was not independently verified, but the content and version match the citation.",
+      "evidence": ["sources[diag-src_e62004e6e6669b7b]", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (commitment 3, disputed 25, eligible 1500): commitment 3 < 6 gives commitment_trigger true; 50*25 = 1250 < 1500 gives dispute_trigger false; OR yields manual_review. Recorded trace, rule_output and asserted output all match this replay.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay result manual_review, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Declared candidates [3, 5] are both < 6 months, so with disputed 25 / eligible 1500 fixed (dispute predicate false) each candidate yields manual_review; the candidates all produce the same recommendation, contradicting the asserted instability (false).",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (50*25 = 1250 < 1500, consistent with trace.dispute_trigger false), so the dispute predicate alone does not suffice for manual_review under toy-v1; the recommendation is driven solely by the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "No computational tools, files or web were used; reasoning relied solely on the supplied SYSTEM and USER messages. SHA-256 digests were not computed, so contract lineage is left unresolved; integer policy checks were done mentally."
+  }
+}

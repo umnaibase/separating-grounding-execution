@@ -1,0 +1,362 @@
+[
+ {
+  "case_id": "case_6a8807322b98cc46",
+  "prompt_file": "prompts/agent/audit_notools/case_6a8807322b98cc46.txt",
+  "sha256": "c1de842691e1385c973ce42935d60fbca691b9e31e564966ca3d84a8858b33c5",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_6a8807322b98cc46.json"
+ },
+ {
+  "case_id": "case_54092d8e100d8057",
+  "prompt_file": "prompts/agent/audit_notools/case_54092d8e100d8057.txt",
+  "sha256": "63ec0f713fd0a2fb84fef0c1fefae11689a707c6669a40eab431948e307c6923",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_54092d8e100d8057.json"
+ },
+ {
+  "case_id": "case_e4c41b4410943970",
+  "prompt_file": "prompts/agent/audit_notools/case_e4c41b4410943970.txt",
+  "sha256": "0462d6817439222bf92a113196cfc7f4cfb91847c6e955f0d08818805f46bff8",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_e4c41b4410943970.json"
+ },
+ {
+  "case_id": "case_7ca91a566f45a47a",
+  "prompt_file": "prompts/agent/audit_notools/case_7ca91a566f45a47a.txt",
+  "sha256": "be88a8695c24c74bbd68e4b2fc9e2580d9ca66a713fd8455fa13f5357e0760b6",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_7ca91a566f45a47a.json"
+ },
+ {
+  "case_id": "case_9b1039882f7070a8",
+  "prompt_file": "prompts/agent/audit_notools/case_9b1039882f7070a8.txt",
+  "sha256": "6baf9a2073dde34e7ffc2ea8d9f4409a4182bdf85c677cc067a7209183be4d52",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_9b1039882f7070a8.json"
+ },
+ {
+  "case_id": "case_3201bfc52dc775b2",
+  "prompt_file": "prompts/agent/audit_notools/case_3201bfc52dc775b2.txt",
+  "sha256": "fa977e96d1ef69b9360168442f4d7611d923afd18d9575884e7a8b8af415e652",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_3201bfc52dc775b2.json"
+ },
+ {
+  "case_id": "case_f1352befaf90773c",
+  "prompt_file": "prompts/agent/audit_notools/case_f1352befaf90773c.txt",
+  "sha256": "96d633b39753d9eac0ebd06e9596d2d8dc0821921938ed1e9a14452b05bba02e",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_f1352befaf90773c.json"
+ },
+ {
+  "case_id": "case_96101184a60febe1",
+  "prompt_file": "prompts/agent/audit_notools/case_96101184a60febe1.txt",
+  "sha256": "c7bcf76bfa049fbe172acc4b6e0e5e632b1c74234f1925cb9a134deb7905b09b",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_96101184a60febe1.json"
+ },
+ {
+  "case_id": "case_91c8c5a0614d675c",
+  "prompt_file": "prompts/agent/audit_notools/case_91c8c5a0614d675c.txt",
+  "sha256": "95377a45fd37e60c4c4f3dc60981f539de95ba2b47cd1fde2fe4d47f0fd76de5",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_91c8c5a0614d675c.json"
+ },
+ {
+  "case_id": "case_ac1cc51279b6ef89",
+  "prompt_file": "prompts/agent/audit_notools/case_ac1cc51279b6ef89.txt",
+  "sha256": "639283cdef4053e65bd107843b1686e855820a3e9d36a6ea5b5428de688bb005",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_ac1cc51279b6ef89.json"
+ },
+ {
+  "case_id": "case_ad71d5fba20e3553",
+  "prompt_file": "prompts/agent/audit_notools/case_ad71d5fba20e3553.txt",
+  "sha256": "7c91cd7402e266c0ab5d3bd720be970750e4236289b89720a2527ca80b1c9466",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_ad71d5fba20e3553.json"
+ },
+ {
+  "case_id": "case_30d87a45a717ce71",
+  "prompt_file": "prompts/agent/audit_notools/case_30d87a45a717ce71.txt",
+  "sha256": "128908556907988d2ca0b25871c68e9cca01381bb6aedb6744d00fc202b0278a",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_30d87a45a717ce71.json"
+ },
+ {
+  "case_id": "case_1639cc5e15d3a206",
+  "prompt_file": "prompts/agent/audit_notools/case_1639cc5e15d3a206.txt",
+  "sha256": "121d02ec6f45cf0ae49b7657a1fd8cbc2bee2a928909158da8401dbb2d1fc0ed",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_1639cc5e15d3a206.json"
+ },
+ {
+  "case_id": "case_c1c64894ed3f6285",
+  "prompt_file": "prompts/agent/audit_notools/case_c1c64894ed3f6285.txt",
+  "sha256": "a2738535335d800c7cb3098286830bd7277bc43aa7b215518f5f8c90518e70f4",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_c1c64894ed3f6285.json"
+ },
+ {
+  "case_id": "case_5083fc80c9ccd370",
+  "prompt_file": "prompts/agent/audit_notools/case_5083fc80c9ccd370.txt",
+  "sha256": "48684e9d41c24b8453e1c2626dbe899d480b8bc3f5cf5de1928464721eff1530",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_5083fc80c9ccd370.json"
+ },
+ {
+  "case_id": "case_c1a5793f16aa3f57",
+  "prompt_file": "prompts/agent/audit_notools/case_c1a5793f16aa3f57.txt",
+  "sha256": "b2329ffda5c047b610822e019779ec112b3a67e512e4cdca6931ed5147f4e248",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_c1a5793f16aa3f57.json"
+ },
+ {
+  "case_id": "case_007c18701e3b03d3",
+  "prompt_file": "prompts/agent/audit_notools/case_007c18701e3b03d3.txt",
+  "sha256": "d1009531fb66dfdd9e108d00ad091f0909a25201de52c5d6f022e68bea1c482f",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_007c18701e3b03d3.json"
+ },
+ {
+  "case_id": "case_75c52dd0d7f2eb82",
+  "prompt_file": "prompts/agent/audit_notools/case_75c52dd0d7f2eb82.txt",
+  "sha256": "5cda14f73edb9929945d58f8c9694853aea0187b8428379b6063295be500fbc2",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_75c52dd0d7f2eb82.json"
+ },
+ {
+  "case_id": "case_86125d52dbdbaa5f",
+  "prompt_file": "prompts/agent/audit_notools/case_86125d52dbdbaa5f.txt",
+  "sha256": "0424e69f2cb1e43eaea30f1a85e25c0f6ae3d987ab5369cf03760266abd6e881",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_86125d52dbdbaa5f.json"
+ },
+ {
+  "case_id": "case_3c3157a3cf1e64ee",
+  "prompt_file": "prompts/agent/audit_notools/case_3c3157a3cf1e64ee.txt",
+  "sha256": "e624afdd615b4fc02d6923f99d6d7937c7798aa14d670c6ee950981eb36fa01c",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_3c3157a3cf1e64ee.json"
+ },
+ {
+  "case_id": "case_07246c044c824758",
+  "prompt_file": "prompts/agent/audit_notools/case_07246c044c824758.txt",
+  "sha256": "7eb289328e8738601253f4ee0dc87da95d83e7cbcb578e4895a03deaaeecd125",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_07246c044c824758.json"
+ },
+ {
+  "case_id": "case_2b8fea677d9cedef",
+  "prompt_file": "prompts/agent/audit_notools/case_2b8fea677d9cedef.txt",
+  "sha256": "da0c2b78a115ebacfa70acfd95c9b069711a464abbdad369c4010eeef16258bb",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_2b8fea677d9cedef.json"
+ },
+ {
+  "case_id": "case_45cefda2b29cd619",
+  "prompt_file": "prompts/agent/audit_notools/case_45cefda2b29cd619.txt",
+  "sha256": "45d51cf4cd757fec46a9865b8a10fc18fe909f730b1450ef16c288e629100705",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_45cefda2b29cd619.json"
+ },
+ {
+  "case_id": "case_cd53f57418936c1d",
+  "prompt_file": "prompts/agent/audit_notools/case_cd53f57418936c1d.txt",
+  "sha256": "a859c9b8ab1bd6dee6b140dd791987f87279c9d3a504bba72505fc6e62e95479",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_cd53f57418936c1d.json"
+ },
+ {
+  "case_id": "case_ef90de411754b293",
+  "prompt_file": "prompts/agent/audit_notools/case_ef90de411754b293.txt",
+  "sha256": "10bf035fb0325d968d1a45a8d3226b4a14b92f826a4f7a820112aeea1ac329e8",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_ef90de411754b293.json"
+ },
+ {
+  "case_id": "case_0ca93999ec3c5eea",
+  "prompt_file": "prompts/agent/audit_notools/case_0ca93999ec3c5eea.txt",
+  "sha256": "d98d3212b382cba999008b03010afdeb2a2a190532a00e8637860f6726be6f6a",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_0ca93999ec3c5eea.json"
+ },
+ {
+  "case_id": "case_78e8c1ddeb15f927",
+  "prompt_file": "prompts/agent/audit_notools/case_78e8c1ddeb15f927.txt",
+  "sha256": "b85fe024ec4e93d94ab025236f381b9b582beea5109a0a279c319db4de753243",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_78e8c1ddeb15f927.json"
+ },
+ {
+  "case_id": "case_cb5218205e35f365",
+  "prompt_file": "prompts/agent/audit_notools/case_cb5218205e35f365.txt",
+  "sha256": "1be637ae52e285545167f3b969a9b3bd63440877b38dbb3ce95f6c313de27a75",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_cb5218205e35f365.json"
+ },
+ {
+  "case_id": "case_2cfbfd9ce81f0703",
+  "prompt_file": "prompts/agent/audit_notools/case_2cfbfd9ce81f0703.txt",
+  "sha256": "75fbd8329e0eb7e00aa77b4453297391e296a42b6e4de7b6f643d6fe8a1fe7de",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_2cfbfd9ce81f0703.json"
+ },
+ {
+  "case_id": "case_ea0523db77f22c20",
+  "prompt_file": "prompts/agent/audit_notools/case_ea0523db77f22c20.txt",
+  "sha256": "68d0a57fab7df2fbfbf3687ab007d28578ca7a6fe41153f08b72f36c1f03b02d",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_ea0523db77f22c20.json"
+ },
+ {
+  "case_id": "case_6355617c7ac49116",
+  "prompt_file": "prompts/agent/audit_notools/case_6355617c7ac49116.txt",
+  "sha256": "3e20df0f449ca6cb41bf4ef6d617809219079ac2426286eccef8893d8cdc6318",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_6355617c7ac49116.json"
+ },
+ {
+  "case_id": "case_e6c09a1ade657662",
+  "prompt_file": "prompts/agent/audit_notools/case_e6c09a1ade657662.txt",
+  "sha256": "4748e5362f24046d1bd2ac412c6e0caa632b9019cf94ba3d64dee540e83dc9b9",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_e6c09a1ade657662.json"
+ },
+ {
+  "case_id": "case_b3ed55f32da3359a",
+  "prompt_file": "prompts/agent/audit_notools/case_b3ed55f32da3359a.txt",
+  "sha256": "d4feecd071cd7c0a9a282507426df0dc65935ea6f0e7489c18cd31f7b17ed2e4",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_b3ed55f32da3359a.json"
+ },
+ {
+  "case_id": "case_f0d2096e397c823a",
+  "prompt_file": "prompts/agent/audit_notools/case_f0d2096e397c823a.txt",
+  "sha256": "a9c5a2a4e889c99bfe53ea762857f2b79eb1cf5b6411cd4e321197c7031e30ca",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_f0d2096e397c823a.json"
+ },
+ {
+  "case_id": "case_4fef64096c64a2cd",
+  "prompt_file": "prompts/agent/audit_notools/case_4fef64096c64a2cd.txt",
+  "sha256": "0360c3661e87207cd5a446d75f8d84395defa649a6332ff0fdd5e0a036b438c9",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_4fef64096c64a2cd.json"
+ },
+ {
+  "case_id": "case_6843a98ae359db46",
+  "prompt_file": "prompts/agent/audit_notools/case_6843a98ae359db46.txt",
+  "sha256": "6016c56facc99ec9f433cee280dcab3770a7ba2776ab654cc249f063cf1fec9f",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_6843a98ae359db46.json"
+ },
+ {
+  "case_id": "case_39f50c0324bc27d3",
+  "prompt_file": "prompts/agent/audit_notools/case_39f50c0324bc27d3.txt",
+  "sha256": "664fb49f57b2ed84e85f40b31a32716ad2f56a52287bc46ba53e046a69ffdbf9",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_39f50c0324bc27d3.json"
+ },
+ {
+  "case_id": "case_91bf94e28c04fb8c",
+  "prompt_file": "prompts/agent/audit_notools/case_91bf94e28c04fb8c.txt",
+  "sha256": "e0b73822962a513e42d5019fd9afb2ab1a0be7775a546bfa46b8c67e7688a972",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_91bf94e28c04fb8c.json"
+ },
+ {
+  "case_id": "case_a4bb10865e1a60b5",
+  "prompt_file": "prompts/agent/audit_notools/case_a4bb10865e1a60b5.txt",
+  "sha256": "70266efacd44d8330e8a4f4e47762038b19be3374e7ac21ef46e8802b9338501",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_a4bb10865e1a60b5.json"
+ },
+ {
+  "case_id": "case_40ac0f6bc84b9145",
+  "prompt_file": "prompts/agent/audit_notools/case_40ac0f6bc84b9145.txt",
+  "sha256": "5535f42f3891a33293edba59fc07177c2795098f23cd2612e233a5edc943fd7c",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_40ac0f6bc84b9145.json"
+ },
+ {
+  "case_id": "case_2d1de491af1a3592",
+  "prompt_file": "prompts/agent/audit_notools/case_2d1de491af1a3592.txt",
+  "sha256": "323c00c75ae5c9ce9b41d9f1ec9f7c11df39b01f753a404f153d976cdf4699da",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_2d1de491af1a3592.json"
+ },
+ {
+  "case_id": "case_7c2e05d1a9bbe57a",
+  "prompt_file": "prompts/agent/audit_notools/case_7c2e05d1a9bbe57a.txt",
+  "sha256": "9f06c087a900d7f73fb337e8dfeb31fe7204506049ef6cc62a9b095087e4d5fe",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_7c2e05d1a9bbe57a.json"
+ },
+ {
+  "case_id": "case_2bdfb513ecd7ba99",
+  "prompt_file": "prompts/agent/audit_notools/case_2bdfb513ecd7ba99.txt",
+  "sha256": "0a0457c371e36232c0604de3ab67dcc9d25a60499e89792b82b1aa4466d1a0d4",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_2bdfb513ecd7ba99.json"
+ },
+ {
+  "case_id": "case_d0db49fb716ee077",
+  "prompt_file": "prompts/agent/audit_notools/case_d0db49fb716ee077.txt",
+  "sha256": "22ccf50afd0906e49cbad9e3f6b31214a7a4019b3af48d0c3382e0244220d55e",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_d0db49fb716ee077.json"
+ },
+ {
+  "case_id": "case_a5416b48c692f4a6",
+  "prompt_file": "prompts/agent/audit_notools/case_a5416b48c692f4a6.txt",
+  "sha256": "df37552c76da57db365fa24fdb68d669060ead6cfb14131a4f5b1156f8429433",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_a5416b48c692f4a6.json"
+ },
+ {
+  "case_id": "case_a40b69cd0c8790e3",
+  "prompt_file": "prompts/agent/audit_notools/case_a40b69cd0c8790e3.txt",
+  "sha256": "70b44eae41a8f99dc97c4de5feb3669e0d44986997c91bc217b4e9e5b56dc1d3",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_a40b69cd0c8790e3.json"
+ },
+ {
+  "case_id": "case_121a45b7df8a4442",
+  "prompt_file": "prompts/agent/audit_notools/case_121a45b7df8a4442.txt",
+  "sha256": "49e44e67ea9791e2fdb28d5e1358b11288175a46bb188adbc480f6b910b01392",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_121a45b7df8a4442.json"
+ },
+ {
+  "case_id": "case_b5d5d07bc025f241",
+  "prompt_file": "prompts/agent/audit_notools/case_b5d5d07bc025f241.txt",
+  "sha256": "409a3ba99da4affa9b42088447b916bd0d9e852cace87ebdf8ff13d7e8f6c117",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_b5d5d07bc025f241.json"
+ },
+ {
+  "case_id": "case_3af9864800ed8861",
+  "prompt_file": "prompts/agent/audit_notools/case_3af9864800ed8861.txt",
+  "sha256": "2d9e1dc7750e84689bc5bc3b1d2b84738cbd5072a7133efc5a20f78089f495a8",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_3af9864800ed8861.json"
+ },
+ {
+  "case_id": "case_d2e074f0b18c0979",
+  "prompt_file": "prompts/agent/audit_notools/case_d2e074f0b18c0979.txt",
+  "sha256": "3c0bc71174a121a2ff5a653176fefa750a4a98369a78fa32f6c132d8ff9fde44",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_d2e074f0b18c0979.json"
+ },
+ {
+  "case_id": "case_a6542ee2baa2f4c6",
+  "prompt_file": "prompts/agent/audit_notools/case_a6542ee2baa2f4c6.txt",
+  "sha256": "8dd8de4177788e67124e85eb14b18065f35efb532cd83ff534bdb443dd19f15f",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_a6542ee2baa2f4c6.json"
+ },
+ {
+  "case_id": "case_bb6e2d4b128fabd7",
+  "prompt_file": "prompts/agent/audit_notools/case_bb6e2d4b128fabd7.txt",
+  "sha256": "d7a8d5818a5197aa6f388f711d7db1aa9ba62e5110b070f239e66548405bc0d6",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_bb6e2d4b128fabd7.json"
+ },
+ {
+  "case_id": "case_092a59bd6be43719",
+  "prompt_file": "prompts/agent/audit_notools/case_092a59bd6be43719.txt",
+  "sha256": "2b9e3a56566543d49556d9f79b027bf1969d7905273b37f108d648778a7eb57d",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_092a59bd6be43719.json"
+ },
+ {
+  "case_id": "case_38ffe171bf16488b",
+  "prompt_file": "prompts/agent/audit_notools/case_38ffe171bf16488b.txt",
+  "sha256": "5a87f2a154097e72a7e5653347ba7461c31df99d3facb18d96d28a396674b71a",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_38ffe171bf16488b.json"
+ },
+ {
+  "case_id": "case_89d21a7a98be486c",
+  "prompt_file": "prompts/agent/audit_notools/case_89d21a7a98be486c.txt",
+  "sha256": "efc9ffd0bc80aeb945914caf63eb72b2d728cee3c8264ca552b3ae11bed46e86",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_89d21a7a98be486c.json"
+ },
+ {
+  "case_id": "case_eae2b0b8bd4ba88c",
+  "prompt_file": "prompts/agent/audit_notools/case_eae2b0b8bd4ba88c.txt",
+  "sha256": "a4ada695391befc5576a50e5959986c13de3e24552493dab4223da4ac1435a32",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_eae2b0b8bd4ba88c.json"
+ },
+ {
+  "case_id": "case_10cc6c5fb30bd58b",
+  "prompt_file": "prompts/agent/audit_notools/case_10cc6c5fb30bd58b.txt",
+  "sha256": "c6696c711bdc8ec4932dddec3c319515bae30f7be9c6c39e01f1bded9b557a73",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_10cc6c5fb30bd58b.json"
+ },
+ {
+  "case_id": "case_6af73cdd529f4d0f",
+  "prompt_file": "prompts/agent/audit_notools/case_6af73cdd529f4d0f.txt",
+  "sha256": "e0ced9eec1f8af2f6286bc6c1cfac79fe30fed443acfdc7845da31ef5b5b7dd1",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_6af73cdd529f4d0f.json"
+ },
+ {
+  "case_id": "case_64984dbb642caf5e",
+  "prompt_file": "prompts/agent/audit_notools/case_64984dbb642caf5e.txt",
+  "sha256": "39128381975bc8f86de1c589fde0a6f899026c3d0bc97d0ce1736b0c7b59606b",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_64984dbb642caf5e.json"
+ },
+ {
+  "case_id": "case_e9cdc3b272acb33a",
+  "prompt_file": "prompts/agent/audit_notools/case_e9cdc3b272acb33a.txt",
+  "sha256": "6cf0dad9ab255282100d1922c45d2c0330bef34c2aa01f593fd4e857a26d5804",
+  "out_path": "/home/claude/fm_eval/raw/audit_notools/case_e9cdc3b272acb33a.json"
+ }
+]

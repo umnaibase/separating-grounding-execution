@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of the retained contract text src_b2a137376b6ff631 equals the cited digest da99ca27...7248 and the cited version '1' matches the retained version '1'. (Transactions digest 3ed19b40...4e13 also verified as matching.)",
+      "evidence": ["src_b2a137376b6ff631", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "contradicted",
+      "check": "The valid cited contract states penalty-free termination is available once 6 months have elapsed; the 48-month figure is the framework duration, which is not the minimum commitment. The unique supported value is 6, which differs from the asserted 48.",
+      "evidence": ["src_b2a137376b6ff631", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source (digest and version verified) covers window 2026-01-01/2026-01-31 with eligible 2000 and disputed 45, giving fraction 45/2000 exactly as asserted.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions[0].sha256", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*45=2250 >= 2000 so dispute_trigger=true; 48 < 6 is false so commitment_trigger=false; OR gives manual_review. Recorded trace, rule_output and asserted value all match.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.trace", "record.rule_output", "record.final_output"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidate set [48] is non-empty and valid. With disputed=45, eligible=2000 fixed, commitment 48 yields dispute_trigger=true and commitment_trigger=false, so manual_review, identical to the recorded recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "toy-v1 recommends manual_review when the dispute predicate holds (OR rule); the recorded dispute_trigger is true and is consistent with 50*45=2250 >= 2000, so it alone suffices for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.policy.dispute_threshold", "record.input.disputed", "record.input.eligible"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*45=$((50*45)) ; cmp_ge_2000=$(( 50*45 >= 2000 )) ; commit_lt_6=$(( 48 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited digests matched the retained source texts exactly, so lineage holds; the only failing claim is c2, since the contract gives 6 months as the penalty-free threshold while 48 is only the framework duration."
+  }
+}

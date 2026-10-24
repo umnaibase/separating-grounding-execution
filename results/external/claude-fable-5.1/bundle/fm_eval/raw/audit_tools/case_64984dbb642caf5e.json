@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Both cited contracts (src_d3840dc477fc2c9a, src_2aad353c079d1b5b) are retained with version 1 matching the citations, and the computed UTF-8 SHA-256 of each retained text equals the cited digest (7d8c9312... and c722b26b... respectively).",
+      "evidence": ["src_d3840dc477fc2c9a", "src_2aad353c079d1b5b", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are lineage-valid but conflict: src_d3840dc477fc2c9a states penalty-free termination after 3 months, while src_2aad353c079d1b5b states it is available only once 9 months have elapsed. No precedence rule is supplied, so the asserted value 3 is neither unambiguously supported nor uniquely contradicted.",
+      "evidence": ["src_d3840dc477fc2c9a", "src_2aad353c079d1b5b", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source src_ba430e75185acb7d is lineage-valid (digest and version 1 match), covers the exact window 2026-01-01/2026-01-31, and reports 2000 eligible and 45 disputed transactions, giving the fraction 45/2000 as asserted.",
+      "evidence": ["src_ba430e75185acb7d", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: 50*45 = 2250 >= 2000 so dispute_trigger = true; 3 < 6 so commitment_trigger = true; OR gives manual_review. This matches the recorded trace (both true), the recorded rule_output, and the asserted value. Inputs are nonnegative integers with eligible > 0 and disputed <= eligible; policy id and thresholds match toy-v1.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The record stipulates action_history_complete = true and override = null; the trace is consistent with faithful execution of toy-v1 on the recorded inputs; and final_output = manual_review equals both the policy replay result and the asserted value, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates [3, 9] are valid nonnegative integers. With disputed = 45 and eligible = 2000 fixed, the dispute predicate (2250 >= 2000) is true for every candidate, so toy-v1 returns manual_review for both 3 (commitment trigger true) and 9 (commitment trigger false); all candidates yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*45 = 2250 >= 2000, so the dispute predicate is true; under toy-v1's OR rule a true dispute predicate alone yields manual_review regardless of commitment_months.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "Bash: python3 heredoc computing hashlib.sha256(text.encode('utf-8')).hexdigest() for the three retained source texts, plus integer checks 50*45 >= 2000, 3 < 6, 9 < 6"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited digests and versions matched the retained sources. The only unresolved claim is c2, because the two lineage-valid contracts give conflicting minimum commitments (3 vs 9 months) with no precedence rule."
+  }
+}

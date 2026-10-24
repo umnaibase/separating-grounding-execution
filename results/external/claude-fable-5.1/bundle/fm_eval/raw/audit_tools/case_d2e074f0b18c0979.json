@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both retained source texts: contract src_fd1a6ee4670ed6dc hashes to a4895c42...ad50 and transactions src_97938c8628002d54 hashes to 191f5212...936f, exactly matching the cited digests; both cited versions ('1') match the retained versions. No missing or ambiguous artifacts.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "src_97938c8628002d54", "citations.contract[0]", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states penalty-free termination is available once 18 months have elapsed, giving a unique minimum commitment of 18 months, equal to the asserted value and record.input.commitment_months. The 48-month framework duration is a framework term, not the minimum commitment, and there is no conflicting document.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transaction source covers observation window 2026-01-01/2026-01-31 and reports eligible 1200 and disputed 25, so the fraction 25/1200 matches the asserted numerator/denominator and the recorded inputs. No missing or conflicting evidence.",
+      "evidence": ["src_97938c8628002d54", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy matches toy-v1 (1/50, 6 months). On recorded inputs: 50*25=1250 >= 1200 is true (dispute_trigger true) and 18 < 6 is false (commitment_trigger false); both match the recorded trace. OR of predicates yields manual_review, matching record.rule_output and the asserted output. Inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit non-null override (from manual_review to manual_review, reviewer actively confirming the action). Under the definition an explicit override, even one preserving the outcome, contradicts attribution of the final action to the policy without intervention, despite the final output matching policy replay and the stipulated complete history.",
+      "evidence": ["record.override", "record.override.from", "record.override.to", "record.override.reason", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [18] is non-empty and valid. With disputed 25 and eligible 1200 fixed, the dispute predicate 50*25=1250 >= 1200 is true regardless of commitment, so candidate 18 (18 < 6 false) yields manual_review, the same recommendation as the recorded run. All declared candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*25=1250 >= 1200 holds, so the dispute predicate is true; because toy-v1 recommends manual_review when either predicate is true, the recorded dispute predicate alone suffices for manual_review irrespective of the commitment predicate. This is conditional on recorded values only.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.id", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)) eligible=1200 cmp_ge=$(( 50*25 >= 1200 )) commit_lt6=$(( 18 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly; policy arithmetic was verified with exact integer comparison. The only contradicted claim is c5, because the record contains an explicit outcome-preserving override."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "systems": [
+    {
+      "system": "grok-4.7",
+      "run_id": "grok-4.7-audit-supplied-claims-v1",
+      "date": "2026-10-04",
+      "interface": "session judgment under the frozen audit_supplied_claims_v1 instructions; uniform tool-assisted procedure, not a sampled API decode",
+      "temperature": "not applicable; procedure applied uniformly",
+      "tools": ["sha256 of retained UTF-8 source text", "exact integer replay of toy-v1"],
+      "reference_visible_during_judgment": false,
+      "test": {
+        "episodes": 60,
+        "claims": 420,
+        "agreement": 420,
+        "resolved": 388,
+        "endorsements": 333,
+        "false_support": 0,
+        "agreement_rate": 1.0,
+        "resolution_rate": 0.9238
+      },
+      "diagnostics": {
+        "episodes": 8,
+        "claims": 56,
+        "agreement": 56,
+        "false_support": 0,
+        "pooled_with_test": false
+      },
+      "delta_vs_bundled_boundary_checker": "2 commitment_grounding claims: worded 'eighteen' supported here, unresolved by the bounded parser. Both match the authored reference.",
+      "multimodal": "not evaluated; release has no image or PDF page inputs",
+      "causal_actionability": "not evaluated; candidate sets are declared sensitivity checks, not interventions",
+      "fairness": "not evaluated; no protected attributes",
+      "compliance": "not evaluated; no control mapping",
+      "reviewer_benefit": "not evaluated; no human subjects. Proxy notes are not a benefit estimate."
+    },
+    {
+      "system": "openai",
+      "run_id": "",
+      "date": "",
+      "model_snapshot": "",
+      "temperature": null,
+      "tools": [],
+      "test": {"episodes": 60, "claims": 420, "agreement": null, "resolved": null, "endorsements": null, "false_support": null},
+      "diagnostics": {"episodes": 8, "claims": 56, "agreement": null, "false_support": null, "pooled_with_test": false},
+      "multimodal": null,
+      "causal_actionability": null,
+      "fairness": null,
+      "compliance": null,
+      "reviewer_benefit": null
+    },
+    {
+      "system": "claude",
+      "run_id": "",
+      "date": "",
+      "model_snapshot": "",
+      "temperature": null,
+      "tools": [],
+      "test": {"episodes": 60, "claims": 420, "agreement": null, "resolved": null, "endorsements": null, "false_support": null},
+      "diagnostics": {"episodes": 8, "claims": 56, "agreement": null, "false_support": null, "pooled_with_test": false},
+      "multimodal": null,
+      "causal_actionability": null,
+      "fairness": null,
+      "compliance": null,
+      "reviewer_benefit": null
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+ {
+  "case_id": "diag-case_c720c5e500065633",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_c720c5e500065633.txt",
+  "sha256": "ff2178b69c0201fb06c7c469100159da1321fd00f4a108f03521ab2ad62aeadb",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_c720c5e500065633.json"
+ },
+ {
+  "case_id": "diag-case_84933d8631c1b180",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_84933d8631c1b180.txt",
+  "sha256": "15a6cfe8fd191798ddcb604f4a87921c080dac6fbf91996a8e1fba3b0e6fb251",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_84933d8631c1b180.json"
+ },
+ {
+  "case_id": "diag-case_783413f29d799a43",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_783413f29d799a43.txt",
+  "sha256": "b890a42babbf73460f45e18848553d5acdf748bdc23c3b3f0568eecbd883a7e9",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_783413f29d799a43.json"
+ },
+ {
+  "case_id": "diag-case_17ae6dd745927c3c",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_17ae6dd745927c3c.txt",
+  "sha256": "9bd129d26be996884b327574430d936f60a3e31b68573e1330c97e4adc1c85ee",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_17ae6dd745927c3c.json"
+ },
+ {
+  "case_id": "diag-case_d0b9d9c6fd0b65e7",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_d0b9d9c6fd0b65e7.txt",
+  "sha256": "59becfcd8b32eb390ce6ef016a5995a6f07437a99f40883508e7e41ff5c37b97",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_d0b9d9c6fd0b65e7.json"
+ },
+ {
+  "case_id": "diag-case_514c2797baa6b3ab",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_514c2797baa6b3ab.txt",
+  "sha256": "417303351ad9ab2e7dbd4b781b1bde953b586bb02784d02eb80c1cfa69bcf044",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_514c2797baa6b3ab.json"
+ },
+ {
+  "case_id": "diag-case_8c2bab27519ed1d0",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_8c2bab27519ed1d0.txt",
+  "sha256": "b1a2d32b0e9eeb3e21f46b08ce5c7d4e7c41fb33fa9fa32003bd4c9dfc55443b",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_8c2bab27519ed1d0.json"
+ },
+ {
+  "case_id": "diag-case_91540738a4a2ef62",
+  "prompt_file": "prompts/agent/diag_tools/diag-case_91540738a4a2ef62.txt",
+  "sha256": "6f54af97285bfa1a3196c22ff2cf4f17c360c6d8b8e9627afd851cc4deeace2c",
+  "out_path": "/home/claude/fm_eval/raw/diag_tools/diag-case_91540738a4a2ef62.json"
+ }
+]

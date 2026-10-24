@@ -1,0 +1,567 @@
+{
+  "evidence_note": "Attempt counts, fresh contexts and restrictions are archived declarations, not independently attested platform behaviour",
+  "gpt_primary_context_composition": {
+    "affected_reporting_episode_ids": [
+      "ep_00b85d45a3673eb6",
+      "ep_05e9207300018ccc",
+      "ep_0c517c369d2d5d19",
+      "ep_1f5d89aef602104d",
+      "ep_20b5f336dbd8134b",
+      "ep_23c23ef6d831c4e4",
+      "ep_29ae11abc53c2b5d",
+      "ep_31bf13e27e561013",
+      "ep_32ac9d4e734137f2",
+      "ep_33e17619f514c91e",
+      "ep_3a75857a2ccad717",
+      "ep_5d9214c9b23b9198",
+      "ep_64933fb8988c980e",
+      "ep_6a2691285a7e810f",
+      "ep_7cd544e19f8a89b3",
+      "ep_83eabdee99f4194c",
+      "ep_922df446b46fef94",
+      "ep_947d176359ad2b8b",
+      "ep_96cc2ec1ae4daed1",
+      "ep_9e26ca5f498e1614",
+      "ep_a293abd12cbd29f7",
+      "ep_abf70dd1b46951ba",
+      "ep_b77c2d97d46c9e2f",
+      "ep_c160b6c28674596f",
+      "ep_c5aef0faebda0423",
+      "ep_c65d45435e5040e8",
+      "ep_ce93ca398fe3c724",
+      "ep_d3c2608055b28c6c",
+      "ep_d63e23af7d8b40c6",
+      "ep_d7d33ee3a0b22800",
+      "ep_da574cd025d1455b",
+      "ep_dff2924d858f076a",
+      "ep_e1b80395df8ab8ec",
+      "ep_e20b6b146dffcf30",
+      "ep_e72df948308ef117",
+      "ep_e97738471262862c",
+      "ep_ea98cca53d486598"
+    ],
+    "affected_reporting_episodes": 37,
+    "affected_reporting_families": 12,
+    "affected_reporting_family_ids": [
+      "scenario_34a673dbe2f96588",
+      "scenario_357fc23c6f5708ce",
+      "scenario_38b96cbac3ca3c59",
+      "scenario_5097d1930db3d4b7",
+      "scenario_53f0dbcc39b1a84a",
+      "scenario_63719d9ddee3f814",
+      "scenario_7b64ec0d8b5d1f38",
+      "scenario_8e3bf3b0e49bce4d",
+      "scenario_98aedfc5a3c80bea",
+      "scenario_b90a8a9e768fa36f",
+      "scenario_bbaf3cd467b6aaae",
+      "scenario_f580dfec804aa350"
+    ],
+    "batches": [
+      {
+        "batch_id": "text_batch_01",
+        "diagnostic_episodes": 0,
+        "episode_count": 17,
+        "input_path": "data/pilot/batches/text_batch_01.json",
+        "mixed_reporting_and_diagnostics": false,
+        "reporting_episodes": 17,
+        "sibling_groups": [
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_d3c2608055b28c6c",
+              "ep_05e9207300018ccc"
+            ],
+            "family_id": "scenario_34a673dbe2f96588",
+            "original_case_ids": [
+              "case_86125d52dbdbaa5f",
+              "case_75c52dd0d7f2eb82"
+            ],
+            "size": 2,
+            "variants": [
+              "ambiguity",
+              "source_gap"
+            ]
+          },
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_e20b6b146dffcf30",
+              "ep_23c23ef6d831c4e4"
+            ],
+            "family_id": "scenario_357fc23c6f5708ce",
+            "original_case_ids": [
+              "case_3201bfc52dc775b2",
+              "case_ac1cc51279b6ef89"
+            ],
+            "size": 2,
+            "variants": [
+              "clean",
+              "intervention"
+            ]
+          },
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_31bf13e27e561013",
+              "ep_e97738471262862c"
+            ],
+            "family_id": "scenario_5097d1930db3d4b7",
+            "original_case_ids": [
+              "case_d0db49fb716ee077",
+              "case_2d1de491af1a3592"
+            ],
+            "size": 2,
+            "variants": [
+              "ambiguity",
+              "clean"
+            ]
+          },
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_1f5d89aef602104d",
+              "ep_32ac9d4e734137f2"
+            ],
+            "family_id": "scenario_53f0dbcc39b1a84a",
+            "original_case_ids": [
+              "case_b5d5d07bc025f241",
+              "case_3af9864800ed8861"
+            ],
+            "size": 2,
+            "variants": [
+              "source_gap",
+              "ambiguity"
+            ]
+          },
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_922df446b46fef94",
+              "ep_c5aef0faebda0423",
+              "ep_5d9214c9b23b9198"
+            ],
+            "family_id": "scenario_63719d9ddee3f814",
+            "original_case_ids": [
+              "case_38ffe171bf16488b",
+              "case_89d21a7a98be486c",
+              "case_a6542ee2baa2f4c6"
+            ],
+            "size": 3,
+            "variants": [
+              "ambiguity",
+              "intervention",
+              "clean"
+            ]
+          },
+          {
+            "batch_id": "text_batch_01",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_b77c2d97d46c9e2f",
+              "ep_29ae11abc53c2b5d"
+            ],
+            "family_id": "scenario_7b64ec0d8b5d1f38",
+            "original_case_ids": [
+              "case_e6c09a1ade657662",
+              "case_4fef64096c64a2cd"
+            ],
+            "size": 2,
+            "variants": [
+              "extraction_error",
+              "intervention"
+            ]
+          }
+        ]
+      },
+      {
+        "batch_id": "text_batch_02",
+        "diagnostic_episodes": 3,
+        "episode_count": 17,
+        "input_path": "data/pilot/batches/text_batch_02.json",
+        "mixed_reporting_and_diagnostics": true,
+        "reporting_episodes": 14,
+        "sibling_groups": [
+          {
+            "batch_id": "text_batch_02",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_33e17619f514c91e",
+              "ep_3a75857a2ccad717",
+              "ep_c65d45435e5040e8"
+            ],
+            "family_id": "scenario_34a673dbe2f96588",
+            "original_case_ids": [
+              "case_c1a5793f16aa3f57",
+              "case_3c3157a3cf1e64ee",
+              "case_007c18701e3b03d3"
+            ],
+            "size": 3,
+            "variants": [
+              "clean",
+              "intervention",
+              "extraction_error"
+            ]
+          },
+          {
+            "batch_id": "text_batch_02",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_ea98cca53d486598",
+              "ep_d7d33ee3a0b22800"
+            ],
+            "family_id": "scenario_7b64ec0d8b5d1f38",
+            "original_case_ids": [
+              "case_b3ed55f32da3359a",
+              "case_f0d2096e397c823a"
+            ],
+            "size": 2,
+            "variants": [
+              "source_gap",
+              "ambiguity"
+            ]
+          },
+          {
+            "batch_id": "text_batch_02",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_da574cd025d1455b",
+              "ep_6a2691285a7e810f"
+            ],
+            "family_id": "scenario_b90a8a9e768fa36f",
+            "original_case_ids": [
+              "case_5083fc80c9ccd370",
+              "case_1639cc5e15d3a206"
+            ],
+            "size": 2,
+            "variants": [
+              "intervention",
+              "source_gap"
+            ]
+          }
+        ]
+      },
+      {
+        "batch_id": "text_batch_03",
+        "diagnostic_episodes": 2,
+        "episode_count": 17,
+        "input_path": "data/pilot/batches/text_batch_03.json",
+        "mixed_reporting_and_diagnostics": true,
+        "reporting_episodes": 15,
+        "sibling_groups": [
+          {
+            "batch_id": "text_batch_03",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_64933fb8988c980e",
+              "ep_7cd544e19f8a89b3",
+              "ep_d63e23af7d8b40c6"
+            ],
+            "family_id": "scenario_38b96cbac3ca3c59",
+            "original_case_ids": [
+              "case_54092d8e100d8057",
+              "case_e4c41b4410943970",
+              "case_6a8807322b98cc46"
+            ],
+            "size": 3,
+            "variants": [
+              "extraction_error",
+              "source_gap",
+              "clean"
+            ]
+          },
+          {
+            "batch_id": "text_batch_03",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_abf70dd1b46951ba",
+              "ep_947d176359ad2b8b"
+            ],
+            "family_id": "scenario_b90a8a9e768fa36f",
+            "original_case_ids": [
+              "case_30d87a45a717ce71",
+              "case_c1c64894ed3f6285"
+            ],
+            "size": 2,
+            "variants": [
+              "extraction_error",
+              "ambiguity"
+            ]
+          },
+          {
+            "batch_id": "text_batch_03",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_c160b6c28674596f",
+              "ep_20b5f336dbd8134b"
+            ],
+            "family_id": "scenario_bbaf3cd467b6aaae",
+            "original_case_ids": [
+              "case_ef90de411754b293",
+              "case_07246c044c824758"
+            ],
+            "size": 2,
+            "variants": [
+              "intervention",
+              "clean"
+            ]
+          },
+          {
+            "batch_id": "text_batch_03",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_0c517c369d2d5d19",
+              "ep_dff2924d858f076a"
+            ],
+            "family_id": "scenario_f580dfec804aa350",
+            "original_case_ids": [
+              "case_cb5218205e35f365",
+              "case_78e8c1ddeb15f927"
+            ],
+            "size": 2,
+            "variants": [
+              "source_gap",
+              "extraction_error"
+            ]
+          }
+        ]
+      },
+      {
+        "batch_id": "text_batch_04",
+        "diagnostic_episodes": 3,
+        "episode_count": 17,
+        "input_path": "data/pilot/batches/text_batch_04.json",
+        "mixed_reporting_and_diagnostics": true,
+        "reporting_episodes": 14,
+        "sibling_groups": [
+          {
+            "batch_id": "text_batch_04",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_00b85d45a3673eb6",
+              "ep_83eabdee99f4194c"
+            ],
+            "family_id": "scenario_5097d1930db3d4b7",
+            "original_case_ids": [
+              "case_a5416b48c692f4a6",
+              "case_7c2e05d1a9bbe57a"
+            ],
+            "size": 2,
+            "variants": [
+              "intervention",
+              "extraction_error"
+            ]
+          },
+          {
+            "batch_id": "text_batch_04",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_ce93ca398fe3c724",
+              "ep_a293abd12cbd29f7",
+              "ep_9e26ca5f498e1614"
+            ],
+            "family_id": "scenario_8e3bf3b0e49bce4d",
+            "original_case_ids": [
+              "case_eae2b0b8bd4ba88c",
+              "case_6af73cdd529f4d0f",
+              "case_e9cdc3b272acb33a"
+            ],
+            "size": 3,
+            "variants": [
+              "clean",
+              "source_gap",
+              "intervention"
+            ]
+          },
+          {
+            "batch_id": "text_batch_04",
+            "collection": "main_reporting",
+            "episode_ids": [
+              "ep_e1b80395df8ab8ec",
+              "ep_96cc2ec1ae4daed1",
+              "ep_e72df948308ef117"
+            ],
+            "family_id": "scenario_98aedfc5a3c80bea",
+            "original_case_ids": [
+              "case_91bf94e28c04fb8c",
+              "case_39f50c0324bc27d3",
+              "case_6843a98ae359db46"
+            ],
+            "size": 3,
+            "variants": [
+              "source_gap",
+              "extraction_error",
+              "clean"
+            ]
+          }
+        ]
+      }
+    ],
+    "definition_of_affected": "A reporting episode shares its scheduled context with at least one reporting episode having the same scenario_id in the archival join map",
+    "diagnostic_episodes": 8,
+    "diagnostic_sibling_groups": 0,
+    "interpretation": "Co-occurrence permits within-context comparison; this inventory does not demonstrate that a model used it or estimate its effect",
+    "mixed_contexts": 3,
+    "reporting_episodes": 60,
+    "reporting_group_size_distribution": {
+      "2": 11,
+      "3": 5
+    },
+    "reporting_sibling_groups": 16
+  },
+  "missing_field_convention": "null means unavailable in the cited record; configured identifiers are not serving attestations",
+  "models": [
+    {
+      "access_route": "Session assistant with fresh inference-worker contexts",
+      "access_route_evidence": "Archived worker instructions and run record",
+      "attempt_unit": "One response per scheduled multi-episode context",
+      "attempts_per_batch_as_recorded": 1,
+      "attested_serving_snapshot": null,
+      "author_association_as_recorded": "Same assistant system as artifact author; fresh contexts do not make this an independent evaluation.",
+      "configuration": "Inherited parent assistant configuration; no model or reasoning overrides were specified. Immutable snapshot and sampling settings were not exposed.",
+      "configured_harness_model_id": null,
+      "context_isolation": {
+        "fork_turns_values_as_recorded": [
+          "none"
+        ],
+        "instruction_state_isolation_independently_attested": null,
+        "interpretation": "Declared fresh contexts and lookup restrictions do not independently verify isolation of persistent memory, project context or instruction state. Shared artifact-construction and auditing provenance adds dependence beyond generator/checker conformance.",
+        "parent_configuration_as_recorded": "Inherited parent assistant configuration; no model or reasoning overrides were specified. Immutable snapshot and sampling settings were not exposed.",
+        "persistent_memory_isolation_independently_attested": null,
+        "project_context_isolation_independently_attested": null
+      },
+      "display_name": "GPT-6.1 Sol Ultra",
+      "display_name_provenance": {
+        "immutable_runtime_snapshot_available": false,
+        "note": "Identity correction only; no new model inference or response revision.",
+        "previous_display_label": "Codex session assistant",
+        "source": "User-supplied exact model name on 2026-10-04"
+      },
+      "fresh_context_as_declared": true,
+      "frontend_scope_note": "Integrity computation is supplied. Source interpretation, policy reasoning and application of the grounding prerequisite remain model tasks; a prerequisite bypass is possible in the output.",
+      "full_platform_tool_traces_archived": false,
+      "harness_family_as_declared": "GPT-6",
+      "paired_episodes_per_context": 6,
+      "paired_image_audit_contexts": 2,
+      "paired_text_audit_contexts": 2,
+      "primary_audit_contexts": 4,
+      "primary_audit_episodes": 68,
+      "primary_episode_isolation": false,
+      "provider_api_model_string": null,
+      "provider_endpoint": null,
+      "response_retries_as_recorded": 0,
+      "run_id": "codex-assistant-pilot-2026-10-04-1",
+      "sampling_parameters": null,
+      "semantic_labels_precomputed": false,
+      "snapshot_date": null,
+      "temperature": null,
+      "tool_activity_evidence": "Worker self-reports; complete tool/transport traces were not independently audited.",
+      "tools": "Frontend supplies retained-artifact presence, kind, version and digest comparisons; workers read inputs and write responses"
+    },
+    {
+      "access_route_as_reported": "Claude Code agent harness (fresh subagent per call), not the public Messages API",
+      "attempt_unit": "One episode or source document per fresh model instance, as reported",
+      "attempts_per_call_as_reported": 1,
+      "attested_serving_snapshot": null,
+      "audit_calls": 136,
+      "configured_agent_parameter": "fable",
+      "configured_harness_model_id": "claude-fable-5-1",
+      "display_name": "Claude Fable 5.1",
+      "extraction_calls": 50,
+      "full_platform_tool_traces_archived": false,
+      "model_identifier_note": "Requested explicitly for every call (agent model parameter \"fable\"); the serving model can differ under harness fallback and cannot be verified from inside the session.",
+      "operator_exposure_as_reported": "The operator session had seen the reference labels and checker; every model-under-test call was a fresh instance that received only the exported prompt. Cross-check scripts were run by the operator after all calls completed.",
+      "per_call_prompts_and_literal_responses_archived": true,
+      "provider_api_model_string": null,
+      "record_schema": "mfmb2026-fm-eval/1.0",
+      "retry_policy_as_reported": "none",
+      "run_date_as_reported": "2026-10-04",
+      "run_id": null,
+      "sampling_as_reported": "harness default; temperature not controllable or recorded",
+      "snapshot_date": null,
+      "temperature": null,
+      "tool_restriction_enforcement_as_reported": "instruction-based; self-reported in each response; harness tool-use counts consistent with the instructions (2 per no-tools call, 3-5 per tools call)",
+      "tools_available_as_reported": {
+        "audit_notools": "Read (prompt delivery) + Write (answer) only, by instruction; no computation",
+        "audit_tools": "Bash restricted by instruction to SHA-256 and integer arithmetic; commands self-reported",
+        "extract_image": "Read (image) + Write only",
+        "extract_text": "Read + Write only"
+      },
+      "total_calls_as_reported": 186
+    },
+    {
+      "access_route_as_reported": "session judgment under the frozen audit_supplied_claims_v1 instructions; uniform tool-assisted procedure, not a sampled API decode",
+      "attempts_per_call": null,
+      "attested_serving_snapshot": null,
+      "configured_harness_model_id": null,
+      "display_name": "Grok 4.7",
+      "identifier_kind": "Supplier's system string; not an attested API identifier",
+      "native_prompts_archived": false,
+      "native_response_and_execution_traces_archived": false,
+      "predictions_archived": true,
+      "provenance_note": "Structured predictions can be rescored; the inference procedure cannot be examined from these records",
+      "provider_api_model_string": null,
+      "retry_policy": null,
+      "run_date_as_reported": "2026-10-04",
+      "run_id": "grok-4.7-audit-supplied-claims-v1",
+      "snapshot_date": null,
+      "supplier_system_identifier": "grok-4.7",
+      "temperature": null,
+      "temperature_note": "Supplier text does not establish a numeric temperature or serving configuration",
+      "temperature_supplier_text": "not applicable; procedure applied uniformly",
+      "tools_as_reported": [
+        "sha256 of retained UTF-8 source text",
+        "exact integer replay of toy-v1"
+      ]
+    }
+  ],
+  "purpose": "Supplemental provenance and context-composition analysis of existing archived records; no new model evaluation",
+  "release": "explainability-boundaries 1.2.2",
+  "schema_version": "mfmb2026-archived-run-inventory/1.0",
+  "source_files": {
+    "data/metadata.json": {
+      "bytes": 22713,
+      "sha256": "8127c5c326b782c3682291888d36bd2d024a7cbafe371a48839ac78bad996345"
+    },
+    "data/pilot/batches/text_batch_01.json": {
+      "bytes": 59084,
+      "sha256": "a4982921dee0e6d4ae2f453211b68db5c00af7c3a638eddef2ca49d13721d3f1"
+    },
+    "data/pilot/batches/text_batch_02.json": {
+      "bytes": 61597,
+      "sha256": "b1c07e5d804ffc4c30829ba8fb8786478c7f014a630c054bf275b6f37e5cbac1"
+    },
+    "data/pilot/batches/text_batch_03.json": {
+      "bytes": 59515,
+      "sha256": "5362d85b0c65fbd065713eecc438a431792138a03d58c91b2406387fbdf6dff6"
+    },
+    "data/pilot/batches/text_batch_04.json": {
+      "bytes": 58931,
+      "sha256": "050642a4571a2989ce1c58d9874eb7d2477b3182388c6742e556c4203b9347ad"
+    },
+    "data/pilot/join_map.json": {
+      "bytes": 21999,
+      "sha256": "4b530020c1e972083d2a9237c698ada9fa50fd344b3f96879c4072cbe4181154"
+    },
+    "results/external/claude-fable-5.1/bundle/fm_eval/results/system_report_claude-fable-5-1.json": {
+      "bytes": 10829,
+      "sha256": "26452c099148e05cadb202a9b83ca256603df3b970c2199ab8733dff662dac47"
+    },
+    "results/external/grok-4.7/systems.json": {
+      "bytes": 2594,
+      "sha256": "1509ba50effba81e53c15dc4191093cbfb5a6fe1ca3316ae53487552faba3eb7"
+    },
+    "results/pilot/model_run.json": {
+      "bytes": 2372,
+      "sha256": "8b01b6eba06a1625fc5cbf36a230efbe614bf31494327ec06ad182b40c6da15e"
+    },
+    "results/pilot/worker_instructions.json": {
+      "bytes": 15276,
+      "sha256": "55d1047c0107eae8ea66dfedefcbf8c63cb8f6e3de1ffd0e07929ab15c635351"
+    }
+  }
+}

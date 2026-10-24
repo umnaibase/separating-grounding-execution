@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of src_be75313edd2b3164 text is 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, matching the citation digest, and version 1 matches version 1. Only one contract is cited; no ambiguity.",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate after 5 months without penalty, giving a minimum penalty-free commitment of 5 months, equal to the asserted value 5. The 36-month framework duration is not the minimum commitment and no conflicting document exists.",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source digest and version match (8c11d472...5ff8, v1), its window is exactly 2026-01-01/2026-01-31, and it reports eligible 1500 and disputed 25, so the fraction 25/1500 equals the asserted 25/1500.",
+      "evidence": ["src_53e77460b588b4ab", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with thresholds 6 months and 1/50. Inputs valid (5, 25, 1500). Replay: commitment 5 < 6 -> true; 50*25 = 1250 >= 1500 -> false; OR -> manual_review. Recorded trace (commitment_trigger true, dispute_trigger false), rule_output manual_review and asserted manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit non-null override (from manual_review to manual_review, reviewer actively confirms). Under the definition, an explicit override, even one preserving the outcome, contradicts attribution of the final action to the policy without intervention.",
+      "evidence": ["record.override", "record.override.from", "record.override.to", "record.final_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is non-empty and valid: [5]. With disputed 25 and eligible 1500 fixed (dispute predicate false), candidate 5 < 6 triggers commitment and yields manual_review; all candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.policy", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values 50*25 = 1250 < 1500, so the dispute predicate is false (recorded dispute_trigger false). The dispute predicate alone does not trigger manual_review; the recommendation comes only from the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*25=', 50*25, ' >= 1500?', 50*25 >= 1500, ' 5<6?', 5<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed in Bash and matched exactly; policy replay was done with exact integer arithmetic. The only tool use was the single Bash computation above, and only the task file plus the output path were touched."
+  }
+}

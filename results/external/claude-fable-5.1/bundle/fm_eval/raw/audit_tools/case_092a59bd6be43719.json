@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_38f5895537b77de7 (sha256 6a9da92c..., version 1) is not present in the supplied sources, so its retained bytes and version cannot be verified; the artifact is missing rather than observed to mismatch. (The transactions citation does verify: computed SHA-256 of src_944f6a96d87a63a8 text equals 8c11d472...5bca5ff8 and version 1 matches, but contract_lineage concerns the cited contracts.)",
+      "evidence": ["citations.contract[0]", "src_38f5895537b77de7", "sources"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "No contract source text is retained for the cited contract src_38f5895537b77de7, so there is no valid cited contract evidence to support or contradict the asserted minimum of 3 months before penalty-free cancellation; the recorded input commitment_months=3 cannot be assumed true from the record alone.",
+      "evidence": ["citations.contract[0]", "src_38f5895537b77de7", "record.input.commitment_months", "sources"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source src_944f6a96d87a63a8 is retained; its text hashes (UTF-8 SHA-256) to 8c11d472773e0337d7f9944022f4d61b0eb45c1f738cab2df06ec5f15bca5ff8 matching the citation, version 1 matches, the observation window is exactly 2026-01-01/2026-01-31, and it states eligible=1500 and disputed=25, giving the fraction 25/1500 asserted.",
+      "evidence": ["src_944f6a96d87a63a8", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs (commitment_months=3, disputed=25, eligible=1500; valid nonnegative integers, eligible>0, disputed<=eligible): dispute predicate 50*25=1250 >= 1500 is false; commitment predicate 3 < 6 is true; OR gives manual_review. Recorded trace (commitment_trigger=true, dispute_trigger=false), rule_output=manual_review and asserted value manual_review all agree. Recorded policy configuration (1/50, 6 months, id toy-v1) matches the supported policy.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs (see c4), and final_output=manual_review matches both rule_output and the policy replay, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "unresolved",
+      "check": "The declared candidate set (alternatives) is empty, so there are no candidate commitments to evaluate; an empty candidate set is unresolved by definition.",
+      "evidence": ["alternatives"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is false: 50*disputed = 50*25 = 1250 < 1500 = eligible, and the recorded trace also shows dispute_trigger=false. The dispute predicate alone therefore does not suffice for manual review; manual_review arises only from the commitment predicate (3 < 6). Asserted value true is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; echo \"50*25=$((50*25)); eligible=1500; cmp=$(( 50*25 >= 1500 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Computed SHA-256 of the retained transactions source text and it matched the citation digest (8c11d472...5bca5ff8); the cited contract source is absent from the supplied sources, so contract lineage and commitment grounding are unresolved. Integer arithmetic confirmed the dispute predicate is false (1250 < 1500) and the commitment predicate is true (3 < 6)."
+  }
+}

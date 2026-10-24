@@ -1,0 +1,151 @@
+{
+  "artifacts": {
+    "machine_readable_run_results_provided": false,
+    "mentioned_but_unavailable_paths": [
+      "fm_eval/grok_predictions_main.jsonl",
+      "fm_eval/grok_predictions_diagnostics.jsonl",
+      "fm_eval/score_test/summary.md",
+      "fm_eval/systems.json",
+      "fm_eval/protocol.json"
+    ],
+    "protocol_card_provided": false,
+    "raw_predictions_provided": false,
+    "report_provided": true,
+    "score_dump_provided": false
+  },
+  "evidence_status": "externally_reported_not_rescored",
+  "exact_model_snapshot": null,
+  "limitations": [
+    "Only the attached Markdown report was provided; its metrics cannot be independently rescored without raw predictions.",
+    "Numerical entries are transcribed aggregates, not reconstructed claim predictions.",
+    "Diagnostic resolved counts and endorsement denominators were not stated and remain null rather than inferred from reported perfect agreement.",
+    "The declared exact-replay tool and single-episode calls differ from the archived assistant pilot.",
+    "This record does not establish causal actionability, fairness, compliance or reviewer benefit."
+  ],
+  "metrics": {
+    "diagnostics": {
+      "agreement_correct": 56,
+      "by_kind": null,
+      "claims": 56,
+      "endorsements": null,
+      "episodes": 8,
+      "false_support_count": 0,
+      "predicted_label_counts": null,
+      "resolved_count": null
+    },
+    "main_reporting": {
+      "agreement_correct": 420,
+      "by_kind": {
+        "candidate_stability": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "commitment_grounding": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 34,
+            "unresolved": 20
+          },
+          "resolved_count": 40
+        },
+        "conditional_execution": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 3,
+            "supported": 57,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        },
+        "contract_lineage": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 4,
+            "supported": 54,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "dispute_grounding": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "final_action_by_rule": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 48,
+            "unresolved": 6
+          },
+          "resolved_count": 54
+        },
+        "sufficient_dispute_reason": {
+          "agreement_correct": 60,
+          "claims": 60,
+          "predicted_label_counts": {
+            "contradicted": 24,
+            "supported": 36,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        }
+      },
+      "claims": 420,
+      "endorsements": 333,
+      "episodes": 60,
+      "false_support_count": 0,
+      "predicted_label_counts": {
+        "contradicted": 55,
+        "supported": 333,
+        "unresolved": 32
+      },
+      "resolved_count": 388
+    },
+    "paired_image": null,
+    "paired_text": null
+  },
+  "model_name": "Grok 4.7",
+  "model_name_source": "User-supplied display name, also stated in the attached report; immutable model snapshot not supplied.",
+  "protocol": {
+    "actual_tool_execution_independently_verified": false,
+    "episodes_per_call_as_reported": 1,
+    "id_as_reported": "mfmb2026-audit-supplied-claims-v1",
+    "input_modality": "source_text",
+    "protocol_card_provided": false,
+    "reference_access_as_reported": "Reference file not read until scoring; checker code not imported; predictions written before scoring.",
+    "source_interpretation_as_reported": "open numeric reading",
+    "tools_as_reported": [
+      "SHA-256 of retained UTF-8 source text",
+      "exact integer policy replay"
+    ]
+  },
+  "run_id_as_reported": "grok-4.7-audit-supplied-claims-v1",
+  "sampling_description_as_reported": "not a sampled decode. The instructions were applied uniformly, with SHA-256 of the retained UTF-8 text and exact integer replay available on every case",
+  "sampling_interpretation": "This is the report author's description, not independently verified decoding behavior. Exact settings and live inference details were not provided.",
+  "sampling_parameters": null,
+  "schema_version": "1",
+  "source": {
+    "path": "results/external/grok-4.7/report.md",
+    "reported_date": "2026-10-04",
+    "reported_release": "1.1.0",
+    "sha256": "67c7356fa2bffa57e5dd2be787f18429f15129eca9f3fafaa01bb2910996f6ac",
+    "type": "user_provided_markdown_report"
+  }
+}

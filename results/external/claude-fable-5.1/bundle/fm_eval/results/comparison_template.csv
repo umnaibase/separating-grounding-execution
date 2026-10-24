@@ -1,0 +1,21 @@
+system,model_id,condition,task,subset,claims_or_docs,agreement,resolved,endorsements,false_support,notes
+reference,"bounded checker (paper, +Grounding)",deterministic,audit,reporting (60 ep),420,418,386,331,0,paper Table 3
+Anthropic Claude,claude-fable-5-1,no-tools,audit,reporting (60 ep),420,359,331,277,2,lineage unresolvable without hashing; 2 false supports on invalid-hash cases
+Anthropic Claude,claude-fable-5-1,tools (sha256+arith),audit,reporting (60 ep),420,420,388,333,0,resolves the two worded-number cases the bounded parser abstains on
+reference,bounded checker,deterministic,audit,diagnostics (8 ep),56,56,48,36,0,
+Anthropic Claude,claude-fable-5-1,no-tools,audit,diagnostics (8 ep),56,43,35,23,0,
+Anthropic Claude,claude-fable-5-1,tools (sha256+arith),audit,diagnostics (8 ep),56,56,48,36,0,
+Anthropic Claude,claude-fable-5-1,text,extraction,25 unique docs,25,25,,,,55/55 fields; 0 framework-as-commitment confusions
+Anthropic Claude,claude-fable-5-1,document image,extraction,25 unique docs,25,25,,,,55/55 fields; 0 confusions
+OpenAI,<model id>,no-tools,audit,reporting (60 ep),420,,,,,fill from boundarybench score summary.json
+OpenAI,<model id>,tools (sha256+arith),audit,reporting (60 ep),420,,,,,
+OpenAI,<model id>,no-tools,audit,diagnostics (8 ep),56,,,,,
+OpenAI,<model id>,tools (sha256+arith),audit,diagnostics (8 ep),56,,,,,
+OpenAI,<model id>,text,extraction,25 unique docs,25,,,,,
+OpenAI,<model id>,document image,extraction,25 unique docs,25,,,,,
+xAI Grok,<model id>,no-tools,audit,reporting (60 ep),420,,,,,
+xAI Grok,<model id>,tools (sha256+arith),audit,reporting (60 ep),420,,,,,
+xAI Grok,<model id>,no-tools,audit,diagnostics (8 ep),56,,,,,
+xAI Grok,<model id>,tools (sha256+arith),audit,diagnostics (8 ep),56,,,,,
+xAI Grok,<model id>,text,extraction,25 unique docs,25,,,,,
+xAI Grok,<model id>,document image,extraction,25 unique docs,25,,,,,

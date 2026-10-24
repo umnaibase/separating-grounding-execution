@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_69613aefa1cce115 version 1 has a retained source with version 1, and the SHA-256 of its exact UTF-8 text computes to d97310fe...e5293, matching the cited digest.",
+      "evidence": ["src_69613aefa1cce115", "citations.contract[0]", "sources[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid cited contract states the minimum penalty-free cancellation time is eighteen months, matching the asserted 18; the 48-month framework duration is a separate figure and not the minimum commitment, so there is no conflict.",
+      "evidence": ["src_69613aefa1cce115", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transaction source covers window 2026-01-01/2026-01-31 and reports 1000 eligible and 20 disputed transactions, giving the fraction 20/1000 exactly as asserted.",
+      "evidence": ["src_78742f119cc0cfb5", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with supported thresholds (1/50, 6 months); inputs are valid integers. 50*20=1000 >= 1000 so dispute_trigger is true; 18 < 6 is false so commitment_trigger is false; policy yields manual_review, matching the recorded rule_output, both trace predicates and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals both rule_output and the policy replay, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is non-empty and valid ([18]); with disputed=20 and eligible=1000 fixed the dispute predicate is true regardless of commitment, and 18 < 6 is false, so the sole candidate yields manual_review, the same recommendation as the recorded run.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "The recorded dispute predicate is true and independently verifies on recorded inputs (50*20=1000 >= 1000); under toy-v1 the recommendation is manual_review whenever the dispute predicate holds, irrespective of the commitment predicate, so it alone suffices.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; a='The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.'; b='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'; print(hashlib.sha256(a.encode('utf-8')).hexdigest()); print(hashlib.sha256(b.encode('utf-8')).hexdigest()); print(50*20 >= 1000, 18 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both retained source texts hash to the cited SHA-256 digests with matching versions. Integer arithmetic confirms 50*20 >= 1000 (dispute trigger true) and 18 < 6 false, so all seven claims are consistent with the sources and record."
+  }
+}

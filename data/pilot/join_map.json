@@ -1,0 +1,711 @@
+{
+  "protocol": "assistant-pilot-1",
+  "records": [
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_00b85d45a3673eb6",
+      "original_case_id": "case_a5416b48c692f4a6",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "source_id_map": {
+        "src_081b01da7815d753": "s01",
+        "src_f46093ed26e74e6c": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_05e9207300018ccc",
+      "original_case_id": "case_75c52dd0d7f2eb82",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "source_id_map": {
+        "src_69613aefa1cce115": "s01",
+        "src_78742f119cc0cfb5": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_0b39d2eb47627c32",
+      "original_case_id": "case_45cefda2b29cd619",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "source_id_map": {
+        "src_20f3da78f823e788": "s02",
+        "src_b39661dc69a15054": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_0c517c369d2d5d19",
+      "original_case_id": "case_cb5218205e35f365",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "source_id_map": {
+        "src_53e77460b588b4ab": "s02",
+        "src_be75313edd2b3164": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_0f64684d0900dd0c",
+      "original_case_id": "case_d2e074f0b18c0979",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "source_id_map": {
+        "src_97938c8628002d54": "s02",
+        "src_fd1a6ee4670ed6dc": "s01"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_10df7e272e8cc292",
+      "original_case_id": "diag-case_84933d8631c1b180",
+      "scenario_id": "diag-scenario_353acf65e3ed545a",
+      "source_id_map": {
+        "diag-src_31e01f933e77670b": "s02",
+        "diag-src_8e37ac4838cc1997": "s03",
+        "diag-src_9f9b388eafdc9b55": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_12b0f6a3fc632a5c",
+      "original_case_id": "case_91c8c5a0614d675c",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "source_id_map": {
+        "src_86adc04cfeaff602": "s03",
+        "src_aa990a77b2e1e9ca": "s02",
+        "src_f12bd8dfe47e73f5": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_18102d44b1049e9f",
+      "original_case_id": "case_2cfbfd9ce81f0703",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "source_id_map": {
+        "src_53e77460b588b4ab": "s02",
+        "src_be75313edd2b3164": "s01",
+        "src_f32c96bcaf4f6238": "s03"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_1f5d89aef602104d",
+      "original_case_id": "case_b5d5d07bc025f241",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "source_id_map": {
+        "src_97938c8628002d54": "s02",
+        "src_fd1a6ee4670ed6dc": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_204354b6289f58ef",
+      "original_case_id": "case_6355617c7ac49116",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "source_id_map": {
+        "src_b2a137376b6ff631": "s01",
+        "src_e3af73edf1cec607": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_20b5f336dbd8134b",
+      "original_case_id": "case_07246c044c824758",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "source_id_map": {
+        "src_20f3da78f823e788": "s01",
+        "src_b39661dc69a15054": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_23c23ef6d831c4e4",
+      "original_case_id": "case_ac1cc51279b6ef89",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "source_id_map": {
+        "src_aa990a77b2e1e9ca": "s02",
+        "src_f12bd8dfe47e73f5": "s01"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_2616bae20a5d6c28",
+      "original_case_id": "diag-case_8c2bab27519ed1d0",
+      "scenario_id": "diag-scenario_c9e0d607e08c43bb",
+      "source_id_map": {
+        "diag-src_55eedb1859b0b517": "s04",
+        "diag-src_bd4c0fff3b7078f7": "s03",
+        "diag-src_e2117bf0bf384306": "s02",
+        "diag-src_f4245a1e6b4fbfd3": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_29ae11abc53c2b5d",
+      "original_case_id": "case_4fef64096c64a2cd",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "source_id_map": {
+        "src_b2a137376b6ff631": "s01",
+        "src_e3af73edf1cec607": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_31bf13e27e561013",
+      "original_case_id": "case_d0db49fb716ee077",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "source_id_map": {
+        "src_081b01da7815d753": "s01",
+        "src_6647866b72846819": "s03",
+        "src_f46093ed26e74e6c": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_32ac9d4e734137f2",
+      "original_case_id": "case_3af9864800ed8861",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "source_id_map": {
+        "src_2865380dfd93f4c9": "s03",
+        "src_97938c8628002d54": "s02",
+        "src_fd1a6ee4670ed6dc": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_33e17619f514c91e",
+      "original_case_id": "case_c1a5793f16aa3f57",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "source_id_map": {
+        "src_69613aefa1cce115": "s01",
+        "src_78742f119cc0cfb5": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_39143dc06855486b",
+      "original_case_id": "case_ad71d5fba20e3553",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "source_id_map": {
+        "src_2997ae3262314dbf": "s02",
+        "src_51d1d2de924d3cc0": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_3a75857a2ccad717",
+      "original_case_id": "case_3c3157a3cf1e64ee",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "source_id_map": {
+        "src_69613aefa1cce115": "s01",
+        "src_78742f119cc0cfb5": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_3b6268aa930019c5",
+      "original_case_id": "case_7ca91a566f45a47a",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "source_id_map": {
+        "src_2ccdf6fb00ff42b1": "s03",
+        "src_771462962372190e": "s02",
+        "src_c8ff67442fbc103d": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_475d941377a2114c",
+      "original_case_id": "case_40ac0f6bc84b9145",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "source_id_map": {
+        "src_420443f31395c781": "s02",
+        "src_f5d522e9bafea47f": "s01"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_47e32378ed26000d",
+      "original_case_id": "diag-case_91540738a4a2ef62",
+      "scenario_id": "diag-scenario_c9e0d607e08c43bb",
+      "source_id_map": {
+        "diag-src_55eedb1859b0b517": "s04",
+        "diag-src_bd4c0fff3b7078f7": "s03",
+        "diag-src_e2117bf0bf384306": "s02",
+        "diag-src_f4245a1e6b4fbfd3": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_48565d039729755f",
+      "original_case_id": "case_ea0523db77f22c20",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "source_id_map": {
+        "src_53e77460b588b4ab": "s02",
+        "src_be75313edd2b3164": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_4ad30211e4e48a5e",
+      "original_case_id": "case_121a45b7df8a4442",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "source_id_map": {
+        "src_97938c8628002d54": "s02",
+        "src_fd1a6ee4670ed6dc": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_4d33a698ae71b1ce",
+      "original_case_id": "case_cd53f57418936c1d",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "source_id_map": {
+        "src_20f3da78f823e788": "s01",
+        "src_9c56223441e7adaf": "s03",
+        "src_b39661dc69a15054": "s02"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_50f77fcdd9760d27",
+      "original_case_id": "diag-case_d0b9d9c6fd0b65e7",
+      "scenario_id": "diag-scenario_9b96f2dbf5f9b766",
+      "source_id_map": {
+        "diag-src_08e2e0e79f71e0bd": "s03",
+        "diag-src_392bc0e530a203b1": "s04",
+        "diag-src_4414f469b794f6b6": "s01",
+        "diag-src_a339b95074c62e5d": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_56a6a18be0a42c65",
+      "original_case_id": "case_0ca93999ec3c5eea",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "source_id_map": {
+        "src_53e77460b588b4ab": "s02",
+        "src_be75313edd2b3164": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_5d9214c9b23b9198",
+      "original_case_id": "case_a6542ee2baa2f4c6",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "source_id_map": {
+        "src_38f5895537b77de7": "s01",
+        "src_944f6a96d87a63a8": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_607e3efa7c4c1192",
+      "original_case_id": "case_a40b69cd0c8790e3",
+      "scenario_id": "scenario_53f0dbcc39b1a84a",
+      "source_id_map": {
+        "src_97938c8628002d54": "s02",
+        "src_fd1a6ee4670ed6dc": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_64933fb8988c980e",
+      "original_case_id": "case_54092d8e100d8057",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "source_id_map": {
+        "src_771462962372190e": "s02",
+        "src_c8ff67442fbc103d": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_6a2691285a7e810f",
+      "original_case_id": "case_1639cc5e15d3a206",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "source_id_map": {
+        "src_2997ae3262314dbf": "s02",
+        "src_51d1d2de924d3cc0": "s01"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_6e5cb2815ed54d5c",
+      "original_case_id": "diag-case_c720c5e500065633",
+      "scenario_id": "diag-scenario_353acf65e3ed545a",
+      "source_id_map": {
+        "diag-src_31e01f933e77670b": "s02",
+        "diag-src_8e37ac4838cc1997": "s03",
+        "diag-src_9f9b388eafdc9b55": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_732bf9a43fc5e9bd",
+      "original_case_id": "case_64984dbb642caf5e",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "source_id_map": {
+        "src_2aad353c079d1b5b": "s03",
+        "src_ba430e75185acb7d": "s02",
+        "src_d3840dc477fc2c9a": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_7cd544e19f8a89b3",
+      "original_case_id": "case_e4c41b4410943970",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "source_id_map": {
+        "src_04a0eb41ce66089c": "s03",
+        "src_771462962372190e": "s02",
+        "src_c8ff67442fbc103d": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_8288e056936df56c",
+      "original_case_id": "case_96101184a60febe1",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "source_id_map": {
+        "src_aa990a77b2e1e9ca": "s02",
+        "src_f12bd8dfe47e73f5": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_83eabdee99f4194c",
+      "original_case_id": "case_7c2e05d1a9bbe57a",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "source_id_map": {
+        "src_081b01da7815d753": "s01",
+        "src_f46093ed26e74e6c": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_90178f9c21154128",
+      "original_case_id": "case_a4bb10865e1a60b5",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "source_id_map": {
+        "src_420443f31395c781": "s02",
+        "src_5db88d90dee4468b": "s03",
+        "src_f5d522e9bafea47f": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_90564bff36b4a974",
+      "original_case_id": "case_bb6e2d4b128fabd7",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "source_id_map": {
+        "src_38f5895537b77de7": "s01",
+        "src_944f6a96d87a63a8": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_922df446b46fef94",
+      "original_case_id": "case_38ffe171bf16488b",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "source_id_map": {
+        "src_38f5895537b77de7": "s01",
+        "src_944f6a96d87a63a8": "s02",
+        "src_a92c0915f81a567d": "s03"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_9371e9a93f1cf1a2",
+      "original_case_id": "case_f1352befaf90773c",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "source_id_map": {
+        "src_aa990a77b2e1e9ca": "s02",
+        "src_f12bd8dfe47e73f5": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_947d176359ad2b8b",
+      "original_case_id": "case_c1c64894ed3f6285",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "source_id_map": {
+        "src_1b3231930151767a": "s03",
+        "src_2997ae3262314dbf": "s02",
+        "src_51d1d2de924d3cc0": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_96cc2ec1ae4daed1",
+      "original_case_id": "case_39f50c0324bc27d3",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "source_id_map": {
+        "src_420443f31395c781": "s02",
+        "src_f5d522e9bafea47f": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_9e26ca5f498e1614",
+      "original_case_id": "case_e9cdc3b272acb33a",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "source_id_map": {
+        "src_ba430e75185acb7d": "s02",
+        "src_d3840dc477fc2c9a": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_9e88f02e02598b8a",
+      "original_case_id": "case_2bdfb513ecd7ba99",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "source_id_map": {
+        "src_081b01da7815d753": "s01",
+        "src_f46093ed26e74e6c": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_a293abd12cbd29f7",
+      "original_case_id": "case_6af73cdd529f4d0f",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "source_id_map": {
+        "src_ba430e75185acb7d": "s02",
+        "src_d3840dc477fc2c9a": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_aa8bc2ce451dfccf",
+      "original_case_id": "case_2b8fea677d9cedef",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "source_id_map": {
+        "src_20f3da78f823e788": "s01",
+        "src_b39661dc69a15054": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_abf70dd1b46951ba",
+      "original_case_id": "case_30d87a45a717ce71",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "source_id_map": {
+        "src_2997ae3262314dbf": "s02",
+        "src_51d1d2de924d3cc0": "s01"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_b1b39aeb73808bbf",
+      "original_case_id": "diag-case_783413f29d799a43",
+      "scenario_id": "diag-scenario_2d6ce53eec38ff18",
+      "source_id_map": {
+        "diag-src_280e17276dc850e5": "s02",
+        "diag-src_a94729dc92a197b7": "s01",
+        "diag-src_e62004e6e6669b7b": "s03"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_b3df5b90fc994a12",
+      "original_case_id": "case_10cc6c5fb30bd58b",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "source_id_map": {
+        "src_ba430e75185acb7d": "s02",
+        "src_d3840dc477fc2c9a": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_b759578dd95b8898",
+      "original_case_id": "case_092a59bd6be43719",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "source_id_map": {
+        "src_38f5895537b77de7": "s02",
+        "src_944f6a96d87a63a8": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_b77c2d97d46c9e2f",
+      "original_case_id": "case_e6c09a1ade657662",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "source_id_map": {
+        "src_b2a137376b6ff631": "s01",
+        "src_e3af73edf1cec607": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_c160b6c28674596f",
+      "original_case_id": "case_ef90de411754b293",
+      "scenario_id": "scenario_bbaf3cd467b6aaae",
+      "source_id_map": {
+        "src_20f3da78f823e788": "s01",
+        "src_b39661dc69a15054": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_c5aef0faebda0423",
+      "original_case_id": "case_89d21a7a98be486c",
+      "scenario_id": "scenario_63719d9ddee3f814",
+      "source_id_map": {
+        "src_38f5895537b77de7": "s01",
+        "src_944f6a96d87a63a8": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_c65d45435e5040e8",
+      "original_case_id": "case_007c18701e3b03d3",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "source_id_map": {
+        "src_69613aefa1cce115": "s01",
+        "src_78742f119cc0cfb5": "s02"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_cbe294d69bc5e98b",
+      "original_case_id": "diag-case_17ae6dd745927c3c",
+      "scenario_id": "diag-scenario_2d6ce53eec38ff18",
+      "source_id_map": {
+        "diag-src_280e17276dc850e5": "s02",
+        "diag-src_a94729dc92a197b7": "s01",
+        "diag-src_e62004e6e6669b7b": "s03"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_ce93ca398fe3c724",
+      "original_case_id": "case_eae2b0b8bd4ba88c",
+      "scenario_id": "scenario_8e3bf3b0e49bce4d",
+      "source_id_map": {
+        "src_ba430e75185acb7d": "s02",
+        "src_d3840dc477fc2c9a": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_d3c2608055b28c6c",
+      "original_case_id": "case_86125d52dbdbaa5f",
+      "scenario_id": "scenario_34a673dbe2f96588",
+      "source_id_map": {
+        "src_412d00ff8aeb952a": "s03",
+        "src_69613aefa1cce115": "s01",
+        "src_78742f119cc0cfb5": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_d63e23af7d8b40c6",
+      "original_case_id": "case_6a8807322b98cc46",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "source_id_map": {
+        "src_771462962372190e": "s02",
+        "src_c8ff67442fbc103d": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_d7d33ee3a0b22800",
+      "original_case_id": "case_f0d2096e397c823a",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "source_id_map": {
+        "src_20280b2e46e31226": "s03",
+        "src_b2a137376b6ff631": "s01",
+        "src_e3af73edf1cec607": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_da574cd025d1455b",
+      "original_case_id": "case_5083fc80c9ccd370",
+      "scenario_id": "scenario_b90a8a9e768fa36f",
+      "source_id_map": {
+        "src_2997ae3262314dbf": "s02",
+        "src_51d1d2de924d3cc0": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_dff2924d858f076a",
+      "original_case_id": "case_78e8c1ddeb15f927",
+      "scenario_id": "scenario_f580dfec804aa350",
+      "source_id_map": {
+        "src_53e77460b588b4ab": "s02",
+        "src_be75313edd2b3164": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_e1aa3dcc99c4aec1",
+      "original_case_id": "case_9b1039882f7070a8",
+      "scenario_id": "scenario_38b96cbac3ca3c59",
+      "source_id_map": {
+        "src_771462962372190e": "s02",
+        "src_c8ff67442fbc103d": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_e1b80395df8ab8ec",
+      "original_case_id": "case_91bf94e28c04fb8c",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "source_id_map": {
+        "src_420443f31395c781": "s02",
+        "src_f5d522e9bafea47f": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_e20b6b146dffcf30",
+      "original_case_id": "case_3201bfc52dc775b2",
+      "scenario_id": "scenario_357fc23c6f5708ce",
+      "source_id_map": {
+        "src_aa990a77b2e1e9ca": "s02",
+        "src_f12bd8dfe47e73f5": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_e72df948308ef117",
+      "original_case_id": "case_6843a98ae359db46",
+      "scenario_id": "scenario_98aedfc5a3c80bea",
+      "source_id_map": {
+        "src_420443f31395c781": "s02",
+        "src_f5d522e9bafea47f": "s01"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_e97738471262862c",
+      "original_case_id": "case_2d1de491af1a3592",
+      "scenario_id": "scenario_5097d1930db3d4b7",
+      "source_id_map": {
+        "src_081b01da7815d753": "s01",
+        "src_f46093ed26e74e6c": "s02"
+      }
+    },
+    {
+      "collection": "main_reporting",
+      "episode_id": "ep_ea98cca53d486598",
+      "original_case_id": "case_b3ed55f32da3359a",
+      "scenario_id": "scenario_7b64ec0d8b5d1f38",
+      "source_id_map": {
+        "src_b2a137376b6ff631": "s01",
+        "src_c58433d4c00ff85a": "s03",
+        "src_e3af73edf1cec607": "s02"
+      }
+    },
+    {
+      "collection": "diagnostic",
+      "episode_id": "ep_fdd78109f1a4e6b6",
+      "original_case_id": "diag-case_514c2797baa6b3ab",
+      "scenario_id": "diag-scenario_9b96f2dbf5f9b766",
+      "source_id_map": {
+        "diag-src_08e2e0e79f71e0bd": "s03",
+        "diag-src_392bc0e530a203b1": "s04",
+        "diag-src_4414f469b794f6b6": "s01",
+        "diag-src_a339b95074c62e5d": "s02"
+      }
+    }
+  ]
+}

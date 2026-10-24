@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: >-
+  If you use this artifact, please cite the accompanying paper using the
+  preferred citation below and identify artifact release 1.2.2.
+type: software
+title: "Banking Audit Evidence: Reproducibility Artifact"
+authors:
+  - family-names: Dalli
+    given-names: Angelo
+    affiliation: UMNAI
+version: "1.2.2"
+license: MIT
+abstract: >-
+  Reproducibility artifact for an executable banking-audit contract separating
+  source grounding, policy execution and final-action attribution. Includes
+  100 fictional episodes with 700 assertions, eight separate diagnostic
+  episodes, a bounded checker, authored reference labels, archived model
+  outputs and offline scoring. Results measure fixture conformance and
+  preserve the distinct provenance of unmatched model procedures.
+keywords:
+  - explainability
+  - claim verification
+  - decision provenance
+  - evidence grounding
+  - banking audits
+  - reproducibility
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Dalli
+      given-names: Angelo
+      affiliation: UMNAI
+  title: "Separating Grounding, Execution and Attribution in Foundation-Model-Assisted Banking Audits"
+  year: 2026

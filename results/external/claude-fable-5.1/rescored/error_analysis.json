@@ -1,0 +1,680 @@
+{
+  "all_disagreements": [
+    {
+      "case_id": "case_6a8807322b98cc46",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source_id and version ('1') match the retained source src_c8ff67442fbc103d, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified under the no-computation constraint, so byte-level lineage is undetermined rather than confirmed."
+    },
+    {
+      "case_id": "case_54092d8e100d8057",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited contract version '1' matches retained source version '1', but the cited SHA-256 (da99ca27...) cannot be verified against the retained UTF-8 bytes without computation, so the digest match is undetermined rather than confirmed or contradicted."
+    },
+    {
+      "case_id": "case_e4c41b4410943970",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_c8ff67442fbc103d, src_04a0eb41ce66089c) are retained with matching version '1', but the SHA-256 digests of the retained UTF-8 text cannot be computed or verified here, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_7ca91a566f45a47a",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_c8ff67442fbc103d, src_2ccdf6fb00ff42b1) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the UTF-8 bytes without computation, so byte-level lineage is undetermined rather than confirmed or refuted."
+    },
+    {
+      "case_id": "case_9b1039882f7070a8",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited source_ids and versions (both '1') match the retained contract and transactions sources, but the SHA-256 digests of the retained UTF-8 bytes cannot be verified without computation, which this evaluation forbids; digest match is therefore undetermined."
+    },
+    {
+      "case_id": "case_3201bfc52dc775b2",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_f12bd8dfe47e73f5 exists in the retained sources and its version (1) matches the citation, but the cited SHA-256 digest cannot be recomputed from the retained UTF-8 text without a computational tool, so byte-level lineage is neither confirmed nor refuted."
+    },
+    {
+      "case_id": "case_f1352befaf90773c",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_f12bd8dfe47e73f5 is retained and its version (1) matches the citation, but the SHA-256 digest a390af9b... cannot be verified without computation, which is prohibited here; the digest match is therefore undetermined rather than observed."
+    },
+    {
+      "case_id": "case_96101184a60febe1",
+      "claim_id": "c2",
+      "contract_hash_verification": [
+        {
+          "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+          "matches": false,
+          "source_id": "src_f12bd8dfe47e73f5",
+          "version": "1"
+        }
+      ],
+      "false_support": true,
+      "kind": "commitment_grounding",
+      "lineage_prediction": "contradicted",
+      "prediction": "supported",
+      "reference": "unresolved",
+      "retained_reason": "The retained cited contract (source_id and version match the citation) states 'Minimum penalty-free cancellation time: 9 months', which is exactly the asserted value 9 and the recorded commitment_months. The 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value and no ambiguity in the document. The digest problem in c1 is a lineage defect assessed separately; the content of the retained cited source unambiguously supports 9."
+    },
+    {
+      "case_id": "case_91c8c5a0614d675c",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_f12bd8dfe47e73f5, src_86adc04cfeaff602) resolve to retained sources and the cited version '1' matches each retained version, but the SHA-256 digests of the retained UTF-8 text cannot be computed or verified here; with digest match unverified, lineage cannot be established and no mismatch is observed either, so the claim is unresolved."
+    },
+    {
+      "case_id": "case_91c8c5a0614d675c",
+      "claim_id": "c3",
+      "false_support": false,
+      "kind": "dispute_grounding",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited transactions source src_aa990a77b2e1e9ca covers exactly the window 2026-01-01/2026-01-31 and reports eligible 2000 and disputed 45, which equals the asserted fraction 45/2000 and the recorded inputs; the content therefore agrees. However the citation's SHA-256 digest cannot be verified without computation, so the validity of the cited evidence is not established and, per the instruction not to guess hash outcomes, the claim is left unresolved rather than supported."
+    },
+    {
+      "case_id": "case_ac1cc51279b6ef89",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source_id src_f12bd8dfe47e73f5 and version 1 match the retained source, but the SHA-256 digest a390af9b... cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no digest mismatch was observed, so the lineage assertion is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_ad71d5fba20e3553",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_51d1d2de924d3cc0 version 1 is retained with a matching source_id and version, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified without tools, so byte-level lineage cannot be confirmed or refuted."
+    },
+    {
+      "case_id": "case_30d87a45a717ce71",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source src_51d1d2de924d3cc0 is retained with matching version '1', but the SHA-256 digest 4eb69472... cannot be verified against the retained UTF-8 bytes without computation, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_1639cc5e15d3a206",
+      "claim_id": "c3",
+      "false_support": false,
+      "kind": "dispute_grounding",
+      "lineage_prediction": "contradicted",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The retained transactions source src_2997ae3262314dbf (version 1, matching the cited version) states window 2026-01-01/2026-01-31, eligible 800, disputed 15, which equals the asserted 15/800 fraction. However, the citation's SHA-256 digest could not be verified without computation, so the validity of the cited evidence cannot be confirmed; per the no-guessing rule on hash computations this is left unresolved rather than asserted as supported."
+    },
+    {
+      "case_id": "case_c1c64894ed3f6285",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_51d1d2de924d3cc0, src_1b3231930151767a) are retained with version '1' matching the citations, but the SHA-256 digests of the retained UTF-8 text cannot be computed or verified under this evaluation's no-computation rule; no digest mismatch was observed, so byte-level lineage is unverified rather than contradicted."
+    },
+    {
+      "case_id": "case_5083fc80c9ccd370",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited contract src_51d1d2de924d3cc0 is retained and its version (1) matches the citation, but the SHA-256 digest of the retained UTF-8 text cannot be verified without computation, so byte-level lineage is undecided."
+    },
+    {
+      "case_id": "case_c1a5793f16aa3f57",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited contract version '1' matches the retained source version, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage cannot be established."
+    },
+    {
+      "case_id": "case_007c18701e3b03d3",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_69613aefa1cce115 is retained with matching version '1', but the SHA-256 digest of its UTF-8 bytes cannot be computed or verified without tools, so digest equality with a4895c42... is undetermined; no mismatch is observed, but the lineage cannot be established."
+    },
+    {
+      "case_id": "case_75c52dd0d7f2eb82",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_69613aefa1cce115 is retained with matching source_id and version '1', but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage cannot be established; no mismatch was observed either."
+    },
+    {
+      "case_id": "case_86125d52dbdbaa5f",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_69613aefa1cce115, src_412d00ff8aeb952a) are retained with version '1' matching the citations, but the SHA-256 digests of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage is neither confirmed nor refuted."
+    },
+    {
+      "case_id": "case_3c3157a3cf1e64ee",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_69613aefa1cce115 is retained and its version (1) matches the citation, but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here; lineage is therefore undetermined rather than confirmed or refuted."
+    },
+    {
+      "case_id": "case_07246c044c824758",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_20f3da78f823e788 version 1 matches the retained source's id and version, but the citation's SHA-256 (6a9da92c...) cannot be verified against the retained UTF-8 bytes without computing a digest, which is not permitted and cannot be done reliably mentally; no retained digest is supplied for comparison, so byte lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_2b8fea677d9cedef",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_20f3da78f823e788 is retained and its version '1' matches the citation, but the SHA-256 of the retained UTF-8 bytes cannot be computed without tools, so digest equality cannot be established or refuted; lineage remains unresolved."
+    },
+    {
+      "case_id": "case_cd53f57418936c1d",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_20f3da78f823e788, src_9c56223441e7adaf) are retained with version '1' matching the citations, but the SHA-256 digests of the retained UTF-8 bytes cannot be computed or verified without tooling, so byte-level lineage is unverifiable rather than confirmed or refuted."
+    },
+    {
+      "case_id": "case_cd53f57418936c1d",
+      "claim_id": "c3",
+      "false_support": false,
+      "kind": "dispute_grounding",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The retained transaction source src_b39661dc69a15054 covers the exact window 2026-01-01/2026-01-31 and states eligible 1200 and disputed 25, matching the asserted fraction 25/1200 on content. However, the validity of the cited evidence depends on its SHA-256 lineage, which cannot be verified without computation, so the claim cannot be established as resting on valid evidence."
+    },
+    {
+      "case_id": "case_ef90de411754b293",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_20f3da78f823e788 is retained with a matching version '1', but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is unavailable here; no mismatch is observed, so the digest check is unresolved rather than contradicted."
+    },
+    {
+      "case_id": "case_0ca93999ec3c5eea",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract version '1' matches the retained source version '1', but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no mismatch is observed, so lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_78e8c1ddeb15f927",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract version (1) matches the retained source version, but the SHA-256 digest of the retained UTF-8 bytes cannot be verified without computation, which is not permitted here; the digest match is therefore unverified rather than confirmed or refuted."
+    },
+    {
+      "case_id": "case_cb5218205e35f365",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The single cited contract src_be75313edd2b3164 is retained and its version '1' matches the citation, but the cited SHA-256 digest cannot be verified against the retained text without computation; no mismatch is observed, so the lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_2cfbfd9ce81f0703",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_be75313edd2b3164, src_f32c96bcaf4f6238) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here; digest match is neither established nor refuted."
+    },
+    {
+      "case_id": "case_ea0523db77f22c20",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited contract source_id and version ('1') match the retained source, but the SHA-256 digest of the retained UTF-8 bytes cannot be verified without computation, so lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_6355617c7ac49116",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source_id src_b2a137376b6ff631 exists among retained sources and the cited version '1' matches the retained version '1', but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation; no mismatch is observed, so lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_e6c09a1ade657662",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract version (1) matches the retained source version, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so digest lineage is undetermined rather than confirmed or mismatched."
+    },
+    {
+      "case_id": "case_b3ed55f32da3359a",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_b2a137376b6ff631, src_c58433d4c00ff85a) are retained with matching version '1', but the cited SHA-256 digests of the retained UTF-8 bytes cannot be verified without computation; no digest mismatch was observed, so lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_f0d2096e397c823a",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_b2a137376b6ff631 v1, src_20280b2e46e31226 v1) are retained with matching versions, but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no mismatch was observed, so lineage is unresolved rather than contradicted."
+    },
+    {
+      "case_id": "case_4fef64096c64a2cd",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_b2a137376b6ff631 is retained with matching version '1', but the SHA-256 digest da99ca27... cannot be verified against the retained UTF-8 bytes without computation, which this evaluation forbids; digest match is therefore neither established nor refuted."
+    },
+    {
+      "case_id": "case_6843a98ae359db46",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_f5d522e9bafea47f version 1 is retained with a matching version, but the asserted SHA-256 digest a390af9b... cannot be verified against the retained UTF-8 bytes without computation; digest match is neither established nor refuted."
+    },
+    {
+      "case_id": "case_39f50c0324bc27d3",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_f5d522e9bafea47f version 1 is retained and its version matches the citation, but the cited SHA-256 digest (a390af9b...) cannot be verified against the retained UTF-8 bytes without computation; digest match is neither observed nor refuted, so lineage is unresolved."
+    },
+    {
+      "case_id": "case_91bf94e28c04fb8c",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "contradicted",
+      "retained_reason": "The contract citation (src_f5d522e9bafea47f, version 1) carries an all-zero SHA-256 digest, which is a placeholder rather than a verifiable digest; the version matches the retained source but the digest cannot be checked without computation and is effectively missing/invalid, so lineage cannot be established or shown mismatched."
+    },
+    {
+      "case_id": "case_91bf94e28c04fb8c",
+      "claim_id": "c2",
+      "contract_hash_verification": [
+        {
+          "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+          "matches": false,
+          "source_id": "src_f5d522e9bafea47f",
+          "version": "1"
+        }
+      ],
+      "false_support": true,
+      "kind": "commitment_grounding",
+      "lineage_prediction": "unresolved",
+      "prediction": "supported",
+      "reference": "unresolved",
+      "retained_reason": "The retained cited contract (matching source_id and version) states 'Minimum penalty-free cancellation time: 9 months', which equals the asserted value 9; the 24-month service framework duration is a distinct figure and not the minimum commitment, so there is no conflicting value."
+    },
+    {
+      "case_id": "case_a4bb10865e1a60b5",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_f5d522e9bafea47f, src_5db88d90dee4468b) are retained and their versions ('1') match the citations, but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here. No mismatch was observed, so this is not contradicted, but byte-level lineage is not established."
+    },
+    {
+      "case_id": "case_40ac0f6bc84b9145",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The retained contract source src_f5d522e9bafea47f exists with version '1' matching the citation version, but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, so byte-level lineage is unresolved rather than supported or contradicted."
+    },
+    {
+      "case_id": "case_2d1de491af1a3592",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_081b01da7815d753 is retained and its version '1' matches the citation, but the SHA-256 digest of the retained UTF-8 text cannot be computed or verified without a computational tool, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_7c2e05d1a9bbe57a",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source src_081b01da7815d753 is retained and its version '1' matches the citation, but the SHA-256 digest 4eb69472... cannot be verified against the retained UTF-8 bytes without computation, so lineage is neither confirmed nor shown mismatched."
+    },
+    {
+      "case_id": "case_d0db49fb716ee077",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_081b01da7815d753, src_6647866b72846819) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation; digest match is neither established nor refuted."
+    },
+    {
+      "case_id": "case_a5416b48c692f4a6",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_081b01da7815d753 is retained and its version '1' matches the citation, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage cannot be confirmed or refuted."
+    },
+    {
+      "case_id": "case_a40b69cd0c8790e3",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source_id src_fd1a6ee4670ed6dc is retained and its version '1' matches the citation, but the SHA-256 digest a4895c42... cannot be verified without computation, which this evaluation forbids; digest equality is therefore undetermined rather than observed as matching or mismatching."
+    },
+    {
+      "case_id": "case_121a45b7df8a4442",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_fd1a6ee4670ed6dc is retained and its version (1) matches the citation, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified under this evaluation's rules, so byte-level lineage is undecidable."
+    },
+    {
+      "case_id": "case_b5d5d07bc025f241",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_fd1a6ee4670ed6dc version 1 has a retained source with the same source_id and version, but the cited SHA-256 digest cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here; no mismatch is observed, so lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_3af9864800ed8861",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_fd1a6ee4670ed6dc, src_2865380dfd93f4c9) are retained with version '1' matching the citations, but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is unavailable here; digest match is neither established nor refuted."
+    },
+    {
+      "case_id": "case_3af9864800ed8861",
+      "claim_id": "c3",
+      "false_support": false,
+      "kind": "dispute_grounding",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The retained transaction source src_97938c8628002d54 (version 1) covers the window 2026-01-01/2026-01-31 and reports 1200 eligible and 25 disputed, which equals the asserted fraction 25/1200. However, the validity of the cited artifact depends on its SHA-256 digest matching the retained bytes, which cannot be verified here, so the evidence cannot be confirmed as valid."
+    },
+    {
+      "case_id": "case_d2e074f0b18c0979",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract source_id (src_fd1a6ee4670ed6dc) and version (1) match the retained source, but the cited SHA-256 digest (a4895c42...) cannot be verified against the retained UTF-8 bytes without computation; no mismatch is observed, so lineage is neither established nor contradicted."
+    },
+    {
+      "case_id": "case_a6542ee2baa2f4c6",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_38f5895537b77de7 is retained and its version ('1') matches the citation, but the SHA-256 digest of the retained UTF-8 text cannot be computed or verified without tools, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_bb6e2d4b128fabd7",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_38f5895537b77de7 is retained and its version (1) matches the citation, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage is undetermined; no mismatch was observed."
+    },
+    {
+      "case_id": "case_38ffe171bf16488b",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_38f5895537b77de7, src_a92c0915f81a567d) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is not available here; digest match is neither established nor refuted."
+    },
+    {
+      "case_id": "case_89d21a7a98be486c",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_38f5895537b77de7 is retained and its version ('1') matches the citation, but the cited SHA-256 digest of the retained UTF-8 bytes cannot be verified without computation, so byte-level lineage cannot be confirmed or refuted."
+    },
+    {
+      "case_id": "case_eae2b0b8bd4ba88c",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The cited contract src_d3840dc477fc2c9a version 1 is retained and the version matches the citation, but the SHA-256 digest of the retained UTF-8 text cannot be computed or verified without tools, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_10cc6c5fb30bd58b",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The single cited contract (src_d3840dc477fc2c9a) is retained and its cited version '1' matches the retained version, but the SHA-256 digest of the retained UTF-8 text cannot be computed or verified here, so byte-level lineage cannot be confirmed or refuted."
+    },
+    {
+      "case_id": "case_6af73cdd529f4d0f",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "The single cited contract src_d3840dc477fc2c9a is retained with matching version '1', but the cited SHA-256 (70c17378...) cannot be verified against the retained UTF-8 text without computation; no mismatch is observed, so the digest check is unresolved rather than contradicted."
+    },
+    {
+      "case_id": "case_64984dbb642caf5e",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Both cited contracts (src_d3840dc477fc2c9a, src_2aad353c079d1b5b) are retained with version 1 matching the citations, but the SHA-256 digests of the retained UTF-8 bytes cannot be computed or verified under this evaluation, so byte-level lineage cannot be established or refuted."
+    },
+    {
+      "case_id": "case_e9cdc3b272acb33a",
+      "claim_id": "c1",
+      "false_support": false,
+      "kind": "contract_lineage",
+      "lineage_prediction": "unresolved",
+      "prediction": "unresolved",
+      "reference": "supported",
+      "retained_reason": "Cited contract source_id src_d3840dc477fc2c9a and version 1 match the retained source, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so the digest match is neither confirmed nor observed to mismatch."
+    }
+  ],
+  "audit_notools_disagreements": 61,
+  "by_kind_and_transition": {
+    "commitment_grounding:unresolved->supported": 2,
+    "contract_lineage:contradicted->unresolved": 1,
+    "contract_lineage:supported->unresolved": 54,
+    "dispute_grounding:supported->unresolved": 4
+  },
+  "false_supports": [
+    {
+      "case_id": "case_96101184a60febe1",
+      "claim_id": "c2",
+      "contract_hash_verification": [
+        {
+          "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+          "matches": false,
+          "source_id": "src_f12bd8dfe47e73f5",
+          "version": "1"
+        }
+      ],
+      "false_support": true,
+      "kind": "commitment_grounding",
+      "lineage_prediction": "contradicted",
+      "prediction": "supported",
+      "reference": "unresolved",
+      "retained_reason": "The retained cited contract (source_id and version match the citation) states 'Minimum penalty-free cancellation time: 9 months', which is exactly the asserted value 9 and the recorded commitment_months. The 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value and no ambiguity in the document. The digest problem in c1 is a lineage defect assessed separately; the content of the retained cited source unambiguously supports 9."
+    },
+    {
+      "case_id": "case_91bf94e28c04fb8c",
+      "claim_id": "c2",
+      "contract_hash_verification": [
+        {
+          "cited_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "computed_utf8_sha256": "a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0",
+          "matches": false,
+          "source_id": "src_f5d522e9bafea47f",
+          "version": "1"
+        }
+      ],
+      "false_support": true,
+      "kind": "commitment_grounding",
+      "lineage_prediction": "unresolved",
+      "prediction": "supported",
+      "reference": "unresolved",
+      "retained_reason": "The retained cited contract (matching source_id and version) states 'Minimum penalty-free cancellation time: 9 months', which equals the asserted value 9; the 24-month service framework duration is a distinct figure and not the minimum commitment, so there is no conflicting value."
+    }
+  ],
+  "interpretation": "The two false supports endorse commitment grounding without valid contract citation evidence. A separate scope label does not remove the grounding prerequisite. No-tools lineage abstention can reflect unavailable computation; reference agreement is not a pure measure of semantic capability. These condition differences do not establish a causal claim that semantic reasoning is not the bottleneck."
+}

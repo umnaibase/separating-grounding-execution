@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract source_id src_f12bd8dfe47e73f5 and version 1 match the retained source, but the SHA-256 digest a390af9b... cannot be verified against the retained UTF-8 bytes without computation, which is prohibited here; no digest mismatch was observed, so the lineage assertion is neither established nor contradicted.",
+      "evidence": ["citations.contract[0]", "src_f12bd8dfe47e73f5"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract states 'Minimum penalty-free cancellation time: 9 months', which matches the asserted value 9; the 24-month service framework duration is a framework duration, not the minimum commitment, so there is no conflicting value. Digest was not independently verified (see c1).",
+      "evidence": ["src_f12bd8dfe47e73f5", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transactions source covers the observation window 2026-01-01/2026-01-31 and reports 2000 eligible and 45 disputed transactions, giving the fraction 45/2000, identical to the asserted fraction 45/2000.",
+      "evidence": ["src_aa990a77b2e1e9ca", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months. Inputs are valid (nonnegative integers, eligible 2000 > 0, disputed 45 <= 2000). Dispute predicate: 50*45 = 2250 >= 2000 is true; commitment predicate: 9 < 6 is false; OR yields manual_review. Trace (dispute_trigger true, commitment_trigger false), rule_output manual_review and asserted manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override (from manual_review to manual_review, reason: reviewer actively confirms the same action). Per the definition, an explicit override, even one preserving the outcome, contradicts attribution of the final action to the policy without intervention, despite the complete action history and matching final output.",
+      "evidence": ["record.override", "record.action_history_complete", "record.final_output", "record.rule_output"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [9], non-empty and valid. Holding disputed 45 and eligible 2000 fixed, the dispute predicate (2250 >= 2000) is true, so toy-v1 yields manual_review for the candidate 9 (commitment predicate 9 < 6 false). All declared candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, the dispute predicate 50*45 = 2250 >= 2000 is true, and toy-v1 recommends manual_review when either predicate holds, so the recorded dispute predicate alone suffices for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "All reasoning was done mentally from the supplied SYSTEM and USER messages; no hash was computed, so contract lineage (c1) is left unresolved rather than asserted. Only the task file was read and only the Write tool was used for output."
+  }
+}

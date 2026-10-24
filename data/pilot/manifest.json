@@ -1,0 +1,114 @@
+{
+  "files": {
+    "batches/image_batch_01.json": {
+      "bytes": 23560,
+      "sha256": "31b78592b65f498af48f771320ed8a9ef022ad6f032c40d440e413f5c26656f2"
+    },
+    "batches/image_batch_02.json": {
+      "bytes": 23614,
+      "sha256": "b2cc8b91a407593ecf03dd6ec3d40348809f9b7184ac4a7f683d1f0910909705"
+    },
+    "batches/paired_text_batch_01.json": {
+      "bytes": 23286,
+      "sha256": "d2532fc2bb5c6e6dee46dabb307dc438b847b244a87f5537933936e6539771bd"
+    },
+    "batches/paired_text_batch_02.json": {
+      "bytes": 23452,
+      "sha256": "a2a25e08082a714d526d51ec835e24476ce6244011febc8295477e9bd12d46ca"
+    },
+    "batches/text_batch_01.json": {
+      "bytes": 59084,
+      "sha256": "a4982921dee0e6d4ae2f453211b68db5c00af7c3a638eddef2ca49d13721d3f1"
+    },
+    "batches/text_batch_02.json": {
+      "bytes": 61597,
+      "sha256": "b1c07e5d804ffc4c30829ba8fb8786478c7f014a630c054bf275b6f37e5cbac1"
+    },
+    "batches/text_batch_03.json": {
+      "bytes": 59515,
+      "sha256": "5362d85b0c65fbd065713eecc438a431792138a03d58c91b2406387fbdf6dff6"
+    },
+    "batches/text_batch_04.json": {
+      "bytes": 58931,
+      "sha256": "050642a4571a2989ce1c58d9874eb7d2477b3182388c6742e556c4203b9347ad"
+    },
+    "images/ep_00b85d45a3673eb6.png": {
+      "bytes": 23568,
+      "sha256": "5b847ebed1be9fd3c6b5b323c13bfc872240d0cfa7cc2dcb894e8e2cff485522"
+    },
+    "images/ep_05e9207300018ccc.png": {
+      "bytes": 23578,
+      "sha256": "8f8c8aa3df801fab855434d27820c5d58eeb6983074f95ca1504a9e65bbff195"
+    },
+    "images/ep_0b39d2eb47627c32.png": {
+      "bytes": 15616,
+      "sha256": "884cd30519a2493d082cfe84f449e08b598615baedabe6a31d15ac923c9c5d62"
+    },
+    "images/ep_0c517c369d2d5d19.png": {
+      "bytes": 11327,
+      "sha256": "85d7cf22a9bb7270e61686fd6e687e4a6a47245f0a62b910e1e6412df02025db"
+    },
+    "images/ep_0f64684d0900dd0c.png": {
+      "bytes": 23693,
+      "sha256": "9fc8d51638c4f1fd3e634d1d7d97fe0836a26cc9009f101c4f4b585184656a12"
+    },
+    "images/ep_12b0f6a3fc632a5c.png": {
+      "bytes": 33459,
+      "sha256": "62fd8988a17fc6c6c6e5af1eaa3701d2209ef4faf2e40c49c0ddef31150e81e4"
+    },
+    "images/ep_204354b6289f58ef.png": {
+      "bytes": 23846,
+      "sha256": "dc970154f5db02b077ed4d7225f9011ba139533d7d1bfedfdbe0ed0b14893ed2"
+    },
+    "images/ep_29ae11abc53c2b5d.png": {
+      "bytes": 23846,
+      "sha256": "dc970154f5db02b077ed4d7225f9011ba139533d7d1bfedfdbe0ed0b14893ed2"
+    },
+    "images/ep_33e17619f514c91e.png": {
+      "bytes": 23563,
+      "sha256": "446ff8c65afc7561bc0863a655970430a8c2f8c01fd8f48855721bac487e4608"
+    },
+    "images/ep_3a75857a2ccad717.png": {
+      "bytes": 23563,
+      "sha256": "446ff8c65afc7561bc0863a655970430a8c2f8c01fd8f48855721bac487e4608"
+    },
+    "images/ep_6a2691285a7e810f.png": {
+      "bytes": 23590,
+      "sha256": "e7f879b8acd6c0c167b5a1d68410e47c62f0dba5173cdb0a8454f1b3c14925e0"
+    },
+    "images/ep_8288e056936df56c.png": {
+      "bytes": 25532,
+      "sha256": "e2cf3e9d85062ad69aced219de912cd01157fe9f2a15cc8c048c372fd39ac289"
+    },
+    "join_map.json": {
+      "bytes": 21999,
+      "sha256": "4b530020c1e972083d2a9237c698ada9fa50fd344b3f96879c4072cbe4181154"
+    },
+    "model_run.example.json": {
+      "bytes": 688,
+      "sha256": "73ebd593d42155efa259c74304d366d8e6621b99eb4097ec4153112efbf2ec64"
+    },
+    "prompts/image_cases.jsonl": {
+      "bytes": 109460,
+      "sha256": "95812584f0c964a0dcbf277b711a9aea443b9ec1aef3a42a2ef3c32a1640a7a4"
+    },
+    "prompts/text_cases.jsonl": {
+      "bytes": 554613,
+      "sha256": "2eb761c818a8dca3058eb9ce98e326bad21f7a1b37ac1d7d162c1796018c5b82"
+    },
+    "selection.json": {
+      "bytes": 7301,
+      "sha256": "562f7c912409f7a16d97f1297283a9880363458a3b9ca5a7419a314126844d99"
+    }
+  },
+  "no_model_invoked": true,
+  "no_reference_labels_read": true,
+  "protocol": "assistant-pilot-1",
+  "seed": "explainability-boundaries-assistant-pilot-frozen-1",
+  "source_corpus_sha256": {
+    "cases.jsonl": "24385a6efe0374c74a8e79fb80fd8c916c3a4cb22677adb8bd13732b668b237a",
+    "diagnostics/cases.jsonl": "9b9316762fac7e092c719cecfbccc35d4b3bffbf6cff64bf3027d74d14656285",
+    "diagnostics/metadata.json": "f0fe9c3bcd339217ad81818e85977704bc18fd9c56f4910e1ba38a3fba6da663",
+    "metadata.json": "8127c5c326b782c3682291888d36bd2d024a7cbafe371a48839ac78bad996345"
+  }
+}

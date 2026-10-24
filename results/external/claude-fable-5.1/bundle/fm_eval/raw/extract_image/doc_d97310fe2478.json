@@ -1,0 +1,9 @@
+{
+  "kind": "contract",
+  "fields": {
+    "commitment_months": 18,
+    "framework_months": 48
+  },
+  "verbatim_support": "The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.",
+  "notes": "Clause 7 states the penalty-free commitment in words (eighteen months, i.e. 18) and the overall service-framework duration numerically (48 months); both values were legible in the image."
+}

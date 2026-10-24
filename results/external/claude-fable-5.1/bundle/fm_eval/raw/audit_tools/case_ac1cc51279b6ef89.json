@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of the retained contract text src_f12bd8dfe47e73f5 equals the cited digest a390af9b...dbc4ac0 and the cited version 1 matches the retained version 1; the single cited contract is unambiguous.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid (digest/version-verified) cited contract states 'Minimum penalty-free cancellation time: 9 months', matching the asserted value 9 and record.input.commitment_months; the 24-month framework duration is not the minimum commitment and no conflicting document exists.",
+      "evidence": ["src_f12bd8dfe47e73f5", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid (digest/version-verified) cited transaction source covers the window 2026-01-01/2026-01-31 and reports eligible 2000 and disputed 45, giving fraction 45/2000 exactly as asserted and as recorded.",
+      "evidence": ["src_aa990a77b2e1e9ca", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (9, 45, 2000): 50*45=2250 >= 2000 so dispute_trigger is true; 9 < 6 is false so commitment_trigger is false; the recorded trace matches both, and OR yields manual_review, matching rule_output and the asserted value. Policy id and thresholds are the supported toy-v1 configuration.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit non-null override (manual_review -> manual_review, reviewer confirmation); per the definition an explicit override contradicts attribution to the policy without intervention even though it preserves the outcome.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is non-empty and valid ([9]); with disputed 45 and eligible 2000 fixed, dispute_trigger is true (2250 >= 2000) so every candidate (9) yields manual_review, i.e. all candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "The recorded dispute predicate is true (50*45=2250 >= 2000) and under toy-v1 a true dispute predicate alone yields manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo $((50*45)) $((50*45 >= 2000)) $((9 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests were recomputed from the retained source texts and matched exactly with matching versions. The only non-supported claim is c5, contradicted by the explicit outcome-preserving override in the record."
+  }
+}

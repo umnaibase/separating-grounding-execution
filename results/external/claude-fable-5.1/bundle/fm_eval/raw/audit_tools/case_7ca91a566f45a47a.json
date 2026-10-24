@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Both cited contracts are retained with version 1 and recomputed UTF-8 SHA-256 digests match the citations exactly (src_c8ff67442fbc103d -> 84a68c3d...de57; src_2ccdf6fb00ff42b1 -> 4ad7916b...41ec).",
+      "evidence": ["src_c8ff67442fbc103d", "src_2ccdf6fb00ff42b1", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid, but they conflict: src_c8ff67442fbc103d states penalty-free termination after 3 months while src_2ccdf6fb00ff42b1 states a 9-month minimum; no precedence rule is supplied, so the asserted value 3 is not unambiguously supported nor uniquely contradicted.",
+      "evidence": ["src_c8ff67442fbc103d", "src_2ccdf6fb00ff42b1", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source is valid (digest and version match) and covers window 2026-01-01/2026-01-31 with 1500 eligible and 25 disputed, giving fraction 25/1500 exactly as asserted.",
+      "evidence": ["src_771462962372190e", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (eligible 1500 > 0, 0 <= disputed 25 <= 1500, commitment 3). Replay: 50*25 = 1250 < 1500 so dispute_trigger = false; 3 < 6 so commitment_trigger = true; OR gives manual_review. Recorded trace, rule_output and asserted value all match.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "With disputed 25 and eligible 1500 fixed (dispute_trigger false), candidate 3 gives 3 < 6 -> manual_review, but candidate 9 gives 9 < 6 false -> standard_processing; the candidates do not yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate is false (50*25 = 1250 < 1500) and the recorded trace agrees (dispute_trigger false); manual_review arises solely from the commitment predicate, so the dispute predicate alone does not suffice.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum; printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum; echo \"50*25=$((50*25)) ; 1250>=1500 -> $(( 50*25 >= 1500 )) ; 3<6 -> $(( 3 < 6 )) ; 9<6 -> $(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited source digests and versions matched on recomputation. The two valid contracts conflict (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; policy replay confirms manual_review via the commitment predicate only, so candidate stability and dispute sufficiency are contradicted."
+  }
+}

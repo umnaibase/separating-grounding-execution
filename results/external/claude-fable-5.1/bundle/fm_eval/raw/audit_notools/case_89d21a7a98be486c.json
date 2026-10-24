@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_38f5895537b77de7 is retained and its version ('1') matches the citation, but the cited SHA-256 digest of the retained UTF-8 bytes cannot be verified without computation, so byte-level lineage cannot be confirmed or refuted.",
+      "evidence": ["citations.contract[0]", "src_38f5895537b77de7"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The cited retained contract states 'Minimum penalty-free cancellation time: 3 months', a single unambiguous value equal to the asserted 3 and the recorded commitment_months; the 24-month service framework duration is not the minimum commitment.",
+      "evidence": ["src_38f5895537b77de7", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source covers the observation window 2026-01-01/2026-01-31 and reports 1500 eligible and 25 disputed transactions, giving the fraction 25/1500 that matches the asserted value and the recorded inputs.",
+      "evidence": ["src_944f6a96d87a63a8", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: 50*25 = 1250 < 1500 so dispute predicate is false; 3 < 6 so commitment predicate is true; OR gives manual_review. This matches rule_output, trace.dispute_trigger=false, trace.commitment_trigger=true and the asserted output.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "override is null, final_output equals the policy replay (manual_review) and the trace is consistent, but action_history_complete is false, so the stipulated complete action history required for attribution without intervention is missing.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [3] is non-empty and valid; with disputed=25 and eligible=1500 fixed (dispute predicate false), commitment 3 < 6 yields manual_review, the same recommendation as recorded, so all candidates agree.",
+      "evidence": ["alternatives", "record.input", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate is false (50*25 = 1250 < 1500, trace.dispute_trigger=false), so it alone does not trigger manual_review; the recommendation depends on the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages; integer comparisons done mentally. SHA-256 digests were not computed, so contract lineage is left unresolved."
+  }
+}

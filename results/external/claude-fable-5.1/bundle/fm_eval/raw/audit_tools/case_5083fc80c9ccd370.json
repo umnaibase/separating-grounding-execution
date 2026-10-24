@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of retained contract source src_51d1d2de924d3cc0 equals cited digest 4eb69472...6cba5 and version 1 matches the citation; the only cited contract resolves to a single retained artifact.",
+      "evidence": ["citations.contract[0]", "src_51d1d2de924d3cc0"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, uniquely cited contract states the merchant may terminate after 12 months without penalty, giving a minimum penalty-free commitment of 12 months, matching the asserted value; the 36-month framework duration is distinct and not the minimum commitment.",
+      "evidence": ["src_51d1d2de924d3cc0", "citations.contract[0]"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_2997ae3262314dbf verifies by hash and version, covers window 2026-01-01/2026-01-31, and reports eligible 800 and disputed 15, so the fraction 15/800 equals the asserted 15/800.",
+      "evidence": ["src_2997ae3262314dbf", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (eligible 800 > 0, disputed 15 <= 800, commitment 12). 50*15 = 750 < 800 so dispute_trigger false; 12 < 6 is false so commitment_trigger false; neither fires so toy-v1 yields standard_processing, matching rule_output, both trace predicates and the asserted output.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "Override is explicitly null and final_output standard_processing matches the policy replay, but action_history_complete is false, so the complete action history required to attribute the final action to the policy alone is not stipulated.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [12] is non-empty and valid; with disputed 15 and eligible 800 fixed (dispute predicate false), commitment 12 gives 12 < 6 false, so the sole candidate yields standard_processing and all candidates agree.",
+      "evidence": ["alternatives", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values the dispute predicate is false (50*15 = 750 < 800, trace dispute_trigger false), so it does not suffice on its own to trigger manual_review under toy-v1; the assertion that it is sufficient is contradicted.",
+      "evidence": ["record.input", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; c='The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.'; t='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'; print('contract', hashlib.sha256(c.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(t.encode('utf-8')).hexdigest()); print('50*15>=800:', 50*15>=800, 50*15); print('12<6:', 12<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed and matched the citations exactly. Policy replay on recorded inputs gives standard_processing with both predicates false; final-action attribution is unresolved only because action_history_complete is false."
+  }
+}

@@ -1,0 +1,1106 @@
+{
+ "extract_text": {
+  "documents": 25,
+  "documents_all_fields_correct": 25,
+  "fields_correct": 55,
+  "fields_total": 55,
+  "response_failures": 0,
+  "rows": [
+   {
+    "doc_id": "doc_da99ca27c293",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.",
+    "notes": "The document states both values explicitly: a 6-month penalty-free commitment and a 48-month overall framework duration."
+   },
+   {
+    "doc_id": "doc_7d658c0f8327",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 48,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 3 months. Service framework duration: 48 months.",
+    "notes": "The document states a 3-month penalty-free cancellation minimum (commitment) and a 48-month overall service framework duration, both read directly from the two explicit lines."
+   },
+   {
+    "doc_id": "doc_84a68c3d1bb5",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.",
+    "notes": "The penalty-free commitment (3 months) is stated separately from the overall framework duration (48 months), so both fields were read directly from the document without inference."
+   },
+   {
+    "doc_id": "doc_4ad7916b804f",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 48,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 9 months. Service framework duration: 48 months.",
+    "notes": "Both fields were stated explicitly in the document; the 9-month penalty-free cancellation time is the commitment and the 48-month service framework duration is the framework length."
+   },
+   {
+    "doc_id": "doc_a390af9b53d7",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 9 months. Service framework duration: 24 months.",
+    "notes": "Both fields were stated explicitly in the document, with the 9-month penalty-free cancellation period distinct from the 24-month overall service framework."
+   },
+   {
+    "doc_id": "doc_6a9da92ca684",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 3 months. Service framework duration: 24 months.",
+    "notes": "The document states the penalty-free cancellation minimum (3 months) separately from the overall service-framework duration (24 months), so both fields were read directly without inference."
+   },
+   {
+    "doc_id": "doc_3d1d07818a29",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.",
+    "notes": "The penalty-free commitment (9 months) is distinct from the overall service-framework duration (24 months); both are stated explicitly in the document."
+   },
+   {
+    "doc_id": "doc_4eb69472fc35",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 12,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 12,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.",
+    "notes": "The penalty-free commitment is 12 months and the overall service-framework duration is 36 months, both stated explicitly in the document."
+   },
+   {
+    "doc_id": "doc_7d8c93122b13",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 3 months without penalty.",
+    "notes": "Both fields were stated explicitly in the document; the penalty-free commitment (3 months) is distinct from the overall framework duration (36 months)."
+   },
+   {
+    "doc_id": "doc_c722b26b0204",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 36,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.",
+    "notes": "The document states both values explicitly: the penalty-free commitment is 9 months and the overall framework duration is 36 months."
+   },
+   {
+    "doc_id": "doc_a4895c42bda9",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 18,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 18,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.",
+    "notes": "The document states both values explicitly: 18 months is the penalty-free commitment and 48 months is the overall framework duration."
+   },
+   {
+    "doc_id": "doc_d97310fe2478",
+    "kind": "contract",
+    "template": 3,
+    "truth": {
+     "commitment_months": 18,
+     "framework_months": 48,
+     "template": 3
+    },
+    "extracted": {
+     "commitment_months": 18,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.",
+    "notes": "The penalty-free commitment is stated in words as eighteen months (18), distinct from the 48-month overall service framework."
+   },
+   {
+    "doc_id": "doc_70c173780d9b",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 5,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 5,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.",
+    "notes": "The penalty-free commitment is the 5-month termination threshold, distinct from the 36-month overall service-framework duration."
+   },
+   {
+    "doc_id": "doc_a34e60973977",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 6 months. Service framework duration: 24 months.",
+    "notes": "Both fields were stated explicitly in the document; the 6-month penalty-free cancellation period was mapped to commitment_months and the 24-month service framework duration to framework_months."
+   },
+   {
+    "doc_id": "doc_58335be38041",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 3 months without penalty.",
+    "notes": "The penalty-free commitment is 3 months and the overall service-framework duration is 24 months, both stated explicitly in the document."
+   },
+   {
+    "doc_id": "doc_7fb702d2d0ea",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 5,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 5,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 5 months without penalty.",
+    "notes": "The penalty-free commitment is 5 months (merchant may terminate without penalty after 5 months), distinct from the 24-month overall service-framework duration."
+   },
+   {
+    "doc_id": "doc_6ea412a37f0c",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.",
+    "notes": "The document states penalty-free termination after 3 months (commitment) and a 24-month framework duration, both read directly from the text without inference."
+   },
+   {
+    "doc_id": "doc_9e8cef125810",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.",
+    "notes": "The penalty-free commitment is 6 months and the overall service-framework duration is 24 months, both stated explicitly in the document."
+   },
+   {
+    "doc_id": "doc_09d21e72671d",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.",
+    "notes": "The document states the penalty-free commitment as 9 months and the overall framework duration as 24 months, both read directly from the single document sentence pair."
+   },
+   {
+    "doc_id": "doc_870d8bac9e72",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 12,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 12,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": [
+     "Minimum penalty-free cancellation time: 12 months.",
+     "Service framework duration: 24 months."
+    ],
+    "notes": "The penalty-free commitment (12 months) and the overall service-framework duration (24 months) are stated explicitly on separate lines and were extracted directly without inference."
+   },
+   {
+    "doc_id": "doc_8c11d472773e",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 25,
+     "eligible": 1500,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1500,
+     "disputed": 25
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25",
+    "notes": "All three fields were present and legible in the transactions document, so no values were inferred or guessed."
+   },
+   {
+    "doc_id": "doc_3ed19b40bf5f",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 45,
+     "eligible": 2000,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 2000,
+     "disputed": 45
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 2000\nDisputed transactions: 45",
+    "notes": "All three fields were explicitly stated in the document and extracted verbatim, with the counts converted to integers."
+   },
+   {
+    "doc_id": "doc_df7cb14b6fee",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 15,
+     "eligible": 800,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 800,
+     "disputed": 15
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 800\nDisputed transactions: 15",
+    "notes": "All three fields were explicitly stated in the document and extracted verbatim."
+   },
+   {
+    "doc_id": "doc_72301afb6547",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 20,
+     "eligible": 1000,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1000,
+     "disputed": 20
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1000\nDisputed transactions: 20",
+    "notes": "All three fields were explicitly stated in the transactions document; no inference was required."
+   },
+   {
+    "doc_id": "doc_191f5212d31c",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 25,
+     "eligible": 1200,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1200,
+     "disputed": 25
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1200\nDisputed transactions: 25",
+    "notes": "All three transaction fields were explicitly stated in the document and were extracted exactly as written."
+   }
+  ]
+ },
+ "extract_image": {
+  "documents": 25,
+  "documents_all_fields_correct": 25,
+  "fields_correct": 55,
+  "fields_total": 55,
+  "response_failures": 0,
+  "rows": [
+   {
+    "doc_id": "doc_da99ca27c293",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.",
+    "notes": "Clause 7 states a 6-month penalty-free commitment and a 48-month overall framework duration; both values were clearly legible in the image."
+   },
+   {
+    "doc_id": "doc_7d658c0f8327",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 48,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": [
+     "Minimum penalty-free cancellation time: 3 months.",
+     "Service framework duration: 48 months."
+    ],
+    "notes": "Clause 7 of the Schedule 2 extract states both values explicitly and legibly; the 3-month figure is the penalty-free commitment and the 48-month figure is the overall service-framework duration."
+   },
+   {
+    "doc_id": "doc_84a68c3d1bb5",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.",
+    "notes": "Clause 7 states penalty-free termination after 3 months (commitment) and a separate overall framework duration of 48 months."
+   },
+   {
+    "doc_id": "doc_4ad7916b804f",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 48,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 9 months. Service framework duration: 48 months.",
+    "notes": "Clause 7 of the Schedule 2 extract states both values plainly; the 9-month penalty-free cancellation time maps to commitment_months and the 48-month service framework duration maps to framework_months."
+   },
+   {
+    "doc_id": "doc_a390af9b53d7",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 9 months. Service framework duration: 24 months.",
+    "notes": "Clause 7 of the Merchant Services Agreement extract states a 9-month minimum penalty-free cancellation period and a 24-month service framework duration; both values were clearly legible in the image."
+   },
+   {
+    "doc_id": "doc_6a9da92ca684",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": [
+     "Minimum penalty-free cancellation time: 3 months.",
+     "Service framework duration: 24 months."
+    ],
+    "notes": "Clause 7 states the penalty-free cancellation minimum (3 months) separately from the overall service framework duration (24 months), so the two fields map directly without inference."
+   },
+   {
+    "doc_id": "doc_3d1d07818a29",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 9 months without penalty.",
+    "notes": "Clause 7 states a 24-month service framework and a 9-month penalty-free commitment, so commitment_months is 9 and framework_months is 24."
+   },
+   {
+    "doc_id": "doc_4eb69472fc35",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 12,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 12,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.",
+    "notes": "Clause 7 states a 36-month service framework and a 12-month penalty-free commitment before the merchant may terminate; both values were legible in the image."
+   },
+   {
+    "doc_id": "doc_7d8c93122b13",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 3 months without penalty.",
+    "notes": "Clause 7 states a 36-month service framework and a 3-month penalty-free commitment before the merchant may terminate."
+   },
+   {
+    "doc_id": "doc_c722b26b0204",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 36,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.",
+    "notes": "Clause 7 of the Merchant Services Agreement extract states the penalty-free termination threshold (9 months) separately from the overall framework duration (36 months); both values were clearly legible in the image."
+   },
+   {
+    "doc_id": "doc_a4895c42bda9",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 18,
+     "framework_months": 48,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 18,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.",
+    "notes": "Clause 7 states penalty-free termination after 18 months (the commitment) and a separate overall framework duration of 48 months; both values were clearly legible."
+   },
+   {
+    "doc_id": "doc_d97310fe2478",
+    "kind": "contract",
+    "template": 3,
+    "truth": {
+     "commitment_months": 18,
+     "framework_months": 48,
+     "template": 3
+    },
+    "extracted": {
+     "commitment_months": 18,
+     "framework_months": 48
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The minimum penalty-free cancellation time is eighteen months. The service framework lasts 48 months.",
+    "notes": "Clause 7 states the penalty-free commitment in words (eighteen months, i.e. 18) and the overall service-framework duration numerically (48 months); both values were legible in the image."
+   },
+   {
+    "doc_id": "doc_70c173780d9b",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 5,
+     "framework_months": 36,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 5,
+     "framework_months": 36
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.",
+    "notes": "Clause 7 states a 36-month service framework and a 5-month penalty-free termination threshold; both values were legible in the image."
+   },
+   {
+    "doc_id": "doc_a34e60973977",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": [
+     "Minimum penalty-free cancellation time: 6 months.",
+     "Service framework duration: 24 months."
+    ],
+    "notes": "Clause 7 of the Merchant Services Agreement extract states a 6-month minimum penalty-free cancellation period and a 24-month service framework duration; both values were clearly legible."
+   },
+   {
+    "doc_id": "doc_58335be38041",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 3 months without penalty.",
+    "notes": "Clause 7 states a 24-month service framework and a 3-month penalty-free commitment before the merchant may terminate; the image text was clearly legible."
+   },
+   {
+    "doc_id": "doc_7fb702d2d0ea",
+    "kind": "contract",
+    "template": 1,
+    "truth": {
+     "commitment_months": 5,
+     "framework_months": 24,
+     "template": 1
+    },
+    "extracted": {
+     "commitment_months": 5,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "The service framework lasts 24 months. The merchant may terminate after 5 months without penalty.",
+    "notes": "Clause 7 states the overall service framework is 24 months and the merchant may terminate without penalty after 5 months, so the penalty-free commitment is 5 months."
+   },
+   {
+    "doc_id": "doc_6ea412a37f0c",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 3,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 3,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.",
+    "notes": "Clause 7 states penalty-free termination after 3 months and a 24-month framework duration; both values were clearly legible in the image."
+   },
+   {
+    "doc_id": "doc_9e8cef125810",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 6,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 6,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.",
+    "notes": "Clause 7 states penalty-free termination after 6 months and a 24-month framework duration, both read clearly from the image."
+   },
+   {
+    "doc_id": "doc_09d21e72671d",
+    "kind": "contract",
+    "template": 2,
+    "truth": {
+     "commitment_months": 9,
+     "framework_months": 24,
+     "template": 2
+    },
+    "extracted": {
+     "commitment_months": 9,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.",
+    "notes": "Clause 7 states penalty-free termination after 9 months (the commitment) and a separate 24-month framework duration; both values were legible in the image."
+   },
+   {
+    "doc_id": "doc_870d8bac9e72",
+    "kind": "contract",
+    "template": 0,
+    "truth": {
+     "commitment_months": 12,
+     "framework_months": 24,
+     "template": 0
+    },
+    "extracted": {
+     "commitment_months": 12,
+     "framework_months": 24
+    },
+    "checks": {
+     "commitment_months": true,
+     "framework_months": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Minimum penalty-free cancellation time: 12 months. Service framework duration: 24 months.",
+    "notes": "Clause 7 of the image states the penalty-free cancellation minimum (12 months) separately from the overall service framework duration (24 months), so both fields were read directly without inference."
+   },
+   {
+    "doc_id": "doc_8c11d472773e",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 25,
+     "eligible": 1500,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1500,
+     "disputed": 25
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25",
+    "notes": "All three fields were clearly legible in the image under the heading 'DISPUTE SUMMARY / Transaction service export (extract)'; the footer states the export is fictional and generated for a synthetic conformance study."
+   },
+   {
+    "doc_id": "doc_3ed19b40bf5f",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 45,
+     "eligible": 2000,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 2000,
+     "disputed": 45
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 2000\nDisputed transactions: 45",
+    "notes": "All three fields were clearly legible in the image titled 'DISPUTE SUMMARY' (Transaction service export extract); the footer states it is a fictional export for a synthetic conformance study."
+   },
+   {
+    "doc_id": "doc_df7cb14b6fee",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 15,
+     "eligible": 800,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 800,
+     "disputed": 15
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31 | Eligible transactions: 800 | Disputed transactions: 15",
+    "notes": "All three fields were clearly legible in the image titled 'DISPUTE SUMMARY' (Transaction service export extract); no fields were missing or ambiguous."
+   },
+   {
+    "doc_id": "doc_72301afb6547",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 20,
+     "eligible": 1000,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1000,
+     "disputed": 20
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": [
+     "Observation window: 2026-01-01/2026-01-31",
+     "Eligible transactions: 1000",
+     "Disputed transactions: 20"
+    ],
+    "notes": "All three fields were clearly legible in the image; the document is a fictional dispute summary extract with no ambiguity in the values."
+   },
+   {
+    "doc_id": "doc_191f5212d31c",
+    "kind": "transactions",
+    "template": null,
+    "truth": {
+     "disputed": 25,
+     "eligible": 1200,
+     "window": "2026-01-01/2026-01-31"
+    },
+    "extracted": {
+     "observation_window": "2026-01-01/2026-01-31",
+     "eligible": 1200,
+     "disputed": 25
+    },
+    "checks": {
+     "eligible": true,
+     "disputed": true,
+     "observation_window": true
+    },
+    "all_correct": true,
+    "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1200\nDisputed transactions: 25",
+    "notes": "All three fields were clearly legible in the image; the document is labeled as a fictional export for a synthetic conformance study."
+   }
+  ]
+ }
+}

@@ -1,0 +1,64 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "All three cited contract sources are retained with version '1' matching the citation version, and the UTF-8 SHA-256 of each retained text (computed) equals the cited digest: f4245a1e6b4fbfd3 -> a34e6097..., e2117bf0bf384306 -> a390af9b..., bd4c0fff3b7078f7 -> 870d8bac....",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Three valid cited contracts (all hash/version verified) state conflicting minimum penalty-free cancellation times of 6, 9 and 12 months with no precedence rule supplied; the 24-month framework duration is not the minimum commitment. Conflicting authoritative documents leave the asserted value 6 unresolved rather than uniquely supported or contradicted.",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source is valid (version '1' and computed SHA-256 8c11d472... match the citation), covers exactly the window 2026-01-01/2026-01-31, and reports eligible 1500 and disputed 25, giving the fraction 25/1500 equal to the asserted fraction.",
+      "evidence": ["diag-src_55eedb1859b0b517", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy config matches toy-v1 (1/50, 6 months). Inputs are valid nonnegative integers with eligible 1500 > 0 and disputed 25 <= 1500. Dispute predicate: 50*25 = 1250 >= 1500 is false; commitment predicate: 6 < 6 is false. Both match the recorded trace (false, false), so the policy yields standard_processing, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete = true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs (replay gives standard_processing), and final_output standard_processing equals both the replay result and the asserted final action; no intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Candidates [6, 9, 12] are a nonempty valid set. With disputed 25 / eligible 1500 fixed the dispute predicate is false (1250 < 1500), and none of 6, 9, 12 is < 6, so every candidate yields standard_processing. All candidates produce the same recommendation, so the asserted value false (instability) is contradicted.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate does not fire: 50*25 = 1250 < 1500, consistent with the recorded trace dispute_trigger = false. A false dispute predicate cannot by itself warrant manual_review under toy-v1, so the assertion that it alone suffices is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.trace.dispute_trigger", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Minimum penalty-free cancellation time: 12 months.\\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)) ; 1250>=1500? $(( 50*25 >= 1500 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All four retained source texts hashed (UTF-8, literal newlines, no trailing newline) to exactly the cited SHA-256 digests with matching version '1'. Integer arithmetic confirmed 50*25 = 1250 < 1500, so neither trace predicate fires and all three candidate commitments yield standard_processing."
+  }
+}

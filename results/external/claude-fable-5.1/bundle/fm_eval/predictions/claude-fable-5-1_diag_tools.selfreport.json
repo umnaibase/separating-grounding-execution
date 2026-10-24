@@ -1,0 +1,89 @@
+[
+ {
+  "case_id": "diag-case_c720c5e500065633",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 cmp: $(( 50*25 >= 1500 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The two contracts conflict on minimum commitment (6 vs 9 months) with no precedence rule, so commitment grounding is unresolved; the dispute predicate is false on recorded inputs (1250 < 1500), so it alone cannot justify manual review."
+ },
+ {
+  "case_id": "diag-case_84933d8631c1b180",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 cmp: $(( 50*25 >= 1500 ))\"",
+   "echo \"alt6: $(( 6 < 6 )) alt9: $(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions were verified against the retained source texts via sha256sum (newline-separated, no trailing newline). The two contracts conflict on the minimum commitment (6 vs 9 months), so commitment grounding is unresolved; the dispute predicate evaluates false on the recorded inputs, which contradicts c7 and makes both candidate commitments yield standard_processing, contradicting c6."
+ },
+ {
+  "case_id": "diag-case_783413f29d799a43",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 3 months without penalty.' | sha256sum",
+   "printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) ; 1250>=1500? $(( 50*25 >= 1500 )) ; 3<6? $(( 3 < 6 )) ; 5<6? $(( 5 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained source bytes. The two valid contracts conflict (3 vs 5 months) with no precedence rule, so commitment grounding is unresolved; the recorded dispute predicate is false, so the sufficient-dispute-reason claim is contradicted."
+ },
+ {
+  "case_id": "diag-case_17ae6dd745927c3c",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 3 months without penalty.' | sha256sum",
+   "printf '%s' 'The service framework lasts 24 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+   "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) eligible=1500 ge=$(( 50*25 >= 1500 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All three cited digests and versions matched the retained sources. The two contracts conflict on the commitment value (3 vs 5 months), leaving c2 unresolved; the dispute predicate is false on recorded inputs, so c6 and c7 are contradicted."
+ },
+ {
+  "case_id": "diag-case_d0b9d9c6fd0b65e7",
+  "tools_used_for_reasoning": [
+   "Bash: printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "Bash: echo \"50*25=$((50*25)); dispute_trigger(50*25>=1500)=$(( 50*25 >= 1500 )); commitment_trigger(3<6)=$(( 3 < 6 )); alt3(3<6)=$(( 3 < 6 )); alt6(6<6)=$(( 6 < 6 )); alt9(9<6)=$(( 9 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All four cited digests were recomputed with sha256sum and matched the retained texts exactly; policy predicates and candidate replays were evaluated with exact shell integer arithmetic. Only the task file was read; no other files or web resources were accessed."
+ },
+ {
+  "case_id": "diag-case_514c2797baa6b3ab",
+  "tools_used_for_reasoning": [
+   "Bash: printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "Bash: echo \"50*25=$((50*25)); dispute_trigger(50*25>=1500)=$((50*25>=1500)); commitment_trigger(3<6)=$((3<6)); cand3=$((3<6)); cand6=$((6<6)); cand9=$((9<6))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All four cited digests and versions were verified by computing SHA-256 over the exact retained UTF-8 texts; policy predicates and candidate replays were checked with exact integer arithmetic. The contract minimum is unresolved because three valid contracts conflict (3/6/9 months) with no precedence rule."
+ },
+ {
+  "case_id": "diag-case_8c2bab27519ed1d0",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 12 months.\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)); 1250>=1500 -> $(( 50*25 >= 1500 )); 6<6 -> $(( 6 < 6 )); 9<6 -> $(( 9 < 6 )); 12<6 -> $(( 12 < 6 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All four cited source digests and versions were verified by recomputation and matched. The three contracts disagree on minimum commitment (6/9/12 months) so commitment grounding is unresolved; the dispute predicate is false on recorded inputs so the sufficiency claim is contradicted."
+ },
+ {
+  "case_id": "diag-case_91540738a4a2ef62",
+  "tools_used_for_reasoning": [
+   "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Minimum penalty-free cancellation time: 12 months.\\nService framework duration: 24 months.' | sha256sum",
+   "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+   "echo \"50*25=$((50*25)) ; 1250>=1500? $(( 50*25 >= 1500 ))\""
+  ],
+  "hash_verification_attempted": true,
+  "notes": "All four retained source texts hashed (UTF-8, literal newlines, no trailing newline) to exactly the cited SHA-256 digests with matching version '1'. Integer arithmetic confirmed 50*25 = 1250 < 1500, so neither trace predicate fires and all three candidate commitments yield standard_processing."
+ }
+]

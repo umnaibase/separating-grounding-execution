@@ -1,0 +1,134 @@
+{
+  "candidate_sets": [
+    [
+      6,
+      9
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6,
+      9
+    ],
+    [
+      6,
+      9,
+      12
+    ]
+  ],
+  "cases": [
+    {
+      "candidate_commitments": [
+        6,
+        9
+      ],
+      "case_id": "diag-case_c720c5e500065633",
+      "scenario_id": "diag-scenario_353acf65e3ed545a",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "positive_assertion"
+    },
+    {
+      "candidate_commitments": [
+        6,
+        9
+      ],
+      "case_id": "diag-case_84933d8631c1b180",
+      "scenario_id": "diag-scenario_353acf65e3ed545a",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "negative_assertion"
+    },
+    {
+      "candidate_commitments": [
+        3,
+        5
+      ],
+      "case_id": "diag-case_783413f29d799a43",
+      "scenario_id": "diag-scenario_2d6ce53eec38ff18",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "positive_assertion"
+    },
+    {
+      "candidate_commitments": [
+        3,
+        5
+      ],
+      "case_id": "diag-case_17ae6dd745927c3c",
+      "scenario_id": "diag-scenario_2d6ce53eec38ff18",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "negative_assertion"
+    },
+    {
+      "candidate_commitments": [
+        3,
+        6,
+        9
+      ],
+      "case_id": "diag-case_d0b9d9c6fd0b65e7",
+      "scenario_id": "diag-scenario_9b96f2dbf5f9b766",
+      "split": "diagnostic",
+      "subtype": "straddling_commitments",
+      "variant": "positive_assertion"
+    },
+    {
+      "candidate_commitments": [
+        3,
+        6,
+        9
+      ],
+      "case_id": "diag-case_514c2797baa6b3ab",
+      "scenario_id": "diag-scenario_9b96f2dbf5f9b766",
+      "split": "diagnostic",
+      "subtype": "straddling_commitments",
+      "variant": "negative_assertion"
+    },
+    {
+      "candidate_commitments": [
+        6,
+        9,
+        12
+      ],
+      "case_id": "diag-case_8c2bab27519ed1d0",
+      "scenario_id": "diag-scenario_c9e0d607e08c43bb",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "positive_assertion"
+    },
+    {
+      "candidate_commitments": [
+        6,
+        9,
+        12
+      ],
+      "case_id": "diag-case_91540738a4a2ef62",
+      "scenario_id": "diag-scenario_c9e0d607e08c43bb",
+      "split": "diagnostic",
+      "subtype": "homogeneous_commitments",
+      "variant": "negative_assertion"
+    }
+  ],
+  "cases_count": 8,
+  "claims_count": 56,
+  "dataset_name": "Candidate stability diagnostic extension",
+  "fixed_inputs": {
+    "disputed": 25,
+    "eligible": 1500
+  },
+  "label_counts": {
+    "contradicted": 12,
+    "supported": 36,
+    "unresolved": 8
+  },
+  "main_corpus_version": "1.0.0",
+  "provenance": "Author-written synthetic conformance extension with explicit construction-reference labels; no external or independent annotations.",
+  "purpose": "Exercise homogeneous and straddling candidate sets below the dispute threshold, including positive and negative stability assertions.",
+  "scenario_families": 4,
+  "statistical_unit": "paired diagnostic family; neither episodes nor claims are independent samples",
+  "version": "1.1.0"
+}

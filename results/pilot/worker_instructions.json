@@ -1,0 +1,92 @@
+{
+  "workers": [
+    {
+      "task_name": "pilot_text_01",
+      "condition": "text",
+      "input_path": "explainability-boundaries/data/pilot/batches/text_batch_01.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/text/text_batch_01.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/text_batch_01.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/text/text_batch_01.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "ef8a38f6469c298d546e01c27b4fc93d1580f70bc958a3aacdcd421943a69dae",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_text_02",
+      "condition": "text",
+      "input_path": "explainability-boundaries/data/pilot/batches/text_batch_02.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/text/text_batch_02.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/text_batch_02.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/text/text_batch_02.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "1e39497612bf53be8c2b03811d435d9b5b910cd331ea7038bc88fd056552ca1e",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_text_03",
+      "condition": "text",
+      "input_path": "explainability-boundaries/data/pilot/batches/text_batch_03.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/text/text_batch_03.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/text_batch_03.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/text/text_batch_03.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "3e8b0cb44a2868a69bf5f6eeec65865c0d906844e9b5d25a674254748be1fba4",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_text_04",
+      "condition": "text",
+      "input_path": "explainability-boundaries/data/pilot/batches/text_batch_04.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/text/text_batch_04.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/text_batch_04.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/text/text_batch_04.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "c783102d358b795fe4c70ec63e154612c994162e167aa12e96c0fcd2328aba51",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_paired_text_01",
+      "condition": "paired_text",
+      "input_path": "explainability-boundaries/data/pilot/batches/paired_text_batch_01.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_01.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/paired_text_batch_01.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_01.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "9a27ab5da86c209bce93b8b5b5f4c1bb2ccc7c2ec06128224ad21bccda0af8e4",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_paired_text_02",
+      "condition": "paired_text",
+      "input_path": "explainability-boundaries/data/pilot/batches/paired_text_batch_02.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_02.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/paired_text_batch_02.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. Do not view or read any image-condition inputs. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/paired_text/paired_text_batch_02.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "c7f2ce3d46d39addb16fe116ea61aab514e5b1beaebe88ff4b78ae32138e9863",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_image_01",
+      "condition": "image",
+      "input_path": "explainability-boundaries/data/pilot/batches/image_batch_01.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/image/image_batch_01.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/image_batch_01.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. For every image episode, use view_image to inspect the named PNG under explainability-boundaries/data/pilot/; do not read source text from any other location and do not use OCR code. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/image/image_batch_01.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "813687c99815e6073eb3a8c8fc597f795c2715d74c5f1d2c75b65a4fa451ef2d",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    },
+    {
+      "task_name": "pilot_image_02",
+      "condition": "image",
+      "input_path": "explainability-boundaries/data/pilot/batches/image_batch_02.json",
+      "output_path": "explainability-boundaries/results/pilot/raw/image/image_batch_02.json",
+      "message": "Perform the supplied fictional claim-audit task as a fresh inference worker. Do not spawn agents or consult prior conversations, memory, websites, code, references, other batches, maps or reports. Read ONLY the named batch JSON at explainability-boundaries/data/pilot/batches/image_batch_02.json. Read the entire file with an output budget of at least 26000 tokens; it is compact JSON. Follow its instructions and inspect every supplied episode. For every image episode, use view_image to inspect the named PNG under explainability-boundaries/data/pilot/; do not read source text from any other location and do not use OCR code. No tool may compute policy outcomes, source interpretations or labels; the provided integrity observations are the only computational assistance. You may use tools only to read this named input, view its named images where required, and write your own literal JSON response. Do not use scripts to generate, calculate or convert your answers. Reason about each claim yourself. Write ONE literal response, without Markdown fences, via apply_patch to explainability-boundaries/results/pilot/raw/image/image_batch_02.json. Include exactly the episodes and claims prescribed by the batch. Keep each check concise and evidence paths meaningful. Do not validate against references, request feedback, retry or repair the output after writing it. In your final message, give the saved path and a factual list of the files read/images viewed/output written, plus any observed tool/output error. Do not claim accuracy.",
+      "message_sha256": "870009dfe5e5ddbcba815b441ba11ab7a0a1f04b74146c33db234cd27eabb890",
+      "fork_turns": "none",
+      "model_override": null,
+      "reasoning_override": null
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+ "schema_version": "mfmb2026-fm-eval/1.0",
+ "system": {
+  "vendor": "Anthropic",
+  "system_name": "Claude",
+  "model_id_configured": "claude-fable-5-1",
+  "model_id_note": "Requested explicitly for every call (agent model parameter \"fable\"); the serving model can differ under harness fallback and cannot be verified from inside the session.",
+  "access_route": "Claude Code agent harness (fresh subagent per call), not the public Messages API",
+  "sampling": "harness default; temperature not controllable or recorded",
+  "attempts_per_call": 1,
+  "retry_policy": "none",
+  "tools_available_to_model": {
+   "audit_notools": "Read (prompt delivery) + Write (answer) only, by instruction; no computation",
+   "audit_tools": "Bash restricted by instruction to SHA-256 and integer arithmetic; commands self-reported",
+   "extract_text": "Read + Write only",
+   "extract_image": "Read (image) + Write only"
+  },
+  "tool_restriction_enforcement": "instruction-based; self-reported in each response; harness tool-use counts consistent with the instructions (2 per no-tools call, 3-5 per tools call)"
+ },
+ "run": {
+  "date": "2026-10-04",
+  "timezone": "Europe/Berlin",
+  "operator_note": "The operator session had seen the reference labels and checker; every model-under-test call was a fresh instance that received only the exported prompt. Cross-check scripts were run by the operator after all calls completed.",
+  "total_calls": 186,
+  "response_failures": 0,
+  "approx_tokens_total": 12700000,
+  "approx_tokens_note": "dominated by the agent harness system prompt; task content is roughly 2k tokens per call"
+ },
+ "artifact": {
+  "name": "explainability-boundaries",
+  "version": "1.1.0",
+  "protocol": "docs/EXTERNAL_MODELS.md, task audit_supplied_claims_v1",
+  "data_sha256": {
+   "cases.jsonl": "24385a6efe0374c74a8e79fb80fd8c916c3a4cb22677adb8bd13732b668b237a",
+   "reference.jsonl": "fd13946efec40caa483b64d4593fb767baad598ad91c5c36043ea640388b9e41",
+   "diagnostics/cases.jsonl": "9b9316762fac7e092c719cecfbccc35d4b3bffbf6cff64bf3027d74d14656285",
+   "diagnostics/reference.jsonl": "5db60ae189c5cec9cb54e1e7eeecc33c4ad926b9dfb2fd57dc03043028e2fead"
+  }
+ },
+ "prompts": {
+  "audit_reporting.jsonl_sha256": "7b37a635de68156c72f43ee50b2967f00b9e42862a5c33bddb7b5161d80e6a56",
+  "audit_diagnostics.jsonl_sha256": "594acc6ba5d80e676ccd7cf0cce09bf8c83ca91428a328134889e0bfc848ccc0",
+  "extraction_docs.jsonl_sha256": "14f1ca53c6772cc14ace6f304a04b10a650901d87e7efd745ba1193aca20013b",
+  "agent_wrapper_manifests": {
+   "audit_notools": "prompts/agent/audit_notools/manifest.json",
+   "audit_tools": "prompts/agent/audit_tools/manifest.json",
+   "diag_notools": "prompts/agent/diag_notools/manifest.json",
+   "diag_tools": "prompts/agent/diag_tools/manifest.json",
+   "extract_text": "prompts/agent/extract_text/manifest.json",
+   "extract_image": "prompts/agent/extract_image/manifest.json"
+  }
+ },
+ "results": {
+  "audit_reporting_subset": {
+   "reference_bounded_checker": {
+    "method": "boundary (paper, +Grounding)",
+    "claims": 420,
+    "agreement": 418,
+    "resolved": 386,
+    "endorsements": 331,
+    "false_support": 0
+   },
+   "notools": {
+    "method": "claude-fable-5-1_audit_notools",
+    "claims": 420,
+    "agreement": 359,
+    "resolved": 331,
+    "endorsements": 277,
+    "false_support": 2,
+    "resolved_prediction_accuracy": 0.9939577039274925,
+    "confusion": {
+     "contradicted": {
+      "contradicted": 54,
+      "supported": 0,
+      "unresolved": 1
+     },
+     "supported": {
+      "contradicted": 0,
+      "supported": 275,
+      "unresolved": 58
+     },
+     "unresolved": {
+      "contradicted": 0,
+      "supported": 2,
+      "unresolved": 30
+     }
+    },
+    "by_kind": {
+     "candidate_stability": {
+      "accuracy": 1.0,
+      "resolved": 0.9666666666666667,
+      "false_support": 0
+     },
+     "commitment_grounding": {
+      "accuracy": 0.9666666666666667,
+      "resolved": 0.7,
+      "false_support": 2
+     },
+     "conditional_execution": {
+      "accuracy": 1.0,
+      "resolved": 1.0,
+      "false_support": 0
+     },
+     "contract_lineage": {
+      "accuracy": 0.08333333333333333,
+      "resolved": 0.05,
+      "false_support": 0
+     },
+     "dispute_grounding": {
+      "accuracy": 0.9333333333333333,
+      "resolved": 0.9,
+      "false_support": 0
+     },
+     "final_action_by_rule": {
+      "accuracy": 1.0,
+      "resolved": 0.9,
+      "false_support": 0
+     },
+     "sufficient_dispute_reason": {
+      "accuracy": 1.0,
+      "resolved": 1.0,
+      "false_support": 0
+     }
+    }
+   },
+   "tools": {
+    "method": "claude-fable-5-1_audit_tools",
+    "claims": 420,
+    "agreement": 420,
+    "resolved": 388,
+    "endorsements": 333,
+    "false_support": 0,
+    "resolved_prediction_accuracy": 1.0,
+    "confusion": {
+     "contradicted": {
+      "contradicted": 55,
+      "supported": 0,
+      "unresolved": 0
+     },
+     "supported": {
+      "contradicted": 0,
+      "supported": 333,
+      "unresolved": 0
+     },
+     "unresolved": {
+      "contradicted": 0,
+      "supported": 0,
+      "unresolved": 32
+     }
+    },
+    "by_kind": {
+     "candidate_stability": {
+      "accuracy": 1.0,
+      "resolved": 0.9666666666666667,
+      "false_support": 0
+     },
+     "commitment_grounding": {
+      "accuracy": 1.0,
+      "resolved": 0.6666666666666666,
+      "false_support": 0
+     },
+     "conditional_execution": {
+      "accuracy": 1.0,
+      "resolved": 1.0,
+      "false_support": 0
+     },
+     "contract_lineage": {
+      "accuracy": 1.0,
+      "resolved": 0.9666666666666667,
+      "false_support": 0
+     },
+     "dispute_grounding": {
+      "accuracy": 1.0,
+      "resolved": 0.9666666666666667,
+      "false_support": 0
+     },
+     "final_action_by_rule": {
+      "accuracy": 1.0,
+      "resolved": 0.9,
+      "false_support": 0
+     },
+     "sufficient_dispute_reason": {
+      "accuracy": 1.0,
+      "resolved": 1.0,
+      "false_support": 0
+     }
+    }
+   }
+  },
+  "audit_diagnostics": {
+   "reference_bounded_checker": {
+    "claims": 56,
+    "agreement": 56,
+    "resolved": 48,
+    "endorsements": 36,
+    "false_support": 0
+   },
+   "notools": {
+    "method": "claude-fable-5-1_audit_notools",
+    "claims": 56,
+    "agreement": 43,
+    "resolved": 35,
+    "endorsements": 23,
+    "false_support": 0,
+    "resolved_prediction_accuracy": 1.0,
+    "confusion": {
+     "contradicted": {
+      "contradicted": 12,
+      "supported": 0,
+      "unresolved": 0
+     },
+     "supported": {
+      "contradicted": 0,
+      "supported": 23,
+      "unresolved": 13
+     },
+     "unresolved": {
+      "contradicted": 0,
+      "supported": 0,
+      "unresolved": 8
+     }
+    },
+    "by_kind": {
+     "candidate_stability": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "commitment_grounding": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "conditional_execution": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "contract_lineage": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "dispute_grounding": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "final_action_by_rule": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "sufficient_dispute_reason": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     }
+    }
+   },
+   "tools": {
+    "method": "claude-fable-5-1_audit_tools",
+    "claims": 56,
+    "agreement": 56,
+    "resolved": 48,
+    "endorsements": 36,
+    "false_support": 0,
+    "resolved_prediction_accuracy": 1.0,
+    "confusion": {
+     "contradicted": {
+      "contradicted": 12,
+      "supported": 0,
+      "unresolved": 0
+     },
+     "supported": {
+      "contradicted": 0,
+      "supported": 36,
+      "unresolved": 0
+     },
+     "unresolved": {
+      "contradicted": 0,
+      "supported": 0,
+      "unresolved": 8
+     }
+    },
+    "by_kind": {
+     "candidate_stability": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "commitment_grounding": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "conditional_execution": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "contract_lineage": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "dispute_grounding": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "final_action_by_rule": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     },
+     "sufficient_dispute_reason": {
+      "accuracy": null,
+      "resolved": null,
+      "false_support": 0
+     }
+    }
+   }
+  },
+  "extraction": {
+   "extract_text": {
+    "documents": 25,
+    "documents_all_fields_correct": 25,
+    "fields_correct": 55,
+    "fields_total": 55,
+    "response_failures": 0
+   },
+   "extract_image": {
+    "documents": 25,
+    "documents_all_fields_correct": 25,
+    "fields_correct": 55,
+    "fields_total": 55,
+    "response_failures": 0
+   }
+  },
+  "crosscheck": {
+   "claude-fable-5-1_audit_notools": {
+    "agreement": 359,
+    "confusion": {
+     "supported->unresolved": 58,
+     "supported->supported": 275,
+     "contradicted->contradicted": 54,
+     "unresolved->unresolved": 30,
+     "unresolved->supported": 2,
+     "contradicted->unresolved": 1
+    },
+    "vs_bounded": {
+     "supported->unresolved": 58,
+     "supported->supported": 273,
+     "contradicted->contradicted": 54,
+     "unresolved->unresolved": 30,
+     "unresolved->supported": 4,
+     "contradicted->unresolved": 1
+    },
+    "by_variant": {
+     "clean": {
+      "correct": 72,
+      "total": 84
+     },
+     "extraction_error": {
+      "correct": 72,
+      "total": 84
+     },
+     "source_gap": {
+      "correct": 74,
+      "total": 84
+     },
+     "ambiguity": {
+      "correct": 69,
+      "total": 84
+     },
+     "intervention": {
+      "correct": 72,
+      "total": 84
+     }
+    }
+   },
+   "claude-fable-5-1_audit_tools": {
+    "agreement": 420,
+    "confusion": {
+     "supported->supported": 333,
+     "contradicted->contradicted": 55,
+     "unresolved->unresolved": 32
+    },
+    "vs_bounded": {
+     "supported->supported": 331,
+     "contradicted->contradicted": 55,
+     "unresolved->unresolved": 32,
+     "unresolved->supported": 2
+    },
+    "by_variant": {
+     "clean": {
+      "correct": 84,
+      "total": 84
+     },
+     "extraction_error": {
+      "correct": 84,
+      "total": 84
+     },
+     "source_gap": {
+      "correct": 84,
+      "total": 84
+     },
+     "ambiguity": {
+      "correct": 84,
+      "total": 84
+     },
+     "intervention": {
+      "correct": 84,
+      "total": 84
+     }
+    }
+   }
+  }
+ }
+}

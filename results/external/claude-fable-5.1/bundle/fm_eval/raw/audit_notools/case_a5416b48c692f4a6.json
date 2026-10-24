@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_081b01da7815d753 is retained and its version '1' matches the citation, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified here, so byte-level lineage cannot be confirmed or refuted.",
+      "evidence": ["citations.contract[0]", "src_081b01da7815d753"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract states the merchant may terminate without penalty after 12 months; the 36-month figure is the framework duration, not the minimum commitment. A single unambiguous value of 12 matches the asserted value and the recorded commitment_months.",
+      "evidence": ["src_081b01da7815d753", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transactions source covers the window 2026-01-01/2026-01-31 and reports eligible 1000, disputed 20, giving fraction 20/1000, which equals the asserted 20/1000 and the recorded inputs.",
+      "evidence": ["src_f46093ed26e74e6c", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs, 50*20 = 1000 >= 1000 so dispute_trigger is true (trace true), and 12 < 6 is false so commitment_trigger is false (trace false); OR yields manual_review, matching the recorded rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override from manual_review to standard_processing by a reviewer, and the final_output standard_processing differs from the policy replay result manual_review; either fact contradicts attribution of the final action to toy-v1 without intervention.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [12] is nonempty and valid. With disputed 20 and eligible 1000 fixed, the dispute predicate is true, so the recommendation is manual_review for commitment 12 (12 < 6 false); all candidates yield the same recommendation.",
+      "evidence": ["alternatives", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values 50*20 = 1000 >= 1000, so the dispute predicate is true; under toy-v1 a true dispute predicate alone yields manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no hash computation was attempted, so contract lineage is left unresolved."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "SHA-256 of each retained contract text (UTF-8, exact bytes) was computed and equals the cited digest for all three contracts (…830727, …ac2fb5, …0d5cf5e); all cited and retained versions are '1'. No missing or ambiguous artifacts.",
+      "evidence": ["diag-src_4414f469b794f6b6", "diag-src_a339b95074c62e5d", "diag-src_08e2e0e79f71e0bd", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "All three cited contracts are valid (digests and versions match) but they conflict: they state 3, 6 and 9 months respectively before penalty-free termination, with no precedence rule supplied. The asserted value 3 appears in only one of three equally authoritative documents, so the evidence is conflicting rather than uniquely supporting or uniquely contradicting.",
+      "evidence": ["diag-src_4414f469b794f6b6", "diag-src_a339b95074c62e5d", "diag-src_08e2e0e79f71e0bd", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source has a matching SHA-256 (…bca5ff8) and version 1, states observation window 2026-01-01/2026-01-31, eligible 1500 and disputed 25, which equals the asserted fraction 25/1500 exactly.",
+      "evidence": ["diag-src_392bc0e530a203b1", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with the supported configuration (1/50, 6 months). Inputs are valid (nonnegative integers, eligible 1500 > 0, disputed 25 <= 1500). Dispute predicate: 50*25 = 1250 >= 1500 is false; commitment predicate: 3 < 6 is true; OR yields manual_review. Recorded trace (commitment_trigger true, dispute_trigger false), rule_output manual_review and asserted value manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with policy replay (commitment true, dispute false), rule_output is manual_review and final_output manual_review matches both the replayed policy output and the asserted final action.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Declared candidates [3, 6, 9] with disputed 25 / eligible 1500 fixed (dispute predicate false): commitment 3 < 6 gives manual_review, while 6 and 9 are not < 6 and give standard_processing. Recommendations differ, so the asserted stability (true) is contradicted.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is 50*25 = 1250 >= 1500, which is false (recorded dispute_trigger is also false). The dispute predicate alone therefore does not trigger manual_review under toy-v1; manual_review arises only from the commitment predicate. Asserted true is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "Bash: printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "Bash: echo \"50*25=$((50*25)); dispute_trigger(50*25>=1500)=$(( 50*25 >= 1500 )); commitment_trigger(3<6)=$(( 3 < 6 )); alt3(3<6)=$(( 3 < 6 )); alt6(6<6)=$(( 6 < 6 )); alt9(9<6)=$(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All four cited digests were recomputed with sha256sum and matched the retained texts exactly; policy predicates and candidate replays were evaluated with exact shell integer arithmetic. Only the task file was read; no other files or web resources were accessed."
+  }
+}

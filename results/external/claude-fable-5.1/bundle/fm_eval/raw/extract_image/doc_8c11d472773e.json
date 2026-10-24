@@ -1,0 +1,10 @@
+{
+  "kind": "transactions",
+  "fields": {
+    "observation_window": "2026-01-01/2026-01-31",
+    "eligible": 1500,
+    "disputed": 25
+  },
+  "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25",
+  "notes": "All three fields were clearly legible in the image under the heading 'DISPUTE SUMMARY / Transaction service export (extract)'; the footer states the export is fictional and generated for a synthetic conformance study."
+}

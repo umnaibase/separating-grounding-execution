@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts (src_38f5895537b77de7, src_a92c0915f81a567d) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is not available here; digest match is neither established nor refuted.",
+      "evidence": ["citations.contract", "sources[src_38f5895537b77de7]", "sources[src_a92c0915f81a567d]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: src_38f5895537b77de7 states a 3-month minimum penalty-free cancellation (matching the asserted 3), while src_a92c0915f81a567d states penalty-free termination only after 9 months. No precedence rule is supplied, so the evidence is conflicting rather than a unique different value; contract lineage is also unverified.",
+      "evidence": ["sources[src_38f5895537b77de7]", "sources[src_a92c0915f81a567d]", "citations.contract", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source src_944f6a96d87a63a8 (version 1, matching the citation) covers exactly the window 2026-01-01/2026-01-31 and states eligible 1500 and disputed 25, giving the asserted fraction 25/1500; no conflicting transaction evidence is present. The cited digest was not independently recomputed.",
+      "evidence": ["sources[src_944f6a96d87a63a8]", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25=1250 >= 1500 is false (dispute_trigger false); 3 < 6 is true (commitment_trigger true); OR gives manual_review. Recorded rule_output, both trace predicates and the asserted output all match; inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible, and the recorded policy matches toy-v1.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.commitment_trigger", "record.trace.dispute_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution (see c4), and final_output manual_review equals the policy replay result manual_review.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "With disputed=25/eligible=1500 fixed the dispute predicate is false, so the recommendation depends on commitment alone: candidate 3 (<6) yields manual_review but candidate 9 (not <6) yields standard_processing. The declared candidates do not produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (trace.dispute_trigger false, and replay 50*25=1250 < 1500 confirms it), so the dispute predicate alone does not trigger manual review under toy-v1; manual_review here rests only on the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "All labels were derived by reading the supplied SYSTEM and USER messages and doing mental integer arithmetic only; no SHA-256 digests were computed or guessed, so contract lineage was left unresolved."
+  }
+}

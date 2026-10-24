@@ -1,0 +1,64 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of all three cited contract texts; each digest matches its citation (a34e6097..., a390af9b..., 870d8bac...) and every version is '1' on both sides.",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "All three cited contracts are valid (hash/version match) but state different minimum penalty-free cancellation times (6, 9 and 12 months) with no precedence rule supplied; conflicting authoritative documents cannot unambiguously support the asserted 6.",
+      "evidence": ["diag-src_f4245a1e6b4fbfd3", "diag-src_e2117bf0bf384306", "diag-src_bd4c0fff3b7078f7", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source has a matching SHA-256 and version, covers exactly the 2026-01-01/2026-01-31 window, and reports 1500 eligible and 25 disputed, giving the asserted fraction 25/1500.",
+      "evidence": ["diag-src_55eedb1859b0b517", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25=1250 >= 1500 is false (dispute_trigger false) and 6 < 6 is false (commitment_trigger false), so toy-v1 yields standard_processing; this matches the recorded trace, rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1, and final_output standard_processing equals both rule_output and the policy replay.",
+      "evidence": ["record.action_history_complete", "record.override", "record.trace", "record.rule_output", "record.final_output", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [6, 9, 12] are a non-empty valid set; with disputed=25/eligible=1500 fixed the dispute predicate is false, and 6<6, 9<6, 12<6 are all false, so every candidate yields standard_processing.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values 50*25=1250 is less than 1500, so the dispute predicate is false (recorded dispute_trigger also false); it does not suffice for manual review under toy-v1, conflicting with the asserted true.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Minimum penalty-free cancellation time: 6 months.\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Minimum penalty-free cancellation time: 9 months.\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Minimum penalty-free cancellation time: 12 months.\nService framework duration: 24 months.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\nEligible transactions: 1500\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)); 1250>=1500 -> $(( 50*25 >= 1500 )); 6<6 -> $(( 6 < 6 )); 9<6 -> $(( 9 < 6 )); 12<6 -> $(( 12 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All four cited source digests and versions were verified by recomputation and matched. The three contracts disagree on minimum commitment (6/9/12 months) so commitment grounding is unresolved; the dispute predicate is false on recorded inputs so the sufficiency claim is contradicted."
+  }
+}

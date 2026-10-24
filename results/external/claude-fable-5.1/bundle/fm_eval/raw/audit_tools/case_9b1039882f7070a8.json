@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_c8ff67442fbc103d version 1 is retained; the UTF-8 SHA-256 of its retained text computes to da99ca27c293fa22834d08211b8ccd70775b6aabaed00e0d45f53c1dd47d7248, which matches the citation digest, and the version matches (1 = 1). No missing or ambiguous artifacts.",
+      "evidence": ["citations.contract[0]", "src_c8ff67442fbc103d"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid (digest- and version-matched) contract states penalty-free termination is available once 6 months have elapsed, which is the minimum penalty-free commitment and equals the asserted value 6. The 48-month framework duration is not the minimum commitment and introduces no conflicting value.",
+      "evidence": ["src_c8ff67442fbc103d", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source src_771462962372190e version 1 is retained and its UTF-8 SHA-256 computes to 8c11d472773e0337d7f9944022f4d61b0eb45c1f738cab2df06ec5f15bca5ff8, matching the citation. It covers exactly the window 2026-01-01/2026-01-31 and reports eligible 1500 and disputed 25, giving the fraction 25/1500, equal to the asserted fraction.",
+      "evidence": ["src_771462962372190e", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (nonnegative integers, eligible 1500 > 0, disputed 25 <= 1500). Dispute predicate: 50*25 = 1250 >= 1500 is false; commitment predicate: 6 < 6 is false; so toy-v1 yields standard_processing. The recorded trace (dispute_trigger false, commitment_trigger false), recorded rule_output standard_processing and the asserted output standard_processing all agree.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override from standard_processing to manual_review by a reviewer, and the final output manual_review differs from the policy replay result standard_processing. Either fact alone contradicts attribution of the final action to toy-v1 without intervention.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is [6], non-empty and valid. With disputed 25 and eligible 1500 fixed (dispute predicate false), commitment 6 gives 6 < 6 false, so the recommendation is standard_processing; every declared candidate yields the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate is false: 50*25 = 1250 < 1500, consistent with the recorded trace dispute_trigger false. A false dispute predicate cannot by itself produce manual_review under toy-v1, so the assertion that it alone suffices is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)) eligible=1500 ge=$(( 50*25 >= 1500 )) commit_lt=$(( 6 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed via sha256sum and matched the citations exactly with matching versions. Policy replay on recorded inputs gives standard_processing with both predicates false; the explicit reviewer override to manual_review breaks rule attribution and the dispute predicate is insufficient."
+  }
+}

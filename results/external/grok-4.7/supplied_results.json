@@ -1,0 +1,315 @@
+{
+  "actual_model_inference_independently_verified": false,
+  "artifacts": {
+    "archive_directory": "results/external/grok-4.7",
+    "machine_readable_run_results_provided": true,
+    "manifest": "results/external/grok-4.7/supplied_artifacts_manifest.json",
+    "protocol_card_provided": true,
+    "raw_predictions_provided": true,
+    "report_provided": true,
+    "score_dump_provided": true
+  },
+  "evidence_status": "supplied_predictions_locally_rescored",
+  "exact_model_snapshot": null,
+  "inference_provenance": "Provider-declared only. Supplied prediction files and exact local score reproduction do not prove an actual foundation-model invocation or its share of the computation.",
+  "interface_as_reported": "session judgment under the frozen audit_supplied_claims_v1 instructions; uniform tool-assisted procedure, not a sampled API decode",
+  "limitations": [
+    "Numerical agreement has been independently reproduced from supplied predictions; the actual model execution has not been independently verified.",
+    "The provider describes a uniform tool-assisted procedure, not a sampled API decode, with temperature not applicable. No immutable snapshot or provider invocation trace is supplied.",
+    "Exact policy replay is declared by the provider, unlike the assistant pilot's integrity-only preprocessing. Scores are not a matched model ranking.",
+    "The original Markdown report and all six later attachments remain byte-for-byte preserved. Historical report-only transcription is retained separately."
+  ],
+  "local_rescore": {
+    "diagnostics": {
+      "input_prediction_episodes": 8,
+      "path": "results/external/grok-4.7/rescored/diagnostics/summary.json",
+      "selected_episodes": 8,
+      "selected_split": "all",
+      "sha256": "743d5046feb319aeb1f72af61f3dd75779d60932aa60bbaaee821e4f4d099586"
+    },
+    "main_reporting": {
+      "input_prediction_episodes": 100,
+      "path": "results/external/grok-4.7/rescored/main_reporting/summary.json",
+      "selected_episodes": 60,
+      "selected_split": "test",
+      "sha256": "39101024e44d5f4060b30a064bfd85471a86609bd76486e5224ae1aa6765ec52"
+    },
+    "procedure": "Official evaluation.score; main predictions contain 100 episodes and are filtered to the 60-episode test/reporting partition; eight diagnostics scored separately.",
+    "supplied_main_summary_byte_identical_to_local_rescore": true
+  },
+  "metrics": {
+    "diagnostics": {
+      "agreement_basis": "three-label agreement",
+      "agreement_correct": 56,
+      "by_kind": {
+        "candidate_stability": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 4,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 4,
+            "supported": 4,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        },
+        "commitment_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 0,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 0,
+            "supported": 0,
+            "unresolved": 8
+          },
+          "resolved_count": 0
+        },
+        "conditional_execution": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 0,
+            "supported": 8,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        },
+        "contract_lineage": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 0,
+            "supported": 8,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        },
+        "dispute_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 0,
+            "supported": 8,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        },
+        "final_action_by_rule": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 8,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 0,
+            "supported": 8,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        },
+        "sufficient_dispute_reason": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 8,
+          "claims": 8,
+          "conversion_failure_claims": null,
+          "endorsements": 0,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 8,
+          "predicted_label_counts": {
+            "contradicted": 8,
+            "supported": 0,
+            "unresolved": 0
+          },
+          "resolved_count": 8
+        }
+      },
+      "claims": 56,
+      "conversion_failure_claims": null,
+      "endorsements": 36,
+      "episodes": 8,
+      "false_support_count": 0,
+      "ordinary_agreement_correct": 56,
+      "predicted_label_counts": {
+        "contradicted": 12,
+        "supported": 36,
+        "unresolved": 8
+      },
+      "resolved_count": 48
+    },
+    "main_reporting": {
+      "agreement_basis": "three-label agreement",
+      "agreement_correct": 420,
+      "by_kind": {
+        "candidate_stability": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 52,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "commitment_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 34,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 34,
+            "unresolved": 20
+          },
+          "resolved_count": 40
+        },
+        "conditional_execution": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 57,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 3,
+            "supported": 57,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        },
+        "contract_lineage": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 54,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 4,
+            "supported": 54,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "dispute_grounding": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 52,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 52,
+            "unresolved": 2
+          },
+          "resolved_count": 58
+        },
+        "final_action_by_rule": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 48,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 6,
+            "supported": 48,
+            "unresolved": 6
+          },
+          "resolved_count": 54
+        },
+        "sufficient_dispute_reason": {
+          "agreement_basis": "three-label agreement",
+          "agreement_correct": 60,
+          "claims": 60,
+          "conversion_failure_claims": null,
+          "endorsements": 36,
+          "false_support_count": 0,
+          "ordinary_agreement_correct": 60,
+          "predicted_label_counts": {
+            "contradicted": 24,
+            "supported": 36,
+            "unresolved": 0
+          },
+          "resolved_count": 60
+        }
+      },
+      "claims": 420,
+      "conversion_failure_claims": null,
+      "endorsements": 333,
+      "episodes": 60,
+      "false_support_count": 0,
+      "ordinary_agreement_correct": 420,
+      "predicted_label_counts": {
+        "contradicted": 55,
+        "supported": 333,
+        "unresolved": 32
+      },
+      "resolved_count": 388
+    },
+    "paired_image": null,
+    "paired_text": null
+  },
+  "model_name": "Grok 4.7",
+  "model_name_source": "User-supplied display name and provider-declared system metadata; immutable model snapshot not supplied.",
+  "protocol": {
+    "actual_tool_execution_independently_verified": false,
+    "episodes_per_call_as_reported": 1,
+    "exact_integer_replay_required_by_supplied_protocol": true,
+    "id_as_reported": "mfmb2026-audit-supplied-claims-v1",
+    "input_modality": "source_text",
+    "reference_visible_during_judgment_as_reported": false,
+    "tools_as_reported": [
+      "sha256 of retained UTF-8 source text",
+      "exact integer replay of toy-v1"
+    ]
+  },
+  "run_id_as_reported": "grok-4.7-audit-supplied-claims-v1",
+  "sampling_description_as_reported": "not a sampled decode. The instructions were applied uniformly, with SHA-256 of the retained UTF-8 text and exact integer replay available on every case",
+  "sampling_parameters": null,
+  "schema_version": "1",
+  "source": {
+    "path": "results/external/grok-4.7/supplied_artifacts_manifest.json",
+    "reported_release": "1.1.0",
+    "sha256": "f745d254ae3232d7d7485b7867539e97a96afa729b31ef67f0a9ebf04a733f41",
+    "type": "provided_prediction_bundle_manifest"
+  },
+  "temperature_as_reported": "not applicable; procedure applied uniformly"
+}

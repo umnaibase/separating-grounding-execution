@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_51d1d2de924d3cc0 version 1 is retained with a matching source_id and version, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified without tools, so byte-level lineage cannot be confirmed or refuted.",
+      "evidence": ["citations.contract[0]", "src_51d1d2de924d3cc0"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single retained cited contract states the merchant may terminate without penalty after 12 months; the 36-month framework duration is not the minimum commitment. The unique value 12 matches the asserted value and record.input.commitment_months. Digest was not verified.",
+      "evidence": ["src_51d1d2de924d3cc0", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source covers window 2026-01-01/2026-01-31 and reports 800 eligible and 15 disputed, giving fraction 15/800, which equals the asserted value and the recorded inputs. Digest was not verified.",
+      "evidence": ["src_2997ae3262314dbf", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (12, 15, 800): 50*15=750 < 800 so dispute_trigger=false; 12 < 6 is false so commitment_trigger=false; neither fires, so toy-v1 yields standard_processing. Recorded trace, rule_output and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Action history is stipulated complete, override is explicitly null, replay of toy-v1 gives standard_processing with a consistent trace, and final_output equals rule_output and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.rule_output", "record.final_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [12] is non-empty and valid; with disputed=15 and eligible=800 fixed, commitment 12 gives commitment_trigger=false and dispute_trigger=false, so every candidate yields standard_processing.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (50*15=750 < 800), so the dispute predicate alone does not trigger manual_review under toy-v1 on the recorded inputs.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic. SHA-256 digests were not computed, so contract lineage is left unresolved while content-based grounding claims rely on the retained source text."
+  }
+}

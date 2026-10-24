@@ -1,0 +1,10 @@
+{
+  "kind": "transactions",
+  "fields": {
+    "observation_window": "2026-01-01/2026-01-31",
+    "eligible": 800,
+    "disputed": 15
+  },
+  "verbatim_support": "Observation window: 2026-01-01/2026-01-31\nEligible transactions: 800\nDisputed transactions: 15",
+  "notes": "All three fields were explicitly stated in the document and extracted verbatim."
+}

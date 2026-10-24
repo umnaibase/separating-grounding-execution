@@ -1,0 +1,212 @@
+\section{Supplementary contract specification}
+\label{app:contract}
+\label{sec:supp-contract}
+
+The released contract makes a claim about a retained decision record, rather than about an unobserved banking process. Its observable episode contains source texts; citations with source identity, version and SHA-256; consumed inputs; policy configuration; both recorded trace predicates; policy recommendation; final action; an optional intervention; an action-history completeness declaration; candidate commitments; and seven structured assertions. Each assertion contains a claim identifier, kind, asserted value and human-readable rendering. The checker evaluates the structured proposition; arbitrary prose entailment is outside its scope. Each output retains a label, check description and evidence references.
+
+The source texts are retained UTF-8 strings. Citation digests cover the exact encoded string, including its line breaks. The checker resolves each cited identity against the retained list. A present source with the wrong kind, version or digest is decisive counter-evidence for a true lineage assertion. A missing, ambiguous or malformed reference is unresolved unless another reference supplies a decisive mismatch. A matching digest establishes consistency with retained bytes. It does not authenticate a document or establish its completeness, authority or truth.
+
+The following procedure summarises the grounding prerequisite. \texttt{unique\_value} includes the supported-language check and the absence of equally authoritative conflicting readings. Commitment grounding uses an integer value; dispute grounding uses exact equality of fractions in the declared observation window.
+
+\begin{quote}
+\small
+\begin{verbatim}
+grounding(assertion, citations, sources):
+  status, validated = check_citations(
+      citations, sources)
+  if status != supported:
+      return unresolved
+  value = unique_value(validated)
+  if value is unavailable:
+      return unresolved
+  if equal(value, assertion):
+      return supported
+  return contradicted
+\end{verbatim}
+\end{quote}
+
+\paragraph{Contract lineage.}
+The assertion concerns every cited contract's identity, version and bytes. For a true assertion, all required matches yield S, a decisive mismatch yields C, and an unavailable comparison yields U. A false-valued lineage assertion reverses S and C when the predicate can be decided; U remains U.
+
+\paragraph{Commitment grounding.}
+All required citations must validate before their text can support the claimed penalty-free exit time. The bounded checker full-matches one of three numeric contract grammars. An unsupported grammar, unusable citation or conflicting valid values yields U. A unique value equal to the asserted commitment yields S; a unique different value yields C. Framework duration is a separate quantity. The claim does not ask whether using a different value would alter the recommendation.
+
+\paragraph{Dispute grounding.}
+Validated transaction sources must supply valid nonnegative disputed counts and positive eligible counts, with disputed count no greater than eligible count, in the window \texttt{2026-01-01/2026-01-31}. For source counts $(u,n)$ and asserted counts $(u',n')$, equality is $un'=u'n$. Thus the assertion is about the fraction, not separate equality of the two counts. Unusable or conflicting source fractions yield U. A unique equal fraction yields S and a different fraction yields C.
+
+\paragraph{Conditional execution.}
+The supported policy is exactly \texttt{toy-v1}, with dispute threshold $1/50$ and commitment threshold six months. Required inputs are integers satisfying $0\leq u\leq n$, $n>0$ and $c\geq0$. Both trace predicates must be present as Booleans: $50u\geq n$ and $c<6$. The recorded recommendation and asserted recommendation must agree with replay. A valid but inconsistent trace or recommendation yields C; unavailable inputs, an unsupported policy or malformed required fields yield U. This check uses consumed inputs independently of their source grounding.
+
+\paragraph{Policy-only final-action attribution.}
+An assertion naming a different retained final action is C. An explicit intervention is C even when its before and after values coincide. A final action differing from a replayable policy output is also C. In the absence of decisive counter-evidence, missing completeness information or an unavailable or inconsistent execution record yields U. S requires a matching action, explicit absence of an intervention, valid execution and stipulated complete, trustworthy history. Completeness is a fixture assumption; the implementation does not establish completeness of real logs.
+
+\paragraph{Candidate stability.}
+For the declared nonempty set of nonnegative integer commitments, remaining consumed inputs and policy are held fixed. The checker enumerates the recommendations and compares the resulting singleton/non-singleton predicate with the asserted Boolean. Agreement yields S and disagreement C. Invalid or unavailable candidates, or incomplete replay, yield U. The result is conditional on the declared set and makes no claim that all reasonable interpretations have been enumerated.
+
+\paragraph{Sufficient dispute reason.}
+The checker compares the asserted Boolean with $50u\geq n$ under the supported policy and recorded dispute counts. This assertion does not require a commitment value, source grounding or intervention-free final action. Invalid required counts, policy or assertion yield U. Otherwise predicate agreement yields S and disagreement C.
+
+These obligations permit combinations that a single audit verdict would conceal. A readable but invalidly cited contract can yield lineage C and commitment grounding U while execution remains S. A grounded extraction error yields grounding C and execution S. A same-valued intervention can yield execution S and policy-only attribution C. Conflicting source readings can yield grounding U and candidate stability S. These are statements about different propositions, not contradictory verdicts on one proposition.
+
+\section{Fixture construction and authored references}
+\label{app:fixtures}
+
+Release 1.2.2 preserves the original main corpus at 100 episodes and 700 claims, with a separate eight-episode, 56-claim diagnostic extension. The generator uses deterministic cyclic assignments over twenty families rather than sampling banking records or taking a full Cartesian product. With zero-based family index $i$, transaction pairs cycle with $i\bmod5$, commitments with $i\bmod6$, and framework durations and numeric contract grammars with $i\bmod3$.
+
+The five transaction pairs are $15/800$, $20/1000$, $25/1200$, $25/1500$ and $45/2000$. Commitments are 3, 5, 6, 9, 12 and 18 months; framework durations are 24, 36 and 48 months. The transaction window is fixed. Every family has clean, extraction-error, source-gap, ambiguity and intervention/history variants. The public development partition contains eight families and forty episodes; the reporting partition contains twelve families and sixty episodes. All variants of one family remain together. Values and language recur across the partitions, both of which were inspected during implementation.
+
+Table~\ref{tab:supp-faults} records the non-clean constructions. Extraction faults enter the consumed inputs before policy execution. Except for the explicit trace-fault subtype, replay therefore faithfully executes the recorded values. Four of twenty extraction errors change the recommendation relative to their clean counterpart, including two of twelve in the reporting partition. Fault frequencies are design choices rather than estimated deployment frequencies.
+
+\begin{table}[t]
+\caption{Authored non-clean subtypes. Development and reporting counts describe the original corpus; the separate diagnostics are excluded.}
+\label{tab:supp-faults}
+\small
+\begin{tabularx}{\columnwidth}{@{}Xrr@{}}
+\toprule
+Construction & Development & Reporting\\
+\midrule
+Framework substituted for commitment & 4 & 6\\
+Disputed count increment & 4 & 6\\
+Missing contract & 2 & 2\\
+Missing transactions & 2 & 2\\
+Conflicting contracts (source gap) & 1 & 2\\
+Invalid contract digest & 1 & 2\\
+Wrong contract version & 1 & 2\\
+Unsupported worded contract & 1 & 2\\
+Conflicting commitments, sensitive & 3 & 5\\
+Conflicting commitments, stable & 5 & 7\\
+Changed-output intervention & 2 & 3\\
+Same-valued intervention & 2 & 3\\
+Incomplete history & 2 & 3\\
+Incorrect trace predicate & 2 & 3\\
+\midrule
+Total non-clean episodes & 32 & 48\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The numeric contract grammars express penalty-free cancellation time separately from service-framework duration, with one of three fixed word orders. The transaction grammar supplies an observation-window line followed by eligible and disputed counts. The worded-contract subtype supplies the human-readable commitment \emph{eighteen} but falls outside the checker grammar. Its authored grounding label is S, while the bounded checker returns U. This accounts for both reporting disagreements of the full checker.
+
+References and rationales derive from the constructions. The generator does not import the checker, but both encode the same contract semantics. The reference file therefore supplies an authored answer key, rather than independent annotation. Hidden fictional facts are not used to resolve an absent or conflicting source. The main reporting key has 333 S, 55 C and 32 U labels. The 32 required abstentions comprise twenty commitment-grounding claims, six final-action-attribution claims, and two claims each for lineage, dispute grounding and candidate stability. They are evidence-limited outcomes rather than response failures.
+
+The original corpus declares 73 singleton candidate sets, four empty sets and 23 pairs. Its ambiguity pairs straddle the six-month threshold. The separate diagnostic extension fixes $u=25,n=1500$ and declares $\{6,9\}$, $\{3,5\}$, $\{3,6,9\}$ or $\{6,9,12\}$. Each set has one true-valued and one false-valued stability assertion, giving eight episodes. These paired constructions test asserted polarity and separate stability from dispute sufficiency. They do not add independent documents or sampled populations, and their counts are never pooled with the 420 reporting claims.
+
+\section{Grounding-prerequisite failure records}
+\label{app:failures}
+
+Response A is archived as \texttt{case\_96101184a60febe1}; response B as \texttt{case\_91bf94e28c04fb8c}. Both retained contract texts state a nine-month penalty-free cancellation time and a 24-month framework duration. Their contract citations specify 64 zero digits as the SHA-256 digest. Computing SHA-256 over the exact retained UTF-8 bytes confirms a mismatch in both episodes. The appearance of an all-zero digest alone is not a mathematical proof of that mismatch.
+
+In A, consumed counts are $45/2000$ and the recorded recommendation is manual review. The model emits lineage C and commitment grounding S. Its grounding reason states: ``The digest problem in c1 is a lineage defect assessed separately''. The record therefore exposes a dependency error after the model has itself recognised a citation defect: under the contract, the retained passage is not usable evidence for that grounding assertion.
+
+In B, consumed counts are $15/800$ and the recorded recommendation is standard processing. The model emits lineage U and commitment grounding S. Its lineage reason says the digest ``cannot be checked without computation''. It nevertheless accepts the readable commitment as grounded. The two cases share one failure mode: commitment grounding is endorsed without satisfying its citation-validation prerequisite. The required grounding label is U in both; neither case shows a dispute about the nine-month wording.
+
+The raw responses preserve every emitted claim, reason, evidence reference and activity self-report under the Claude archive's \texttt{raw/audit\_notools/} directory. These are two observations on conspicuous placeholder digests, with one declared attempt each. They do not estimate a failure rate on realistic citations, provide a cross-model susceptibility comparison or establish that tool availability caused the observed difference. The tool-assisted condition changes hashing and integer arithmetic together, with separate calls and unrecorded sampling.
+
+\section{Archived procedures and score inventory}
+\label{app:procedures}
+
+The archive combines procedures with different computational assistance, context sizes and execution provenance. Table~\ref{tab:supp-procedures} distinguishes their available evidence. Display names identify the supplied runs; no provider API model string, immutable serving snapshot or numeric temperature is available for any of the three foundation-model runs. Configured harness identifiers are not serving attestations. Reproducing a score from saved outputs does not reproduce inference or independently establish the reported restrictions.
+
+\begin{table*}[t]
+\caption{Procedure inventory. These are different archived procedures on the same authored key, not a matched comparison of model performance. ``Declared'' conditions and activity self-reports are not independently audited runtime guarantees.}
+\label{tab:supp-procedures}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.22\textwidth}p{0.40\textwidth}X@{}}
+\toprule
+Record & Integrity assistance and context & Retained inference evidence\\
+\midrule
+Bounded checker & Code-based identity, digest, grammar and integer checks; capability ablations share inputs & Checker code, predictions and score reports\\
+Claude Fable 5.1, no compute & Declared per-episode fresh instance; prompt reading and response writing; no computational tools & Prompt wrappers, literal responses and activity self-reports\\
+Claude Fable 5.1, hash/arithmetic & Declared per-episode fresh instance; Bash restricted by instruction to SHA-256 and integer arithmetic & Prompt wrappers, literal responses and activity self-reports\\
+GPT-6.1 Sol Ultra & Frontend supplies citation presence, kind, version and digest comparisons; four primary 17-episode contexts & Instructions, literal responses, integrity observations and worker self-reports\\
+Grok 4.7, supplied predictions & Supplier describes per-episode judgment with hashing and exact-replay tools & Structured predictions and procedure account; native prompts and execution traces absent\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\subsection{GPT-6.1 Sol Ultra}
+The primary text run covers sixty reporting episodes and eight diagnostics in four declared fresh contexts, each containing seventeen episodes. Their reporting/diagnostic compositions are 17/0, 14/3, 15/2 and 14/3. In total, 37 of the sixty reporting episodes share a context with at least one same-family sibling. The sixteen sibling groups comprise eleven pairs and five triples across all twelve reporting families. No diagnostic siblings co-occur. These counts establish opportunities for within-context comparison, not evidence that the model used them or a measurement of their effect.
+
+The frontend removes unaided digest computation from this procedure. It supplies no source interpretation, policy recommendation or claim label. Applying an observed citation mismatch as a prerequisite for grounding remains a model task. Thus supplied integrity observations do not make the response-A failure logically impossible.
+
+The run was organised using the artifact-authoring assistant system. Archived worker instructions declare no inherited conversation history and prohibit memory or project lookup; parent configuration was inherited. Isolation from persistent memory, project context and instruction state was not independently verified. Shared construction and auditing provenance therefore adds dependence beyond the generator/checker conformance relationship. One attempt per batch is declared, without repair. The failure policy maps missing or invalid batches to U placeholders that are counted incorrect even against reference U, with fixed denominators. No batch failures are reported.
+
+The exact display name GPT-6.1 Sol Ultra was supplied after the run. Historical labels in archived inputs remain unchanged. This naming disclosure does not supply an immutable serving identity or alter any response.
+
+\subsection{Claude Fable 5.1}
+The archive contains 136 audit calls: sixty reporting episodes and eight diagnostics under each of two declared computational conditions. Fifty additional calls perform source-only extraction, one per document and modality, giving 186 calls with no recorded response failures. The configured identifier is \texttt{claude-fable-5-1}, with declared harness parameter \texttt{fable}. The supplied run account explicitly notes that a serving-model fallback cannot be verified from inside the session. Sampling used harness defaults; temperature was not recorded.
+
+Each call is described as a fresh instance receiving only its exported prompt. The operator had already seen reference labels and checker code. Tool restrictions and reference isolation were instruction-based; response-level activity reports do not independently attest execution. No-computation calls still read their prompt and write their response, so the condition does not claim absence of all filesystem interaction. The additional Bash condition permits SHA-256 and integer arithmetic. Only this model has an archived condition without computational tools; equivalent conditions for the other two systems are absent.
+
+The original pending metadata remains in the frozen release as historical information. The current Claude evidence is its supplied-results record, extracted response bundle and locally rescored reports. Saved prompt manifests allow comparison of per-call prompt bytes. The retained chronology, attempt count and claimed isolation are declarations, not properties established by archive timestamps.
+
+\subsection{Grok 4.7}
+The supplied structured predictions cover the hundred original episodes and eight diagnostics. The reporting and diagnostic portions are rescored separately. The procedure account describes per-episode reasoning with hashing and exact replay, but native prompts and execution traces were not supplied. Consequently the prediction labels can be rescored, while the inference procedure cannot be examined. No claim-level predictions have been reconstructed from aggregate scores.
+
+\subsection{Separate reporting and diagnostic counts}
+Table~\ref{tab:supp-counts} inventories conformance counts with fixed denominators. Agreement is the number of labels equal to the authored key. Resolution counts S or C predictions. FS/S is false support divided by all S predictions. False support is an endorsement whose reference is C or U; it is not evidence that the underlying passage or merchant decision is factually false.
+
+\begin{table*}[t]
+\caption{Agreement with the same authored key under different procedures. Reporting and diagnostics remain separate. Shared semantics, inspected fixtures and unmatched procedures preclude interpreting this inventory as independent validation or a model ranking. FS/S is false support per endorsement.}
+\label{tab:supp-counts}
+\small
+\begin{tabularx}{\textwidth}{@{}Xrrrrrr@{}}
+\toprule
+ & \multicolumn{3}{c}{Reporting: 420 claims} & \multicolumn{3}{c}{Diagnostics: 56 claims}\\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+Record & Agreement & Resolved & FS/S & Agreement & Resolved & FS/S\\
+\midrule
+Checker: execution & 264/420 & 232 & 0/193 & 40/56 & 32 & 0/20\\
+Checker: +identity & 322/420 & 290 & 0/247 & 48/56 & 40 & 0/28\\
+Checker: +grounding & 418/420 & 386 & 0/331 & 56/56 & 48 & 0/36\\
+Claude Fable 5.1, no compute & 359/420 & 331 & 2/277 & 43/56 & 35 & 0/23\\
+Claude Fable 5.1, hash/arithmetic & 420/420 & 388 & 0/333 & 56/56 & 48 & 0/36\\
+GPT-6.1 Sol Ultra & 420/420 & 388 & 0/333 & 56/56 & 48 & 0/36\\
+Grok 4.7, supplied predictions & 420/420 & 388 & 0/333 & 56/56 & 48 & 0/36\\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The three assisted foundation-model records reach the reporting key's resolution ceiling of 388/420 and the diagnostic key's ceiling of 48/56. This key cannot distinguish them by agreement. The full checker abstains on two reporting commitments outside its grammar. The no-computation Claude run has 61 reporting disagreements: 54 lineage S-to-U, one lineage C-to-U, four dispute-grounding S-to-U and two commitment-grounding U-to-S. Its thirteen diagnostic disagreements are all S-to-U: eight lineage and five dispute-grounding claims. Capability-limited abstention is distinct from an unjustified endorsement, even though both reduce authored-key agreement.
+
+\section{Paired presentation and source-only extraction}
+\label{app:modalities}
+
+Two paired experiments use different model roles. The GPT-6.1 Sol Ultra rendered-evidence audit retains populated records and frontend integrity observations, replacing source passages with PNG cards. Its text control and image condition each use twelve episodes in two declared fresh six-episode batches. Each matches 84/84 authored labels, including 24/24 grounding labels, with 68 S, seven C, nine U and no false support among 68 endorsements. These are paired views of the same audit episodes, not an independent visual dataset.
+
+The Claude Fable 5.1 source-only task instead withholds consumed audit inputs and policy records. Twenty distinct contract texts each require commitment and framework duration; five distinct transaction summaries each require an observation window, eligible count and disputed count. This gives 55 typed fields on 25 unique documents per modality. Reference fields are parsed from authored templates. Each document appears once as text and once as a mildly degraded rendered image. Extracted values do not replace the originally injected inputs of the audit suite.
+
+\begin{table}[t]
+\caption{Claude Fable 5.1 source-only extraction on the same 25 documents in two presentations. Quote matching and typed-field correctness are distinct checks.}
+\label{tab:supp-extraction}
+\small
+\begin{tabularx}{\columnwidth}{@{}Xrr@{}}
+\toprule
+Measure & Text & Image\\
+\midrule
+All typed fields correct, documents & 25/25 & 25/25\\
+Correct typed fields & 55/55 & 55/55\\
+Literal quote substring match & 20/25 & 21/25\\
+Whitespace-normalised quote match & 25/25 & 24/25\\
+Response failures & 0 & 0\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Table~\ref{tab:supp-extraction} separates value extraction from quotation fidelity. Literal matching tests whether the emitted supporting quote is an exact character substring of the source text. Whitespace normalisation collapses whitespace before substring comparison. One image response substitutes a separator for source line breaks, so its fields are correct but its quote fails the whitespace-only comparison. No framework-as-commitment extraction occurs in these saved responses. Ceiling counts on these templates do not establish realistic document or integrated-pipeline performance.
+
+The rendering supplement supplies the exact renderer, fixed seed 20261004 and unchanged source-document records used to regenerate the Claude PNGs. Rendering uses a fixed 1240-by-760 canvas, DejaVu fonts, mild rotation, Gaussian blur and speckle noise. Source order is part of the random-number sequence. A recorded verification with Python 3.12.14, Pillow 12.3.0 and FreeType 2.14.3 reproduced all 25 archived PNGs byte for byte and matched every decoded image. This verifies regeneration of the images; it neither makes them realistic scans nor independently verifies historical runtime image delivery. The source-record JSONL includes target fields and is reproduction material, not a blinded inference input.
+
+\section{Data, code and computational record}
+\label{app:artifacts}
+\label{sec:supp-reproducibility}
+
+The accompanying ancillary material retains frozen release 1.2.2 in \path{anc/explainability-boundaries-v1.2.2.zip.b64}, with separate rendering and run-provenance supplements. Base64 encoding preserves the original ZIP bytes during submission processing. The script \path{anc/restore_release.py} decodes the archive, verifies its SHA-256 digest and extracts the \texttt{explainability-boundaries} directory. File paths below are relative to that directory. The original main-corpus version identifier remains 1.0.0 and the separate diagnostic identifier remains 1.1.0. Corpus and protocol versioning do not imply additional inference. No model is invoked when the archived results are rescored.
+
+Within that release, \path{data/cases.jsonl} contains observable main episodes; \path{data/reference.jsonl} contains authored labels and rationales; and \path{data/metadata.json} records family, split and construction membership. The corresponding diagnostic files are separate under \path{data/diagnostics/}. \path{boundarybench/audit.py} implements the seven checks, while the evaluation and model-adapter modules validate coverage, convert saved outputs and score labels. \path{scripts/generate_data.py} regenerates deterministic fixture files. The accompanying unit tests check boundary conditions, polarity, coverage, integrity and conversion behaviour.
+
+The GPT archive is retained under \path{data/pilot/} and \path{results/pilot/}; the supplied Claude and Grok materials are under \path{results/external/}. Fixed prompts, literal responses where available, converted predictions, raw source images, failure records and score reports retain their separate roles. The scorer does not score rationale quality. A correct final label therefore does not establish that every evidence prerequisite was actually checked in the generating process.
+
+The core checker, generator and offline scorer require Python 3.10 or later and the standard library. No credentials, model service or network access are required for archived-label rescoring. Image regeneration additionally requires the pinned rendering environment. The separate run-provenance script joins existing archive metadata and records input hashes; it does not judge claims. Manifests identify exact file bytes, while the accompanying image-verification record captures runtime and font hashes. Byte reproducibility establishes consistency of a computational record, not independent confirmation of the audit contract or its practical benefit.
+
+All merchants, documents, counts, decisions and histories in the suite are fictional. Neither confidential business records nor personal banking data underlie these results. The suite is public construction material, including its answer key, and is unsuitable as a secret benchmark. Independently authored documents, independent blinded labels, matched model procedures, repeated runs and a reviewer-benefit study remain outside the reported evidence.

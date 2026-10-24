@@ -1,0 +1,27 @@
+Licensing and attribution
+
+The original audit code, fictional dataset, archived research artifact and
+associated artifact documentation retain the MIT License in LICENSE, including
+its existing contributor copyright notice. New repository scripts and artifact
+documentation are distributed under the same MIT License.
+
+The manuscript PDF, manuscript text and bibliography in paper/ are by Angelo
+Dalli (2026). Copyright in the manuscript remains with the author. The software
+MIT License does not grant a separate license to the manuscript. Third-party
+material cited in the manuscript retains its respective rights.
+
+paper/source/acmart.cls is an unmodified third-party ACM class. Its original
+copyright and distribution notices apply. The corresponding documented source
+and its license information are included under paper/source/third_party/acmart/.
+
+paper/source/ACM-Reference-Format.bst retains its original author and public-domain
+notice. These third-party files are not relicensed by the repository's MIT License.
+
+The frozen research release is retained unchanged at
+archive/explainability-boundaries-v1.2.2.zip. Historical collective attribution,
+model display labels, supplier reports and prompts inside it are part of the
+research record. Current paper attribution is in CITATION.cff and the manuscript.
+
+Acknowledgement
+
+This research has been supported by the FINAI Project Malta Enterprise R&D Grant.

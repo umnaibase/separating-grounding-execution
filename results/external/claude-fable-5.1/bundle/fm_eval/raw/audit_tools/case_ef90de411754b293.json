@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of retained contract src_20f3da78f823e788 text equals cited digest 6a9da92c...ec41 and cited version '1' matches retained version '1'; the only cited contract is present and unambiguous.",
+      "evidence": ["citations.contract[0]", "src_20f3da78f823e788", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states 'Minimum penalty-free cancellation time: 3 months', matching asserted value 3 and record.input.commitment_months=3; the 24-month framework duration is not the minimum commitment and introduces no conflict.",
+      "evidence": ["src_20f3da78f823e788", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source (digest and version verified) covers window 2026-01-01/2026-01-31 with eligible=1200 and disputed=25, giving fraction 25/1200 equal to the asserted numerator/denominator and the recorded inputs.",
+      "evidence": ["src_b39661dc69a15054", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "On recorded inputs (3, 25, 1200): 50*25=1250 >= 1200 so dispute_trigger=true; 3 < 6 so commitment_trigger=true; toy-v1 yields manual_review, matching rule_output, both trace predicates and the asserted value. Inputs are valid nonnegative integers with eligible>0 and disputed<=eligible; policy config matches toy-v1.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.commitment_trigger", "record.trace.dispute_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "contradicted",
+      "check": "The record contains an explicit override from manual_review to standard_processing by a reviewer, and the final_output standard_processing differs from the policy replay result manual_review; either condition contradicts attribution of the final action to toy-v1 without intervention.",
+      "evidence": ["record.override", "record.final_output", "record.rule_output", "record.action_history_complete"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [3] is non-empty and valid; with disputed=25 and eligible=1200 fixed the dispute predicate is true (1250 >= 1200), so candidate 3 (and indeed any commitment) yields manual_review; all candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "Recorded dispute predicate is true by exact integer comparison 50*25=1250 >= 1200, and under toy-v1 a true dispute predicate alone yields manual_review regardless of commitment_months.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='Minimum penalty-free cancellation time: 3 months.\\nService framework duration: 24 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print('contract', hashlib.sha256(s1.encode('utf-8')).hexdigest()); print('transactions', hashlib.sha256(s2.encode('utf-8')).hexdigest()); print('50*disputed>=eligible', 50*25 >= 1200, 50*25); print('commitment<6', 3 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests and versions were recomputed and match the retained sources exactly. Policy replay on recorded inputs gives manual_review; the explicit reviewer override to standard_processing contradicts rule attribution of the final action."
+  }
+}

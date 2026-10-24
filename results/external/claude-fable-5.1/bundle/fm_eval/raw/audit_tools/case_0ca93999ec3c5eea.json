@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of retained contract src_be75313edd2b3164 text is 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, matching the citation digest, and version 1 matches; the cited transactions source also matches (8c11d472...5ff8, version 1).",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0]", "src_53e77460b588b4ab", "citations.transactions[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate after 5 months without penalty, giving a unique minimum penalty-free commitment of 5 months equal to the asserted value; the 36-month framework duration is not the minimum commitment.",
+      "evidence": ["src_be75313edd2b3164", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The valid cited transactions source covers window 2026-01-01/2026-01-31 with eligible 1500 and disputed 25, so the fraction 25/1500 equals the asserted 25/1500.",
+      "evidence": ["src_53e77460b588b4ab", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replay on recorded inputs: 50*25=1250 >= 1500 is false (dispute_trigger false) and 5 < 6 is true (commitment_trigger true), so toy-v1 yields manual_review; recorded trace, rule_output and asserted output all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Action history is stipulated complete, override is explicitly null, the trace is faithful to toy-v1 on the recorded inputs, and final_output manual_review equals the policy replay and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is nonempty and valid; with disputed 25 and eligible 1500 fixed, commitment 5 < 6 triggers manual_review, so every candidate yields the same recommendation as recorded.",
+      "evidence": ["alternatives", "record.input", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values 50*25=1250 < 1500, so the dispute predicate is false (recorded dispute_trigger false) and alone does not suffice for manual review; manual_review arises only from the commitment predicate, contradicting the asserted true.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum  (with literal newlines in the argument)",
+      "echo \"50*25=$((50*25)) ; eligible=1500 ; 50*disputed>=eligible: $(( 50*25 >= 1500 )) ; commitment 5<6: $(( 5 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were verified against the retained texts via sha256sum and matched exactly. Policy replay gives commitment_trigger true, dispute_trigger false, output manual_review; only c7 fails because the dispute predicate alone is false on the recorded values."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "artifacts": {
+    "machine_readable_run_results_provided": false,
+    "mentioned_but_unavailable_paths": [],
+    "protocol_card_provided": false,
+    "raw_predictions_provided": false,
+    "report_provided": false,
+    "score_dump_provided": false
+  },
+  "evidence_status": "pending",
+  "exact_model_snapshot": null,
+  "limitations": [
+    "No evaluation report or predictions have been provided. Null means unavailable, not zero."
+  ],
+  "metrics": {
+    "diagnostics": null,
+    "main_reporting": null,
+    "paired_image": null,
+    "paired_text": null
+  },
+  "model_name": "Claude Fable 5.1",
+  "model_name_source": "User-supplied display name; no report or immutable model snapshot supplied.",
+  "protocol": null,
+  "run_id_as_reported": null,
+  "sampling_description_as_reported": null,
+  "sampling_parameters": null,
+  "schema_version": "1",
+  "source": null
+}

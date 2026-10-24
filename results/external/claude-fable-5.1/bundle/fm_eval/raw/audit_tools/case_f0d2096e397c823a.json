@@ -1,0 +1,63 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of both retained contract texts: src_b2a137376b6ff631 -> 84a68c3d...de57 and src_20280b2e46e31226 -> 4ad7916b...41ec, both equal to the cited digests; cited version 1 matches retained version 1 for both.",
+      "evidence": ["src_b2a137376b6ff631", "src_20280b2e46e31226", "citations.contract"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid (digests and versions match) but they conflict: src_b2a137376b6ff631 states penalty-free termination after 3 months while src_20280b2e46e31226 states a minimum penalty-free cancellation time of 9 months; no precedence rule is supplied, so the asserted value 3 is not unambiguously grounded.",
+      "evidence": ["src_b2a137376b6ff631", "src_20280b2e46e31226", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_e3af73edf1cec607 is valid (computed SHA-256 3ed19b40...4e13 matches, version 1 matches) and states observation window 2026-01-01/2026-01-31, eligible 2000, disputed 45, giving fraction 45/2000 equal to the asserted fraction.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid nonnegative integers with eligible>0 and disputed<=eligible; 50*45=2250 >= 2000 so dispute_trigger true, and 3 < 6 so commitment_trigger true; both match the recorded trace, and toy-v1 yields manual_review, matching rule_output and the asserted value.",
+      "evidence": ["record.input", "record.policy", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with policy replay on the recorded inputs, and final_output manual_review equals both rule_output and the replayed policy result.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [3, 9] are valid nonnegative integers; with disputed=45 and eligible=2000 fixed the dispute predicate (2250 >= 2000) holds for every candidate, so both 3 (<6) and 9 (not <6) yield manual_review.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*45=2250 >= 2000, so the dispute predicate is true and under toy-v1's OR rule it alone is sufficient to produce manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 48 months.' | sha256sum",
+      "echo \"50*45=$((50*45)); eligible=2000; cmp=$(( 50*45 >= 2000 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited digests and versions matched the retained source texts. The only non-supported claim is c2, where the two valid contracts give conflicting minimum commitment values (3 vs 9 months) with no precedence rule."
+  }
+}

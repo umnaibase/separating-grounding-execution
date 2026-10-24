@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of the retained contract text src_fd1a6ee4670ed6dc is a4895c42bda9c8c197d04475e7c23f7165d5e14ce91ef23f706e1d398467ad50, matching the cited digest; cited version 1 matches retained version 1. Only one contract is cited and it is unambiguous.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The validly cited contract states penalty-free termination is available once 18 months have elapsed, which is the minimum commitment before penalty-free cancellation and equals the asserted value 18 and record.input.commitment_months. The 48-month framework duration is not the minimum commitment. No conflicting document.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "contradicted",
+      "check": "The validly cited transaction source (digest 191f5212... verified, version 1, window 2026-01-01/2026-01-31) reports 25 disputed of 1200 eligible, i.e. 25/1200, whereas the asserted fraction is 26/1200. The fractions differ (25*1200 != 26*1200), so the single valid source establishes a conflicting value.",
+      "evidence": ["src_97938c8628002d54", "citations.transactions[0].sha256", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with 1/50 and 6-month thresholds. On recorded inputs (disputed 26, eligible 1200, commitment 18): 50*26 = 1300 >= 1200 so dispute_trigger true; 18 < 6 is false so commitment_trigger false; result manual_review. Recorded trace (true/false), rule_output manual_review and asserted value manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on recorded inputs, and final_output manual_review matches both rule_output and the policy replay result (manual_review). No intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is [18], non-empty and a valid nonnegative integer. With disputed 26 and eligible 1200 fixed, dispute_trigger is true (1300 >= 1200) regardless of commitment, and 18 < 6 is false, so the single candidate yields manual_review; all candidates produce the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values the dispute predicate holds: 50*26 = 1300 >= 1200, and under toy-v1 a true dispute predicate alone (OR rule) yields manual_review irrespective of the commitment predicate. This is conditional on recorded inputs only.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum; echo $((50*26)) $((50*25)) $((26*50 >= 1200)) $((18 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests and versions match the retained source texts. The transaction source reports 25 disputed (25/1200) while the record and claim c3 assert 26/1200, so c3 is contradicted; all policy-execution claims hold on the recorded inputs."
+  }
+}

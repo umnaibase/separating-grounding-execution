@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_20f3da78f823e788 (version 1) is not among the retained sources; only the transactions source is retained. With the contract artifact missing, its bytes and version cannot be compared to the cited digest, and no SHA-256 computation was attempted.",
+      "evidence": ["citations.contract[0]", "sources"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "No contract source text is retained for the cited contract src_20f3da78f823e788, so there is no cited contract evidence to establish or refute the asserted minimum penalty-free commitment of 3 months; the recorded input alone does not ground the value.",
+      "evidence": ["citations.contract[0]", "sources", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Retained transactions source src_b39661dc69a15054 version 1 matches the cited source_id and version, states the observation window 2026-01-01/2026-01-31, eligible 1200 and disputed 25, giving fraction 25/1200 which equals the asserted 25/1200 exactly. Values are nonnegative integers with eligible > 0 and disputed <= eligible. The cited SHA-256 digest was not recomputed.",
+      "evidence": ["src_b39661dc69a15054", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months. On recorded inputs disputed=25, eligible=1200, commitment_months=3: 50*25=1250 >= 1200 so dispute_trigger is true; 3 < 6 so commitment_trigger is true; OR of both yields manual_review. Recorded trace (true, true), recorded rule_output manual_review and asserted value manual_review all agree.",
+      "evidence": ["record.policy", "record.input", "record.trace", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, policy replay on recorded inputs gives manual_review which matches both rule_output and final_output, and the trace is consistent with that execution. No intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "unresolved",
+      "check": "The alternatives list is empty, so no candidate commitments are declared; per the definition an empty candidate set is unresolved.",
+      "evidence": ["alternatives"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values 50*25=1250 >= 1200, so the dispute predicate is true; under toy-v1 the disjunction makes manual_review follow from the dispute predicate alone regardless of the commitment predicate. This is conditional on recorded inputs and asserts nothing about source truth or final action.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the supplied SYSTEM and USER messages using mental integer arithmetic; no files other than the task file were read and no SHA-256 digests were computed. The contract source is absent from retained sources and the alternatives list is empty, which drives the unresolved labels on c1, c2 and c6."
+  }
+}

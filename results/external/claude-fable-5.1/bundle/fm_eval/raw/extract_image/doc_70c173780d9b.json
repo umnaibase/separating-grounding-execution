@@ -1,0 +1,9 @@
+{
+  "kind": "contract",
+  "fields": {
+    "commitment_months": 5,
+    "framework_months": 36
+  },
+  "verbatim_support": "The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.",
+  "notes": "Clause 7 states a 36-month service framework and a 5-month penalty-free termination threshold; both values were legible in the image."
+}

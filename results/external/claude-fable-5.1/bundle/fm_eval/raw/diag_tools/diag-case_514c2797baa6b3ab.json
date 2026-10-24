@@ -1,0 +1,104 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of all three retained contract texts; each equals its cited digest (6ea412a3..., 9e8cef12..., 09d21e72...) and every cited version '1' matches the retained version '1'. No missing or ambiguous artifacts.",
+      "evidence": [
+        "diag-src_4414f469b794f6b6",
+        "diag-src_a339b95074c62e5d",
+        "diag-src_08e2e0e79f71e0bd",
+        "citations.contract"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "All three cited contracts are valid (digests/versions match) but state different penalty-free minimums (3, 6 and 9 months) with identical 24-month framework durations; no precedence rule is supplied, so the evidence conflicts rather than uniquely supporting or uniquely contradicting the asserted 3 months.",
+      "evidence": [
+        "diag-src_4414f469b794f6b6",
+        "diag-src_a339b95074c62e5d",
+        "diag-src_08e2e0e79f71e0bd",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source is valid (SHA-256 8c11d472... and version '1' match), its observation window is exactly 2026-01-01/2026-01-31, and it reports eligible 1500 and disputed 25, giving fraction 25/1500 equal to the asserted fraction.",
+      "evidence": [
+        "diag-src_392bc0e530a203b1",
+        "citations.transactions",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 6 months and 1/50 (supported configuration); inputs are valid nonnegative integers with eligible>0 and disputed<=eligible. Replay: 50*25=1250 >= 1500 is false (dispute_trigger false matches trace); 3 < 6 is true (commitment_trigger true matches trace); OR gives manual_review, matching rule_output and the asserted value.",
+      "evidence": [
+        "record.policy",
+        "record.input.commitment_months",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful toy-v1 execution (see c4), and final_output manual_review equals both the policy replay result and the asserted final action; no intervention is recorded.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.final_output",
+        "record.rule_output",
+        "record.trace.commitment_trigger",
+        "record.trace.dispute_trigger",
+        "record.input"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Candidates [3, 6, 9] are a valid nonempty set. With disputed=25 and eligible=1500 fixed the dispute predicate is false, so the result depends on commitment: 3<6 gives manual_review while 6<6 and 9<6 are false giving standard_processing. The recommendations differ, so the asserted value false (not all the same) is established.",
+      "evidence": [
+        "alternatives",
+        "record.policy.commitment_threshold_months",
+        "record.policy.dispute_threshold",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is false: 50*25=1250 is not >= 1500, and the recorded trace dispute_trigger is false. Manual review arises only from the commitment predicate, so the dispute predicate alone does not suffice; the asserted value true is contradicted.",
+      "evidence": [
+        "record.trace.dispute_trigger",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.commitment_trigger"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "Bash: printf '%s' 'Penalty-free termination is available once 3 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 24 months.' | sha256sum; printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1500\\nDisputed transactions: 25' | sha256sum",
+      "Bash: echo \"50*25=$((50*25)); dispute_trigger(50*25>=1500)=$((50*25>=1500)); commitment_trigger(3<6)=$((3<6)); cand3=$((3<6)); cand6=$((6<6)); cand9=$((9<6))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All four cited digests and versions were verified by computing SHA-256 over the exact retained UTF-8 texts; policy predicates and candidate replays were checked with exact integer arithmetic. The contract minimum is unresolved because three valid contracts conflict (3/6/9 months) with no precedence rule."
+  }
+}

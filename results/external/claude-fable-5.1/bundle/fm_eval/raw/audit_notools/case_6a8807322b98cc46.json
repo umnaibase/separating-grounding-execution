@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract source_id and version ('1') match the retained source src_c8ff67442fbc103d, but the SHA-256 digest of the retained UTF-8 bytes cannot be computed or verified under the no-computation constraint, so byte-level lineage is undetermined rather than confirmed.",
+      "evidence": ["citations.contract[0]", "src_c8ff67442fbc103d"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The retained cited contract states penalty-free termination is available once 6 months have elapsed, which is the asserted minimum of 6 months; the 48-month framework duration is not the minimum commitment and no conflicting authoritative document is retained.",
+      "evidence": ["src_c8ff67442fbc103d", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained cited transactions source covers exactly 2026-01-01/2026-01-31 and reports 1500 eligible and 25 disputed transactions, giving the fraction 25/1500 that matches the asserted numerator/denominator and the recorded inputs.",
+      "evidence": ["src_771462962372190e", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on the recorded inputs: 50*25 = 1250 < 1500 so dispute_trigger is false; 6 < 6 is false so commitment_trigger is false; neither predicate fires, yielding standard_processing. This matches the recorded rule_output, both recorded trace predicates and the asserted value; inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible, and the recorded policy configuration is toy-v1 (1/50, 6 months).",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.dispute_trigger", "record.trace.commitment_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete = true, override is explicitly null, the trace is internally consistent with the policy replay, and final_output equals both the replayed policy output and the asserted standard_processing, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set is non-empty and valid ([6]). With disputed=25 and eligible=1500 fixed, the dispute predicate is false, and candidate commitment 6 gives 6 < 6 false, so every declared candidate yields standard_processing, the same recommendation as the recorded run.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded values the dispute predicate does not fire: 50*25 = 1250 is less than 1500, and the recorded trace shows dispute_trigger = false. A false predicate cannot alone suffice for manual_review under toy-v1, and the recorded outcome is standard_processing, so the assertion that it is sufficient is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger", "record.rule_output"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages using mental integer arithmetic; no files other than the task file were read and no computational tools were used. SHA-256 digests were not computed, so contract lineage was left unresolved."
+  }
+}

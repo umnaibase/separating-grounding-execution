@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "Cited contract src_f12bd8dfe47e73f5 version 1 declares sha256 0000...0000, but the retained source text (UTF-8, exact bytes) hashes to a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0; version matches (1) but the digest is an observed mismatch.",
+      "evidence": ["citations.contract[0]", "src_f12bd8dfe47e73f5"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The retained contract text states 'Minimum penalty-free cancellation time: 9 months' (framework duration 24 months is not the minimum commitment), which would match the asserted 9, but the only cited contract citation carries a digest that does not match the retained bytes, so the cited evidence is not valid lineage-verified evidence; the claim requires valid cited evidence, leaving it unresolved rather than supported.",
+      "evidence": ["citations.contract[0]", "src_f12bd8dfe47e73f5", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transactions source src_aa990a77b2e1e9ca version 1 hashes to 3ed19b40bf5ffdc467616db7343ee7a5272f1ab4caf70ae1bcc90f4fe0e04e13, matching the citation; its text gives observation window 2026-01-01/2026-01-31, eligible 2000, disputed 45, i.e. fraction 45/2000, equal to the asserted 45/2000.",
+      "evidence": ["citations.transactions[0]", "src_aa990a77b2e1e9ca", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (nonnegative integers, eligible 2000 > 0, disputed 45 <= 2000) and policy config matches toy-v1 (1/50, 6 months). 50*45 = 2250 >= 2000 so dispute_trigger = true; 9 < 6 is false so commitment_trigger = false; OR gives manual_review. Recorded trace (dispute true, commitment false), rule_output manual_review and asserted manual_review all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, policy replay on recorded inputs yields manual_review with a consistent trace, rule_output is manual_review, and final_output manual_review matches the asserted final action; no intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is non-empty and valid: [9]. With disputed 45 and eligible 2000 fixed, the dispute predicate 2250 >= 2000 is true, so commitment 9 (and indeed any candidate) yields manual_review, matching the recorded recommendation; all candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*45 = 2250 >= 2000, so the dispute predicate is true; under toy-v1 the predicates are joined by OR, so a true dispute predicate alone suffices for manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf 'Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.' | sha256sum; printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum; echo $((50*45)); echo $((50*45 >= 2000)); echo $((9 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Contract digest mismatch (cited all-zero vs computed a390af9b...) drives c1 contradicted and c2 unresolved because the cited contract evidence is not lineage-valid even though its text reads 9 months; transactions digest matched and all policy-execution claims replay consistently to manual_review."
+  }
+}

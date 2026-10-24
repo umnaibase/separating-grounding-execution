@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts (diag-src_9f9b388eafdc9b55, diag-src_31e01f933e77670b) exist in the retained sources with matching version '1', but the UTF-8 SHA-256 digests of the retained text cannot be computed or verified without a computational tool, so byte-level lineage is undetermined rather than confirmed.",
+      "evidence": [
+        "citations.contract[0]",
+        "citations.contract[1]",
+        "diag-src_9f9b388eafdc9b55",
+        "diag-src_31e01f933e77670b"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict on the minimum penalty-free cancellation time (6 months in diag-src_9f9b388eafdc9b55 vs 9 months in diag-src_31e01f933e77670b), both at version 1 with no precedence rule supplied; conflicting authoritative documents leave the asserted value 6 unresolved, and the contracts' digest validity is also unverified.",
+      "evidence": [
+        "diag-src_9f9b388eafdc9b55",
+        "diag-src_31e01f933e77670b",
+        "record.input.commitment_months"
+      ]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "unresolved",
+      "check": "The cited transaction source text matches the asserted fraction exactly (window 2026-01-01/2026-01-31, eligible 1500, disputed 25, i.e. 25/1500) and the version matches, but the source's validity depends on its SHA-256 digest matching the citation, which cannot be verified here; evidence validity is therefore undetermined.",
+      "evidence": [
+        "diag-src_8e37ac4838cc1997",
+        "citations.transactions[0]",
+        "record.input.disputed",
+        "record.input.eligible"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with thresholds 1/50 and 6 months; inputs are valid (25 and 1500 nonnegative integers, eligible > 0, disputed <= eligible). Dispute predicate: 50*25 = 1250 >= 1500 is false; commitment predicate: 6 < 6 is false; so replay gives standard_processing, matching recorded rule_output, both recorded trace predicates (false, false) and the asserted value.",
+      "evidence": [
+        "record.policy",
+        "record.input",
+        "record.trace.dispute_trigger",
+        "record.trace.commitment_trigger",
+        "record.rule_output"
+      ]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "Record stipulates action_history_complete = true and override = null; replay of toy-v1 on recorded inputs yields standard_processing with a consistent trace (see c4), and final_output equals rule_output and the asserted value, so the final action is attributable to the policy without intervention.",
+      "evidence": [
+        "record.action_history_complete",
+        "record.override",
+        "record.rule_output",
+        "record.final_output",
+        "record.trace",
+        "record.input"
+      ]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates [6, 9] are a non-empty set of nonnegative integers. Holding disputed=25 and eligible=1500 fixed the dispute predicate stays false; commitment 6 < 6 is false and 9 < 6 is false, so both candidates yield standard_processing, the same recommendation.",
+      "evidence": [
+        "alternatives",
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy"
+      ]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On the recorded inputs the dispute predicate is 50*25 = 1250 >= 1500, which is false (recorded dispute_trigger is also false); the dispute predicate alone therefore does not trigger manual_review under toy-v1, contradicting the asserted sufficiency.",
+      "evidence": [
+        "record.input.disputed",
+        "record.input.eligible",
+        "record.policy.dispute_threshold",
+        "record.trace.dispute_trigger"
+      ]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned only from the SYSTEM and USER messages with mental integer arithmetic; no SHA-256 digests were computed, so lineage-dependent claims (c1, c3) are left unresolved and the conflicting 6 vs 9 month contracts leave c2 unresolved."
+  }
+}

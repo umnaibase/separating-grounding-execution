@@ -1,0 +1,1671 @@
+{
+  "experiment_type": "claim auditing on synthetic constructed episodes",
+  "methods": {
+    "claude-fable-5-1_audit_notools": {
+      "all": {
+        "accuracy": 0.8547619047619047,
+        "claims": 420,
+        "confusion_matrix_reference_rows_prediction_columns": {
+          "contradicted": {
+            "contradicted": 54,
+            "supported": 0,
+            "unresolved": 1
+          },
+          "supported": {
+            "contradicted": 0,
+            "supported": 275,
+            "unresolved": 58
+          },
+          "unresolved": {
+            "contradicted": 0,
+            "supported": 2,
+            "unresolved": 30
+          }
+        },
+        "endorsements": 277,
+        "episodes": 60,
+        "false_support_among_endorsements": 0.007220216606498195,
+        "false_support_count": 2,
+        "false_support_frequency": 0.004761904761904762,
+        "per_class": {
+          "contradicted": {
+            "f1": 0.9908256880733946,
+            "precision": 1.0,
+            "recall": 0.9818181818181818,
+            "reference_count": 55
+          },
+          "supported": {
+            "f1": 0.9016393442622951,
+            "precision": 0.9927797833935018,
+            "recall": 0.8258258258258259,
+            "reference_count": 333
+          },
+          "unresolved": {
+            "f1": 0.49586776859504134,
+            "precision": 0.33707865168539325,
+            "recall": 0.9375,
+            "reference_count": 32
+          }
+        },
+        "resolution_coverage": 0.7880952380952381,
+        "resolved_count": 331,
+        "resolved_prediction_accuracy": 0.9939577039274925,
+        "scenario_families": 12
+      },
+      "by_kind": {
+        "candidate_stability": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 52,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 52,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 52
+            },
+            "unresolved": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.9666666666666667,
+          "resolved_count": 58,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "commitment_grounding": {
+          "accuracy": 0.9666666666666667,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 34,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 2,
+              "unresolved": 18
+            }
+          },
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.05555555555555555,
+          "false_support_count": 2,
+          "false_support_frequency": 0.03333333333333333,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 0.9714285714285714,
+              "precision": 0.9444444444444444,
+              "recall": 1.0,
+              "reference_count": 34
+            },
+            "unresolved": {
+              "f1": 0.9473684210526315,
+              "precision": 1.0,
+              "recall": 0.9,
+              "reference_count": 20
+            }
+          },
+          "resolution_coverage": 0.7,
+          "resolved_count": 42,
+          "resolved_prediction_accuracy": 0.9523809523809523,
+          "scenario_families": 12
+        },
+        "conditional_execution": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 57,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 57,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 3
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 57
+            },
+            "unresolved": {
+              "f1": null,
+              "precision": null,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 1.0,
+          "resolved_count": 60,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "contract_lineage": {
+          "accuracy": 0.08333333333333333,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 1
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 54
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 0,
+          "episodes": 60,
+          "false_support_among_endorsements": null,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "reference_count": 4
+            },
+            "supported": {
+              "f1": 0.0,
+              "precision": null,
+              "recall": 0.0,
+              "reference_count": 54
+            },
+            "unresolved": {
+              "f1": 0.06779661016949153,
+              "precision": 0.03508771929824561,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.05,
+          "resolved_count": 3,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "dispute_grounding": {
+          "accuracy": 0.9333333333333333,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 48,
+              "unresolved": 4
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 0.96,
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "reference_count": 52
+            },
+            "unresolved": {
+              "f1": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.9,
+          "resolved_count": 54,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "final_action_by_rule": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 48,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 6
+            }
+          },
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 48
+            },
+            "unresolved": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            }
+          },
+          "resolution_coverage": 0.9,
+          "resolved_count": 54,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "sufficient_dispute_reason": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 24,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 36,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 24
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 36
+            },
+            "unresolved": {
+              "f1": null,
+              "precision": null,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 1.0,
+          "resolved_count": 60,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        }
+      },
+      "by_scenario": {
+        "scenario_34a673dbe2f96588": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 2,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 26,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 26,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            },
+            "supported": {
+              "f1": 0.9122807017543859,
+              "precision": 1.0,
+              "recall": 0.8387096774193549,
+              "reference_count": 31
+            },
+            "unresolved": {
+              "f1": 0.4444444444444444,
+              "precision": 0.2857142857142857,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.8,
+          "resolved_count": 28,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_357fc23c6f5708ce": {
+          "accuracy": 0.8285714285714286,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 25,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 1,
+              "unresolved": 1
+            }
+          },
+          "endorsements": 26,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.038461538461538464,
+          "false_support_count": 1,
+          "false_support_frequency": 0.02857142857142857,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 3
+            },
+            "supported": {
+              "f1": 0.8928571428571429,
+              "precision": 0.9615384615384616,
+              "recall": 0.8333333333333334,
+              "reference_count": 30
+            },
+            "unresolved": {
+              "f1": 0.25,
+              "precision": 0.16666666666666666,
+              "recall": 0.5,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.8285714285714286,
+          "resolved_count": 29,
+          "resolved_prediction_accuracy": 0.9655172413793104,
+          "scenario_families": 1
+        },
+        "scenario_38b96cbac3ca3c59": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 9,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 19,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 19,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 9
+            },
+            "supported": {
+              "f1": 0.8837209302325582,
+              "precision": 1.0,
+              "recall": 0.7916666666666666,
+              "reference_count": 24
+            },
+            "unresolved": {
+              "f1": 0.4444444444444444,
+              "precision": 0.2857142857142857,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.8,
+          "resolved_count": 28,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_5097d1930db3d4b7": {
+          "accuracy": 0.8857142857142857,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 26,
+              "unresolved": 4
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 26,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 3
+            },
+            "supported": {
+              "f1": 0.9285714285714286,
+              "precision": 1.0,
+              "recall": 0.8666666666666667,
+              "reference_count": 30
+            },
+            "unresolved": {
+              "f1": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.8285714285714286,
+          "resolved_count": 29,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_53f0dbcc39b1a84a": {
+          "accuracy": 0.8285714285714286,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 2,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 26,
+              "unresolved": 6
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 1
+            }
+          },
+          "endorsements": 26,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            },
+            "supported": {
+              "f1": 0.896551724137931,
+              "precision": 1.0,
+              "recall": 0.8125,
+              "reference_count": 32
+            },
+            "unresolved": {
+              "f1": 0.25,
+              "precision": 0.14285714285714285,
+              "recall": 1.0,
+              "reference_count": 1
+            }
+          },
+          "resolution_coverage": 0.8,
+          "resolved_count": 28,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_63719d9ddee3f814": {
+          "accuracy": 0.8857142857142857,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 7,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 19,
+              "unresolved": 4
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 5
+            }
+          },
+          "endorsements": 19,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 7
+            },
+            "supported": {
+              "f1": 0.9047619047619048,
+              "precision": 1.0,
+              "recall": 0.8260869565217391,
+              "reference_count": 23
+            },
+            "unresolved": {
+              "f1": 0.7142857142857143,
+              "precision": 0.5555555555555556,
+              "recall": 1.0,
+              "reference_count": 5
+            }
+          },
+          "resolution_coverage": 0.7428571428571429,
+          "resolved_count": 26,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_7b64ec0d8b5d1f38": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 1,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 26,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 3
+            }
+          },
+          "endorsements": 26,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 1
+            },
+            "supported": {
+              "f1": 0.9122807017543859,
+              "precision": 1.0,
+              "recall": 0.8387096774193549,
+              "reference_count": 31
+            },
+            "unresolved": {
+              "f1": 0.5454545454545454,
+              "precision": 0.375,
+              "recall": 1.0,
+              "reference_count": 3
+            }
+          },
+          "resolution_coverage": 0.7714285714285715,
+          "resolved_count": 27,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_8e3bf3b0e49bce4d": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 2,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 25,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 3
+            }
+          },
+          "endorsements": 25,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            },
+            "supported": {
+              "f1": 0.9090909090909091,
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "reference_count": 30
+            },
+            "unresolved": {
+              "f1": 0.5454545454545454,
+              "precision": 0.375,
+              "recall": 1.0,
+              "reference_count": 3
+            }
+          },
+          "resolution_coverage": 0.7714285714285715,
+          "resolved_count": 27,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_98aedfc5a3c80bea": {
+          "accuracy": 0.8285714285714286,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 7,
+              "supported": 0,
+              "unresolved": 1
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 20,
+              "unresolved": 4
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 1,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 21,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.047619047619047616,
+          "false_support_count": 1,
+          "false_support_frequency": 0.02857142857142857,
+          "per_class": {
+            "contradicted": {
+              "f1": 0.9333333333333333,
+              "precision": 1.0,
+              "recall": 0.875,
+              "reference_count": 8
+            },
+            "supported": {
+              "f1": 0.8888888888888888,
+              "precision": 0.9523809523809523,
+              "recall": 0.8333333333333334,
+              "reference_count": 24
+            },
+            "unresolved": {
+              "f1": 0.4,
+              "precision": 0.2857142857142857,
+              "recall": 0.6666666666666666,
+              "reference_count": 3
+            }
+          },
+          "resolution_coverage": 0.8,
+          "resolved_count": 28,
+          "resolved_prediction_accuracy": 0.9642857142857143,
+          "scenario_families": 1
+        },
+        "scenario_b90a8a9e768fa36f": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 8,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 19,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 3
+            }
+          },
+          "endorsements": 19,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 8
+            },
+            "supported": {
+              "f1": 0.8837209302325582,
+              "precision": 1.0,
+              "recall": 0.7916666666666666,
+              "reference_count": 24
+            },
+            "unresolved": {
+              "f1": 0.5454545454545454,
+              "precision": 0.375,
+              "recall": 1.0,
+              "reference_count": 3
+            }
+          },
+          "resolution_coverage": 0.7714285714285715,
+          "resolved_count": 27,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_bbaf3cd467b6aaae": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 2,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 24,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 4
+            }
+          },
+          "endorsements": 24,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            },
+            "supported": {
+              "f1": 0.9056603773584906,
+              "precision": 1.0,
+              "recall": 0.8275862068965517,
+              "reference_count": 29
+            },
+            "unresolved": {
+              "f1": 0.6153846153846154,
+              "precision": 0.4444444444444444,
+              "recall": 1.0,
+              "reference_count": 4
+            }
+          },
+          "resolution_coverage": 0.7428571428571429,
+          "resolved_count": 26,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        },
+        "scenario_f580dfec804aa350": {
+          "accuracy": 0.8571428571428571,
+          "claims": 35,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 8,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 20,
+              "unresolved": 5
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 20,
+          "episodes": 5,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 8
+            },
+            "supported": {
+              "f1": 0.8888888888888888,
+              "precision": 1.0,
+              "recall": 0.8,
+              "reference_count": 25
+            },
+            "unresolved": {
+              "f1": 0.4444444444444444,
+              "precision": 0.2857142857142857,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.8,
+          "resolved_count": 28,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 1
+        }
+      },
+      "by_split": {
+        "test": {
+          "accuracy": 0.8547619047619047,
+          "claims": 420,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 54,
+              "supported": 0,
+              "unresolved": 1
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 275,
+              "unresolved": 58
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 2,
+              "unresolved": 30
+            }
+          },
+          "endorsements": 277,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.007220216606498195,
+          "false_support_count": 2,
+          "false_support_frequency": 0.004761904761904762,
+          "per_class": {
+            "contradicted": {
+              "f1": 0.9908256880733946,
+              "precision": 1.0,
+              "recall": 0.9818181818181818,
+              "reference_count": 55
+            },
+            "supported": {
+              "f1": 0.9016393442622951,
+              "precision": 0.9927797833935018,
+              "recall": 0.8258258258258259,
+              "reference_count": 333
+            },
+            "unresolved": {
+              "f1": 0.49586776859504134,
+              "precision": 0.33707865168539325,
+              "recall": 0.9375,
+              "reference_count": 32
+            }
+          },
+          "resolution_coverage": 0.7880952380952381,
+          "resolved_count": 331,
+          "resolved_prediction_accuracy": 0.9939577039274925,
+          "scenario_families": 12
+        }
+      },
+      "by_variant": {
+        "ambiguity": {
+          "accuracy": 0.8214285714285714,
+          "claims": 84,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 10,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 47,
+              "unresolved": 15
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 12
+            }
+          },
+          "endorsements": 47,
+          "episodes": 12,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 10
+            },
+            "supported": {
+              "f1": 0.8623853211009175,
+              "precision": 1.0,
+              "recall": 0.7580645161290323,
+              "reference_count": 62
+            },
+            "unresolved": {
+              "f1": 0.6153846153846154,
+              "precision": 0.4444444444444444,
+              "recall": 1.0,
+              "reference_count": 12
+            }
+          },
+          "resolution_coverage": 0.6785714285714286,
+          "resolved_count": 57,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "clean": {
+          "accuracy": 0.8571428571428571,
+          "claims": 84,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 5,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 67,
+              "unresolved": 12
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 67,
+          "episodes": 12,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 5
+            },
+            "supported": {
+              "f1": 0.9178082191780822,
+              "precision": 1.0,
+              "recall": 0.8481012658227848,
+              "reference_count": 79
+            },
+            "unresolved": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 0.8571428571428571,
+          "resolved_count": 72,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "extraction_error": {
+          "accuracy": 0.8571428571428571,
+          "claims": 84,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 16,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 56,
+              "unresolved": 12
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 56,
+          "episodes": 12,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 16
+            },
+            "supported": {
+              "f1": 0.9032258064516129,
+              "precision": 1.0,
+              "recall": 0.8235294117647058,
+              "reference_count": 68
+            },
+            "unresolved": {
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 0.8571428571428571,
+          "resolved_count": 72,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "intervention": {
+          "accuracy": 0.8571428571428571,
+          "claims": 84,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 14,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 52,
+              "unresolved": 12
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 6
+            }
+          },
+          "endorsements": 52,
+          "episodes": 12,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 14
+            },
+            "supported": {
+              "f1": 0.896551724137931,
+              "precision": 1.0,
+              "recall": 0.8125,
+              "reference_count": 64
+            },
+            "unresolved": {
+              "f1": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "reference_count": 6
+            }
+          },
+          "resolution_coverage": 0.7857142857142857,
+          "resolved_count": 66,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "source_gap": {
+          "accuracy": 0.8809523809523809,
+          "claims": 84,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 9,
+              "supported": 0,
+              "unresolved": 1
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 53,
+              "unresolved": 7
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 2,
+              "unresolved": 12
+            }
+          },
+          "endorsements": 55,
+          "episodes": 12,
+          "false_support_among_endorsements": 0.03636363636363636,
+          "false_support_count": 2,
+          "false_support_frequency": 0.023809523809523808,
+          "per_class": {
+            "contradicted": {
+              "f1": 0.9473684210526315,
+              "precision": 1.0,
+              "recall": 0.9,
+              "reference_count": 10
+            },
+            "supported": {
+              "f1": 0.9217391304347826,
+              "precision": 0.9636363636363636,
+              "recall": 0.8833333333333333,
+              "reference_count": 60
+            },
+            "unresolved": {
+              "f1": 0.7058823529411765,
+              "precision": 0.6,
+              "recall": 0.8571428571428571,
+              "reference_count": 14
+            }
+          },
+          "resolution_coverage": 0.7619047619047619,
+          "resolved_count": 64,
+          "resolved_prediction_accuracy": 0.96875,
+          "scenario_families": 12
+        }
+      },
+      "test_by_kind": {
+        "candidate_stability": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 52,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 52,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 52
+            },
+            "unresolved": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.9666666666666667,
+          "resolved_count": 58,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "commitment_grounding": {
+          "accuracy": 0.9666666666666667,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 34,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 2,
+              "unresolved": 18
+            }
+          },
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.05555555555555555,
+          "false_support_count": 2,
+          "false_support_frequency": 0.03333333333333333,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 0.9714285714285714,
+              "precision": 0.9444444444444444,
+              "recall": 1.0,
+              "reference_count": 34
+            },
+            "unresolved": {
+              "f1": 0.9473684210526315,
+              "precision": 1.0,
+              "recall": 0.9,
+              "reference_count": 20
+            }
+          },
+          "resolution_coverage": 0.7,
+          "resolved_count": 42,
+          "resolved_prediction_accuracy": 0.9523809523809523,
+          "scenario_families": 12
+        },
+        "conditional_execution": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 57,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 57,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 3
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 57
+            },
+            "unresolved": {
+              "f1": null,
+              "precision": null,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 1.0,
+          "resolved_count": 60,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "contract_lineage": {
+          "accuracy": 0.08333333333333333,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 3,
+              "supported": 0,
+              "unresolved": 1
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 54
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 0,
+          "episodes": 60,
+          "false_support_among_endorsements": null,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 0.8571428571428571,
+              "precision": 1.0,
+              "recall": 0.75,
+              "reference_count": 4
+            },
+            "supported": {
+              "f1": 0.0,
+              "precision": null,
+              "recall": 0.0,
+              "reference_count": 54
+            },
+            "unresolved": {
+              "f1": 0.06779661016949153,
+              "precision": 0.03508771929824561,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.05,
+          "resolved_count": 3,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "dispute_grounding": {
+          "accuracy": 0.9333333333333333,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 48,
+              "unresolved": 4
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 2
+            }
+          },
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 0.96,
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "reference_count": 52
+            },
+            "unresolved": {
+              "f1": 0.5,
+              "precision": 0.3333333333333333,
+              "recall": 1.0,
+              "reference_count": 2
+            }
+          },
+          "resolution_coverage": 0.9,
+          "resolved_count": 54,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "final_action_by_rule": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 6,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 48,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 6
+            }
+          },
+          "endorsements": 48,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 48
+            },
+            "unresolved": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 6
+            }
+          },
+          "resolution_coverage": 0.9,
+          "resolved_count": 54,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        },
+        "sufficient_dispute_reason": {
+          "accuracy": 1.0,
+          "claims": 60,
+          "confusion_matrix_reference_rows_prediction_columns": {
+            "contradicted": {
+              "contradicted": 24,
+              "supported": 0,
+              "unresolved": 0
+            },
+            "supported": {
+              "contradicted": 0,
+              "supported": 36,
+              "unresolved": 0
+            },
+            "unresolved": {
+              "contradicted": 0,
+              "supported": 0,
+              "unresolved": 0
+            }
+          },
+          "endorsements": 36,
+          "episodes": 60,
+          "false_support_among_endorsements": 0.0,
+          "false_support_count": 0,
+          "false_support_frequency": 0.0,
+          "per_class": {
+            "contradicted": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 24
+            },
+            "supported": {
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_count": 36
+            },
+            "unresolved": {
+              "f1": null,
+              "precision": null,
+              "recall": null,
+              "reference_count": 0
+            }
+          },
+          "resolution_coverage": 1.0,
+          "resolved_count": 60,
+          "resolved_prediction_accuracy": 1.0,
+          "scenario_families": 12
+        }
+      }
+    }
+  },
+  "protocol": "1.0.0",
+  "reference_origin": "deterministic construction; no independent human annotation claimed",
+  "statistical_unit": "scenario family; variants and claims are dependent",
+  "uncertainty_intervals": "Not reported: deliberately constructed finite cases are not a random deployment sample."
+}

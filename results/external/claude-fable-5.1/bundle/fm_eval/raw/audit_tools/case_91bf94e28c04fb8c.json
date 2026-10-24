@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "Cited contract src_f5d522e9bafea47f (version 1) carries digest 0000...0000, but SHA-256 of the retained UTF-8 source text computes to a390af9b53d7a1fc7094a459b97e70d3b0f17d992480097c45cc56831dbc4ac0. Version matches but the digest does not, which is an observed digest mismatch.",
+      "evidence": ["citations.contract[0].sha256", "citations.contract[0].version", "src_f5d522e9bafea47f"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The retained contract text states a 9-month minimum penalty-free cancellation (framework duration 24 months is not the minimum commitment), which would match the asserted 9. However, the cited contract digest does not match the retained bytes, so the cited contract evidence is not valid/unambiguous lineage for this assertion; evidence is invalid rather than conflicting, so the claim cannot be decided.",
+      "evidence": ["src_f5d522e9bafea47f", "citations.contract[0].sha256", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transaction source src_420443f31395c781 version 1 hash df7cb14b...cf2f matches the computed SHA-256 of the retained text. The source covers the exact window 2026-01-01/2026-01-31 and reports eligible 800, disputed 15, giving fraction 15/800, equal to the asserted numerator/denominator.",
+      "evidence": ["src_420443f31395c781", "citations.transactions[0].sha256", "citations.transactions[0].version", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded policy is toy-v1 with threshold 1/50 and 6 months. Inputs are valid (eligible 800 > 0, 0 <= disputed 15 <= 800, commitment 9). Dispute predicate: 50*15 = 750 >= 800 is false; commitment predicate: 9 < 6 is false. Both match the recorded trace (false, false); replay gives standard_processing, matching rule_output and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output standard_processing equals the policy replay result and the asserted final action. No intervention is recorded.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set is [9], a nonempty set of a valid nonnegative integer. With disputed 15 / eligible 800 fixed (dispute predicate false), candidate 9 gives 9 < 6 false, so recommendation is standard_processing; all declared candidates (one) yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "On recorded values, 50*15 = 750 < 800, so the dispute predicate evaluates false (consistent with trace.dispute_trigger false). A false dispute predicate cannot by itself trigger manual_review under toy-v1, so the assertion that it alone suffices is contradicted.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; print(hashlib.sha256('Minimum penalty-free cancellation time: 9 months.\\nService framework duration: 24 months.'.encode('utf-8')).hexdigest())\"",
+      "python3 -c \"import hashlib; print(hashlib.sha256('Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 800\\nDisputed transactions: 15'.encode('utf-8')).hexdigest())\"",
+      "python3 -c \"print(50*15, 50*15 >= 800, 9 < 6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Contract citation digest (all zeros) does not match the computed SHA-256 of the retained contract text (a390af9b...4ac0), while the transaction citation digest matches exactly. Policy replay on recorded inputs yields standard_processing with both predicates false."
+  }
+}

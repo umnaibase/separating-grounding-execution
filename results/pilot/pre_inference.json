@@ -1,0 +1,9 @@
+{
+  "protocol": "assistant-pilot-1",
+  "frozen_at_utc": "2026-10-04T17:00:10.433796+00:00",
+  "input_manifest_sha256": "392b2120fa6806d66a7e125064929fd18e0cff499be4300b93e1c728cf072c29",
+  "worker_instructions_sha256": "55d1047c0107eae8ea66dfedefcbf8c63cb8f6e3de1ffd0e07929ab15c635351",
+  "status": "frozen_before_inference",
+  "attempts_per_batch": 1,
+  "feedback_or_retries": false
+}

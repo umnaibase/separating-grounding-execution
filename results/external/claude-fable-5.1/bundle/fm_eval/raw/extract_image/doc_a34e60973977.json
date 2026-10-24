@@ -1,0 +1,12 @@
+{
+  "kind": "contract",
+  "fields": {
+    "commitment_months": 6,
+    "framework_months": 24
+  },
+  "verbatim_support": [
+    "Minimum penalty-free cancellation time: 6 months.",
+    "Service framework duration: 24 months."
+  ],
+  "notes": "Clause 7 of the Merchant Services Agreement extract states a 6-month minimum penalty-free cancellation period and a 24-month service framework duration; both values were clearly legible."
+}

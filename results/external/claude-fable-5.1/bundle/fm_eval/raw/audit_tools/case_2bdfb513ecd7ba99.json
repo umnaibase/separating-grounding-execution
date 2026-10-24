@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "contradicted",
+      "check": "Cited contract src_081b01da7815d753 is referenced at version \"2\" but the retained artifact is version \"1\"; the computed UTF-8 SHA-256 of the retained text (4eb69472fc356c6374acf48b1bbaffca42cf06e36fb4f890cb13f7d67236cba5) does match the cited digest, but the observed version mismatch is a lineage contradiction under the definition.",
+      "evidence": ["citations.contract[0].version", "citations.contract[0].sha256", "src_081b01da7815d753"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The retained contract text states the merchant may terminate after 12 months without penalty (36 months is only framework duration), which would match the asserted 12, but the citation points to version \"2\" while the retained artifact is version \"1\", so the cited contract evidence is not validly established as the retained document; grounding cannot be confirmed from valid cited evidence.",
+      "evidence": ["src_081b01da7815d753", "citations.contract[0].version", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Transaction citation matches the retained source in both version (\"1\") and computed SHA-256 (72301afb6547fcc269565495dddbbcbfdd0ae124863e700391f4aa37b0cdd6ac); the source covers window 2026-01-01/2026-01-31 with 1000 eligible and 20 disputed, giving fraction 20/1000 equal to the asserted 20/1000.",
+      "evidence": ["src_f46093ed26e74e6c", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Recorded inputs are valid (commitment 12, disputed 20, eligible 1000). 50*20 = 1000 >= 1000 so dispute_trigger is true; 12 < 6 is false so commitment_trigger is false; policy yields manual_review. Recorded rule_output, both trace predicates and the asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay result and the asserted value, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [12] is non-empty and valid; with disputed 20 and eligible 1000 fixed the dispute predicate (1000 >= 1000) is true regardless of commitment, so candidate 12 yields manual_review, the same recommendation as recorded. Completeness of the candidate set is not asserted.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*20 = 1000 >= 1000, so the dispute predicate is true and under toy-v1 a true dispute predicate alone yields manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 12 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+      "echo $((50*20)) $((50*20 >= 1000)) $((12 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both retained source digests match the cited SHA-256 values; the only lineage defect is the contract citation version (2) differing from the retained version (1), which contradicts c1 and leaves c2 unresolved. Policy replay on recorded inputs gives manual_review via the dispute predicate (1000 >= 1000) with no override."
+  }
+}

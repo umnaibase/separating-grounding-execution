@@ -1,0 +1,79 @@
+{
+ "claude-fable-5-1_audit_notools": {
+  "agreement": 359,
+  "confusion": {
+   "supported->unresolved": 58,
+   "supported->supported": 275,
+   "contradicted->contradicted": 54,
+   "unresolved->unresolved": 30,
+   "unresolved->supported": 2,
+   "contradicted->unresolved": 1
+  },
+  "vs_bounded": {
+   "supported->unresolved": 58,
+   "supported->supported": 273,
+   "contradicted->contradicted": 54,
+   "unresolved->unresolved": 30,
+   "unresolved->supported": 4,
+   "contradicted->unresolved": 1
+  },
+  "by_variant": {
+   "clean": {
+    "correct": 72,
+    "total": 84
+   },
+   "extraction_error": {
+    "correct": 72,
+    "total": 84
+   },
+   "source_gap": {
+    "correct": 74,
+    "total": 84
+   },
+   "ambiguity": {
+    "correct": 69,
+    "total": 84
+   },
+   "intervention": {
+    "correct": 72,
+    "total": 84
+   }
+  }
+ },
+ "claude-fable-5-1_audit_tools": {
+  "agreement": 420,
+  "confusion": {
+   "supported->supported": 333,
+   "contradicted->contradicted": 55,
+   "unresolved->unresolved": 32
+  },
+  "vs_bounded": {
+   "supported->supported": 331,
+   "contradicted->contradicted": 55,
+   "unresolved->unresolved": 32,
+   "unresolved->supported": 2
+  },
+  "by_variant": {
+   "clean": {
+    "correct": 84,
+    "total": 84
+   },
+   "extraction_error": {
+    "correct": 84,
+    "total": 84
+   },
+   "source_gap": {
+    "correct": 84,
+    "total": 84
+   },
+   "ambiguity": {
+    "correct": 84,
+    "total": 84
+   },
+   "intervention": {
+    "correct": 84,
+    "total": 84
+   }
+  }
+ }
+}

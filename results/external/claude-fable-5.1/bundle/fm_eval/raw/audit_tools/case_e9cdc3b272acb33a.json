@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Computed UTF-8 SHA-256 of retained contract src_d3840dc477fc2c9a text equals the cited digest 70c17378...5cbc and the cited version 1 matches the retained version 1; the only cited contract is unambiguous.",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0].sha256", "citations.contract[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The single valid cited contract states the merchant may terminate after 5 months without penalty, giving a minimum penalty-free commitment of 5 months, matching the asserted value; the 36-month framework duration is not the minimum commitment and no conflicting document exists.",
+      "evidence": ["src_d3840dc477fc2c9a", "claims[c2].asserted_value", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Computed SHA-256 of retained transactions src_ba430e75185acb7d matches the cited digest and version 1; the source covers exactly window 2026-01-01/2026-01-31 with eligible 2000 and disputed 45, so the fraction 45/2000 equals the asserted 45/2000.",
+      "evidence": ["src_ba430e75185acb7d", "citations.transactions[0].sha256", "citations.transactions[0].version", "claims[c3].asserted_value"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "contradicted",
+      "check": "Replay on recorded inputs: 50*45=2250 >= 2000 so dispute_trigger=true (matches trace), but commitment_months 5 < 6 so commitment_trigger should be true while the recorded trace says false; the rule output and asserted output manual_review match but a trace predicate conflicts with policy execution.",
+      "evidence": ["record.input.commitment_months", "record.input.disputed", "record.input.eligible", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "Override is explicitly null, action history is stipulated complete, and the final output manual_review equals the policy replay, so no contradiction; however the recorded trace is inconsistent with faithful execution (commitment_trigger false where replay gives true), which leaves attribution to the rule unresolved.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [5] is non-empty and valid; with disputed 45 and eligible 2000 fixed the dispute predicate (2250 >= 2000) is true, so every candidate (commitment 5, which also triggers 5 < 6) yields manual_review, i.e. all candidates give the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values 50*45=2250 >= 2000, so the dispute predicate is true and under toy-v1's OR rule it alone yields manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.policy.id", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*45=$((50*45)) ; 2250>=2000: $(( 50*45 >= 2000 )) ; 5<6: $(( 5 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions matched the retained texts. The recorded trace's commitment_trigger=false conflicts with the policy replay (5 < 6), which contradicts conditional_execution and leaves final_action_by_rule unresolved despite null override and matching final output."
+  }
+}

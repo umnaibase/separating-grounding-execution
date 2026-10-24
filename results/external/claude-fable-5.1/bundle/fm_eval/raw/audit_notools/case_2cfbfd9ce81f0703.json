@@ -1,0 +1,58 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "Both cited contracts (src_be75313edd2b3164, src_f32c96bcaf4f6238) are retained with matching version '1', but the cited SHA-256 digests cannot be verified against the retained UTF-8 bytes without computation, which is not permitted here; digest match is neither established nor refuted.",
+      "evidence": ["src_be75313edd2b3164", "src_f32c96bcaf4f6238", "citations.contract[0].sha256", "citations.contract[1].sha256", "citations.contract[0].version", "citations.contract[1].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "The two cited contracts conflict: src_be75313edd2b3164 states penalty-free termination after 3 months (matching the asserted 3), while src_f32c96bcaf4f6238 states penalty-free termination only after 9 months. No precedence rule is supplied, so the evidence is conflicting rather than unambiguous; the 36-month framework duration is not the minimum commitment.",
+      "evidence": ["src_be75313edd2b3164", "src_f32c96bcaf4f6238", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source src_53e77460b588b4ab (version 1, matching the citation) covers exactly the window 2026-01-01/2026-01-31 and reports 1500 eligible and 25 disputed transactions, giving the fraction 25/1500 asserted and recorded. Values are nonnegative integers with eligible > 0 and disputed <= eligible. The digest was not verified, but the content evidence is consistent and unconflicted.",
+      "evidence": ["src_53e77460b588b4ab", "citations.transactions[0].version", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: dispute predicate 50*25 = 1250 >= 1500 is false; commitment predicate 3 < 6 is true. Recorded trace (commitment_trigger true, dispute_trigger false) matches both predicates, and the disjunction yields manual_review, matching the recorded rule_output and the asserted value.",
+      "evidence": ["record.input.commitment_months", "record.input.disputed", "record.input.eligible", "record.policy", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "The fixture stipulates action_history_complete = true, override is explicitly null, the trace faithfully matches policy execution (see c4), and final_output manual_review equals the policy replay and the asserted value. All conditions for attribution to toy-v1 without intervention are met.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.trace.dispute_trigger", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "contradicted",
+      "check": "Candidates are [3, 9]. With disputed 25 and eligible 1500 fixed, the dispute predicate is false (1250 < 1500). Commitment 3 gives 3 < 6 true -> manual_review; commitment 9 gives 9 < 6 false -> standard_processing. The candidates produce different recommendations.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy.commitment_threshold_months", "record.policy.dispute_threshold"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "contradicted",
+      "check": "The recorded dispute predicate is false (dispute_trigger false; 50*25 = 1250 < 1500), so on the recorded values the dispute predicate alone does not trigger manual_review under toy-v1; manual review arises only from the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [],
+    "hash_verification_attempted": false,
+    "notes": "Reasoned solely from the SYSTEM and USER messages in the task file; no computation tools, file browsing or web search were used. SHA-256 digests were not computed, so contract lineage is left unresolved while content-based and arithmetic checks were done mentally."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_d3840dc477fc2c9a version 1 is retained with version 1, and SHA-256 of its UTF-8 text computes to 70c173780d9be7b81874d2044e9022ccfade54ecdab428bbdc9cb5b3d6cd5cbc, matching the citation digest exactly.",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0]"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The validly cited contract states the merchant may terminate without penalty after 5 months; the 36-month figure is framework duration, not minimum commitment. Unique value 5 matches asserted_value 5 and record.input.commitment_months.",
+      "evidence": ["src_d3840dc477fc2c9a", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "Cited transactions source hash (3ed19b40bf5ffdc467616db7343ee7a5272f1ab4caf70ae1bcc90f4fe0e04e13) and version 1 match the retained source, which states window 2026-01-01/2026-01-31, eligible 2000, disputed 45; fraction 45/2000 equals the asserted and recorded fraction.",
+      "evidence": ["src_ba430e75185acb7d", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy config is the supported toy-v1 (1/50, 6 months). Inputs valid (0 <= 45 <= 2000, eligible > 0). 50*45 = 2250 >= 2000 so dispute_trigger true; 5 < 6 so commitment_trigger true; OR yields manual_review, matching record.rule_output, both trace predicates and the asserted value.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, trace is consistent with faithful replay (manual_review), and final_output manual_review equals rule_output and the asserted final action.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidate set [5] is non-empty and valid. With disputed=45, eligible=2000 fixed, dispute_trigger is true regardless, and candidate 5 < 6 also triggers; the sole candidate yields manual_review, identical to the recorded recommendation.",
+      "evidence": ["alternatives", "record.input", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded inputs, 50*45 = 2250 >= 2000, so the dispute predicate is true and under toy-v1's OR rule it alone is sufficient for manual_review, independent of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 5 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo $((50*45)) $((50*45 >= 2000)) $((5 < 6))"
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests and versions were verified against the retained texts and matched exactly. Policy replay on the recorded inputs yields manual_review with both predicates true, consistent with the record, null override and stipulated complete history."
+  }
+}

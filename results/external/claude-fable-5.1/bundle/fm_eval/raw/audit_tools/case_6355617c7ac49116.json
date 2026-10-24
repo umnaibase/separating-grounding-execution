@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_b2a137376b6ff631 (version 1) was retained; SHA-256 of its exact UTF-8 text computes to da99ca27c293fa22834d08211b8ccd70775b6aabaed00e0d45f53c1dd47d7248, matching the citation digest, and the version strings match.",
+      "evidence": ["citations.contract[0]", "src_b2a137376b6ff631"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The lineage-valid contract states penalty-free termination is available once 6 months have elapsed, which is the minimum penalty-free commitment; the 48-month framework duration is not a commitment minimum. A single unambiguous value of 6 matches the asserted value and record.input.commitment_months.",
+      "evidence": ["src_b2a137376b6ff631", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The lineage-valid transaction source (digest 3ed19b40...e04e13 verified, version 1) covers exactly 2026-01-01/2026-01-31 and reports eligible 2000 and disputed 45, giving fraction 45/2000 which equals the asserted 45/2000 and the recorded inputs.",
+      "evidence": ["src_e3af73edf1cec607", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Inputs are valid (nonnegative integers, eligible 2000 > 0, disputed 45 <= 2000). Dispute predicate: 50*45 = 2250 >= 2000 is true; commitment predicate: 6 < 6 is false; OR yields manual_review. Recorded trace (dispute_trigger true, commitment_trigger false), rule_output manual_review and asserted manual_review all agree; policy config matches toy-v1 (1/50, 6 months).",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay result manual_review and the asserted value.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [6] is non-empty and valid. With disputed 45 and eligible 2000 fixed, commitment 6 gives 6 < 6 false while the dispute predicate remains true, so the recommendation is manual_review for every candidate (and equals the recorded recommendation).",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded inputs the dispute predicate holds (50*45 = 2250 >= 2000, trace dispute_trigger true). Under toy-v1 the predicates are disjunctive, so the dispute predicate alone yields manual_review regardless of the commitment predicate.",
+      "evidence": ["record.trace.dispute_trigger", "record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Penalty-free termination is available once 6 months have elapsed. Framework duration: 48 months.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 2000\\nDisputed transactions: 45' | sha256sum",
+      "echo \"50*45 >= 2000 ? $(( 50*45 >= 2000 )) ; 50*45=$((50*45)) ; 6<6 ? $(( 6 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed via sha256sum on the exact UTF-8 bytes and matched the citations. Policy replay used exact integer arithmetic (2250 >= 2000 true; 6 < 6 false) and agreed with the recorded trace, rule output, final output, and the single candidate alternative."
+  }
+}

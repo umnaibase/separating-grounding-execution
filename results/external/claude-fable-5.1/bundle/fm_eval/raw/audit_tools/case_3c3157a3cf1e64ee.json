@@ -1,0 +1,62 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The only cited contract (src_69613aefa1cce115, version 1) has a retained source with version 1, and the computed UTF-8 SHA-256 of its exact text equals the cited digest a4895c42bda9c8c197d04475e7c23f7165d5e14ce91ef23f706e1d398467ad50. No missing or ambiguous artifacts.",
+      "evidence": ["citations.contract[0]", "src_69613aefa1cce115"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, uniquely cited contract states penalty-free termination is available once 18 months have elapsed, which is the minimum commitment before penalty-free cancellation; the 48-month framework duration is not the minimum commitment. The asserted value 18 matches with no conflicting document.",
+      "evidence": ["src_69613aefa1cce115", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transactions source (hash and version verified) covers observation window 2026-01-01/2026-01-31 and reports 1000 eligible and 20 disputed transactions, giving fraction 20/1000, equal to the asserted 20/1000.",
+      "evidence": ["src_78742f119cc0cfb5", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "contradicted",
+      "check": "Replay on recorded inputs: 50*20=1000 >= 1000 so dispute predicate is true; 18 < 6 is false so commitment predicate is false; output manual_review. Asserted output and rule_output match, but the recorded trace commitment_trigger=true conflicts with the replayed false value, so both trace predicates do not agree.",
+      "evidence": ["record.input", "record.policy", "record.rule_output", "record.trace.commitment_trigger", "record.trace.dispute_trigger"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "unresolved",
+      "check": "No override is recorded (override null), history completeness is stipulated, and final_output manual_review matches policy replay, so nothing contradicts attribution; however the recorded trace is inconsistent (commitment_trigger=true while 18 < 6 is false), so faithful execution is not established and attribution remains unresolved.",
+      "evidence": ["record.override", "record.action_history_complete", "record.final_output", "record.rule_output", "record.trace.commitment_trigger", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [18] is nonempty and valid. With disputed=20 and eligible=1000 fixed, the dispute predicate (1000 >= 1000) is true regardless of commitment, so the sole candidate 18 yields manual_review, the same recommendation for every candidate.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On the recorded values, 50*disputed = 1000 >= eligible = 1000, so the dispute predicate is true and under toy-v1 a true dispute predicate alone yields manual_review irrespective of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; print(hashlib.sha256('Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'.encode('utf-8')).hexdigest())\"",
+      "python3 -c \"import hashlib; print(hashlib.sha256('Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20'.encode('utf-8')).hexdigest())\"",
+      "python3 -c \"d,e,c=20,1000,18; print('dispute:',50*d>=e,'commitment:',c<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited SHA-256 digests and versions match the retained source texts exactly. The only defect is the recorded trace: commitment_trigger is true although 18 < 6 is false, which contradicts conditional_execution and leaves final-action attribution unresolved despite a null override and matching output."
+  }
+}

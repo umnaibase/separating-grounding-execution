@@ -1,0 +1,63 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "Recomputed UTF-8 SHA-256 of both cited contract source texts: src_081b01da7815d753 -> 7d8c9312...fe447 and src_6647866b72846819 -> c722b26b...f460, both equal to the cited digests; cited version 1 matches retained version 1 for both. No missing or ambiguous artifacts.",
+      "evidence": ["citations.contract[0]", "citations.contract[1]", "src_081b01da7815d753", "src_6647866b72846819"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "Both cited contracts are valid (hash and version match) but conflict on the minimum penalty-free commitment: src_081b01da7815d753 states termination without penalty after 3 months, while src_6647866b72846819 states penalty-free termination once 9 months have elapsed. No precedence rule is supplied, so the asserted value 3 is neither unambiguously supported nor uniquely contradicted.",
+      "evidence": ["src_081b01da7815d753", "src_6647866b72846819", "citations.contract[0]", "citations.contract[1]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The single cited transaction source has a matching SHA-256 (72301afb...6ac) and version 1, covers the observation window 2026-01-01/2026-01-31, and states eligible 1000 and disputed 20, giving the fraction 20/1000 exactly as asserted.",
+      "evidence": ["src_f46093ed26e74e6c", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Replaying toy-v1 on recorded inputs: 50*20 = 1000 >= 1000 so dispute_trigger is true; 3 < 6 so commitment_trigger is true; result manual_review. This matches the recorded trace (both true), recorded rule_output manual_review, and the asserted value manual_review. Inputs are valid nonnegative integers with eligible > 0 and disputed <= eligible; policy config matches toy-v1.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution of toy-v1 on the recorded inputs, and final_output manual_review equals both rule_output and the policy replay result, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "Declared candidates are [3, 9], a non-empty set of valid nonnegative integers. With disputed=20 and eligible=1000 fixed, the dispute predicate (50*20 = 1000 >= 1000) is true for every candidate, so toy-v1 returns manual_review for commitment 3 (commitment trigger true) and for commitment 9 (commitment trigger false, dispute trigger still true). All candidates yield the same recommendation.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values, 50*disputed = 50*20 = 1000 >= eligible = 1000, so the dispute predicate is true and under toy-v1 a true dispute predicate alone yields manual_review irrespective of commitment_months. This is conditional on the recorded inputs only.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'The service framework lasts 36 months. The merchant may terminate after 3 months without penalty.' | sha256sum",
+      "printf 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1000\\nDisputed transactions: 20' | sha256sum",
+      "printf '%s' 'Penalty-free termination is available once 9 months have elapsed. Framework duration: 36 months.' | sha256sum",
+      "echo \"50*20=$((50*20)) eligible=1000 ge=$(( 50*20 >= 1000 )) commit_lt=$(( 3 < 6 )) alt9_lt=$(( 9 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "All three cited source digests and versions were verified by recomputation and matched. The two valid contracts conflict (3 vs 9 months) with no precedence rule, so commitment grounding is unresolved; all policy-execution claims hold because the dispute predicate is exactly at the 1/50 boundary and evaluates true."
+  }
+}

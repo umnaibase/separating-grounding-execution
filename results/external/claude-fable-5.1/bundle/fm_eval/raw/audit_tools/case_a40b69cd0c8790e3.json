@@ -1,0 +1,60 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "supported",
+      "check": "The single cited contract src_fd1a6ee4670ed6dc has retained version 1 matching the citation version 1, and the SHA-256 of its retained UTF-8 text computed as a4895c42bda9c8c197d04475e7c23f7165d5e14ce91ef23f706e1d398467ad50, exactly matching the cited digest.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "citations.contract[0].sha256", "citations.contract[0].version", "sources[0].version"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "supported",
+      "check": "The valid, hash-matching cited contract states penalty-free termination is available once 18 months have elapsed, a unique unambiguous value equal to the asserted 18; the 48-month framework duration is not the minimum commitment and does not conflict.",
+      "evidence": ["src_fd1a6ee4670ed6dc", "citations.contract[0]", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The cited transaction source has matching digest (191f5212d31c47369ba57978de04281b56ec4ecbc86f32e7c959d252919e936f) and version 1, covers observation window 2026-01-01/2026-01-31, and reports eligible 1200 and disputed 25, giving fraction 25/1200 equal to the asserted fraction.",
+      "evidence": ["src_97938c8628002d54", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy config is the supported toy-v1 (1/50, 6 months). On recorded inputs disputed=25, eligible=1200, commitment=18: 50*25=1250 >= 1200 so dispute_trigger=true; 18 < 6 is false so commitment_trigger=false; OR yields manual_review. Recorded trace, rule_output and asserted value all agree.",
+      "evidence": ["record.input", "record.policy", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful toy-v1 execution, and final_output manual_review matches both rule_output and the policy replay, so the final action is attributable to the policy without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "supported",
+      "check": "The declared candidate set [18] is non-empty and valid. With disputed=25 and eligible=1200 fixed, the dispute predicate is true (1250 >= 1200), so candidate 18 (commitment_trigger false) yields manual_review, the same recommendation as recorded; all declared candidates agree.",
+      "evidence": ["alternatives", "record.input.disputed", "record.input.eligible", "record.policy", "record.rule_output"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values, 50*25=1250 >= 1200 makes the dispute predicate true, and under toy-v1 a true dispute predicate alone mandates manual_review regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "python3 -c \"import hashlib; s1='Penalty-free termination is available once 18 months have elapsed. Framework duration: 48 months.'; s2='Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25'; print(hashlib.sha256(s1.encode('utf-8')).hexdigest()); print(hashlib.sha256(s2.encode('utf-8')).hexdigest()); print(50*25, 50*25>=1200, 18<6, 50*25>=1200 or 18<6)\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "Both cited source digests were recomputed via SHA-256 over the exact retained UTF-8 text and matched the citations, and versions matched. Policy arithmetic (50*25=1250 >= 1200; 18 < 6 false) was verified by exact integer computation; all seven claims are supported."
+  }
+}

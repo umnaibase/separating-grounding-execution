@@ -1,0 +1,228 @@
+{
+  "batch_context": "Seventeen episodes share each primary-text context; six episodes share each matched-text/image context. No per-episode isolation is claimed.",
+  "diagnostic_episodes": 8,
+  "failure_policy": {
+    "attempts": "One response per scheduled batch; no feedback, retries, label repair or adaptive case selection.",
+    "denominators": "Every scheduled episode and claim remains in its prespecified condition.",
+    "invalid_conditions": [
+      "missing file",
+      "invalid JSON",
+      "wrong top-level schema",
+      "missing, unknown or duplicate episode",
+      "missing, unknown or duplicate claim",
+      "invalid label, kind, reason or evidence schema"
+    ],
+    "invalid_or_missing_output": "Retain literal output; do not repair or retry. Convert all scheduled claims in that batch to unresolved with conversion_failure=true.",
+    "primary_agreement": "Failure-adjusted agreement: every converted claim is incorrect even when its construction reference is unresolved.",
+    "secondary_agreement": "Ordinary three-label agreement after unresolved conversion is reported separately.",
+    "unit": "entire scheduled batch"
+  },
+  "image_batches": [
+    {
+      "episode_ids": [
+        "ep_0b39d2eb47627c32",
+        "ep_0c517c369d2d5d19",
+        "ep_8288e056936df56c",
+        "ep_6a2691285a7e810f",
+        "ep_05e9207300018ccc",
+        "ep_12b0f6a3fc632a5c"
+      ],
+      "path": "batches/image_batch_01.json"
+    },
+    {
+      "episode_ids": [
+        "ep_00b85d45a3673eb6",
+        "ep_0f64684d0900dd0c",
+        "ep_29ae11abc53c2b5d",
+        "ep_33e17619f514c91e",
+        "ep_3a75857a2ccad717",
+        "ep_204354b6289f58ef"
+      ],
+      "path": "batches/image_batch_02.json"
+    }
+  ],
+  "images_rendered": true,
+  "main_reporting_episodes": 60,
+  "metric_plan": [
+    "Report main60 and diagnostic8 separately.",
+    "Report c1 lineage separately from the other six reasoning scopes.",
+    "Compare matched six-episode-batch text12 with image12; do not use original seventeen-episode text batches for the paired comparison.",
+    "Report image source-grounding scopes c2/c3 separately (24 claims).",
+    "Preserve denominators and report conversion failures plus failure-adjusted agreement."
+  ],
+  "paired_image_episodes": [
+    {
+      "episode_id": "ep_0b39d2eb47627c32",
+      "selection_rule": "absent_cited_contract"
+    },
+    {
+      "episode_id": "ep_0c517c369d2d5d19",
+      "selection_rule": "absent_cited_transactions"
+    },
+    {
+      "episode_id": "ep_8288e056936df56c",
+      "selection_rule": "observed_digest_mismatch"
+    },
+    {
+      "episode_id": "ep_6a2691285a7e810f",
+      "selection_rule": "observed_version_mismatch"
+    },
+    {
+      "episode_id": "ep_05e9207300018ccc",
+      "selection_rule": "source_contains_spelled_eighteen"
+    },
+    {
+      "episode_id": "ep_12b0f6a3fc632a5c",
+      "selection_rule": "multiple_distinct_contract_passages"
+    },
+    {
+      "episode_id": "ep_00b85d45a3673eb6",
+      "selection_rule": "logged_outcome_changing_intervention"
+    },
+    {
+      "episode_id": "ep_0f64684d0900dd0c",
+      "selection_rule": "logged_same_valued_intervention"
+    },
+    {
+      "episode_id": "ep_29ae11abc53c2b5d",
+      "selection_rule": "history_not_stipulated_complete"
+    },
+    {
+      "episode_id": "ep_33e17619f514c91e",
+      "selection_rule": "trace_disagreement_witness_1"
+    },
+    {
+      "episode_id": "ep_3a75857a2ccad717",
+      "selection_rule": "trace_disagreement_witness_2"
+    },
+    {
+      "episode_id": "ep_204354b6289f58ef",
+      "selection_rule": "ordinary_single_numeric_contract"
+    }
+  ],
+  "paired_text_batches": [
+    {
+      "episode_ids": [
+        "ep_0b39d2eb47627c32",
+        "ep_0c517c369d2d5d19",
+        "ep_8288e056936df56c",
+        "ep_6a2691285a7e810f",
+        "ep_05e9207300018ccc",
+        "ep_12b0f6a3fc632a5c"
+      ],
+      "path": "batches/paired_text_batch_01.json"
+    },
+    {
+      "episode_ids": [
+        "ep_00b85d45a3673eb6",
+        "ep_0f64684d0900dd0c",
+        "ep_29ae11abc53c2b5d",
+        "ep_33e17619f514c91e",
+        "ep_3a75857a2ccad717",
+        "ep_204354b6289f58ef"
+      ],
+      "path": "batches/paired_text_batch_02.json"
+    }
+  ],
+  "protocol": "assistant-pilot-1",
+  "renderer": {
+    "font": "Pillow ImageFont.load_default(size=16)",
+    "font_size": 16,
+    "library": "Pillow",
+    "source_format": "ASCII text rendered on a white page; PNG contains no text metadata",
+    "version": "12.3.0",
+    "width": 1100
+  },
+  "seed": "explainability-boundaries-assistant-pilot-frozen-1",
+  "selection_basis": "Observable structure and literal equality only; reference labels, construction subtype metadata and checker predictions were not accessed. Trace witnesses differ in their observed traces without a calculation of which trace is correct.",
+  "text_batches": [
+    {
+      "episode_ids": [
+        "ep_d3c2608055b28c6c",
+        "ep_aa8bc2ce451dfccf",
+        "ep_922df446b46fef94",
+        "ep_e20b6b146dffcf30",
+        "ep_05e9207300018ccc",
+        "ep_1f5d89aef602104d",
+        "ep_39143dc06855486b",
+        "ep_23c23ef6d831c4e4",
+        "ep_32ac9d4e734137f2",
+        "ep_31bf13e27e561013",
+        "ep_c5aef0faebda0423",
+        "ep_5d9214c9b23b9198",
+        "ep_b77c2d97d46c9e2f",
+        "ep_e97738471262862c",
+        "ep_29ae11abc53c2b5d",
+        "ep_56a6a18be0a42c65",
+        "ep_90178f9c21154128"
+      ],
+      "path": "batches/text_batch_01.json"
+    },
+    {
+      "episode_ids": [
+        "ep_33e17619f514c91e",
+        "ep_0f64684d0900dd0c",
+        "ep_3b6268aa930019c5",
+        "ep_da574cd025d1455b",
+        "ep_b759578dd95b8898",
+        "ep_ea98cca53d486598",
+        "ep_732bf9a43fc5e9bd",
+        "ep_8288e056936df56c",
+        "ep_3a75857a2ccad717",
+        "ep_c65d45435e5040e8",
+        "ep_6a2691285a7e810f",
+        "ep_cbe294d69bc5e98b",
+        "ep_d7d33ee3a0b22800",
+        "ep_18102d44b1049e9f",
+        "ep_4d33a698ae71b1ce",
+        "ep_6e5cb2815ed54d5c",
+        "ep_47e32378ed26000d"
+      ],
+      "path": "batches/text_batch_02.json"
+    },
+    {
+      "episode_ids": [
+        "ep_abf70dd1b46951ba",
+        "ep_947d176359ad2b8b",
+        "ep_0c517c369d2d5d19",
+        "ep_b3df5b90fc994a12",
+        "ep_204354b6289f58ef",
+        "ep_fdd78109f1a4e6b6",
+        "ep_c160b6c28674596f",
+        "ep_64933fb8988c980e",
+        "ep_7cd544e19f8a89b3",
+        "ep_9371e9a93f1cf1a2",
+        "ep_9e88f02e02598b8a",
+        "ep_dff2924d858f076a",
+        "ep_20b5f336dbd8134b",
+        "ep_475d941377a2114c",
+        "ep_4ad30211e4e48a5e",
+        "ep_2616bae20a5d6c28",
+        "ep_d63e23af7d8b40c6"
+      ],
+      "path": "batches/text_batch_03.json"
+    },
+    {
+      "episode_ids": [
+        "ep_607e3efa7c4c1192",
+        "ep_00b85d45a3673eb6",
+        "ep_50f77fcdd9760d27",
+        "ep_ce93ca398fe3c724",
+        "ep_b1b39aeb73808bbf",
+        "ep_10df7e272e8cc292",
+        "ep_83eabdee99f4194c",
+        "ep_e1b80395df8ab8ec",
+        "ep_96cc2ec1ae4daed1",
+        "ep_12b0f6a3fc632a5c",
+        "ep_e72df948308ef117",
+        "ep_a293abd12cbd29f7",
+        "ep_90564bff36b4a974",
+        "ep_9e26ca5f498e1614",
+        "ep_0b39d2eb47627c32",
+        "ep_e1aa3dcc99c4aec1",
+        "ep_48565d039729755f"
+      ],
+      "path": "batches/text_batch_04.json"
+    }
+  ]
+}

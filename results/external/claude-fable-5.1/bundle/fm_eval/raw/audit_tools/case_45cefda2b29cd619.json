@@ -1,0 +1,61 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "kind": "contract_lineage",
+      "label": "unresolved",
+      "check": "The cited contract src_20f3da78f823e788 (sha256 6a9da92c..., version 1) is not present among the retained sources; only the transactions source is supplied, so the contract bytes and version cannot be verified. Missing artifact is unresolved, not a mismatch.",
+      "evidence": ["citations.contract[0]", "sources"]
+    },
+    {
+      "claim_id": "c2",
+      "kind": "commitment_grounding",
+      "label": "unresolved",
+      "check": "No contract source text is retained for the cited contract src_20f3da78f823e788, so there is no valid cited contract evidence to support or contradict the asserted 3-month minimum penalty-free commitment; the recorded input alone does not establish source grounding.",
+      "evidence": ["citations.contract[0]", "sources", "record.input.commitment_months"]
+    },
+    {
+      "claim_id": "c3",
+      "kind": "dispute_grounding",
+      "label": "supported",
+      "check": "The retained transactions source src_b39661dc69a15054 (version 1) hashes to 191f5212d31c47369ba57978de04281b56ec4ecbc86f32e7c959d252919e936f, matching the citation. Its text states observation window 2026-01-01/2026-01-31, eligible 1200, disputed 25, giving the fraction 25/1200 exactly as asserted.",
+      "evidence": ["src_b39661dc69a15054", "citations.transactions[0]", "record.input.disputed", "record.input.eligible"]
+    },
+    {
+      "claim_id": "c4",
+      "kind": "conditional_execution",
+      "label": "supported",
+      "check": "Policy is toy-v1 with thresholds 1/50 and 6 months (supported configuration). Inputs valid (eligible 1200 > 0, 0 <= disputed 25 <= 1200, commitment 3). Dispute predicate: 50*25 = 1250 >= 1200 -> true; commitment predicate: 3 < 6 -> true; either triggers manual_review. Recorded trace (true, true), rule_output manual_review and asserted manual_review all agree with replay.",
+      "evidence": ["record.policy", "record.input", "record.trace.dispute_trigger", "record.trace.commitment_trigger", "record.rule_output"]
+    },
+    {
+      "claim_id": "c5",
+      "kind": "final_action_by_rule",
+      "label": "supported",
+      "check": "action_history_complete is stipulated true, override is explicitly null, the trace is consistent with faithful execution, and final_output manual_review equals the policy replay output manual_review, so the final action is attributable to toy-v1 without intervention.",
+      "evidence": ["record.action_history_complete", "record.override", "record.final_output", "record.rule_output", "record.trace", "record.input", "record.policy"]
+    },
+    {
+      "claim_id": "c6",
+      "kind": "candidate_stability",
+      "label": "unresolved",
+      "check": "The alternatives list is empty, so no candidate commitments are declared; an empty candidate set is unresolved by definition.",
+      "evidence": ["alternatives"]
+    },
+    {
+      "claim_id": "c7",
+      "kind": "sufficient_dispute_reason",
+      "label": "supported",
+      "check": "On recorded values, 50*disputed = 50*25 = 1250 >= eligible = 1200, so the dispute predicate is true and under toy-v1 (manual_review when dispute predicate OR commitment predicate holds) it alone suffices for manual_review, regardless of the commitment predicate.",
+      "evidence": ["record.input.disputed", "record.input.eligible", "record.policy.dispute_threshold", "record.trace.dispute_trigger"]
+    }
+  ],
+  "self_report": {
+    "tools_used_for_reasoning": [
+      "printf '%s' 'Observation window: 2026-01-01/2026-01-31\\nEligible transactions: 1200\\nDisputed transactions: 25' | sha256sum",
+      "echo \"50*25=$((50*25)); 1250>=1200 -> $(( 50*25 >= 1200 )); 3<6 -> $(( 3 < 6 ))\""
+    ],
+    "hash_verification_attempted": true,
+    "notes": "SHA-256 of the retained transactions source text (no trailing newline) matched the cited digest exactly. The cited contract source is absent from the retained sources, so lineage and commitment grounding are unresolved; the empty alternatives list leaves candidate stability unresolved."
+  }
+}
